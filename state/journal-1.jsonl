@@ -354,3 +354,6 @@
 {"id":"e354","ts":"2026-09-06T10:59:06.513Z","kind":"TIMEOUT","task":"T-108","from":"assigned","to":"ready"}
 {"id":"e355","ts":"2026-09-06T10:59:06.513Z","kind":"ASSIGN","task":"T-108","from":"ready","to":"assigned","lease":"l-d9dde55c","expires":"2026-09-06T11:03:06.513Z","attempt":2,"behavior":"slow"}
 {"id":"e356","ts":"2026-09-06T10:59:38.405Z","kind":"TICK","seq":10,"actor":"chain"}
+{"id":"e357","ts":"2026-09-06T11:04:57.929Z","kind":"TICK","seq":11,"actor":"watchdog-reprime"}
+{"id":"e358","ts":"2026-09-06T11:04:57.929Z","kind":"TIMEOUT","task":"T-108","from":"assigned","to":"ready"}
+{"id":"e359","ts":"2026-09-06T11:04:57.929Z","kind":"ASSIGN","task":"T-108","from":"ready","to":"assigned","lease":"l-b62dca83","expires":"2026-09-06T11:08:57.929Z","attempt":3,"behavior":"slow"}
