@@ -5,3 +5,4 @@
 {"id":"e5","ts":"2026-09-06T09:52:55.993Z","kind":"ASSIGN","task":"T-108","from":"ready","to":"assigned","lease":"l-3f4d6344","expires":"2026-09-06T09:56:55.993Z","attempt":1,"behavior":"slow"}
 {"id":"e6","ts":"2026-09-06T09:53:03.782Z","kind":"TICK","seq":2,"actor":"chain"}
 {"id":"e7","ts":"2026-09-06T09:53:11.689Z","kind":"TICK","seq":3,"actor":"chain"}
+{"id":"e8","ts":"2026-09-06T09:53:19.744Z","kind":"TICK","seq":4,"actor":"chain"}
