@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "version": 1,
- "journal_seq": 321,
+ "version": 5,
+ "journal_seq": 327,
  "chain": {
-  "id": "c-1788692047462",
-  "seq": 0,
-  "last_tick": "2026-09-06T10:54:07.462Z",
-  "primed_by": "genesis",
+  "id": "c-1788692082392",
+  "seq": 1,
+  "last_tick": "2026-09-06T10:54:42.394Z",
+  "primed_by": "chain",
   "halted": false,
   "paused": false
  },
@@ -26,19 +26,28 @@
   "T-101": {
    "id": "T-101",
    "title": "research: state-anchor options",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
-   "created": "2026-09-06T10:54:07.462Z",
-   "updated": "2026-09-06T10:54:07.462Z",
+   "attempts": 1,
+   "lease": {
+    "token": "l-e551b33e",
+    "expires": "2026-09-06T10:58:42.394Z",
+    "issued_at": "2026-09-06T10:54:42.394Z"
+   },
+   "created": "2026-09-06T10:54:42.392Z",
+   "updated": "2026-09-06T10:54:42.394Z",
    "history": [
     {
-     "at": "2026-09-06T10:54:07.462Z",
+     "at": "2026-09-06T10:54:42.392Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-06T10:54:42.394Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null
@@ -46,19 +55,28 @@
   "T-102": {
    "id": "T-102",
    "title": "research: continuity mechanics",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "flaky",
    "work_ms": 3000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
-   "created": "2026-09-06T10:54:07.462Z",
-   "updated": "2026-09-06T10:54:07.462Z",
+   "attempts": 1,
+   "lease": {
+    "token": "l-1109b352",
+    "expires": "2026-09-06T10:58:42.394Z",
+    "issued_at": "2026-09-06T10:54:42.394Z"
+   },
+   "created": "2026-09-06T10:54:42.392Z",
+   "updated": "2026-09-06T10:54:42.394Z",
    "history": [
     {
-     "at": "2026-09-06T10:54:07.462Z",
+     "at": "2026-09-06T10:54:42.392Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-06T10:54:42.394Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null
@@ -74,11 +92,11 @@
    ],
    "attempts": 0,
    "lease": null,
-   "created": "2026-09-06T10:54:07.462Z",
-   "updated": "2026-09-06T10:54:07.462Z",
+   "created": "2026-09-06T10:54:42.392Z",
+   "updated": "2026-09-06T10:54:42.392Z",
    "history": [
     {
-     "at": "2026-09-06T10:54:07.462Z",
+     "at": "2026-09-06T10:54:42.392Z",
      "status": "backlog",
      "why": "created"
     }
@@ -96,11 +114,11 @@
    ],
    "attempts": 0,
    "lease": null,
-   "created": "2026-09-06T10:54:07.462Z",
-   "updated": "2026-09-06T10:54:07.462Z",
+   "created": "2026-09-06T10:54:42.392Z",
+   "updated": "2026-09-06T10:54:42.392Z",
    "history": [
     {
-     "at": "2026-09-06T10:54:07.462Z",
+     "at": "2026-09-06T10:54:42.392Z",
      "status": "backlog",
      "why": "created"
     }
@@ -118,11 +136,11 @@
    ],
    "attempts": 0,
    "lease": null,
-   "created": "2026-09-06T10:54:07.462Z",
-   "updated": "2026-09-06T10:54:07.462Z",
+   "created": "2026-09-06T10:54:42.392Z",
+   "updated": "2026-09-06T10:54:42.392Z",
    "history": [
     {
-     "at": "2026-09-06T10:54:07.462Z",
+     "at": "2026-09-06T10:54:42.392Z",
      "status": "backlog",
      "why": "created"
     }
@@ -141,11 +159,11 @@
    ],
    "attempts": 0,
    "lease": null,
-   "created": "2026-09-06T10:54:07.462Z",
-   "updated": "2026-09-06T10:54:07.462Z",
+   "created": "2026-09-06T10:54:42.392Z",
+   "updated": "2026-09-06T10:54:42.392Z",
    "history": [
     {
-     "at": "2026-09-06T10:54:07.462Z",
+     "at": "2026-09-06T10:54:42.392Z",
      "status": "backlog",
      "why": "created"
     }
@@ -155,19 +173,28 @@
   "T-107": {
    "id": "T-107",
    "title": "edge: duplicate report",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "dup",
    "work_ms": 3000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
-   "created": "2026-09-06T10:54:07.462Z",
-   "updated": "2026-09-06T10:54:07.462Z",
+   "attempts": 1,
+   "lease": {
+    "token": "l-68847376",
+    "expires": "2026-09-06T10:58:42.394Z",
+    "issued_at": "2026-09-06T10:54:42.394Z"
+   },
+   "created": "2026-09-06T10:54:42.392Z",
+   "updated": "2026-09-06T10:54:42.394Z",
    "history": [
     {
-     "at": "2026-09-06T10:54:07.462Z",
+     "at": "2026-09-06T10:54:42.392Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-06T10:54:42.394Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null
@@ -175,19 +202,28 @@
   "T-108": {
    "id": "T-108",
    "title": "edge: late report (orphan)",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "slow",
    "work_ms": 330000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
-   "created": "2026-09-06T10:54:07.462Z",
-   "updated": "2026-09-06T10:54:07.462Z",
+   "attempts": 1,
+   "lease": {
+    "token": "l-ecfcfd0d",
+    "expires": "2026-09-06T10:58:42.394Z",
+    "issued_at": "2026-09-06T10:54:42.394Z"
+   },
+   "created": "2026-09-06T10:54:42.392Z",
+   "updated": "2026-09-06T10:54:42.394Z",
    "history": [
     {
-     "at": "2026-09-06T10:54:07.462Z",
+     "at": "2026-09-06T10:54:42.392Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-06T10:54:42.394Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null
@@ -202,7 +238,9 @@
   "orphaned_reports": 0,
   "rejected_events": 0,
   "timeouts": 0,
-  "dispatched": 0
+  "dispatched": 4
  },
- "dedup": []
+ "dedup": [
+  "tick-chain-1788692079423"
+ ]
 }

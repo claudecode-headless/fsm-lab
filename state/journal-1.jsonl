@@ -318,3 +318,9 @@
 {"id":"e318","ts":"2026-09-06T10:53:00.690Z","kind":"REJECTED","origKind":"REPORT","task":"T-BURST-4","reason":"unknown-task"}
 {"id":"e319","ts":"2026-09-06T10:53:00.691Z","kind":"TICK","seq":49,"actor":"chain"}
 {"id":"e320","ts":"2026-09-06T10:54:07.463Z","kind":"CONTROL","command":"reset","applied":true}
+{"id":"e321","ts":"2026-09-06T10:54:42.392Z","kind":"CONTROL","command":"reset","applied":true}
+{"id":"e322","ts":"2026-09-06T10:54:42.394Z","kind":"TICK","seq":1,"actor":"chain"}
+{"id":"e323","ts":"2026-09-06T10:54:42.394Z","kind":"ASSIGN","task":"T-101","from":"ready","to":"assigned","lease":"l-e551b33e","expires":"2026-09-06T10:58:42.394Z","attempt":1,"behavior":"succeed"}
+{"id":"e324","ts":"2026-09-06T10:54:42.394Z","kind":"ASSIGN","task":"T-102","from":"ready","to":"assigned","lease":"l-1109b352","expires":"2026-09-06T10:58:42.394Z","attempt":1,"behavior":"flaky"}
+{"id":"e325","ts":"2026-09-06T10:54:42.394Z","kind":"ASSIGN","task":"T-107","from":"ready","to":"assigned","lease":"l-68847376","expires":"2026-09-06T10:58:42.394Z","attempt":1,"behavior":"dup"}
+{"id":"e326","ts":"2026-09-06T10:54:42.394Z","kind":"ASSIGN","task":"T-108","from":"ready","to":"assigned","lease":"l-ecfcfd0d","expires":"2026-09-06T10:58:42.394Z","attempt":1,"behavior":"slow"}
