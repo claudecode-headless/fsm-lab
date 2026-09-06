@@ -292,3 +292,10 @@
 {"id":"e292","ts":"2026-09-06T10:51:23.245Z","kind":"REJECTED","origKind":"REPORT","task":"T-205","reason":"stale-lease"}
 {"id":"e293","ts":"2026-09-06T10:51:23.246Z","kind":"REJECTED","origKind":"REPORT","task":"T-207","reason":"task-not-leased(quarantined)"}
 {"id":"e294","ts":"2026-09-06T10:51:23.246Z","kind":"TICK","seq":46,"actor":"chain"}
+{"id":"e295","ts":"2026-09-06T10:51:57.415Z","kind":"REJECTED","origKind":"REPORT","task":"T-205","reason":"stale-lease"}
+{"id":"e296","ts":"2026-09-06T10:51:57.415Z","kind":"TIMEOUT","task":"T-205","from":"assigned","to":"quarantined"}
+{"id":"e297","ts":"2026-09-06T10:51:57.415Z","kind":"MILESTONE","milestone":3,"tasks":[{"id":"T-301","title":"impl: integration","behavior":"succeed","work_ms":4000,"deps":[]},{"id":"T-302","title":"review: final","behavior":"succeed","work_ms":3000,"deps":["T-301"]}]}
+{"id":"e298","ts":"2026-09-06T10:51:57.416Z","kind":"REJECTED","origKind":"REPORT","task":"T-207","reason":"task-not-leased(quarantined)"}
+{"id":"e299","ts":"2026-09-06T10:51:57.416Z","kind":"ASSIGN","task":"T-301","from":"ready","to":"assigned","lease":"l-f3b47629","expires":"2026-09-06T10:55:57.416Z","attempt":1,"behavior":"succeed"}
+{"id":"e300","ts":"2026-09-06T10:51:57.416Z","kind":"REJECTED","origKind":"REPORT","task":"T-BURST-9","reason":"unknown-task"}
+{"id":"e301","ts":"2026-09-06T10:51:57.417Z","kind":"TICK","seq":47,"actor":"chain"}
