@@ -215,3 +215,4 @@
 {"id":"e215","ts":"2026-09-06T10:25:33.729Z","kind":"TICK","seq":10,"actor":"chain"}
 {"id":"e216","ts":"2026-09-06T10:25:33.729Z","kind":"TIMEOUT","task":"T-105","from":"assigned","to":"ready"}
 {"id":"e217","ts":"2026-09-06T10:25:33.729Z","kind":"ASSIGN","task":"T-105","from":"ready","to":"assigned","lease":"l-5a8ced75","expires":"2026-09-06T10:29:33.729Z","attempt":2,"behavior":"hang"}
+{"id":"e218","ts":"2026-09-06T10:26:06.975Z","kind":"TICK","seq":11,"actor":"chain"}
