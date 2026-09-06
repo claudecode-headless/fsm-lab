@@ -243,3 +243,13 @@
 {"id":"e243","ts":"2026-09-06T10:35:01.778Z","kind":"ASSIGN","task":"T-202","from":"ready","to":"assigned","lease":"l-7c3795cb","expires":"2026-09-06T10:39:01.778Z","attempt":1,"behavior":"succeed"}
 {"id":"e244","ts":"2026-09-06T10:35:01.778Z","kind":"ASSIGN","task":"T-203","from":"ready","to":"assigned","lease":"l-f6da6097","expires":"2026-09-06T10:39:01.778Z","attempt":1,"behavior":"flaky"}
 {"id":"e245","ts":"2026-09-06T10:35:01.778Z","kind":"ASSIGN","task":"T-204","from":"ready","to":"assigned","lease":"l-d5c40be9","expires":"2026-09-06T10:39:01.778Z","attempt":1,"behavior":"succeed"}
+{"id":"e246","ts":"2026-09-06T10:35:37.949Z","kind":"REPORT","task":"T-202","lease":"l-7c3795cb","to":"done","run_id":"34027825764","from":"assigned"}
+{"id":"e247","ts":"2026-09-06T10:35:37.949Z","kind":"ASSIGN","task":"T-205","from":"ready","to":"assigned","lease":"l-dc66db54","expires":"2026-09-06T10:39:37.949Z","attempt":1,"behavior":"no-report"}
+{"id":"e248","ts":"2026-09-06T10:35:37.953Z","kind":"REPORT","task":"T-201","lease":"l-680e1b65","to":"done","run_id":"34027825500","from":"assigned"}
+{"id":"e249","ts":"2026-09-06T10:35:37.953Z","kind":"ASSIGN","task":"T-206","from":"ready","to":"assigned","lease":"l-430bc49e","expires":"2026-09-06T10:39:37.953Z","attempt":1,"behavior":"succeed"}
+{"id":"e250","ts":"2026-09-06T10:35:37.953Z","kind":"REPORT","task":"T-204","lease":"l-d5c40be9","to":"done","run_id":"34027826003","from":"assigned"}
+{"id":"e251","ts":"2026-09-06T10:35:37.953Z","kind":"ASSIGN","task":"T-207","from":"ready","to":"assigned","lease":"l-7e276006","expires":"2026-09-06T10:39:37.953Z","attempt":1,"behavior":"poison"}
+{"id":"e252","ts":"2026-09-06T10:35:37.953Z","kind":"REPORT","task":"T-203","lease":"l-f6da6097","to":"failed","run_id":"34027825877","from":"assigned"}
+{"id":"e253","ts":"2026-09-06T10:35:37.953Z","kind":"RETRY","task":"T-203","from":"failed","to":"ready"}
+{"id":"e254","ts":"2026-09-06T10:35:37.953Z","kind":"ASSIGN","task":"T-203","from":"ready","to":"assigned","lease":"l-84dbc730","expires":"2026-09-06T10:39:37.953Z","attempt":2,"behavior":"flaky"}
+{"id":"e255","ts":"2026-09-06T10:35:37.953Z","kind":"TICK","seq":28,"actor":"chain"}
