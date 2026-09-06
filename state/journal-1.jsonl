@@ -324,3 +324,14 @@
 {"id":"e324","ts":"2026-09-06T10:54:42.394Z","kind":"ASSIGN","task":"T-102","from":"ready","to":"assigned","lease":"l-1109b352","expires":"2026-09-06T10:58:42.394Z","attempt":1,"behavior":"flaky"}
 {"id":"e325","ts":"2026-09-06T10:54:42.394Z","kind":"ASSIGN","task":"T-107","from":"ready","to":"assigned","lease":"l-68847376","expires":"2026-09-06T10:58:42.394Z","attempt":1,"behavior":"dup"}
 {"id":"e326","ts":"2026-09-06T10:54:42.394Z","kind":"ASSIGN","task":"T-108","from":"ready","to":"assigned","lease":"l-ecfcfd0d","expires":"2026-09-06T10:58:42.394Z","attempt":1,"behavior":"slow"}
+{"id":"e327","ts":"2026-09-06T10:55:12.262Z","kind":"REPORT","task":"T-102","lease":"l-1109b352","to":"failed","run_id":"34028727381","from":"assigned"}
+{"id":"e328","ts":"2026-09-06T10:55:12.262Z","kind":"RETRY","task":"T-102","from":"failed","to":"ready"}
+{"id":"e329","ts":"2026-09-06T10:55:12.262Z","kind":"ASSIGN","task":"T-102","from":"ready","to":"assigned","lease":"l-9bf4d62f","expires":"2026-09-06T10:59:12.262Z","attempt":2,"behavior":"flaky"}
+{"id":"e330","ts":"2026-09-06T10:55:12.300Z","kind":"REPORT","task":"T-101","lease":"l-e551b33e","to":"done","run_id":"34028727338","from":"assigned"}
+{"id":"e331","ts":"2026-09-06T10:55:12.300Z","kind":"UNLOCK","task":"T-103","from":"backlog","to":"ready"}
+{"id":"e332","ts":"2026-09-06T10:55:12.300Z","kind":"UNLOCK","task":"T-104","from":"backlog","to":"ready"}
+{"id":"e333","ts":"2026-09-06T10:55:12.300Z","kind":"ASSIGN","task":"T-103","from":"ready","to":"assigned","lease":"l-1cfabd36","expires":"2026-09-06T10:59:12.300Z","attempt":1,"behavior":"succeed"}
+{"id":"e334","ts":"2026-09-06T10:55:12.301Z","kind":"REPORT","task":"T-107","lease":"l-68847376","to":"done","run_id":"34028727440","from":"assigned"}
+{"id":"e335","ts":"2026-09-06T10:55:12.301Z","kind":"ASSIGN","task":"T-104","from":"ready","to":"assigned","lease":"l-6b338e96","expires":"2026-09-06T10:59:12.301Z","attempt":1,"behavior":"succeed"}
+{"id":"e336","ts":"2026-09-06T10:55:12.301Z","kind":"REJECTED","origKind":"REPORT","reason":"duplicate"}
+{"id":"e337","ts":"2026-09-06T10:55:12.301Z","kind":"TICK","seq":2,"actor":"chain"}
