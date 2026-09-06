@@ -136,7 +136,7 @@ async function main() {
         return { noop: true, reason: r.reason };
       }
       return {
-        state: r.state, journal: r.journal,
+        state: r.state, journal: r.journal, actions: r.actions,
         message: `${ev.kind} seq=${r.state.chain.seq} v${r.state.version} done=${r.state.stats.done} [${r.journal[0]?.id}..${r.journal[r.journal.length - 1]?.id}]`,
       };
     },
@@ -186,7 +186,6 @@ async function main() {
   if (!stop) {
     chain = await dispatchRetry('fsm-tick', { reason: 'chain', seq: state.chain.seq + 1 });
   }
-
   // summary + compact log line
   const fs = await import('node:fs');
   const appliedReason = `${out.reason || 'ok'}${dispatchFailures ? ` dispatchFailures=${dispatchFailures}` : ''}`;
@@ -194,7 +193,7 @@ async function main() {
     summaryMd(state, true, appliedReason, actionList) + '\n');
   console.log(`TURN-COMPLETE applied=true reason=${appliedReason} v=${state.version} seq=${state.chain.seq} `
     + `done=${state.stats.done}/${Object.keys(state.tasks).length} phase=${state.project.phase} `
-    + `actions=${actionList.length} chain=${chain.ok ? 'ok' : 'DISPATCH-FAILED(watchdog will re-prime)'}`);
+    + `actions=${actionList.length} chain=${stop ? "stopped" : chain.ok ? "ok" : "DISPATCH-FAILED(watchdog will re-prime)"}`);
 
   if (!chain.ok) {
     console.error(`self-dispatch failed: HTTP ${chain.status}`);
