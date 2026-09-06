@@ -428,3 +428,9 @@
 {"id":"e428","ts":"2026-09-06T11:37:35.052Z","kind":"REJECTED","origKind":"REPORT","task":"T-202","reason":"task-not-leased(done)"}
 {"id":"e429","ts":"2026-09-06T11:37:35.053Z","kind":"REJECTED","origKind":"REPORT","task":"T-201","reason":"task-not-leased(done)"}
 {"id":"e430","ts":"2026-09-06T11:37:35.053Z","kind":"TICK","seq":23,"actor":"chain"}
+{"id":"e431","ts":"2026-09-06T11:38:06.960Z","kind":"REJECTED","origKind":"REPORT","task":"T-204","reason":"task-not-leased(done)"}
+{"id":"e432","ts":"2026-09-06T11:38:06.960Z","kind":"TIMEOUT","task":"T-205","from":"assigned","to":"ready"}
+{"id":"e433","ts":"2026-09-06T11:38:06.960Z","kind":"ASSIGN","task":"T-205","from":"ready","to":"assigned","lease":"l-3f71119d","expires":"2026-09-06T11:42:06.960Z","attempt":2,"behavior":"no-report"}
+{"id":"e434","ts":"2026-09-06T11:38:06.965Z","kind":"REJECTED","origKind":"REPORT","task":"T-202","reason":"task-not-leased(done)"}
+{"id":"e435","ts":"2026-09-06T11:38:06.965Z","kind":"REJECTED","origKind":"REPORT","task":"T-201","reason":"task-not-leased(done)"}
+{"id":"e436","ts":"2026-09-06T11:38:06.966Z","kind":"TICK","seq":24,"actor":"chain"}
