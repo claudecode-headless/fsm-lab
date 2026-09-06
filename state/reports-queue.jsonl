@@ -2,3 +2,4 @@
 {"event_id":"rep-34029519235","task":"T-202","lease":"l-aa4ea6c0","outcome":{"status":"done","artifact":"artifact:T-202:attempt1","duration_ms":4004},"run_id":"34029519235"}
 {"event_id":"rep-34029518935","task":"T-201","lease":"l-e17979e1","outcome":{"status":"done","artifact":"artifact:T-201:attempt1","duration_ms":4004},"run_id":"34029518935"}
 {"event_id":"rep-34030603469","task":"T-207","lease":"l-aaace6c6","outcome":{"status":"failed","error":"poison-always","duration_ms":2001},"run_id":"34030603469"}
+{"event_id":"rep-34030603526","task":"T-206","lease":"l-d6e784a3","outcome":{"status":"done","artifact":"artifact:T-206:attempt1","duration_ms":4005},"run_id":"34030603526"}
