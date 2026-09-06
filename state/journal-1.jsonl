@@ -124,3 +124,13 @@
 {"id":"e124","ts":"2026-09-06T10:09:07.597Z","kind":"ASSIGN","task":"T-203","from":"ready","to":"assigned","lease":"l-6651d251","expires":"2026-09-06T10:13:07.597Z","attempt":1,"behavior":"flaky"}
 {"id":"e125","ts":"2026-09-06T10:09:07.597Z","kind":"ASSIGN","task":"T-204","from":"ready","to":"assigned","lease":"l-125542dc","expires":"2026-09-06T10:13:07.597Z","attempt":1,"behavior":"succeed"}
 {"id":"e126","ts":"2026-09-06T10:09:17.596Z","kind":"TICK","seq":93,"actor":"chain"}
+{"id":"e127","ts":"2026-09-06T10:09:27.746Z","kind":"REPORT","task":"T-203","lease":"l-6651d251","to":"failed","run_id":"34026619895","from":"assigned"}
+{"id":"e128","ts":"2026-09-06T10:09:27.746Z","kind":"RETRY","task":"T-203","from":"failed","to":"ready"}
+{"id":"e129","ts":"2026-09-06T10:09:27.746Z","kind":"ASSIGN","task":"T-203","from":"ready","to":"assigned","lease":"l-cc06c9ac","expires":"2026-09-06T10:13:27.746Z","attempt":2,"behavior":"flaky"}
+{"id":"e130","ts":"2026-09-06T10:09:27.771Z","kind":"REPORT","task":"T-201","lease":"l-c133d794","to":"done","run_id":"34026619430","from":"assigned"}
+{"id":"e131","ts":"2026-09-06T10:09:27.771Z","kind":"ASSIGN","task":"T-205","from":"ready","to":"assigned","lease":"l-2cfb5140","expires":"2026-09-06T10:13:27.771Z","attempt":1,"behavior":"no-report"}
+{"id":"e132","ts":"2026-09-06T10:09:27.772Z","kind":"REPORT","task":"T-202","lease":"l-1e396f8e","to":"done","run_id":"34026620255","from":"assigned"}
+{"id":"e133","ts":"2026-09-06T10:09:27.772Z","kind":"ASSIGN","task":"T-206","from":"ready","to":"assigned","lease":"l-86fc1e5d","expires":"2026-09-06T10:13:27.772Z","attempt":1,"behavior":"succeed"}
+{"id":"e134","ts":"2026-09-06T10:09:27.772Z","kind":"REPORT","task":"T-204","lease":"l-125542dc","to":"done","run_id":"34026620065","from":"assigned"}
+{"id":"e135","ts":"2026-09-06T10:09:27.772Z","kind":"ASSIGN","task":"T-207","from":"ready","to":"assigned","lease":"l-6ba3b09c","expires":"2026-09-06T10:13:27.772Z","attempt":1,"behavior":"poison"}
+{"id":"e136","ts":"2026-09-06T10:09:27.772Z","kind":"TICK","seq":94,"actor":"chain"}
