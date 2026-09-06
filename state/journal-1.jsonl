@@ -222,3 +222,4 @@
 {"id":"e222","ts":"2026-09-06T10:28:25.887Z","kind":"TICK","seq":15,"actor":"chain"}
 {"id":"e223","ts":"2026-09-06T10:28:25.887Z","kind":"TIMEOUT","task":"T-108","from":"assigned","to":"ready"}
 {"id":"e224","ts":"2026-09-06T10:28:25.887Z","kind":"ASSIGN","task":"T-108","from":"ready","to":"assigned","lease":"l-eeb621ec","expires":"2026-09-06T10:32:25.887Z","attempt":3,"behavior":"slow"}
+{"id":"e225","ts":"2026-09-06T10:28:59.255Z","kind":"TICK","seq":16,"actor":"chain"}
