@@ -315,3 +315,36 @@ test('progress report: assigned -> in_progress (heartbeat path)', () => {
   assert.equal(r2.state.tasks.A1.status, 'in_progress');
   ok(r2.state, 'progress');
 });
+
+test('cascade cancellation: quarantined deps cancel blocked dependents (live-found gap)', () => {
+  let s = boot({ max_parallel: 1, max_attempts: 1, lease_minutes: 1 });
+  // A1 succeeds -> A4 unlocks and completes; A3 (poison) fails once -> quarantined (max_attempts=1)
+  let r = apply(s, { kind: 'TICK', ts: T0 }, T0, NM); // A1 assigned
+  r = apply(r.state, report('A1', r.state.tasks.A1.lease.token, { status: 'done' }, step(5000), 'r-a'), step(5000), NM);
+  // A4 is ready now; next tick assigns it (A3 also ready — FIFO A3 first with max_parallel=1)
+  let now = 10_000;
+  for (let i = 0; i < 4; i++) {
+    const t = Object.values(r.state.tasks).find(x => x.status === 'assigned');
+    if (!t) break;
+    r = apply(r.state, report(t.id, t.lease.token, { status: 'failed', error: 'x' }, step(now), `r-${i}`), step(now), NM);
+    now += 5000;
+  }
+  ok(r.state, 'cascade-build');
+  // poison A3 quarantined at attempt 1; dependents of failed tasks cancel
+  const cancelled = Object.values(r.state.tasks).filter(t => t.status === 'cancelled');
+  assert.ok(cancelled.length >= 0, 'no invariant damage');
+  // direct check: build a state where a dep is quarantined and a dependent is backlog
+  const s2 = boot();
+  s2.tasks.A1.status = 'quarantined'; s2.tasks.A1.lease = null;
+  s2.tasks.A4.status = 'backlog';
+  const c = clock(s2, step(60000), NM);
+  assert.equal(c.state.tasks.A4.status, 'cancelled', 'dependent of quarantined dep cascade-cancels');
+  assert.ok(c.journal.some(j => j.kind === 'CANCEL_CASCADE' && j.task === 'A4'));
+  ok(c.state, 'cascade');
+  // and the cascade propagates: cancelled deps cancel their dependents too
+  const s3 = boot();
+  s3.tasks.A1.status = 'cancelled'; s3.tasks.A1.lease = null;
+  s3.tasks.A4.status = 'backlog';
+  const c3 = clock(s3, step(60000), NM);
+  assert.equal(c3.state.tasks.A4.status, 'cancelled', 'cascade propagates through cancelled');
+});

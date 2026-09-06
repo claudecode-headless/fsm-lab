@@ -136,7 +136,23 @@ async function main() {
       // DRAIN: apply every queued report (in queue order), then the wake
       // event, then the clock — sequentially on the same evolving state.
       let s = base;
-      const journals = [];
+      // RESET: a fresh project instance on the same journal (operator
+      // control — the live M1 was polluted by the two integration bugs;
+      // reset re-seeds M1 with the current config)
+      if (ev.kind === 'CONTROL' && ev.command === 'reset') {
+        const g = genesis({
+          config: { max_parallel: 4, lease_minutes: 4, max_attempts: 3, tick_min_interval_s: 25 },
+          project: { tasks: mockProject().m1, milestones: 3 },
+          chainId: `c-${Date.now()}`,
+          now: now(),
+        });
+        g.journal_seq = (base?.journal_seq || 1);
+        const rec = { id: `e${g.journal_seq}`, ts: now(), kind: 'CONTROL', command: 'reset', applied: true };
+        g.journal_seq += 1;
+        console.log(`RESET: new chain ${g.chain.id} (journal continues at ${g.journal_seq})`);
+        return { state: g, journal: [rec], actions: [], queue: [], message: `RESET chain=${g.chain.id}` };
+      }
+      let journals = [];
       const actionsAll = [];
       const surviving = [];
       let drained = 0;
