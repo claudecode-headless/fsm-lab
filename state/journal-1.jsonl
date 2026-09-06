@@ -454,3 +454,7 @@
 {"id":"e454","ts":"2026-09-06T11:40:45.946Z","kind":"REJECTED","origKind":"REPORT","task":"T-202","reason":"task-not-leased(done)"}
 {"id":"e455","ts":"2026-09-06T11:40:45.946Z","kind":"REJECTED","origKind":"REPORT","task":"T-201","reason":"task-not-leased(done)"}
 {"id":"e456","ts":"2026-09-06T11:40:45.946Z","kind":"TICK","seq":29,"actor":"chain"}
+{"id":"e457","ts":"2026-09-06T11:41:20.917Z","kind":"REJECTED","origKind":"REPORT","task":"T-204","reason":"task-not-leased(done)"}
+{"id":"e458","ts":"2026-09-06T11:41:20.918Z","kind":"REJECTED","origKind":"REPORT","task":"T-202","reason":"task-not-leased(done)"}
+{"id":"e459","ts":"2026-09-06T11:41:20.919Z","kind":"REJECTED","origKind":"REPORT","task":"T-201","reason":"task-not-leased(done)"}
+{"id":"e460","ts":"2026-09-06T11:41:20.919Z","kind":"TICK","seq":30,"actor":"chain"}
