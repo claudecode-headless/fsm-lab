@@ -6,3 +6,4 @@
 {"event_id":"rep-burst-0-1788691965081","task":"T-BURST-0","lease":"l-burst","outcome":{"status":"done","artifact":"burst-0"},"run_id":"burst-0"}
 {"event_id":"rep-burst-7-1788691965372","task":"T-BURST-7","lease":"l-burst","outcome":{"status":"done","artifact":"burst-7"},"run_id":"burst-7"}
 {"event_id":"rep-burst-4-1788691965383","task":"T-BURST-4","lease":"l-burst","outcome":{"status":"done","artifact":"burst-4"},"run_id":"burst-4"}
+{"event_id":"rep-burst-9-1788691965313","task":"T-BURST-9","lease":"l-burst","outcome":{"status":"done","artifact":"burst-9"},"run_id":"burst-9"}
