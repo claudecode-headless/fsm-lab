@@ -492,3 +492,7 @@
 {"id":"e492","ts":"2026-09-06T11:45:43.509Z","kind":"REJECTED","origKind":"REPORT","task":"T-202","reason":"task-not-leased(done)"}
 {"id":"e493","ts":"2026-09-06T11:45:43.510Z","kind":"REJECTED","origKind":"REPORT","task":"T-201","reason":"task-not-leased(done)"}
 {"id":"e494","ts":"2026-09-06T11:45:43.510Z","kind":"TICK","seq":38,"actor":"chain"}
+{"id":"e495","ts":"2026-09-06T11:46:16.190Z","kind":"REJECTED","origKind":"REPORT","task":"T-204","reason":"task-not-leased(done)"}
+{"id":"e496","ts":"2026-09-06T11:46:16.191Z","kind":"REJECTED","origKind":"REPORT","task":"T-202","reason":"task-not-leased(done)"}
+{"id":"e497","ts":"2026-09-06T11:46:16.191Z","kind":"REJECTED","origKind":"REPORT","task":"T-201","reason":"task-not-leased(done)"}
+{"id":"e498","ts":"2026-09-06T11:46:16.191Z","kind":"TICK","seq":39,"actor":"chain"}
