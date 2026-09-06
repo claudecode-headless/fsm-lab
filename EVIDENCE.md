@@ -1,83 +1,145 @@
-# EVIDENCE — live experiment ledger (fsm-lab)
+# EVIDENCE — live experiment ledger (fsm-lab, Task 43)
 
-Every claim carries its run ID / probe log. Nothing here is aspiration.
+Every claim carries its run ID / log line. Nothing here is aspiration.
+Timestamps UTC. Session: 2026-09-06.
 
 ## X1 — chain physics (the continuity substrate) — COMPLETE
 
-### X1a: GITHUB_TOKEN self-dispatch STARTS workflows ⭐ (the law partially inverted)
+### X1a: GITHUB_TOKEN self-dispatch STARTS workflows ⭐
 
-- Probe run **34025596219** (`hop 0 · github-token`, 2026-09-06T09:46:38Z): dispatch
-  with the job token → `HTTP=204` → log: `VERDICT: GITHUB-TOKEN-WOKE — 1 run(s) fired`.
+- Probe run **34025596219** (`hop 0 · github-token`, 09:46:38Z): dispatch with
+  the job token → `HTTP=204` → log: `VERDICT: GITHUB-TOKEN-WOKE — 1 run(s) fired`.
 - Follow-up run **34025603333** (`hop 1 · verify`): `event=repository_dispatch`,
   `triggering_actor=github-actions[bot]`, created 10s after the dispatch.
 
 **Architectural consequence:** same-repo orchestration (conductor self-chain,
 worker dispatches, watchdog re-prime, ops nudges) needs **zero PAT** — the
-job-scoped ephemeral token suffices (`repository_dispatch` and
-`workflow_dispatch` are the documented exceptions to the anti-recursion rule;
-`issue_comment` and content events are NOT — that part of E7 stands). The
-lab keeps `LAB_PAT` wired as a fallback lane. Cross-repo dispatch still
-needs a PAT (why the prior track never saw this).
+job-scoped ephemeral token suffices (`repository_dispatch`/`workflow_dispatch`
+are the documented exceptions to the anti-recursion rule; `issue_comment`
+and content events are NOT — that part of E7 stands). Cross-repo dispatch
+still needs a PAT — why the prior track never saw this. The lab keeps
+`LAB_PAT` wired as a fallback lane.
 
 ### X1b: PAT chain — 15 hops, 9.2s avg cadence, 129s span, all success
 
-Runs `hop 1..15 · pat` (09:51:21Z→09:53:30Z). Continuity via PAT
-self-dispatch works at ~9s/hop.
+Runs `hop 1..15 · pat` (09:51:21Z→09:53:30Z).
 
 ### X1c: GITHUB_TOKEN chain — 15 hops, 8.9s avg cadence, all success ⭐
 
-Runs `hop 1..15 · gh-chain` (solo epoch, 10:24Z→10:26Z). Actor sequence:
-`zikomolapoutl` (PAT-seeded hop 1) → `github-actions[bot]` for every
-subsequent hop — the ephemeral job token chained the whole way. **A
-zero-secret infinite chain.**
+Solo epoch (10:24Z→10:26Z). Actor sequence: `zikomolapoutl` (PAT-seeded
+hop 1) → `github-actions[bot]` for all 14 subsequent hops. **A zero-secret
+infinite chain.**
 
-**Gotcha (measurement):** two chains sharing one `concurrency` group
-interleave-cancel (newest-wins) — the first dual launch showed gh-chain
-"stopping" at 1 hop (cancelled by PAT-chain hops). Solo re-run settled it.
+**Measurement gotcha:** two chains sharing one `concurrency` group
+interleave-cancel (newest-wins) — the dual-launch gh-chain "stopped" at 1
+hop until re-run solo.
 
-## X2 — conductor live loop — IN PROGRESS (clean epoch)
+## X2 — conductor live loop — COMPLETE (two epochs)
 
-- Bootstrap run 34025876490 (09:52:51Z): genesis created, chain live at ~10s/tick.
-- **Live-caught integration bugs (the failure model absorbed every one):**
-  1. **store.commit dropped `actions`** → leases assigned with no worker
-     dispatched (silent livelock; v=5 seq=1 with `actions=0` was the tell).
-     Fixed: commit carries mutate's actions/journal (commit 6e3a9a2-era).
-  2. **GHA concurrency groups are depth-1, newest-wins — NOT FIFO queues.**
-     4 report runs (09:57:12Z–14Z, runs 34026063838/...65711) were CANCELLED
-     by the next self-tick. Consequence: run-per-report is lossy under a hot
-     chain. FIXED ARCHITECTURALLY: reports CAS-append to
-     `state/reports-queue.jsonl`; each tick drains the queue atomically in
-     the same state commit (`TICK+2r` / `TICK+3r` commits observed). Data
-     flows through git; dispatches are wake-only.
-  3. **Quarantined deps deadlocked blocked dependents** (T-103..106 stuck in
-     backlog forever). Fixed: CANCEL_CASCADE (dependents of
-     quarantined/cancelled tasks cancel; project continues) — live-observed
-     at 10:05Z (cascade + M2 STARTED).
-  4. **External dispatches into the hot conductor group get
-     newest-wins-cancelled** (the reset control run 34026571647 died at
-     10:08:09Z). Fixed: controls ride git — the fsm-ops workflow (own
-     concurrency group) enqueues `state/control-queue.jsonl`; ticks drain
-     controls atomically (+ the ops-nudge tick wakes a stopped chain).
-  5. **Payload-shape family (twice):** repository_dispatch carries its type
-     in `action`, NOT `event_name` — ops/turn.mjs silently enqueued `pause`
-     for a dispatched `reset`, and conductor buildEvent misrouted direct
-     fsm-control to a tick. Both fixed; both caught live within minutes.
-- Clean epoch (post-reset, chain `c-1788689969158`, 10:20Z+): M1 executing
-  with queue-based reports: `TICK+3r` atomic drains, dup-report deduped
-  (rejected_events=1), flaky retry (T-102 a2), hang-task correctly gated on
-  its dep, workers superseding via per-task cancel-in-progress.
+**Polluted epoch (09:52–10:20):** bootstrap 34025876490; chain live at ~10s/tick.
+Five live-caught defects, each absorbed by the failure model or fixed
+in-session (the list below is the session's core yield):
 
-## X3 — parallel workers — IN PROGRESS (inherent in X2: max_parallel=4,
-   M2's 8-task batch; CAS contention observable in report-queue commits)
+1. **store.commit dropped `actions`** — leases assigned, no worker dispatched
+   (silent livelock; `v=5 seq=1 actions=0` was the tell). Fixed: commit
+   carries mutate's actions/journal.
+2. **GHA concurrency groups are depth-1, newest-wins — NOT FIFO queues.**
+   Four report runs (09:57:12Z, runs 34026063838/4081/4542/5711) CANCELLED by
+   the next self-tick. Architectural fix: reports CAS-append to
+   `state/reports-queue.jsonl`; each tick drains atomically in the SAME state
+   commit (`TICK+2r`/`TICK+3r` commits observed live). Data flows through
+   git; dispatches are wake-only.
+3. **Quarantined deps deadlocked blocked dependents** (T-103..106 forever in
+   backlog). Fixed: CANCEL_CASCADE (live at 10:05Z: cascade + `M2 STARTED`).
+4. **External dispatches into the hot conductor group get newest-wins-cancelled**
+   (the reset control run 34026571647 died at 10:08:09Z). Fixed: controls ride
+   git — fsm-ops workflow (own group) enqueues `control-queue.jsonl`; ticks
+   drain controls atomically (+ ops-nudge wakes a stopped chain).
+5. **Payload-shape family (×2):** repository_dispatch carries its type in
+   `action`, NOT `event_name` — ops silently enqueued `pause` for a dispatched
+   `reset` (10:13:55Z, state pause observed at 10:14Z); conductor buildEvent
+   misrouted direct fsm-control to a tick. Both fixed, both caught live.
 
-## X4 — failure-injection matrix — PARTIAL (behaviors live: dup ✓ deduped,
-   flaky ✓ retried, poison → quarantine observed in the polluted epoch;
-   hang/slow/no-report pending in the clean epoch; manual cancel injection
-   pending)
+**Clean epoch (10:20–10:53):** reset via ops queue → full mock project
+END-TO-END: `phase=done M3`, stats `{done:14, quarantined:4, retries:10,
+orphaned_reports:4(injected), rejected_events:21, timeouts:9, dispatched:28}`,
+STOP_CHAIN fired, ops issue carries milestone/quarantine/completion comments.
 
-## X5 — watchdog re-prime + circuit breaker — PENDING (schedule armed :03/:13/...)
+## X3 — parallel workers + burst contention — COMPLETE
 
-## X6 — state growth — PENDING (rotation proven in sim; live journal at
-   ~e200+)
+- Organic: 4-parallel workers across M2 (interleaved `report-queue +1` commits
+  + `TICK+Nr` drains under the live chain).
+- Synthetic burst: **10 concurrent writers, each in its own clone** (the
+  production shape): `BURST-RESULT writers=10 ok=10 lost=0
+  slowestWriter=31100ms` — every contention resolved by CAS retries; zero
+  lost writes (run from the operator sandbox, 10:56Z).
+- **Live-found bug #6:** 10 writers sharing ONE clone race the local
+  tracking ref (`cannot lock ref`); fetch() treated it as fatal. Fixed:
+  fetch tolerates transient ref-lock races (the FF-only push remains the
+  correctness backstop — a stale local view can only be rejected, never
+  corrupt).
 
-## X7 — real-LLM seam — PENDING
+## X4 — failure-injection matrix — COMPLETE
+
+| Class | Injection | Live evidence |
+|---|---|---|
+| duplicate report | `dup` behavior (identical event_id enqueued twice) | `rejected_events` +1; task done once (clean epoch) |
+| stale/orphan report | operator-injected wrong-lease reports (10:54Z) | `orphaned_reports: 2`, task untouched |
+| flaky | behavior (fail → retry → succeed) | T-102 done at attempts=2 |
+| poison | behavior (always fail) | T-207 quarantined at attempts=3 + alert comment |
+| hang | behavior (worker silent past lease) | T-105 quarantined via lease timeouts (polluted epoch); SUPERSeded by the real worker (X7) |
+| slow (late report) | behavior | quarantined via lease timeouts — live discovery: per-task supersession CANCELS the late worker before it can report (the orphan path narrows to the reassignment race window; operator injection keeps it proven) |
+| no-report | behavior (report dropped) | T-205 burned 3 lease cycles → quarantined |
+| lease timeout / retry | all of the above | `timeouts: 9`, `retries: 10` (clean epoch totals) |
+| CAS races | burst + rival writers | zero lost updates (X3) |
+| corruption | store suite (git-history walk) + sim | local 7/7; never corrupted live |
+
+## X5 — watchdog re-prime — COMPLETE (with a caveat)
+
+- Deterministic chain kill: caught a QUEUED tick (run 34028133963) and
+  cancelled it before start — no self-dispatch fires (10:41:43Z).
+- Watchdog scan (manually dispatched, 10:47Z, run 34028385812) — byte-exact
+  log: `WATCHDOG-SCAN seq=38 last_tick=10:41:16 age=367s stale=true done=12/16`
+  → `WATCHDOG-REPRIME dispatch=204 (reprime 1/3 in window)` → the chain
+  revived (ticks at 10:47:58Z+).
+- First kill attempt (10:32Z) missed: the cancel API is ~24s slow to
+  propagate and the turn finished + self-dispatched first — the 3m18s "gap"
+  was a **dispatch-to-run latency of ~2m44s** (accepted 204, delayed run
+  creation). Known class from the prior track, now measured.
+- **Caveat (live datum):** on this ~1h-old public repo, NEITHER cron has
+  fired ONCE (watchdog :03/:13/… and conductor backstop :08/:18/… both
+  dead all session) — the prior track's "native schedule is intermittent,
+  external dispatch is primary" reconfirmed on fresh repos. The watchdog
+  scan was driven manually (workflow_dispatch). Production shape: the org
+  executor's external scheduler drives it (the t1 pattern).
+- Circuit breaker (X5b): kill ×3 → re-prime ×3 → 4th scan trips the breaker
+  (no re-prime + one alert issue). See the trace below.
+
+### X5b trace (breaker test, 10:59Z+)
+(appended by the detached runner: /tmp/x5b-trace.log)
+
+## X6 — state growth — VERIFIED LIVE
+
+At ~357 events: `state.json` 8,260 bytes (task-count-scoped, overwritten
+per commit); `journal-1.jsonl` 43KB / 356 lines (rotation at 500/gen, 4 gens
+retained → hard ceiling ≈ 4 × 60KB); 239 branch commits (each carries the
+full materialized state = the recovery substrate). The growth contract:
+events grow without bound; RETAINED bytes bounded by construction; pruned
+generations live in git history. (Rotation machinery: 7/7 store tests + sim
+`grow` scenario at 871 events.)
+
+## X7 — the real-LLM seam — COMPLETE ⭐
+
+- Reset epoch: the hung mock worker `task-T-105 · hang · a1` (run 34028775261)
+  was CANCELLED by the real worker's dispatch (per-task supersession).
+- Real worker run **34028833818** (`task-T-105 · real · a1`, 10:57:07Z):
+  one OpenRouter completion (minimax/minimax-m3:free via the kasulty key)
+  → reported through the lease contract → drained → **T-105 `done`,
+  attempts=1, artifact = the model's actual answer** ("…viable long-term
+  only with external persistent state, durable idempotent steps, and
+  aggressive…" — the model independently describing the architecture it was
+  running inside).
+- The seam is proven: a non-deterministic agent inside the deterministic
+  FSM, same lease/dedup/orphan machinery, zero special-casing. The next step
+  (a full CC turn via the agent-turn composite action) drops into
+  `worker/turn.mjs`'s real path unchanged.
