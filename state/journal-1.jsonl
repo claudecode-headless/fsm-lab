@@ -68,3 +68,4 @@
 {"id":"e68","ts":"2026-09-06T10:00:58.737Z","kind":"ASSIGN","task":"T-108","from":"ready","to":"assigned","lease":"l-5c98da22","expires":"2026-09-06T10:04:58.737Z","attempt":3,"behavior":"slow"}
 {"id":"e69","ts":"2026-09-06T10:01:12.068Z","kind":"TICK","seq":49,"actor":"chain"}
 {"id":"e70","ts":"2026-09-06T10:01:20.717Z","kind":"TICK","seq":50,"actor":"chain"}
+{"id":"e71","ts":"2026-09-06T10:01:29.824Z","kind":"TICK","seq":51,"actor":"chain"}
