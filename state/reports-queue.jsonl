@@ -4,3 +4,4 @@
 {"event_id":"rep-34030580967","task":"T-201","lease":"l-4beebb3b","outcome":{"status":"done","artifact":"artifact:T-201:attempt2","duration_ms":4002},"run_id":"34030580967"}
 {"event_id":"rep-34030581110","task":"T-204","lease":"l-c119ce82","outcome":{"status":"done","artifact":"artifact:T-204:attempt2","duration_ms":4004},"run_id":"34030581110"}
 {"event_id":"rep-34030581234","task":"T-203","lease":"l-ca4d8647","outcome":{"status":"done","artifact":"artifact:T-203:attempt2","duration_ms":4004},"run_id":"34030581234"}
+{"event_id":"rep-34030580864","task":"T-202","lease":"l-8d428147","outcome":{"status":"done","artifact":"artifact:T-202:attempt2","duration_ms":4005},"run_id":"34030580864"}
