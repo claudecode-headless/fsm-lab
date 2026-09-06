@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "version": 63,
- "journal_seq": 499,
+ "version": 66,
+ "journal_seq": 506,
  "chain": {
   "id": "c-1788692082392",
-  "seq": 39,
-  "last_tick": "2026-09-06T11:46:16.191Z",
+  "seq": 40,
+  "last_tick": "2026-09-06T11:46:49.675Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
  },
  "project": {
   "phase": "executing",
-  "milestone": 2,
+  "milestone": 3,
   "milestones_total": 3
  },
  "config": {
@@ -550,18 +550,14 @@
   "T-205": {
    "id": "T-205",
    "title": "impl: parallel e",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "no-report",
    "work_ms": 3000,
    "deps": [],
    "attempts": 3,
-   "lease": {
-    "token": "l-62bf9a38",
-    "expires": "2026-09-06T11:46:25.919Z",
-    "issued_at": "2026-09-06T11:42:25.919Z"
-   },
+   "lease": null,
    "created": "2026-09-06T11:10:46.567Z",
-   "updated": "2026-09-06T11:42:25.919Z",
+   "updated": "2026-09-06T11:46:49.669Z",
    "history": [
     {
      "at": "2026-09-06T11:10:46.567Z",
@@ -592,6 +588,11 @@
      "at": "2026-09-06T11:42:25.919Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-06T11:46:49.669Z",
+     "status": "quarantined",
+     "why": "lease-timeout(attempts=3)"
     }
    ],
    "last_result": null
@@ -729,18 +730,69 @@
     "artifact": "artifact:T-208:attempt1",
     "duration_ms": 4005
    }
+  },
+  "T-301": {
+   "id": "T-301",
+   "title": "impl: integration",
+   "status": "assigned",
+   "behavior": "succeed",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-2ec7f439",
+    "expires": "2026-09-06T11:50:49.671Z",
+    "issued_at": "2026-09-06T11:46:49.671Z"
+   },
+   "created": "2026-09-06T11:46:49.669Z",
+   "updated": "2026-09-06T11:46:49.671Z",
+   "history": [
+    {
+     "at": "2026-09-06T11:46:49.669Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-06T11:46:49.671Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null
+  },
+  "T-302": {
+   "id": "T-302",
+   "title": "review: final",
+   "status": "backlog",
+   "behavior": "succeed",
+   "work_ms": 3000,
+   "deps": [
+    "T-301"
+   ],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-06T11:46:49.669Z",
+   "updated": "2026-09-06T11:46:49.669Z",
+   "history": [
+    {
+     "at": "2026-09-06T11:46:49.669Z",
+     "status": "backlog",
+     "why": "created"
+    }
+   ],
+   "last_result": null
   }
  },
  "stats": {
   "done": 13,
   "failed": 0,
-  "quarantined": 2,
+  "quarantined": 3,
   "cancelled": 0,
   "retries": 11,
   "orphaned_reports": 6,
-  "rejected_events": 76,
-  "timeouts": 8,
-  "dispatched": 27
+  "rejected_events": 79,
+  "timeouts": 9,
+  "dispatched": 28
  },
  "dedup": [
   "tick-chain-1788692079423",
@@ -799,6 +851,7 @@
   "tick-chain-1788695075996",
   "tick-chain-1788695108132",
   "tick-chain-1788695142548",
-  "tick-chain-1788695175123"
+  "tick-chain-1788695175123",
+  "tick-chain-1788695208624"
  ]
 }
