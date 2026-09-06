@@ -1,17 +1,17 @@
 {
  "schema": 1,
- "version": 69,
- "journal_seq": 513,
+ "version": 71,
+ "journal_seq": 519,
  "chain": {
   "id": "c-1788692082392",
-  "seq": 41,
-  "last_tick": "2026-09-06T11:47:24.442Z",
+  "seq": 42,
+  "last_tick": "2026-09-06T11:48:00.788Z",
   "primed_by": "chain",
-  "halted": false,
+  "halted": true,
   "paused": false
  },
  "project": {
-  "phase": "executing",
+  "phase": "done",
   "milestone": 3,
   "milestones_total": 3
  },
@@ -769,20 +769,16 @@
   "T-302": {
    "id": "T-302",
    "title": "review: final",
-   "status": "assigned",
+   "status": "done",
    "behavior": "succeed",
    "work_ms": 3000,
    "deps": [
     "T-301"
    ],
    "attempts": 1,
-   "lease": {
-    "token": "l-aa88fafe",
-    "expires": "2026-09-06T11:51:23.845Z",
-    "issued_at": "2026-09-06T11:47:23.845Z"
-   },
+   "lease": null,
    "created": "2026-09-06T11:46:49.669Z",
-   "updated": "2026-09-06T11:47:23.845Z",
+   "updated": "2026-09-06T11:48:00.787Z",
    "history": [
     {
      "at": "2026-09-06T11:46:49.669Z",
@@ -798,19 +794,29 @@
      "at": "2026-09-06T11:47:23.845Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-06T11:48:00.787Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "done",
+    "run_id": "34031247363",
+    "artifact": "artifact:T-302:attempt1",
+    "duration_ms": 3002
+   }
   }
  },
  "stats": {
-  "done": 14,
+  "done": 15,
   "failed": 0,
   "quarantined": 3,
   "cancelled": 0,
   "retries": 11,
   "orphaned_reports": 6,
-  "rejected_events": 82,
+  "rejected_events": 85,
   "timeouts": 9,
   "dispatched": 29
  },
@@ -874,6 +880,8 @@
   "tick-chain-1788695175123",
   "tick-chain-1788695208624",
   "rep-34031218650",
-  "tick-chain-1788695242861"
+  "tick-chain-1788695242861",
+  "rep-34031247363",
+  "tick-chain-1788695279959"
  ]
 }
