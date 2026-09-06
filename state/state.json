@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "version": 71,
- "journal_seq": 535,
+ "journal_seq": 539,
  "chain": {
   "id": "c-1788692082392",
-  "seq": 46,
-  "last_tick": "2026-09-06T20:46:29.881Z",
+  "seq": 47,
+  "last_tick": "2026-09-06T22:26:53.270Z",
   "primed_by": "schedule-backstop",
   "halted": true,
   "paused": false
@@ -816,7 +816,7 @@
   "cancelled": 0,
   "retries": 11,
   "orphaned_reports": 6,
-  "rejected_events": 97,
+  "rejected_events": 100,
   "timeouts": 9,
   "dispatched": 29
  },
@@ -886,6 +886,7 @@
   "tick-schedule-backstop-1788700310749",
   "tick-schedule-backstop-1788711549280",
   "tick-schedule-backstop-1788719358733",
-  "tick-schedule-backstop-1788727588637"
+  "tick-schedule-backstop-1788727588637",
+  "tick-schedule-backstop-1788733612265"
  ]
 }
