@@ -148,3 +148,4 @@
 {"id":"e148","ts":"2026-09-06T10:10:07.448Z","kind":"ASSIGN","task":"T-207","from":"ready","to":"assigned","lease":"l-f3d63312","expires":"2026-09-06T10:14:07.448Z","attempt":3,"behavior":"poison"}
 {"id":"e149","ts":"2026-09-06T10:10:07.453Z","kind":"REPORT","task":"T-208","lease":"l-45e7fa70","to":"done","run_id":"34026648415","from":"assigned"}
 {"id":"e150","ts":"2026-09-06T10:10:07.454Z","kind":"TICK","seq":98,"actor":"chain"}
+{"id":"e151","ts":"2026-09-06T10:10:18.367Z","kind":"TICK","seq":99,"actor":"chain"}
