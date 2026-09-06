@@ -317,3 +317,4 @@
 {"id":"e317","ts":"2026-09-06T10:53:00.689Z","kind":"REJECTED","origKind":"REPORT","task":"T-BURST-7","reason":"unknown-task"}
 {"id":"e318","ts":"2026-09-06T10:53:00.690Z","kind":"REJECTED","origKind":"REPORT","task":"T-BURST-4","reason":"unknown-task"}
 {"id":"e319","ts":"2026-09-06T10:53:00.691Z","kind":"TICK","seq":49,"actor":"chain"}
+{"id":"e320","ts":"2026-09-06T10:54:07.463Z","kind":"CONTROL","command":"reset","applied":true}
