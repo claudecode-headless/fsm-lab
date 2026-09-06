@@ -280,3 +280,4 @@
 {"id":"e280","ts":"2026-09-06T10:47:31.733Z","kind":"TIMEOUT","task":"T-205","from":"assigned","to":"ready"}
 {"id":"e281","ts":"2026-09-06T10:47:31.733Z","kind":"ASSIGN","task":"T-205","from":"ready","to":"assigned","lease":"l-28078eb3","expires":"2026-09-06T10:51:31.733Z","attempt":3,"behavior":"no-report"}
 {"id":"e282","ts":"2026-09-06T10:48:03.479Z","kind":"TICK","seq":40,"actor":"chain"}
+{"id":"e283","ts":"2026-09-06T10:48:36.584Z","kind":"TICK","seq":41,"actor":"chain"}
