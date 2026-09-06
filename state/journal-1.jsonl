@@ -289,3 +289,6 @@
 {"id":"e289","ts":"2026-09-06T10:50:48.084Z","kind":"REJECTED","origKind":"REPORT","task":"T-205","reason":"stale-lease"}
 {"id":"e290","ts":"2026-09-06T10:50:48.086Z","kind":"REJECTED","origKind":"REPORT","task":"T-207","reason":"task-not-leased(quarantined)"}
 {"id":"e291","ts":"2026-09-06T10:50:48.086Z","kind":"TICK","seq":45,"actor":"chain"}
+{"id":"e292","ts":"2026-09-06T10:51:23.245Z","kind":"REJECTED","origKind":"REPORT","task":"T-205","reason":"stale-lease"}
+{"id":"e293","ts":"2026-09-06T10:51:23.246Z","kind":"REJECTED","origKind":"REPORT","task":"T-207","reason":"task-not-leased(quarantined)"}
+{"id":"e294","ts":"2026-09-06T10:51:23.246Z","kind":"TICK","seq":46,"actor":"chain"}
