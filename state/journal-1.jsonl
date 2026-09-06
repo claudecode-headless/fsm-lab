@@ -343,3 +343,5 @@
 {"id":"e343","ts":"2026-09-06T10:55:45.073Z","kind":"UNLOCK","task":"T-106","from":"backlog","to":"ready"}
 {"id":"e344","ts":"2026-09-06T10:55:45.073Z","kind":"ASSIGN","task":"T-106","from":"ready","to":"assigned","lease":"l-65318c0d","expires":"2026-09-06T10:59:45.073Z","attempt":1,"behavior":"succeed"}
 {"id":"e345","ts":"2026-09-06T10:55:45.074Z","kind":"TICK","seq":3,"actor":"chain"}
+{"id":"e346","ts":"2026-09-06T10:56:16.928Z","kind":"REPORT","task":"T-106","lease":"l-65318c0d","to":"done","run_id":"34028775324","from":"assigned"}
+{"id":"e347","ts":"2026-09-06T10:56:16.929Z","kind":"TICK","seq":4,"actor":"chain"}
