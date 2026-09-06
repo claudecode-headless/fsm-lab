@@ -115,8 +115,32 @@ STOP_CHAIN fired, ops issue carries milestone/quarantine/completion comments.
 - Circuit breaker (X5b): kill ×3 → re-prime ×3 → 4th scan trips the breaker
   (no re-prime + one alert issue). See the trace below.
 
-### X5b trace (breaker test, 10:59Z+)
-(appended by the detached runner: /tmp/x5b-trace.log)
+### X5b trace (breaker test, 10:59Z–11:34Z) — PASS
+
+Cycles: kill-queued-tick → 4.5-min staleness → watchdog scan (manual
+dispatch). The scan at 11:16:20Z (run 34029759397) counted **3 re-prime
+runs in the 30-min window** (10:47 X5 + 11:04 + 11:10) → **BREAKER OPENED**:
+no re-prime, alert issue **#2** created 11:16:31Z with the runbook body
+("Re-priming is now DISABLED. Manual intervention required: …re-arm: POST
+…/dispatches"). The chain stayed dead 11:11:46Z→11:33Z awaiting the
+operator.
+
+**Operator loop closed (11:31Z):** manual re-arm tick (the exact action the
+alert prescribed) + issue #2 commented and closed. The chain revived
+(11:33:39Z+) and the project resumed completing itself — the full
+dead→detect→alert→human→re-arm→revive cycle, end to end.
+
+Bonus datum: the cycle-3 re-prime dispatch (11:16:20Z) was
+accepted-but-never-fired (the drop class) — masked by the breaker opening
+the same second; the system's response was correct either way (dead chain
++ breaker + alert, not a loop).
+
+One test-harness note: the script's cycle-4 "kill" cancelled the first
+re-arm tick as collateral (its queued-run hunter was still live) —
+terminated, re-armed again cleanly. The breaker itself tripped one cycle
+earlier than the script expected because the X5 re-prime legitimately
+counted inside the 30-min window — correct window semantics, slightly
+off test expectation.
 
 ## X6 — state growth — VERIFIED LIVE
 
