@@ -211,3 +211,4 @@
 {"id":"e211","ts":"2026-09-06T10:23:57.026Z","kind":"TIMEOUT","task":"T-108","from":"assigned","to":"ready"}
 {"id":"e212","ts":"2026-09-06T10:23:57.026Z","kind":"ASSIGN","task":"T-108","from":"ready","to":"assigned","lease":"l-f91c00a4","expires":"2026-09-06T10:27:57.026Z","attempt":2,"behavior":"slow"}
 {"id":"e213","ts":"2026-09-06T10:24:28.491Z","kind":"TICK","seq":8,"actor":"chain"}
+{"id":"e214","ts":"2026-09-06T10:25:01.729Z","kind":"TICK","seq":9,"actor":"chain"}
