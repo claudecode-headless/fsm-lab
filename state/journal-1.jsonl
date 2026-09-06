@@ -134,3 +134,4 @@
 {"id":"e134","ts":"2026-09-06T10:09:27.772Z","kind":"REPORT","task":"T-204","lease":"l-125542dc","to":"done","run_id":"34026620065","from":"assigned"}
 {"id":"e135","ts":"2026-09-06T10:09:27.772Z","kind":"ASSIGN","task":"T-207","from":"ready","to":"assigned","lease":"l-6ba3b09c","expires":"2026-09-06T10:13:27.772Z","attempt":1,"behavior":"poison"}
 {"id":"e136","ts":"2026-09-06T10:09:27.772Z","kind":"TICK","seq":94,"actor":"chain"}
+{"id":"e137","ts":"2026-09-06T10:09:37.096Z","kind":"TICK","seq":95,"actor":"chain"}
