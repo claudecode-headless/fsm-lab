@@ -276,3 +276,6 @@
 {"id":"e276","ts":"2026-09-06T10:40:11.201Z","kind":"TICK","seq":36,"actor":"chain"}
 {"id":"e277","ts":"2026-09-06T10:40:43.393Z","kind":"TICK","seq":37,"actor":"chain"}
 {"id":"e278","ts":"2026-09-06T10:41:16.547Z","kind":"TICK","seq":38,"actor":"chain"}
+{"id":"e279","ts":"2026-09-06T10:47:31.733Z","kind":"TICK","seq":39,"actor":"watchdog-reprime"}
+{"id":"e280","ts":"2026-09-06T10:47:31.733Z","kind":"TIMEOUT","task":"T-205","from":"assigned","to":"ready"}
+{"id":"e281","ts":"2026-09-06T10:47:31.733Z","kind":"ASSIGN","task":"T-205","from":"ready","to":"assigned","lease":"l-28078eb3","expires":"2026-09-06T10:51:31.733Z","attempt":3,"behavior":"no-report"}
