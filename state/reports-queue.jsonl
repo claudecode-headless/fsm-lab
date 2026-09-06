@@ -1,3 +1,4 @@
 {"event_id":"rep-injected-orphan-1788691792155","task":"T-205","lease":"l-INVALID-INJECTED","outcome":{"status":"done","artifact":"orphan-injection"},"run_id":"injected-sandbox"}
 {"event_id":"rep-dup-injection-1788691794603","task":"T-207","lease":"l-ALSO-INVALID","outcome":{"status":"done"},"run_id":"injected-dup"}
 {"event_id":"rep-burst-9-1788691913507","task":"T-BURST-9","lease":"l-burst","outcome":{"status":"done","artifact":"burst-9"},"run_id":"burst-9"}
+{"event_id":"rep-34028626217","task":"T-302","lease":"l-8020a52e","outcome":{"status":"done","artifact":"artifact:T-302:attempt1","duration_ms":3003},"run_id":"34028626217"}
