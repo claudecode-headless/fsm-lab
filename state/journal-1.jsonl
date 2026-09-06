@@ -233,3 +233,4 @@
 {"id":"e233","ts":"2026-09-06T10:32:19.427Z","kind":"TICK","seq":22,"actor":"chain"}
 {"id":"e234","ts":"2026-09-06T10:32:51.658Z","kind":"TICK","seq":23,"actor":"chain"}
 {"id":"e235","ts":"2026-09-06T10:32:51.658Z","kind":"TIMEOUT","task":"T-108","from":"assigned","to":"quarantined"}
+{"id":"e236","ts":"2026-09-06T10:33:25.019Z","kind":"TICK","seq":24,"actor":"chain"}
