@@ -1,1 +1,2 @@
 {"event_id":"rep-34028727381","task":"T-102","lease":"l-1109b352","outcome":{"status":"failed","error":"flaky-fail-1","duration_ms":2002},"run_id":"34028727381"}
+{"event_id":"rep-34028727338","task":"T-101","lease":"l-e551b33e","outcome":{"status":"done","artifact":"artifact:T-101:attempt1","duration_ms":4005},"run_id":"34028727338"}
