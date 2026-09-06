@@ -140,3 +140,24 @@ The five escaped-bug classes as permanent sim scenarios: actions-drop (every ASS
 - **X10 (via reset):** fresh project run to completion ⇒ rotation disjointness verified live (distinct-id count).
 - **X14 (real lane):** `configure lease_minutes=15`, real-LLM worker with a slow prompt ⇒ completes without supersession.
 - **X5c (regression):** kill/re-prime once more post-fix ⇒ watchdog still correct under the new quiescence semantics.
+
+---
+
+## Amendments (design review round 1 — 44-f deep-think + 44-g red team; all probe-confirmed)
+
+**BLOCKING (folded into the implementation):**
+1. **A1 livelock on split deploy** — F2's FSM half activates the currently-unreachable noop path, whose unconditional self-dispatch would loop the halted chain at 8-30s cadence (probe: 1 dispatch/wake, 0 commits; ~2,900-10,400 runs/day). Mitigation: waves 1+2 land as **ONE atomic push**; PLUS the noop path gains a structural guard (never self-dispatch on noop; log QUIESCED with held-state discriminator).
+2. **A2 corrupt-state repair suppression** — under F2, a corrupt state.json on a halted chain never heals (recovery → good state → noop → repair never commits; probe: 3 wakes, tip frozen, corruption persists). Mitigation: recovery/bootstrap sets `repaired` and journals a `RECOVERY` record (kind journaled, rebuild-skippable) → forces the commit. Watchdog corrupt-alert comments get a 24h dedup.
+3. **A3 configure flood** — `max_parallel:999` passes validation and emits 999 dispatch actions with invariants clean (probe). Mitigation: upper bounds in genesis + configure (max_parallel ≤32, lease_minutes ≤120, max_attempts ≤9, tick_min_interval_s ≤600); anonymous dispatch already 403-gated (verified).
+4. **F1a direct-reset queue-drop** — the direct-dispatch reset returns before draining reports/controls → queued events vanish unjournaled. Mitigation: **unify** — the direct reset becomes a prepended control-queue item; ONE drain path handles queued+direct resets; reports then drain (and reject as unknown-task against the fresh genesis, journaled + consumed — auditable).
+5. **F5 co-landing + WARN** — numeric sort + disjoint rotation are one push; unparseable journal lines WARN instead of silent-skip; parity tests run on fresh projects only (the live migrated branch carries 3× dup ids until gens climb).
+6. **F6 budget cap** — cumulative retry budget ≤240s; Retry-After jittered only upward; 403-without-Retry-After fails fast; conductor timeout 5→10min.
+7. **F8 parity scope** — "deep-equal modulo nothing" is unachievable (13 structural divergences: dedup array, history.why, last_result). Parity test asserts the **projection** (statuses, attempts, leases, stats, version, journal_seq, phase, chain). The duplicate-path jrec also gets `applied:false`. REJECTED(REPORT) records carry `event_id` + sliced outcome (≤400 chars) — the audit trail for consumed rejects (A4). Reset records embed the **slim genesis spec** `{config, tasks, chainId, now, journal_seq}` (not the full state; rebuild reconstructs via genesis()).
+8. **F9 milestone door** — clock's MILESTONE branch validates spec deps (existing tasks or intra-milestone specs); invalid specs skipped + journaled REJECTED.
+9. **F12 reset adopts current config** (3 hardcoded sites die); workflow_dispatch patch input is a STRING (JSON.parse + error path); `configure` joins the ops nudge list.
+10. **X14 coherence** — worker.yml timeout 8→20 in the same push as configure (lease 15 + margin).
+11. **A7 residuals** — lease tokens 8→12 hex; watchdog in-flight lookback 3→6min (≥ job timeout); api() fetches get AbortSignal.timeout(15s); id-less CONTROL fallback key includes command; unparseable queue lines journaled REJECTED(unparseable) then dropped (audit); worker drops unused LAB_PAT; remove dead `fsm-report` type from conductor.yml; store CAS error distinguishes transport vs non-FF.
+
+**Push order:** everything lands as ONE atomic push (waves 1+2), verified locally first (suites + sim + the new tests). Wave 3 (conductor-core extraction + GHA shim) lands separately AFTER live verification of waves 1-2.
+
+**Non-fix justification rewrite (44-g):** corruption-on-branch is NOT near-impossible (F4's failure mode deletes the branch outright) — the no-journal-ahead-replay decision stands on the convergence argument: post-rollback, in-flight leases self-heal via timeouts and queued reports re-drain. Documented as such.
