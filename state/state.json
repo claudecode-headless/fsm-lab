@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 5,
- "journal_seq": 29,
+ "version": 13,
+ "journal_seq": 38,
  "chain": {
   "id": "c-1788688375990",
-  "seq": 24,
-  "last_tick": "2026-09-06T09:56:48.059Z",
+  "seq": 25,
+  "last_tick": "2026-09-06T09:56:57.860Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -30,14 +30,14 @@
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 1,
+   "attempts": 2,
    "lease": {
-    "token": "l-66e63b76",
-    "expires": "2026-09-06T09:56:55.993Z",
-    "issued_at": "2026-09-06T09:52:55.993Z"
+    "token": "l-53cdbaf7",
+    "expires": "2026-09-06T10:00:57.860Z",
+    "issued_at": "2026-09-06T09:56:57.860Z"
    },
    "created": "2026-09-06T09:52:55.990Z",
-   "updated": "2026-09-06T09:52:55.993Z",
+   "updated": "2026-09-06T09:56:57.860Z",
    "history": [
     {
      "at": "2026-09-06T09:52:55.990Z",
@@ -48,6 +48,16 @@
      "at": "2026-09-06T09:52:55.993Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-06T09:56:57.860Z",
+     "status": "ready",
+     "why": "lease-timeout(attempts=1)"
+    },
+    {
+     "at": "2026-09-06T09:56:57.860Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
     }
    ],
    "last_result": null
@@ -59,14 +69,14 @@
    "behavior": "flaky",
    "work_ms": 3000,
    "deps": [],
-   "attempts": 1,
+   "attempts": 2,
    "lease": {
-    "token": "l-b83552d1",
-    "expires": "2026-09-06T09:56:55.993Z",
-    "issued_at": "2026-09-06T09:52:55.993Z"
+    "token": "l-54525885",
+    "expires": "2026-09-06T10:00:57.860Z",
+    "issued_at": "2026-09-06T09:56:57.860Z"
    },
    "created": "2026-09-06T09:52:55.990Z",
-   "updated": "2026-09-06T09:52:55.993Z",
+   "updated": "2026-09-06T09:56:57.860Z",
    "history": [
     {
      "at": "2026-09-06T09:52:55.990Z",
@@ -77,6 +87,16 @@
      "at": "2026-09-06T09:52:55.993Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-06T09:56:57.860Z",
+     "status": "ready",
+     "why": "lease-timeout(attempts=1)"
+    },
+    {
+     "at": "2026-09-06T09:56:57.860Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
     }
    ],
    "last_result": null
@@ -177,14 +197,14 @@
    "behavior": "dup",
    "work_ms": 3000,
    "deps": [],
-   "attempts": 1,
+   "attempts": 2,
    "lease": {
-    "token": "l-5e191783",
-    "expires": "2026-09-06T09:56:55.993Z",
-    "issued_at": "2026-09-06T09:52:55.993Z"
+    "token": "l-5fb5f598",
+    "expires": "2026-09-06T10:00:57.860Z",
+    "issued_at": "2026-09-06T09:56:57.860Z"
    },
    "created": "2026-09-06T09:52:55.990Z",
-   "updated": "2026-09-06T09:52:55.993Z",
+   "updated": "2026-09-06T09:56:57.860Z",
    "history": [
     {
      "at": "2026-09-06T09:52:55.990Z",
@@ -195,6 +215,16 @@
      "at": "2026-09-06T09:52:55.993Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-06T09:56:57.860Z",
+     "status": "ready",
+     "why": "lease-timeout(attempts=1)"
+    },
+    {
+     "at": "2026-09-06T09:56:57.860Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
     }
    ],
    "last_result": null
@@ -206,14 +236,14 @@
    "behavior": "slow",
    "work_ms": 330000,
    "deps": [],
-   "attempts": 1,
+   "attempts": 2,
    "lease": {
-    "token": "l-3f4d6344",
-    "expires": "2026-09-06T09:56:55.993Z",
-    "issued_at": "2026-09-06T09:52:55.993Z"
+    "token": "l-3b4d298e",
+    "expires": "2026-09-06T10:00:57.860Z",
+    "issued_at": "2026-09-06T09:56:57.860Z"
    },
    "created": "2026-09-06T09:52:55.990Z",
-   "updated": "2026-09-06T09:52:55.993Z",
+   "updated": "2026-09-06T09:56:57.860Z",
    "history": [
     {
      "at": "2026-09-06T09:52:55.990Z",
@@ -224,6 +254,16 @@
      "at": "2026-09-06T09:52:55.993Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-06T09:56:57.860Z",
+     "status": "ready",
+     "why": "lease-timeout(attempts=1)"
+    },
+    {
+     "at": "2026-09-06T09:56:57.860Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
     }
    ],
    "last_result": null
@@ -234,11 +274,11 @@
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
-  "retries": 0,
+  "retries": 4,
   "orphaned_reports": 0,
   "rejected_events": 0,
-  "timeouts": 0,
-  "dispatched": 4
+  "timeouts": 4,
+  "dispatched": 8
  },
  "dedup": [
   "tick-bootstrap-1788688375637",
@@ -264,6 +304,7 @@
   "tick-chain-1788688576395",
   "tick-chain-1788688587286",
   "tick-chain-1788688597260",
-  "tick-chain-1788688607219"
+  "tick-chain-1788688607219",
+  "tick-chain-1788688617156"
  ]
 }
