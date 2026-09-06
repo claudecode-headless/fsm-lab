@@ -172,3 +172,4 @@
 {"id":"e172","ts":"2026-09-06T10:13:35.924Z","kind":"TICK","seq":119,"actor":"chain"}
 {"id":"e173","ts":"2026-09-06T10:13:35.924Z","kind":"TIMEOUT","task":"T-205","from":"assigned","to":"ready"}
 {"id":"e174","ts":"2026-09-06T10:13:35.924Z","kind":"ASSIGN","task":"T-205","from":"ready","to":"assigned","lease":"l-7a848000","expires":"2026-09-06T10:17:35.924Z","attempt":2,"behavior":"no-report"}
+{"id":"e175","ts":"2026-09-06T10:13:46.858Z","kind":"TICK","seq":120,"actor":"chain"}
