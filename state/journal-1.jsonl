@@ -349,3 +349,4 @@
 {"id":"e349","ts":"2026-09-06T10:57:23.152Z","kind":"TICK","seq":6,"actor":"chain"}
 {"id":"e350","ts":"2026-09-06T10:57:57.220Z","kind":"REPORT","task":"T-105","lease":"l-fb8421e4","to":"done","run_id":"34028833818","from":"assigned"}
 {"id":"e351","ts":"2026-09-06T10:57:57.221Z","kind":"TICK","seq":7,"actor":"chain"}
+{"id":"e352","ts":"2026-09-06T10:58:31.586Z","kind":"TICK","seq":8,"actor":"chain"}
