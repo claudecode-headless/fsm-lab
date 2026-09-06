@@ -412,3 +412,7 @@
 {"id":"e412","ts":"2026-09-06T11:35:24.974Z","kind":"REJECTED","origKind":"REPORT","task":"T-201","reason":"task-not-leased(done)"}
 {"id":"e413","ts":"2026-09-06T11:35:24.974Z","kind":"REPORT","task":"T-207","lease":"l-06a07c9c","to":"quarantined","run_id":"34030657948","from":"assigned"}
 {"id":"e414","ts":"2026-09-06T11:35:24.975Z","kind":"TICK","seq":19,"actor":"chain"}
+{"id":"e415","ts":"2026-09-06T11:35:56.364Z","kind":"REJECTED","origKind":"REPORT","task":"T-204","reason":"task-not-leased(done)"}
+{"id":"e416","ts":"2026-09-06T11:35:56.366Z","kind":"REJECTED","origKind":"REPORT","task":"T-202","reason":"task-not-leased(done)"}
+{"id":"e417","ts":"2026-09-06T11:35:56.366Z","kind":"REJECTED","origKind":"REPORT","task":"T-201","reason":"task-not-leased(done)"}
+{"id":"e418","ts":"2026-09-06T11:35:56.367Z","kind":"TICK","seq":20,"actor":"chain"}
