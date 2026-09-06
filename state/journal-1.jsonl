@@ -36,3 +36,4 @@
 {"id":"e36","ts":"2026-09-06T09:56:57.860Z","kind":"ASSIGN","task":"T-107","from":"ready","to":"assigned","lease":"l-5fb5f598","expires":"2026-09-06T10:00:57.860Z","attempt":2,"behavior":"dup"}
 {"id":"e37","ts":"2026-09-06T09:56:57.860Z","kind":"ASSIGN","task":"T-108","from":"ready","to":"assigned","lease":"l-3b4d298e","expires":"2026-09-06T10:00:57.860Z","attempt":2,"behavior":"slow"}
 {"id":"e38","ts":"2026-09-06T09:57:08.409Z","kind":"TICK","seq":26,"actor":"chain"}
+{"id":"e39","ts":"2026-09-06T09:57:17.021Z","kind":"TICK","seq":27,"actor":"chain"}
