@@ -366,3 +366,16 @@
 {"id":"e366","ts":"2026-09-06T11:11:20.671Z","kind":"ASSIGN","task":"T-202","from":"ready","to":"assigned","lease":"l-aa4ea6c0","expires":"2026-09-06T11:15:20.671Z","attempt":1,"behavior":"succeed"}
 {"id":"e367","ts":"2026-09-06T11:11:20.671Z","kind":"ASSIGN","task":"T-203","from":"ready","to":"assigned","lease":"l-86bfaad7","expires":"2026-09-06T11:15:20.671Z","attempt":1,"behavior":"flaky"}
 {"id":"e368","ts":"2026-09-06T11:11:20.671Z","kind":"ASSIGN","task":"T-204","from":"ready","to":"assigned","lease":"l-de071944","expires":"2026-09-06T11:15:20.671Z","attempt":1,"behavior":"succeed"}
+{"id":"e369","ts":"2026-09-06T11:33:13.136Z","kind":"REPORT","task":"T-203","lease":"l-86bfaad7","to":"failed","run_id":"34029519317","from":"assigned"}
+{"id":"e370","ts":"2026-09-06T11:33:13.136Z","kind":"TIMEOUT","task":"T-201","from":"assigned","to":"ready"}
+{"id":"e371","ts":"2026-09-06T11:33:13.136Z","kind":"TIMEOUT","task":"T-202","from":"assigned","to":"ready"}
+{"id":"e372","ts":"2026-09-06T11:33:13.136Z","kind":"TIMEOUT","task":"T-204","from":"assigned","to":"ready"}
+{"id":"e373","ts":"2026-09-06T11:33:13.136Z","kind":"RETRY","task":"T-203","from":"failed","to":"ready"}
+{"id":"e374","ts":"2026-09-06T11:33:13.136Z","kind":"ASSIGN","task":"T-201","from":"ready","to":"assigned","lease":"l-4beebb3b","expires":"2026-09-06T11:37:13.136Z","attempt":2,"behavior":"succeed"}
+{"id":"e375","ts":"2026-09-06T11:33:13.136Z","kind":"ASSIGN","task":"T-202","from":"ready","to":"assigned","lease":"l-8d428147","expires":"2026-09-06T11:37:13.136Z","attempt":2,"behavior":"succeed"}
+{"id":"e376","ts":"2026-09-06T11:33:13.136Z","kind":"ASSIGN","task":"T-203","from":"ready","to":"assigned","lease":"l-ca4d8647","expires":"2026-09-06T11:37:13.136Z","attempt":2,"behavior":"flaky"}
+{"id":"e377","ts":"2026-09-06T11:33:13.136Z","kind":"ASSIGN","task":"T-204","from":"ready","to":"assigned","lease":"l-c119ce82","expires":"2026-09-06T11:37:13.136Z","attempt":2,"behavior":"succeed"}
+{"id":"e378","ts":"2026-09-06T11:33:13.157Z","kind":"REJECTED","origKind":"REPORT","task":"T-204","reason":"stale-lease"}
+{"id":"e379","ts":"2026-09-06T11:33:13.158Z","kind":"REJECTED","origKind":"REPORT","task":"T-202","reason":"stale-lease"}
+{"id":"e380","ts":"2026-09-06T11:33:13.158Z","kind":"REJECTED","origKind":"REPORT","task":"T-201","reason":"stale-lease"}
+{"id":"e381","ts":"2026-09-06T11:33:13.158Z","kind":"TICK","seq":15,"actor":"manual"}
