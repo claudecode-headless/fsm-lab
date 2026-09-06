@@ -1,14 +1,14 @@
 {
  "schema": 1,
- "version": 56,
- "journal_seq": 177,
+ "version": 57,
+ "journal_seq": 179,
  "chain": {
   "id": "c-1788688375990",
-  "seq": 121,
-  "last_tick": "2026-09-06T10:13:54.989Z",
-  "primed_by": "chain",
+  "seq": 122,
+  "last_tick": "2026-09-06T10:14:04.847Z",
+  "primed_by": "manual",
   "halted": false,
-  "paused": false
+  "paused": true
  },
  "project": {
   "phase": "executing",
@@ -803,6 +803,8 @@
   "tick-chain-1788689602402",
   "tick-chain-1788689614852",
   "tick-chain-1788689626289",
-  "tick-chain-1788689634364"
+  "tick-chain-1788689634364",
+  "ctl-1788689641436-3o84qw",
+  "tick-manual-1788689644047"
  ]
 }
