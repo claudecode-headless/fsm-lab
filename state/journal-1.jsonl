@@ -123,3 +123,4 @@
 {"id":"e123","ts":"2026-09-06T10:09:07.597Z","kind":"ASSIGN","task":"T-202","from":"ready","to":"assigned","lease":"l-1e396f8e","expires":"2026-09-06T10:13:07.597Z","attempt":1,"behavior":"succeed"}
 {"id":"e124","ts":"2026-09-06T10:09:07.597Z","kind":"ASSIGN","task":"T-203","from":"ready","to":"assigned","lease":"l-6651d251","expires":"2026-09-06T10:13:07.597Z","attempt":1,"behavior":"flaky"}
 {"id":"e125","ts":"2026-09-06T10:09:07.597Z","kind":"ASSIGN","task":"T-204","from":"ready","to":"assigned","lease":"l-125542dc","expires":"2026-09-06T10:13:07.597Z","attempt":1,"behavior":"succeed"}
+{"id":"e126","ts":"2026-09-06T10:09:17.596Z","kind":"TICK","seq":93,"actor":"chain"}
