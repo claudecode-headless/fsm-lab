@@ -1,12 +1,12 @@
 {
  "schema": 1,
  "version": 27,
- "journal_seq": 360,
+ "journal_seq": 361,
  "chain": {
   "id": "c-1788692082392",
-  "seq": 11,
-  "last_tick": "2026-09-06T11:04:57.929Z",
-  "primed_by": "watchdog-reprime",
+  "seq": 12,
+  "last_tick": "2026-09-06T11:05:30.634Z",
+  "primed_by": "chain",
   "halted": false,
   "paused": false
  },
@@ -392,6 +392,7 @@
   "tick-chain-1788692310344",
   "tick-chain-1788692345559",
   "tick-chain-1788692377414",
-  "tick-watchdog-reprime-1788692697080"
+  "tick-watchdog-reprime-1788692697080",
+  "tick-chain-1788692729353"
  ]
 }
