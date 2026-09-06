@@ -16,8 +16,9 @@ import { Store } from '../lib/store.mjs';
 
 const REPO = process.env.GITHUB_REPOSITORY || 'claudecode-headless/fsm-lab';
 const RUN_ID = process.env.GITHUB_RUN_ID || 'local';
-const PAT = process.env.LAB_PAT;
-const TOKEN = process.env.GH_TOKEN || PAT; // X1a: job token first, PAT fallback
+// T44: LAB_PAT dropped — the worker NEVER dispatches (reports ride git via
+// CAS-append; the report enqueue uses the checkout's git credentials, and
+// the state branch accepts the ephemeral job token). Zero PAT surface here.
 const CP = JSON.parse(process.env.EVENT || '{}').client_payload || {};
 const MODE = CP.mode || 'mock';
 
@@ -48,6 +49,7 @@ async function realWork() {
       ],
       max_tokens: 64,
     }),
+    signal: AbortSignal.timeout(150_000),  // bounded: the lease is the semantic backstop, not the hang
   });
   const d = await r.json().catch(() => ({}));
   const content = d?.choices?.[0]?.message?.content || null;

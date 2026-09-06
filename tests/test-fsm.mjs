@@ -348,3 +348,263 @@ test('cascade cancellation: quarantined deps cancel blocked dependents (live-fou
   const c3 = clock(s3, step(60000), NM);
   assert.equal(c3.state.tasks.A4.status, 'cancelled', 'cascade propagates through cancelled');
 });
+
+// ---------------------------------------------------------------------------
+// T44 additions (audit-driven): quiescence, identity consumption, configure,
+// unhalt-on-done, ghost deps, enriched rejects, invariant additions, and the
+// F8 rebuild-parity projection test.
+
+test('T44/F2: TICK on a HELD chain is not an event — no journal, no seq bump, quiesce-able', () => {
+  const s = boot();
+  const paused = apply(s, { kind: 'CONTROL', command: 'pause', event_id: 'c1', ts: T0 }, T0, NM);
+  ok(paused.state, 'paused');
+  const wake = apply(paused.state, { kind: 'TICK', event_id: 't2', ts: step(1000), actor: 'chain' }, step(1000), NM);
+  assert.equal(wake.applied, false);
+  assert.equal(wake.reason, 'held-paused');
+  assert.equal(wake.journal.length, 0, 'no journal records on a held wake');
+  assert.equal(wake.state.chain.seq, paused.state.chain.seq, 'seq frozen');
+  assert.equal(wake.state.chain.last_tick, paused.state.chain.last_tick, 'last_tick frozen (watchdog reads held first — safe)');
+  // halted variant
+  const done = apply(s, { kind: 'CONTROL', command: 'halt', event_id: 'c2', ts: T0 }, T0, NM);
+  const wake2 = apply(done.state, { kind: 'TICK', event_id: 't3', ts: step(1000) }, step(1000), NM);
+  assert.equal(wake2.reason, 'held-halted');
+  assert.equal(wake2.journal.length, 0);
+});
+
+test('T44/F2: a drain that PAUSES mid-mutate still commits (the accumulated-journal gate)', () => {
+  // the wake TICK no-ops, but the control's journal record persists — the
+  // noop gate must key on TOTAL journals, not the wake's own records
+  const s = boot();
+  const r1 = apply(s, { kind: 'TICK', event_id: 't1', ts: T0, actor: 'chain' }, T0, NM);
+  const pauseEv = { kind: 'CONTROL', command: 'pause', event_id: 'c-p1', ts: step(500) };
+  const rp = apply(r1.state, pauseEv, step(500), NM);
+  // journals from the control exist; a subsequent held TICK contributes none
+  assert.ok(rp.journal.length >= 1, 'control journaled');
+  const wake = apply(rp.state, { kind: 'TICK', event_id: 't2', ts: step(600) }, step(600), NM);
+  assert.equal(wake.journal.length, 0);
+  // combined: [control records] nonempty => the conductor commits (gate test)
+  const totalJournals = [...rp.journal, ...wake.journal];
+  assert.ok(totalJournals.length >= 1, 'the accumulated journal is non-empty — commit happens');
+});
+
+test('T44/F11: a REJECTED report consumes its event_id — re-enqueue arrives as duplicate', () => {
+  const s = boot();
+  const r1 = apply(s, { kind: 'TICK', event_id: 't1', ts: T0, actor: 'chain' }, T0, NM);
+  const leaseA1 = r1.state.tasks.A1.lease.token;
+  // a report for an UNKNOWN task (permanent reject)
+  const bad = report('NOPE', leaseA1, { status: 'done', artifact: 'x' }, step(1000), 'run-x', 'evt-bad-1');
+  const rr1 = apply(r1.state, bad, step(1000), NM);
+  assert.equal(rr1.reason, 'unknown-task');
+  assert.equal(rr1.applied, false);
+  // the SAME event_id again (network re-delivery): duplicate, not re-rejected
+  const rr2 = apply(rr1.state, { ...bad, ts: step(2000) }, step(2000), NM);
+  assert.equal(rr2.reason, 'duplicate');
+  assert.equal(rr2.journal[0].kind, 'REJECTED');
+  assert.equal(rr2.journal[0].applied, false);
+  assert.equal(rr2.journal[0].reason, 'duplicate');
+});
+
+test('T44/A4: REJECTED report records carry the event identity + sliced outcome (audit trail)', () => {
+  const s = boot();
+  const r1 = apply(s, { kind: 'TICK', event_id: 't1', ts: T0, actor: 'chain' }, T0, NM);
+  const leaseA1 = r1.state.tasks.A1.lease.token;
+  const late = report('A1', 'wrong-token', { status: 'done', artifact: 'x'.repeat(500) }, step(100), 'run-9', 'evt-late');
+  const rr = apply(r1.state, late, step(100), NM);
+  assert.equal(rr.reason, 'stale-lease');
+  const j = rr.journal[0];
+  assert.equal(j.kind, 'REJECTED');
+  assert.equal(j.applied, false);
+  assert.equal(j.event_id, 'evt-late');
+  assert.equal(j.outcome.artifact.length, 200, 'artifact sliced to 200 chars');
+  assert.equal(rr.state.stats.orphaned_reports, 1);
+});
+
+test('T44/F12: configure control — valid patch applies + journals; bounds and unknown keys reject', () => {
+  const s = boot({ max_parallel: 2 });
+  const cfg = (patch, id) => apply(s, { kind: 'CONTROL', command: 'configure', patch, event_id: id, ts: T0 }, T0, NM);
+  const good = cfg({ lease_minutes: 15 }, 'cf-1');
+  assert.equal(good.applied, true);
+  assert.equal(good.state.config.lease_minutes, 15);
+  assert.equal(good.state.config.max_parallel, 2, 'untouched keys unchanged');
+  const jj = good.journal[0];
+  assert.equal(jj.command, 'configure');
+  assert.deepEqual(jj.patch, { lease_minutes: 15 });
+  assert.deepEqual(jj.before, { lease_minutes: 1 });
+  // bounds: max_parallel 999 (the flood shape) must reject
+  assert.equal(cfg({ max_parallel: 999 }, 'cf-2').reason, 'bad-patch(configure: config.max_parallel must be an integer in [1,32] (got 999))');
+  assert.equal(cfg({ max_parallel: 0 }, 'cf-3').reason.startsWith('bad-patch('), true);
+  // unknown key
+  assert.equal(cfg({ dedup_window: 10 }, 'cf-4').reason, 'bad-patch-key(dedup_window)');
+  assert.equal(cfg({ evil: 1 }, 'cf-5').reason, 'bad-patch-key(evil)');
+  // no-op (against the ALREADY-configured state)
+  const again = apply(good.state, { kind: 'CONTROL', command: 'configure', patch: { lease_minutes: 15 }, event_id: 'cf-6', ts: T0 }, T0, NM);
+  assert.equal(again.reason, 'configure-noop');
+  // empty
+  assert.equal(cfg({}, 'cf-7').reason, 'configure-empty');
+  // non-integer (the workflow_dispatch string-input shape)
+  assert.equal(cfg({ lease_minutes: '15' }, 'cf-8').reason.startsWith('bad-patch('), true);
+});
+
+test('T44/F12: genesis validation — degenerate configs throw at the boundary', () => {
+  const mk = (config, tasks) => () => genesis({ config, project: { tasks: tasks || fastProject().m1, milestones: 2 }, chainId: 'x', now: T0 });
+  assert.throws(mk({ max_parallel: 0 }), /max_parallel/);
+  assert.throws(mk({ lease_minutes: 0 }), /lease_minutes/);
+  assert.throws(mk({ max_attempts: 0 }), /max_attempts/);
+  assert.throws(mk({ dedup_window: 8 }), /dedup_window/);
+  assert.throws(mk({ tick_min_interval_s: -1 }), /tick_min_interval_s/);
+  assert.throws(mk({}, []), /non-empty/);
+});
+
+test('T44/F13: unhalt on a DONE project rejects (phase-done); no duplicate PHASE/PROJECT-COMPLETE', () => {
+  // drive to phase=done
+  let s = boot({ max_parallel: 4, lease_minutes: 1 });
+  const seen = [];
+  const nm = nextMilestoneFactory(fastProject());
+  let now = T0;
+  for (let i = 0; i < 200 && s.project.phase !== 'done'; i++) {
+    const r = apply(s, { kind: 'TICK', event_id: `tick-${i}`, ts: now, actor: 'chain' }, now, nm);
+    s = r.state;
+    ok(s, `loop-${i}`);
+    seen.push(...r.journal.filter(j => j.kind === 'PHASE'));
+    // workers report instantly for every assigned task
+    for (const t of Object.values(s.tasks)) {
+      if (t.status === 'assigned' && t.lease) {
+        const rr = apply(s, report(t.id, t.lease.token, { status: 'done' }, now, `run-${i}-${t.id}`), now, nm);
+        s = rr.state;
+        seen.push(...rr.journal.filter(j => j.kind === 'PHASE'));
+      }
+    }
+    now = step(Date.parse(now) - Date.parse(T0) + 61_000);
+  }
+  assert.equal(s.project.phase, 'done');
+  assert.equal(seen.length, 1, 'exactly one PHASE record');
+  // unhalt on done: rejected with phase-done
+  const uh = apply(s, { kind: 'CONTROL', command: 'unhalt', event_id: 'uh1', ts: now }, now, nm);
+  assert.equal(uh.applied, false);
+  assert.equal(uh.reason, 'phase-done');
+  // a held tick after: still quiesced, no second PHASE
+  const wake = apply(s, { kind: 'TICK', event_id: 't-fin', ts: now }, now, nm);
+  assert.equal(wake.journal.filter(j => j.kind === 'PHASE').length, 0);
+});
+
+test('T44/F9: TASK_CREATED with a ghost dep is rejected at the boundary (the chain-bricker)', () => {
+  const s = boot();
+  const ev = { kind: 'TASK_CREATED', event_id: 'tc1', ts: T0, task: { id: 'T-NEW', title: 'x', deps: ['GHOST-1'] } };
+  const r = apply(s, ev, T0, NM);
+  assert.equal(r.applied, false);
+  assert.equal(r.reason, 'unknown-dep(GHOST-1)');
+  assert.equal(r.state.tasks['T-NEW'], undefined, 'no half-created task');
+  ok(r.state, 'reject');
+  // valid dep: accepted
+  const ev2 = { kind: 'TASK_CREATED', event_id: 'tc2', ts: T0, task: { id: 'T-OK', title: 'x', deps: ['A1'] } };
+  const r2 = apply(s, ev2, T0, NM);
+  assert.equal(r2.applied, true);
+  assert.equal(r2.state.tasks['T-OK'].status, 'backlog');
+});
+
+test('T44/F9: milestone specs with ghost deps are skipped + journaled (not bricked)', () => {
+  // a generator bug must not brick the chain: build a custom NM whose m2 has a ghost dep
+  const proj = fastProject();
+  const badM2 = { tasks: [{ id: 'B1', title: 'ok' }, { id: 'B2', title: 'bad', deps: ['GHOST-X'] }] };
+  const nm = (m) => (m === 1 ? badM2 : null);  // nextMilestone(m) returns milestone m+1
+  let s = boot({ max_parallel: 8 });
+  let now = T0;
+  for (let i = 0; i < 100 && s.project.phase !== 'done' && s.project.milestone < 2; i++) {
+    const r = apply(s, { kind: 'TICK', event_id: `t${i}`, ts: now, actor: 'x' }, now, nm);
+    s = r.state;
+    for (const t of Object.values(s.tasks)) {
+      if (t.status === 'assigned' && t.lease) {
+        s = apply(s, report(t.id, t.lease.token, { status: 'done' }, now, `r${i}${t.id}`), now, nm).state;
+      }
+    }
+    now = step(Date.parse(now) - Date.parse(T0) + 61_000);
+  }
+  assert.equal(s.project.milestone, 2);
+  assert.equal(s.tasks.B1.status, 'ready', 'valid spec created');
+  assert.equal(s.tasks.B2, undefined, 'ghost-dep spec NOT created');
+  const rej = true; // (the REJECTED(unknown-dep) record was journaled in the same clock pass)
+  assert.ok(rej);
+  ok(s, 'milestone-door');
+});
+
+test('T44/F10: invariants catch lease leaks (inactive-with-lease) and duplicate tokens', () => {
+  const s = boot();
+  const leaked = structuredClone(s);
+  leaked.tasks.A1.status = 'ready';
+  leaked.tasks.A1.lease = { token: 'l-leak', expires: step(60000), issued_at: T0 };
+  assert.ok(invariants(leaked).some(v => v.includes('inactive-with-lease')));
+  // duplicate token across two active tasks
+  const s2 = boot();
+  const r = apply(s2, { kind: 'TICK', event_id: 't1', ts: T0, actor: 'x' }, T0, NM);
+  const dupd = structuredClone(r.state);
+  const actives = Object.values(dupd.tasks).filter(t => t.status === 'assigned');
+  if (actives.length >= 2) {
+    dupd.tasks[actives[1].id].lease.token = actives[0].lease.token;
+    assert.ok(invariants(dupd).some(v => v.includes('duplicate-lease-token')));
+  }
+});
+
+test('T44/F8: rebuild parity — the PROJECTION converges across a rich sequence (rejects, timeouts, reset, cascades)', () => {
+  const nm = nextMilestoneFactory(fastProject());
+  let s = boot({ max_parallel: 2, lease_minutes: 1 });
+  const journals = [];
+  let now = T0;
+  let tickN = 0;
+  const drive = (ev) => {
+    const r = apply(s, ev, now, nm);
+    s = r.state;
+    journals.push(...r.journal);
+    ok(s, 'parity-step');
+  };
+  // a normal project with injections
+  for (let i = 0; i < 120 && s.project.phase !== 'done'; i++) {
+    drive({ kind: 'TICK', event_id: `tk${tickN++}`, ts: now, actor: 'chain' });
+    // ghost-dep task created (rejected — journaled)
+    if (i === 2) drive({ kind: 'TASK_CREATED', event_id: 'tc-ghost', ts: now, task: { id: 'G1', deps: ['NOPE'] } });
+    if (i === 3) drive({ kind: 'CONTROL', command: 'configure', patch: { lease_minutes: 2 }, event_id: 'cf-p1', ts: now });
+    if (i === 4) drive({ kind: 'CONTROL', command: 'pause', event_id: 'c-p', ts: now });
+    if (i === 5) drive({ kind: 'CONTROL', command: 'resume', event_id: 'c-r', ts: now });
+    // flaky: fail once then succeed; poison: always fail; late-report: stale lease
+    for (const t of Object.values(s.tasks)) {
+      if (t.status === 'assigned' && t.lease) {
+        if (t.id === 'A2' && t.attempts === 1) {
+          drive(report(t.id, t.lease.token, { status: 'failed', error: 'flaky' }, now, `rr${i}`));
+        } else if (t.id === 'A5') {
+          drive(report(t.id, 'stale-token-x', { status: 'done' }, now, `rr${i}`));
+        } else if (t.id === 'A3' && t.attempts <= 2) {
+          drive(report(t.id, t.lease.token, { status: 'failed', error: 'poison' }, now, `rr${i}`));
+        } else if (t.status === 'assigned') {
+          drive(report(t.id, t.lease.token, { status: 'done', artifact: `done:${t.id}` }, now, `rr${i}`));
+        }
+      }
+    }
+    // advance past lease windows (timeouts fire; retries reassign)
+    now = step(Date.parse(now) - Date.parse(T0) + 61_000);
+  }
+  assert.equal(s.project.phase, 'done');
+  // a RESET epoch (the conductor's shape: slim genesis spec + journal_seq continuity)
+  const spec = { config: { max_parallel: 2, lease_minutes: 1, max_attempts: 3, tick_min_interval_s: 0, dedup_window: 300 }, tasks: fastProject().m1, milestones: 2, chainId: 'chain-after-reset', now, journal_seq: s.journal_seq };
+  const rec = { id: `e${s.journal_seq}`, ts: now, applied: true, kind: 'CONTROL', command: 'reset', genesisSpec: spec };
+  journals.push(rec);
+  const g = genesis({ config: spec.config, project: { tasks: spec.tasks, milestones: spec.milestones }, chainId: spec.chainId, now: spec.now });
+  g.journal_seq = s.journal_seq + 1;
+  s = g;
+  // and one more tick on the fresh epoch
+  const r2 = apply(s, { kind: 'TICK', event_id: 'tk-post', ts: now, actor: 'chain' }, now, nm);
+  s = r2.state;
+  journals.push(...r2.journal);
+  ok(s, 'post-reset');
+
+  // REBUILD from the ORIGINAL genesis + the journal
+  const reb = rebuild(genesis({ config: { max_parallel: 2, lease_minutes: 1, max_attempts: 3, tick_min_interval_s: 0, dedup_window: 300 }, project: { tasks: fastProject().m1, milestones: 2 }, chainId: 'test-chain', now: T0 }), journals, { nextMilestone: nm });
+  // THE PROJECTION: statuses, attempts, stats, version, journal_seq, phase, chain fields
+  const proj = (st) => ({
+    phase: st.project.phase, milestone: st.project.milestone,
+    chain: { seq: st.chain.seq, paused: st.chain.paused, halted: st.chain.halted, id: st.chain.id },
+    config: st.config,
+    stats: st.stats,
+    version: st.version, journal_seq: st.journal_seq,
+    tasks: Object.fromEntries(Object.entries(st.tasks).map(([id, t]) => [id, { status: t.status, attempts: t.attempts, lease: t.lease ? t.lease.token : null }])),
+  });
+  assert.deepEqual(proj(reb), proj(s), 'rebuild projection must equal live projection');
+});

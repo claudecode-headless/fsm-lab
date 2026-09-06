@@ -36,6 +36,7 @@ async function api(path, method = 'GET', body = null) {
       'User-Agent': 'fsm-lab-watchdog',
     },
     body: body ? JSON.stringify(body) : undefined,
+    signal: AbortSignal.timeout(20_000),
   });
   const text = await r.text();
   let data = null;
@@ -51,6 +52,16 @@ async function findAlertIssue() {
 async function openAlertIssue(body) {
   const existing = await findAlertIssue();
   if (existing) {
+    // T44 rate-limit: comment only if the last marker comment is older than
+    // 24h — a corrupt-state chain firing every ~2h scan was commenting the
+    // same alert 12x/day (the alert issue itself is already deduped to ONE).
+    const r = await api(`/repos/${REPO}/issues/${existing.number}/comments?per_page=20`, 'GET');
+    const comments = (r.data || []).filter(c => (c.body || '').includes('**[fsm-watchdog]**'));
+    const last = comments[comments.length - 1];
+    if (last && Date.now() - Date.parse(last.created_at) < 24 * 3600_000) {
+      console.log(`WATCHDOG-ALERT-SKIP (recent marker <24h on issue #${existing.number})`);
+      return existing.number;
+    }
     await api(`/repos/${REPO}/issues/${existing.number}/comments`, 'POST', { body });
     return existing.number;
   }
@@ -94,7 +105,10 @@ async function main() {
   if (!stale) { console.log('WATCHDOG-DONE mode=healthy'); return; }
 
   // stale: is a conductor run already in flight? (queue latency, slow tick)
-  const recent = await conductorRunsSince(3);
+  // T44: lookback 6min >= the conductor job timeout (5min) — a 3min window
+  // re-primed runs whose predecessor was still legitimately running, feeding
+  // the breaker with benign duplicates.
+  const recent = await conductorRunsSince(6);
   const active = recent.filter(r => ['queued', 'in_progress'].includes(r.status));
   if (active.length > 0) {
     console.log(`WATCHDOG-DONE mode=stale-but-inflight (${active.length} run(s) queued/running) — waiting`);
@@ -116,11 +130,18 @@ async function main() {
     return;
   }
 
-  // re-prime
-  const r = await api(`/repos/${REPO}/dispatches`, 'POST', {
+  // re-prime (with one retry — a single transient 5xx must not lose it)
+  let r = await api(`/repos/${REPO}/dispatches`, 'POST', {
     event_type: 'fsm-tick',
     client_payload: { reason: 'watchdog-reprime', stale_seq: state.chain.seq },
   });
+  if (r.status !== 204) {
+    await new Promise(res => setTimeout(res, 2000));
+    r = await api(`/repos/${REPO}/dispatches`, 'POST', {
+      event_type: 'fsm-tick',
+      client_payload: { reason: 'watchdog-reprime', stale_seq: state.chain.seq },
+    });
+  }
   console.log(`WATCHDOG-REPRIME dispatch=${r.status} (reprime ${reprimes.length + 1}/${MAX_REPRIMES} in window)`);
   console.log('WATCHDOG-DONE mode=reprime');
 }

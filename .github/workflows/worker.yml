@@ -1,14 +1,20 @@
 # fsm-worker — the agent seat. One run = one task attempt.
 #
-# Receives {task, lease, behavior, attempt, work_ms} via fsm-task dispatch.
-# NEVER writes state — reports through the conductor (fsm-report dispatch).
-# The lease token in the report is the validity claim: stale/duplicate
-# reports are absorbed by the conductor (orphan/dedup counters).
+# Receives {task, lease, behavior, attempt, work_ms, mode} via fsm-task dispatch.
+# NEVER writes state and NEVER dispatches — it reports by CAS-appending a
+# line to state/reports-queue.jsonl (data through git; the tick drains it
+# atomically). The lease token in the report is the validity claim:
+# stale/duplicate reports are absorbed by the conductor (orphan/dedup).
 #
 # TTL wall: timeout-minutes kills hangs; the CONDUCTOR's lease deadline is
 # the semantic backstop (retry / quarantine). The job dying "successfully
 # but silent" (no-report behavior) is a first-class failure class the FSM
 # handles by design — this is the at-least-once contract.
+#
+# T44/X14: 20min >= lease(15, real lane) + report margin. The real-LLM lane
+# runs with lease_minutes=15 (configure control) — mock lane lease is 4min
+# but a generous job TTL costs nothing on a public repo and removes the
+# spurious-kill class entirely.
 name: fsm-worker
 
 run-name: "task-${{ github.event.client_payload.task }} · ${{ github.event.client_payload.behavior }} · a${{ github.event.client_payload.attempt }}"
@@ -26,20 +32,17 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: write   # the report dispatch POST needs it (repository_dispatch)
+  contents: write   # the report-queue CAS push (git push via the checkout creds)
 
 jobs:
   work:
     runs-on: ubuntu-latest
-    timeout-minutes: 8   # must exceed the lease window + report latency so
-                         # the 'slow' behavior can report late (orphan path)
+    timeout-minutes: 20   # >= real-lane lease (15) + report margin (X14)
     steps:
       - uses: actions/checkout@v4
 
       - name: Work the task
         env:
-          GH_TOKEN: ${{ github.token }}
-          LAB_PAT: ${{ secrets.LAB_PAT }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_RUN_ID: ${{ github.run_id }}

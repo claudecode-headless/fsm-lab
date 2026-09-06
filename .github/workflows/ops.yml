@@ -14,9 +14,13 @@ on:
   workflow_dispatch:
     inputs:
       command:
-        description: 'pause | resume | halt | unhalt | reset'
+        description: 'pause | resume | halt | unhalt | reset | configure'
         required: true
         default: 'pause'
+      patch:
+        description: 'configure only: JSON like {"lease_minutes":15}'
+        required: false
+        default: ''
       note:
         description: 'operator note (journaled)'
         required: false
@@ -40,4 +44,8 @@ jobs:
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
           EVENT: ${{ toJSON(github.event) }}
+          # T44/F3: the nudge dispatch needs a token — without this env the
+          # ops-nudge 401'd on every run since birth (live: runs 34026953026,
+          # 34028691734 — both "success", the 401 only in the log).
+          GH_TOKEN: ${{ github.token }}
         run: node ops/turn.mjs

@@ -36,6 +36,7 @@ const OPS_ISSUE = parseInt(process.env.OPS_ISSUE || '1', 10);
 
 const NM = nextMilestoneFactory(mockProject());
 const now = () => new Date().toISOString();
+const sleep = (ms) => new Promise(res => setTimeout(res, ms));
 
 async function api(path, method = 'GET', body = null, token = TOKEN) {
   const r = await fetch(`https://api.github.com${path}`, {
@@ -47,14 +48,23 @@ async function api(path, method = 'GET', body = null, token = TOKEN) {
       'User-Agent': 'fsm-lab-conductor',
     },
     body: body ? JSON.stringify(body) : undefined,
+    signal: AbortSignal.timeout(20_000),  // a hung call must not eat the job
   });
   const text = await r.text();
   let data = null;
   try { data = text ? JSON.parse(text) : null; } catch { }
-  return { status: r.status, data };
+  const headers = {};
+  for (const [k, v] of r.headers.entries()) headers[k.toLowerCase()] = v;
+  return { status: r.status, data, headers };
 }
 
-async function dispatchRetry(eventType, clientPayload, tries = 3) {
+// F6: Retry-After-aware, budget-capped, jittered. A 403+Retry-After (the
+// secondary-rate-limit shape) must wait the SERVER floor, not burn all tries
+// in 6s (the old fixed ladder = chain death on a transient). 403 WITHOUT
+// Retry-After is a permission problem — fail fast, no retry.
+async function dispatchRetry(eventType, clientPayload, tries = 5) {
+  const t0 = Date.now();
+  const BUDGET_MS = 240_000;
   let last = null;
   for (let i = 0; i < tries; i++) {
     const r = await api(`/repos/${REPO}/dispatches`, 'POST', {
@@ -62,7 +72,17 @@ async function dispatchRetry(eventType, clientPayload, tries = 3) {
     });
     if (r.status === 204) return { ok: true };
     last = r;
-    await new Promise(res => setTimeout(res, 2000 * (i + 1)));
+    const ra = parseInt(r.headers?.['retry-after'] || '', 10);
+    if ((r.status === 403 || r.status === 429) && Number.isFinite(ra) && ra > 0) {
+      const budgetLeft = BUDGET_MS - (Date.now() - t0);
+      if (budgetLeft <= 0) break;
+      await sleep(Math.min(ra * 1000 * (1 + Math.random() * 0.2), budgetLeft));
+      continue;
+    }
+    if (r.status === 403) return { ok: false, status: 403, fatal: true };
+    const budgetLeft = BUDGET_MS - (Date.now() - t0);
+    if (budgetLeft <= 0) break;
+    await sleep(Math.min(Math.round(2000 * (i + 1) * (0.8 + Math.random() * 0.4)), budgetLeft));
   }
   return { ok: false, status: last?.status, body: last?.data };
 }
@@ -81,13 +101,16 @@ function buildEvent() {
   const cp = EVENT.client_payload || {};
   const kind = EVENT.action || '';
   if (kind === 'fsm-report') {
+    // legacy lane: reports ride git since the queue rearchitecture; a direct
+    // dispatch of this type still lands here — treat it as an event (the FSM
+    // will apply it; dedup guards double-delivery with the queue copy).
     return {
       kind: 'REPORT', event_id: cp.event_id, task: cp.task, lease: cp.lease,
       outcome: cp.outcome, run_id: cp.run_id, ts: now(),
     };
   }
   if (kind === 'fsm-control') {
-    return { kind: 'CONTROL', command: cp.command, event_id: `ctl-direct-${cp.command}-${Date.now()}`, ts: now() };
+    return { kind: 'CONTROL', command: cp.command, patch: cp.patch, event_id: `ctl-direct-${cp.command}-${Date.now()}`, ts: now() };
   }
   // fsm-tick / schedule / workflow_dispatch
   const reason = cp.reason || (EVENT.schedule ? 'schedule-backstop' : 'manual');
@@ -118,103 +141,148 @@ async function main() {
   // the queue drain, the event application, and the clock pass land together.
   // (The depth-1 concurrency-queue discovery: report events must NOT ride
   // workflow runs — they'd be newest-wins-cancelled. Data flows through git.)
+  // T44 restructure: ONE drain path — the direct-dispatch reset becomes a
+  // prepended control-queue item (the old special case returned before the
+  // report drain and silently DELETED queued reports/controls, unjournaled).
+  const DEFAULT_CFG = () => ({ max_parallel: 4, lease_minutes: 4, max_attempts: 3, tick_min_interval_s: 25 });
   const out = await Promise.resolve(store.commit({
-    mutate: (cur, journalTail, queue, controlQueue) => {
+    mutate: (cur, queue, controlQueue, queueBad, ctlBad) => {
       let base = cur;
+      let repaired = null;
       if (!base) {
         const good = store.findLastGoodState();
         if (!good) {
           base = genesis({
-            config: { max_parallel: 4, lease_minutes: 4, max_attempts: 3, tick_min_interval_s: 25 },
+            config: DEFAULT_CFG(),
             project: { tasks: mockProject().m1, milestones: 3 },
             chainId: `c-${Date.now()}`,
             now: now(),
           });
-          console.log('BOOTSTRAP: genesis state created');
+          repaired = 'bootstrap';
         } else {
           base = good.state;
-          console.log(`RECOVERY: rebuilt from git-history snapshot (seq=${base.chain.seq})`);
+          repaired = 'history-walk';
         }
       }
-      // DRAIN (atomic, one commit): control queue FIRST (pause/resume/reset
-      // must gate the rest), then report queue, then the wake event + clock.
-      let s = base;
-      let journals = [];
+      // hand-crafted journal records (ids from the CURRENT journal_seq)
+      const journals = [];
       const actionsAll = [];
-      const survivingCtl = [];
-      const surviving = [];
-      let drained = 0, ctlDrained = 0;
-      for (const c of controlQueue) {
+      const mkJ = (s, fields, applied = true) => {
+        const id = `e${s.journal_seq}`;
+        s.journal_seq += 1;
+        journals.push({ id, ts: now(), applied, ...fields });
+      };
+
+      // DRAIN: control queue FIRST (pause/resume/reset/configure gate the
+      // rest). F1: controls are CONSUMED applied-or-rejected — reject reasons
+      // are permanent (bad-command / phase-done / bad-patch), never reparked.
+      const ctl = [];
+      if (ev.kind === 'CONTROL' && ev.command === 'reset') {
+        ctl.push({ cmd: 'reset', id: ev.event_id, ts: ev.ts, direct: true });
+      }
+      ctl.push(...controlQueue);
+      let s = base;
+      let skipWake = ev.kind === 'CONTROL' && ev.command === 'reset';
+      let resetDone = false;
+      for (const c of ctl) {
         if (c.cmd === 'reset') {
-          // reset: fresh project instance, journal continues
+          // reset: fresh project instance (ADOPTS the current config — F12;
+          // the journal carries the slim genesis spec so rebuild() replays it)
+          const cfg = { ...s.config, tick_min_interval_s: Math.max(s.config.tick_min_interval_s ?? 0, 25) };
+          const spec = mockProject().m1;
+          const chainId = `c-${Date.now()}`;
           const g = genesis({
-            config: { max_parallel: 4, lease_minutes: 4, max_attempts: 3, tick_min_interval_s: 25 },
-            project: { tasks: mockProject().m1, milestones: 3 },
-            chainId: `c-${Date.now()}`,
-            now: now(),
+            config: cfg, project: { tasks: spec, milestones: 3 },
+            chainId, now: now(),
           });
-          g.journal_seq = (s?.journal_seq || 1);
-          const rec = { id: `e${g.journal_seq}`, ts: now(), kind: 'CONTROL', command: 'reset', applied: true };
-          g.journal_seq += 1;
-          console.log(`RESET (queued control): new chain ${g.chain.id}`);
+          const seqBase = s.journal_seq;
+          g.journal_seq = seqBase + 1;
+          mkJ(s, {
+            kind: 'CONTROL', command: 'reset',
+            genesisSpec: { config: cfg, tasks: spec, chainId, now: now(), journal_seq: seqBase },
+          });
           s = g;
-          journals.push(rec);
-          ctlDrained++;
+          resetDone = true;
+          console.log(`RESET (${c.direct ? 'direct' : 'queued'}) control ${c.id}: new chain ${g.chain.id}`);
           continue;
         }
-        const cev = { kind: 'CONTROL', command: c.cmd, event_id: c.id, ts: c.ts };
+        const cev = { kind: 'CONTROL', command: c.cmd, patch: c.patch, event_id: c.id, ts: c.ts || now() };
         const cr = apply(s, cev, now(), NM);
         s = cr.state;
         journals.push(...cr.journal);
         actionsAll.push(...cr.actions);
-        if (cr.applied || cr.reason === 'duplicate') ctlDrained++;
-        else survivingCtl.push(c);
+        if (!cr.applied && cr.reason !== 'duplicate') {
+          console.log(`CONTROL-REJECTED ${c.cmd} (${c.id}): ${cr.reason}`);
+        }
       }
-      // a queued RESET replaces everything: reports/tick apply on the fresh state
-      if (ev.kind === 'CONTROL' && ev.command === 'reset') {
-        // direct dispatch path (works when the chain is idle)
-        const g = genesis({
-          config: { max_parallel: 4, lease_minutes: 4, max_attempts: 3, tick_min_interval_s: 25 },
-          project: { tasks: mockProject().m1, milestones: 3 },
-          chainId: `c-${Date.now()}`,
-          now: now(),
-        });
-        g.journal_seq = (s?.journal_seq || 1);
-        const rec = { id: `e${g.journal_seq}`, ts: now(), kind: 'CONTROL', command: 'reset', applied: true };
-        g.journal_seq += 1;
-        console.log(`RESET (direct): new chain ${g.chain.id}`);
-        return { state: g, journal: [...journals, rec], actions: actionsAll, queue: surviving, controlQueue: [], message: `RESET chain=${g.chain.id}` };
+      // unparseable control lines: audited then dropped (the rewrite removes them)
+      for (const raw of ctlBad) {
+        mkJ(s, { kind: 'REJECTED', origKind: 'CONTROL', reason: 'unparseable', raw }, false);
       }
-      const queueRemaining = s.chain.halted || s.chain.paused ? controlQueue.filter(c => c.cmd === 'reset') : [];
-      void queueRemaining;
+
+      // DRAIN: report queue. F1: consumed applied-or-rejected — every reject
+      // reason is permanent (unknown-task / task-not-leased / stale-lease /
+      // bad-outcome), and F11's early pushDedup makes any re-enqueue of the
+      // same event_id a duplicate. The zombie-park loop (re-rejecting the
+      // same lines every tick, forever) is dead by construction.
+      let drained = 0;
       for (const q of queue) {
         const rev = { kind: 'REPORT', event_id: q.event_id, task: q.task, lease: q.lease, outcome: q.outcome, run_id: q.run_id };
         const rr = apply(s, rev, now(), NM);
         s = rr.state;
         journals.push(...rr.journal);
         actionsAll.push(...rr.actions);
-        if (rr.applied || rr.reason === 'duplicate') drained++; // consumed either way
-        else surviving.push(q); // unparseable/unknown-task reports stay parked
+        drained++;
       }
-      const r = apply(s, ev, now(), NM);
-      const viol = invariants(r.state);
+      for (const raw of queueBad) {
+        mkJ(s, { kind: 'REJECTED', origKind: 'REPORT', reason: 'unparseable', raw }, false);
+      }
+
+      // wake event (a direct reset WAS the control — already applied above)
+      let wakeApplied = false, wakeReason = 'ok';
+      if (!skipWake) {
+        const r = apply(s, ev, now(), NM);
+        s = r.state;
+        journals.push(...r.journal);
+        actionsAll.push(...r.actions);
+        wakeApplied = r.applied;
+        wakeReason = r.reason;
+      }
+
+      // fail-closed: invariant violations never commit (unchanged discipline)
+      const viol = invariants(s);
       if (viol.length) throw new Error(`INVARIANT VIOLATION: ${viol.join('; ')}`);
-      journals.push(...r.journal);
-      actionsAll.push(...r.actions);
-      if (journals.length === 0 && !r.applied) {
-        return { noop: true, reason: r.reason };
+
+      // A2: repair forces the commit — under quiescence a recovered state
+      // must PERSIST or corruption never heals (red-team probe: 3 wakes, tip
+      // frozen, state still corrupt). RECOVERY journals the epoch boundary.
+      if (repaired) {
+        mkJ(s, { kind: 'RECOVERY', reason: repaired });
+        if (repaired === 'bootstrap') actionsAll.push({ type: 'BOOTSTRAP_NOTICE', reason: repaired });
+        else actionsAll.push({ type: 'RECOVERY_NOTICE', reason: repaired });
+        console.log(`RECOVERY: base rebuilt from ${repaired === 'bootstrap' ? 'fresh genesis (state branch was absent or history unreadable)' : 'git-history snapshot'}`);
+      }
+
+      // F2 noop gate — on the ACCUMULATED journal (drain + wake), never the
+      // wake event alone: a drain that halts the chain mid-mutate still
+      // commits (its PHASE/STOP records must land).
+      if (journals.length === 0 && !wakeApplied && !repaired) {
+        return { noop: true, reason: wakeReason || 'quiesced' };
       }
       return {
-        state: r.state, journal: journals, actions: actionsAll,
-        queue: surviving, controlQueue: survivingCtl,
-        message: `${ev.kind}${drained ? `+${drained}r` : ''}${ctlDrained ? `+${ctlDrained}c` : ''} seq=${r.state.chain.seq} v${r.state.version} done=${r.state.stats.done} [${journals[0]?.id}..${journals[journals.length - 1]?.id}]`,
+        state: s, journal: journals, actions: actionsAll,
+        queue: [], controlQueue: [],   // F1: the drain consumed everything
+        message: `${skipWake ? 'reset' : ev.kind}${drained ? `+${drained}r` : ''} seq=${s.chain.seq} v${s.version} done=${s.stats.done} [${journals[0]?.id}..${journals[journals.length - 1]?.id}]${resetDone ? ' RESET' : ''}${repaired ? ' RECOVERED' : ''}`,
       };
     },
   }));
 
   if (!out.committed) {
-    console.log(`NOOP: ${out.reason} — chain continues`);
-    await dispatchRetry('fsm-tick', { reason: 'chain', seq: (out.state?.chain?.seq ?? 0) + 1 });
+    // F2/A1: QUIESCED — a held chain with empty queues. NEVER self-dispatch
+    // (the old noop path restarted stopped chains; a mixed-deploy version of
+    // that is a livelock at runner cadence — structurally impossible now).
+    const held = out.state?.chain?.paused || out.state?.chain?.halted;
+    console.log(`QUIESCED: ${out.reason}${held ? ` (chain ${out.state.chain.paused ? 'paused' : 'halted'})` : ''} — no commit, no self-dispatch`);
     return;
   }
   const state = out.state;
@@ -230,6 +298,12 @@ async function main() {
         chain: state.chain.id,
       });
       if (!d.ok) dispatchFailures++;
+    }
+    if (a.type === 'BOOTSTRAP_NOTICE') {
+      await postIssueComment(`**[fsm]** BOOTSTRAP: fresh genesis committed (state branch was absent or its history was unreadable — if this is unexpected, the previous state was LOST; check the repo's branch protection and recent pushes).`);
+    }
+    if (a.type === 'RECOVERY_NOTICE') {
+      await postIssueComment(`**[fsm]** RECOVERY: state rebuilt from a git-history snapshot (last parseable state.json). Investigate what corrupted the tip.`);
     }
   }
 

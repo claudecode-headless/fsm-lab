@@ -1,11 +1,13 @@
 # fsm-conductor — the orchestration loop. One run = one FSM turn
-# (a tick, a report application, or a control command), serialized by the
+# (a tick, a control command, or a backstop wake), serialized by the
 # concurrency group: SINGLE STATE WRITER by construction.
 #
 # Continuity: every successful turn self-dispatches the next tick via the
-# LAB_PAT (repository_dispatch with GITHUB_TOKEN never starts workflows —
-# the anti-recursion law, chain-probe-proven). If a link dies, the watchdog
-# re-primes. If everything is done, STOP_CHAIN just doesn't dispatch.
+# JOB-SCOPED GITHUB_TOKEN (X1a: repository_dispatch IS the anti-recursion
+# exception — probe-proven run 34025596219, chain-proven X1c: 15 hops, actor
+# github-actions[bot] x14). LAB_PAT stays as the fallback lane only. If a
+# link dies, the watchdog re-primes. If everything is done (or held), the
+# turn QUIESCES — no commit, no self-dispatch (T44/F2).
 #
 # Security (the executor contract, PUBLIC repo discipline):
 #   triggers = repository_dispatch + workflow_dispatch + schedule ONLY
@@ -14,9 +16,7 @@
 name: fsm-conductor
 
 run-name: >-
-  ${{ github.event_name == 'repository_dispatch' && github.event.action == 'fsm-report'
-      && format('report:{0} · conductor', github.event.client_payload.task)
-      || github.event_name == 'repository_dispatch' && github.event.action == 'fsm-control'
+  ${{ github.event_name == 'repository_dispatch' && github.event.action == 'fsm-control'
       && format('control:{0} · conductor', github.event.client_payload.command)
       || github.event_name == 'repository_dispatch'
       && format('{0} · conductor', github.event.client_payload.reason || github.event.action)
@@ -24,7 +24,7 @@ run-name: >-
 
 on:
   repository_dispatch:
-    types: [fsm-tick, fsm-report, fsm-control]
+    types: [fsm-tick, fsm-control]
   workflow_dispatch:
     inputs:
       note:
@@ -34,6 +34,10 @@ on:
   schedule:
     # backstop tick + watchdog prime in one: if the chain is dead AND state
     # is fresh, this is a harmless extra tick; if stale, it re-primes.
+    # On a done/held chain this wake QUIESCES (no commit — T44/F2).
+    # NOTE (T44 live datum): schedules COLD-START ~3.6h after repo creation
+    # and then fire sparsely (~2h apart vs the 10-min nominal) — the chain
+    # self-tick is the primary driver; this is the backstop.
     # :08 avoids the :00/:30 high-load schedule minutes.
     - cron: "8,18,28,38,48,58 * * * *"
 
@@ -48,7 +52,7 @@ permissions:
 jobs:
   turn:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10  # T44/F6: was 5 — the Retry-After-aware dispatch ladder needs the headroom
     steps:
       - uses: actions/checkout@v4
 

@@ -1,8 +1,10 @@
 # chain-probe — X1: the chain-physics probe. Two questions, settled live
 # before the conductor relies on either:
 #   1. Can a workflow re-trigger ITSELF with its own GITHUB_TOKEN?
-#      (docs say no — the anti-recursion law; the probe PROVES it)
-#   2. Can it with a PAT? (the chain mechanism — hop latency measured)
+#      (X1a ANSWER — YES: repository_dispatch is the documented anti-recursion
+#      exception; probe 34025596219 fired run 34025603333 as github-actions[bot].
+#      The old header claimed the opposite — a doc inversion caught in T44.)
+#   2. Can it with a PAT? (hop latency measured: 15 hops @ 9.2s)
 name: chain-probe
 
 run-name: "hop ${{ github.event.client_payload.n || 0 }} · ${{ github.event.client_payload.variant || inputs.variant || 'start' }}"
@@ -24,8 +26,8 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  contents: write  # lets the GITHUB_TOKEN *attempt* the dispatch POST (the
-                   # point of the probe: accepted-but-fires-nothing)
+  contents: write  # the dispatch POST (X1a: this lane WORKS — same-repo chains
+                   # need zero PAT)
   actions: read    # run-list query (self-verifying verdict)
 
 jobs:

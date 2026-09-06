@@ -9,7 +9,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { mkdtempSync, rmSync, statSync } from 'node:fs';
+import { mkdtempSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { Store } from '../lib/store.mjs';
@@ -287,5 +287,166 @@ test('journal replay: readJournals + rebuild reproduce the live state (determini
     const rebuilt = rebuild(g0, recs);
     assert.equal(rebuilt.tasks.A1.status, final.tasks.A1.status);
     assert.equal(rebuilt.chain.seq, final.chain.seq);
+  } finally { lab.cleanup(); }
+});
+
+// ---------------------------------------------------------------------------
+// T44 additions: commit-tree fault guard (the branch-deletion path), disjoint
+// rotation, numeric gen ordering, unparseable-queue audit, drain semantics.
+
+test('T44/F4: commit-tree failure THROWS (never builds a deletion refspec)', () => {
+  const lab = mkLab(); try {
+    const st = new Store({ cwd: lab.clone });
+    const g0 = boot('2026-09-06T10:00:00Z');
+    st.init(g0);
+    st.fetch();
+    const before = st.headSha();
+    assert.ok(before, 'branch exists before the fault');
+    // the fault seam: buildCommit behaves as if commit-tree failed
+    process.env.FSM_LAB_FAULT_COMMIT_TREE = '1';
+    let threw = null;
+    try {
+      st.commit({ mutate: (cur) => {
+        const rr = apply(cur, { kind: 'TICK', event_id: 't-f', ts: '2026-09-06T10:01:00Z' }, '2026-09-06T10:01:00Z', NM);
+        return { state: rr.state, journal: rr.journal, message: 'fault test' };
+      } });
+    } catch (e) { threw = e; }
+    delete process.env.FSM_LAB_FAULT_COMMIT_TREE;
+    assert.ok(threw, 'commit() must throw when commit-tree fails');
+    assert.match(threw.message, /commit-tree failed/);
+    // the branch must still exist, tip unchanged (NOT deleted)
+    st.fetch();
+    assert.equal(st.headSha(), before, 'branch survived the fault — no deletion refspec');
+    const { state } = st.readState();
+    assert.equal(state.version, 1, 'state untouched');
+  } finally { delete process.env.FSM_LAB_FAULT_COMMIT_TREE; lab.cleanup(); }
+});
+
+test('T44/F5: rotation is DISJOINT — retained lines are distinct ids, no sliding-window duplication', () => {
+  const lab = mkLab(); try {
+    const st = new Store({ cwd: lab.clone, rotateAt: 10, keepGens: 3 });
+    st.init(boot('2026-09-06T10:00:00Z'));
+    let n = 0;
+    const pushBatch = (count) => {
+      for (let i = 0; i < count; i++) {
+        st.commit({ mutate: (cur) => {
+          const rr = apply(cur, { kind: 'TICK', event_id: `tick-${n}`, ts: `2026-09-06T10:${String(n % 60).padStart(2, '0')}:00Z`, actor: 'x' }, `2026-09-06T10:${String(n % 60).padStart(2, '0')}:00Z`, NM);
+          n++;
+          return { state: rr.state, journal: rr.journal, queue: [], controlQueue: [], message: `t${n}` };
+        } });
+      }
+    };
+    pushBatch(34);  // 34 records with rotateAt=10 -> several rotations
+    st.fetch();
+    const all = st.readJournals();
+    const ids = all.map(j => j.id);
+    const distinct = new Set(ids);
+    assert.equal(ids.length, distinct.size, `retained lines must be DISTINCT (got ${ids.length} lines / ${distinct.size} ids)`);
+    // bounded retention: keepGens=3 x rotateAt=10 => <= 30 retained (+ in-flight gen)
+    assert.ok(ids.length <= 40, `retention bounded (got ${ids.length})`);
+    // per-generation disjointness: no id appears in two gen FILES
+    const files = st.listStateFiles().filter(f => /journal-\d+/.test(f));
+    const perGen = files.map(f => {
+      const raw = st.readFile(f);
+      return raw.split('\n').map(l => l.trim()).filter(Boolean).map(l => JSON.parse(l).id);
+    });
+    const seen = new Map();
+    for (const ids2 of perGen) for (const id of ids2) {
+      assert.equal(seen.has(id), false, `id ${id} must live in exactly ONE generation`);
+      seen.set(id, true);
+    }
+  } finally { lab.cleanup(); }
+});
+
+test('T44/F5: NUMERIC generation ordering — journal-10 is read AFTER journal-9 (the lexicographic trap)', () => {
+  const lab = mkLab(); try {
+    const st = new Store({ cwd: lab.clone, rotateAt: 3, keepGens: 12 });
+    st.init(boot('2026-09-06T10:00:00Z'));
+    let n = 0;
+    for (let i = 0; i < 40; i++) {
+      st.commit({ mutate: (cur) => {
+        const ts = new Date(Date.parse('2026-09-06T10:00:00Z') + n * 1000).toISOString();
+        const rr = apply(cur, { kind: 'TICK', event_id: `tick-${n}`, ts, actor: 'x' }, ts, NM);
+        n++;
+        return { state: rr.state, journal: rr.journal, queue: [], controlQueue: [], message: `t${n}` };
+      } });
+    }
+    st.fetch();
+    const files = st.listStateFiles().filter(f => /journal-\d+/.test(f));
+    const maxGen = Math.max(...files.map(f => parseInt(f.match(/journal-(\d+)/)[1], 10)));
+    assert.ok(maxGen >= 10, `need gen >= 10 to exercise the trap (got ${maxGen})`);
+    const tail = st.readJournalTail(5);
+    // the tail must be the NEWEST records: the last ids by sequence
+    const seq = (id) => parseInt(id.slice(1), 10);
+    const sorted = [...tail].sort((a, b) => seq(a.id) - seq(b.id));
+    assert.deepEqual(tail, sorted, 'tail records arrive in sequence order');
+    // and they are the globally-newest: max seq in tail == max seq anywhere
+    const all = st.readJournals();
+    const maxSeq = Math.max(...all.map(j => seq(j.id)));
+    assert.equal(seq(tail[tail.length - 1].id), maxSeq, 'the tail ends at the newest record (gen-10 was NOT hidden)');
+  } finally { lab.cleanup(); }
+});
+
+test('T44/F1: unparseable queue lines surface via readQueueEx (auditable before the drop)', () => {
+  const lab = mkLab(); try {
+    const st = new Store({ cwd: lab.clone });
+    const g0 = boot('2026-09-06T10:00:00Z');
+    st.init(g0);
+    st.fetch();
+    // hand-craft a queue file with one good line and one broken line
+    const dir = mkdtempSync(join(tmpdir(), 'fsm-qbad-'));
+    try {
+      const good = { event_id: 'rep-1', task: 'A1', lease: 'x', outcome: { status: 'done' }, run_id: 'r1' };
+      const content = JSON.stringify(good) + '\n{BROKEN JSON LINE\n';
+      writeFileSync(join(dir, 'queue.jsonl'), content);
+      const commit = st.buildCommit([[join(dir, 'queue.jsonl'), 'state/reports-queue.jsonl']], [], st.headSha(), 'seed queue with a bad line');
+      st.git(['push', 'origin', `${commit}:refs/heads/fsm-state`]);
+    } finally { rmSync(dir, { recursive: true, force: true }); }
+    st.fetch();
+    const q = st.readQueueEx();
+    assert.equal(q.items.length, 1);
+    assert.equal(q.items[0].event_id, 'rep-1');
+    assert.equal(q.bad.length, 1, 'the broken line is surfaced, not silently skipped');
+    assert.ok(q.bad[0].includes('BROKEN'));
+  } finally { lab.cleanup(); }
+});
+
+test('T44/F1: the drain consumes rejected reports — queue EMPTIES (the zombie loop is dead)', () => {
+  const lab = mkLab(); try {
+    const st = new Store({ cwd: lab.clone });
+    const g0 = boot('2026-09-06T10:00:00Z');
+    st.init(g0);
+    st.fetch();
+    // enqueue a report for a task that doesn't exist (permanent reject)
+    const r = st.enqueueReport({ event_id: 'rep-ghost', task: 'GHOST-9', lease: 'tok', outcome: { status: 'done', artifact: 'zombie artifact' }, run_id: 'r9' });
+    assert.equal(r.ok, true);
+    // a conductor-shaped drain: consume ALL, write empty queue
+    st.commit({ mutate: (cur, queue, controlQueue, queueBad) => {
+      const journals = [];
+      for (const q of queue) {
+        const rr = apply(cur, { kind: 'REPORT', event_id: q.event_id, task: q.task, lease: q.lease, outcome: q.outcome, run_id: q.run_id }, '2026-09-06T10:01:00Z', NM);
+        journals.push(...rr.journal);
+      }
+      const rr = apply(cur, { kind: 'TICK', event_id: 't1', ts: '2026-09-06T10:01:00Z', actor: 'x' }, '2026-09-06T10:01:00Z', NM);
+      return { state: rr.state, journal: [...journals, ...rr.journal], queue: [], controlQueue: [], message: 'drain' };
+    } });
+    st.fetch();
+    assert.equal(st.readQueue().length, 0, 'queue emptied (rejected report consumed, not re-parked)');
+    const j = st.readJournals().find(x => x.kind === 'REJECTED' && x.origKind === 'REPORT');
+    assert.ok(j, 'the rejection is journaled');
+    assert.equal(j.reason, 'unknown-task');
+    assert.equal(j.event_id, 'rep-ghost');
+    assert.equal(j.outcome.artifact, 'zombie artifact', 'audit trail preserved');
+    // the second drain: the queue stays empty and NO new REJECTED records
+    // appear for the consumed id (clock transitions may journal legitimately)
+    const rejectedBefore = st.readJournals().filter(x => x.kind === 'REJECTED').length;
+    st.commit({ mutate: (cur) => {
+      const rr = apply(cur, { kind: 'TICK', event_id: 't2', ts: '2026-09-06T10:02:00Z', actor: 'x' }, '2026-09-06T10:02:00Z', NM);
+      return { state: rr.state, journal: rr.journal, queue: [], controlQueue: [], message: 't2' };
+    } });
+    st.fetch();
+    assert.equal(st.readQueue().length, 0, 'queue still empty');
+    const rejectedAfter = st.readJournals().filter(x => x.kind === 'REJECTED').length;
+    assert.equal(rejectedAfter, rejectedBefore, 'no zombie re-rejection of the consumed event_id');
   } finally { lab.cleanup(); }
 });
