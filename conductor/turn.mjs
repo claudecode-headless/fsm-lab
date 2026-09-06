@@ -118,7 +118,7 @@ async function main() {
         const good = store.findLastGoodState();
         if (!good) {
           base = genesis({
-            config: { max_parallel: 4, lease_minutes: 2, max_attempts: 3 },
+            config: { max_parallel: 4, lease_minutes: 4, max_attempts: 3 },
             project: { tasks: mockProject().m1, milestones: 3 },
             chainId: `c-${Date.now()}`,
             now: now(),

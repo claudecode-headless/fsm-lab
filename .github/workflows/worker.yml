@@ -27,7 +27,8 @@ permissions:
 jobs:
   work:
     runs-on: ubuntu-latest
-    timeout-minutes: 3
+    timeout-minutes: 8   # must exceed the lease window + report latency so
+                         # the 'slow' behavior can report late (orphan path)
     steps:
       - uses: actions/checkout@v4
 
