@@ -8,3 +8,4 @@
 {"event_id":"rep-burst-4-1788691965383","task":"T-BURST-4","lease":"l-burst","outcome":{"status":"done","artifact":"burst-4"},"run_id":"burst-4"}
 {"event_id":"rep-burst-9-1788691965313","task":"T-BURST-9","lease":"l-burst","outcome":{"status":"done","artifact":"burst-9"},"run_id":"burst-9"}
 {"event_id":"rep-burst-6-1788691965327","task":"T-BURST-6","lease":"l-burst","outcome":{"status":"done","artifact":"burst-6"},"run_id":"burst-6"}
+{"event_id":"rep-burst-3-1788691965376","task":"T-BURST-3","lease":"l-burst","outcome":{"status":"done","artifact":"burst-3"},"run_id":"burst-3"}
