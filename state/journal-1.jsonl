@@ -283,3 +283,6 @@
 {"id":"e283","ts":"2026-09-06T10:48:36.584Z","kind":"TICK","seq":41,"actor":"chain"}
 {"id":"e284","ts":"2026-09-06T10:49:08.591Z","kind":"TICK","seq":42,"actor":"chain"}
 {"id":"e285","ts":"2026-09-06T10:49:41.089Z","kind":"TICK","seq":43,"actor":"chain"}
+{"id":"e286","ts":"2026-09-06T10:50:15.565Z","kind":"REJECTED","origKind":"REPORT","task":"T-205","reason":"stale-lease"}
+{"id":"e287","ts":"2026-09-06T10:50:15.567Z","kind":"REJECTED","origKind":"REPORT","task":"T-207","reason":"task-not-leased(quarantined)"}
+{"id":"e288","ts":"2026-09-06T10:50:15.567Z","kind":"TICK","seq":44,"actor":"chain"}
