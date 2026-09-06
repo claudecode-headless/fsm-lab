@@ -1,0 +1,43 @@
+# fsm-ops — the OPERATOR command ingest. Its OWN concurrency group (never
+# contends with the hot conductor chain — live discovery: external dispatches
+# into a busy group get newest-wins-cancelled). Appends commands to the
+# control queue on the state branch; the next tick drains them atomically.
+#
+# Commands: pause | resume | halt | unhalt | reset
+name: fsm-ops
+
+run-name: "ops · ${{ github.event.client_payload.command || inputs.command }}"
+
+on:
+  repository_dispatch:
+    types: [fsm-control]
+  workflow_dispatch:
+    inputs:
+      command:
+        description: 'pause | resume | halt | unhalt | reset'
+        required: true
+        default: 'pause'
+      note:
+        description: 'operator note (journaled)'
+        required: false
+        default: ''
+
+concurrency:
+  group: fsm-ops
+  cancel-in-progress: false
+
+permissions:
+  contents: write   # control-queue CAS push
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Enqueue control
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          EVENT: ${{ toJSON(github.event) }}
+        run: node ops/turn.mjs

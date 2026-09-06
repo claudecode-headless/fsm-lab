@@ -116,7 +116,7 @@ async function main() {
   // (The depth-1 concurrency-queue discovery: report events must NOT ride
   // workflow runs — they'd be newest-wins-cancelled. Data flows through git.)
   const out = await Promise.resolve(store.commit({
-    mutate: (cur, journalTail, queue) => {
+    mutate: (cur, journalTail, queue, controlQueue) => {
       let base = cur;
       if (!base) {
         const good = store.findLastGoodState();
@@ -133,29 +133,57 @@ async function main() {
           console.log(`RECOVERY: rebuilt from git-history snapshot (seq=${base.chain.seq})`);
         }
       }
-      // DRAIN: apply every queued report (in queue order), then the wake
-      // event, then the clock — sequentially on the same evolving state.
+      // DRAIN (atomic, one commit): control queue FIRST (pause/resume/reset
+      // must gate the rest), then report queue, then the wake event + clock.
       let s = base;
-      // RESET: a fresh project instance on the same journal (operator
-      // control — the live M1 was polluted by the two integration bugs;
-      // reset re-seeds M1 with the current config)
+      let journals = [];
+      const actionsAll = [];
+      const survivingCtl = [];
+      const surviving = [];
+      let drained = 0, ctlDrained = 0;
+      for (const c of controlQueue) {
+        if (c.cmd === 'reset') {
+          // reset: fresh project instance, journal continues
+          const g = genesis({
+            config: { max_parallel: 4, lease_minutes: 4, max_attempts: 3, tick_min_interval_s: 25 },
+            project: { tasks: mockProject().m1, milestones: 3 },
+            chainId: `c-${Date.now()}`,
+            now: now(),
+          });
+          g.journal_seq = (s?.journal_seq || 1);
+          const rec = { id: `e${g.journal_seq}`, ts: now(), kind: 'CONTROL', command: 'reset', applied: true };
+          g.journal_seq += 1;
+          console.log(`RESET (queued control): new chain ${g.chain.id}`);
+          s = g;
+          journals.push(rec);
+          ctlDrained++;
+          continue;
+        }
+        const cev = { kind: 'CONTROL', command: c.cmd, event_id: c.id, ts: c.ts };
+        const cr = apply(s, cev, now(), NM);
+        s = cr.state;
+        journals.push(...cr.journal);
+        actionsAll.push(...cr.actions);
+        if (cr.applied || cr.reason === 'duplicate') ctlDrained++;
+        else survivingCtl.push(c);
+      }
+      // a queued RESET replaces everything: reports/tick apply on the fresh state
       if (ev.kind === 'CONTROL' && ev.command === 'reset') {
+        // direct dispatch path (works when the chain is idle)
         const g = genesis({
           config: { max_parallel: 4, lease_minutes: 4, max_attempts: 3, tick_min_interval_s: 25 },
           project: { tasks: mockProject().m1, milestones: 3 },
           chainId: `c-${Date.now()}`,
           now: now(),
         });
-        g.journal_seq = (base?.journal_seq || 1);
+        g.journal_seq = (s?.journal_seq || 1);
         const rec = { id: `e${g.journal_seq}`, ts: now(), kind: 'CONTROL', command: 'reset', applied: true };
         g.journal_seq += 1;
-        console.log(`RESET: new chain ${g.chain.id} (journal continues at ${g.journal_seq})`);
-        return { state: g, journal: [rec], actions: [], queue: [], message: `RESET chain=${g.chain.id}` };
+        console.log(`RESET (direct): new chain ${g.chain.id}`);
+        return { state: g, journal: [...journals, rec], actions: actionsAll, queue: surviving, controlQueue: [], message: `RESET chain=${g.chain.id}` };
       }
-      let journals = [];
-      const actionsAll = [];
-      const surviving = [];
-      let drained = 0;
+      const queueRemaining = s.chain.halted || s.chain.paused ? controlQueue.filter(c => c.cmd === 'reset') : [];
+      void queueRemaining;
       for (const q of queue) {
         const rev = { kind: 'REPORT', event_id: q.event_id, task: q.task, lease: q.lease, outcome: q.outcome, run_id: q.run_id };
         const rr = apply(s, rev, now(), NM);
@@ -174,8 +202,9 @@ async function main() {
         return { noop: true, reason: r.reason };
       }
       return {
-        state: r.state, journal: journals, actions: actionsAll, queue: surviving,
-        message: `${ev.kind}${drained ? `+${drained}r` : ''} seq=${r.state.chain.seq} v${r.state.version} done=${r.state.stats.done} [${journals[0]?.id}..${journals[journals.length - 1]?.id}]`,
+        state: r.state, journal: journals, actions: actionsAll,
+        queue: surviving, controlQueue: survivingCtl,
+        message: `${ev.kind}${drained ? `+${drained}r` : ''}${ctlDrained ? `+${ctlDrained}c` : ''} seq=${r.state.chain.seq} v${r.state.version} done=${r.state.stats.done} [${journals[0]?.id}..${journals[journals.length - 1]?.id}]`,
       };
     },
   }));
