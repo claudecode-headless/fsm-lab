@@ -20,8 +20,8 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  contents: read
-  issues: write   # alert issues / comments only
+  contents: write   # state fetch (read) + re-prime dispatch POST
+  issues: write      # alert issues / comments
 
 jobs:
   scan:
@@ -32,6 +32,7 @@ jobs:
 
       - name: Watchdog scan
         env:
+          GH_TOKEN: ${{ github.token }}
           LAB_PAT: ${{ secrets.LAB_PAT }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           STALE_AFTER_MIN: '4'

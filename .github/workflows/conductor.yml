@@ -42,7 +42,8 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  contents: write   # fsm-state branch pushes (job's GITHUB_TOKEN)
+  contents: write   # fsm-state branch pushes + repository_dispatch POST (X1a)
+  issues: write      # ops-console alert comments (as github-actions[bot])
 
 jobs:
   turn:
@@ -53,6 +54,7 @@ jobs:
 
       - name: Conductor turn
         env:
+          GH_TOKEN: ${{ github.token }}
           LAB_PAT: ${{ secrets.LAB_PAT }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_RUN_ID: ${{ github.run_id }}

@@ -71,6 +71,22 @@ async function main() {
     return;
   }
 
+  if (VARIANT === 'gh-chain') {
+    // chain using the EPHEMERAL job token (the X1a finding applied: same-repo
+    // self-chains need no PAT)
+    if (N >= MAX) {
+      console.log(`CHAIN-COMPLETE (gh-token) reached max=${MAX} hops — continuity via GITHUB_TOKEN self-dispatch WORKS at this scale.`);
+      return;
+    }
+    const r = await api(`/repos/${REPO}/dispatches`, 'POST', {
+      event_type: 'chain-probe-next',
+      client_payload: { n: N + 1, max: MAX, variant: 'gh-chain' },
+    }, GH_TOKEN);
+    console.log(`GH-TOKEN dispatch (n=${N + 1}) HTTP=${r.status}`);
+    if (r.status !== 204) process.exitCode = 2;
+    return;
+  }
+
   // variant=pat: chain until max
   if (N >= MAX) {
     console.log(`CHAIN-COMPLETE reached max=${MAX} hops — continuity via PAT self-dispatch WORKS at this scale.`);

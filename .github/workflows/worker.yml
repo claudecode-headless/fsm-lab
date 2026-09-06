@@ -22,7 +22,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  contents: read
+  contents: write   # the report dispatch POST needs it (repository_dispatch)
 
 jobs:
   work:
@@ -33,6 +33,7 @@ jobs:
 
       - name: Work the task
         env:
+          GH_TOKEN: ${{ github.token }}
           LAB_PAT: ${{ secrets.LAB_PAT }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           GITHUB_REPOSITORY: ${{ github.repository }}

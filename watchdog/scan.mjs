@@ -21,6 +21,7 @@ import { Store } from '../lib/store.mjs';
 
 const REPO = process.env.GITHUB_REPOSITORY || 'claudecode-headless/fsm-lab';
 const PAT = process.env.LAB_PAT;
+const TOKEN = process.env.GH_TOKEN || PAT; // X1a: job token first, PAT fallback
 const STALE_AFTER_MS = parseInt(process.env.STALE_AFTER_MIN || '4', 10) * 60_000;
 const REPRIME_WINDOW_MIN = 30;
 const MAX_REPRIMES = 3;
@@ -29,7 +30,7 @@ async function api(path, method = 'GET', body = null) {
   const r = await fetch(`https://api.github.com${path}`, {
     method,
     headers: {
-      Authorization: `token ${PAT}`,
+      Authorization: `token ${TOKEN}`,
       Accept: 'application/vnd.github+json',
       'Content-Type': 'application/json',
       'User-Agent': 'fsm-lab-watchdog',

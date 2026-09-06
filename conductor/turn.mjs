@@ -27,13 +27,17 @@ import { mockProject, nextMilestoneFactory } from '../lib/mock-project.mjs';
 const REPO = process.env.GITHUB_REPOSITORY || 'claudecode-headless/fsm-lab';
 const RUN_ID = process.env.GITHUB_RUN_ID || 'local';
 const PAT = process.env.LAB_PAT;
+// X1a finding applied: same-repo dispatches ride the EPHEMERAL job token
+// (repository_dispatch is a documented exception to the anti-recursion rule
+// — probe-proven run 34025596219). The PAT stays as the fallback lane.
+const TOKEN = process.env.GH_TOKEN || PAT;
 const EVENT = JSON.parse(process.env.EVENT || '{}');
 const OPS_ISSUE = parseInt(process.env.OPS_ISSUE || '1', 10);
 
 const NM = nextMilestoneFactory(mockProject());
 const now = () => new Date().toISOString();
 
-async function api(path, method = 'GET', body = null, token = PAT) {
+async function api(path, method = 'GET', body = null, token = TOKEN) {
   const r = await fetch(`https://api.github.com${path}`, {
     method,
     headers: {

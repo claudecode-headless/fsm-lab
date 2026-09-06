@@ -15,6 +15,7 @@ import { mockWork } from '../lib/mock.mjs';
 const REPO = process.env.GITHUB_REPOSITORY || 'claudecode-headless/fsm-lab';
 const RUN_ID = process.env.GITHUB_RUN_ID || 'local';
 const PAT = process.env.LAB_PAT;
+const TOKEN = process.env.GH_TOKEN || PAT; // X1a: job token first, PAT fallback
 const CP = JSON.parse(process.env.EVENT || '{}').client_payload || {};
 const MODE = CP.mode || 'mock';
 
@@ -24,7 +25,7 @@ async function dispatch(eventType, clientPayload) {
   const r = await fetch(`https://api.github.com/repos/${REPO}/dispatches`, {
     method: 'POST',
     headers: {
-      Authorization: `token ${PAT}`,
+      Authorization: `token ${TOKEN}`,
       Accept: 'application/vnd.github+json',
       'Content-Type': 'application/json',
       'User-Agent': 'fsm-lab-worker',
