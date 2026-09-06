@@ -75,19 +75,22 @@ async function postIssueComment(body) {
 // ---------------------------------------------------------------------------
 
 function buildEvent() {
-  const en = EVENT.event_name || (EVENT.action ? `wd:${EVENT.action}` : 'unknown');
+  // repository_dispatch carries its type in `action` (event_name does NOT
+  // exist on dispatch payloads — live bug #5 of the payload-shape family;
+  // the ops ingest had it too). schedule/workflow_dispatch have no action.
   const cp = EVENT.client_payload || {};
-  if (en === 'fsm-report') {
+  const kind = EVENT.action || '';
+  if (kind === 'fsm-report') {
     return {
       kind: 'REPORT', event_id: cp.event_id, task: cp.task, lease: cp.lease,
       outcome: cp.outcome, run_id: cp.run_id, ts: now(),
     };
   }
-  if (en === 'fsm-control') {
-    return { kind: 'CONTROL', command: cp.command, event_id: `ctl-${cp.command}-${Date.now()}`, ts: now() };
+  if (kind === 'fsm-control') {
+    return { kind: 'CONTROL', command: cp.command, event_id: `ctl-direct-${cp.command}-${Date.now()}`, ts: now() };
   }
-  // fsm-tick / workflow_dispatch / schedule
-  const reason = cp.reason || (en === 'fsm-tick' ? 'chain' : en === 'schedule' ? 'schedule-backstop' : 'manual');
+  // fsm-tick / schedule / workflow_dispatch
+  const reason = cp.reason || (EVENT.schedule ? 'schedule-backstop' : 'manual');
   return { kind: 'TICK', actor: reason, event_id: `tick-${reason}-${Date.now()}`, ts: now() };
 }
 
