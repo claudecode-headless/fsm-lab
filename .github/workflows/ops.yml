@@ -3,7 +3,7 @@
 # into a busy group get newest-wins-cancelled). Appends commands to the
 # control queue on the state branch; the next tick drains them atomically.
 #
-# Commands: pause | resume | halt | unhalt | reset
+# Commands: pause | resume | halt | unhalt | reset | configure (patch: {knob: value})
 name: fsm-ops
 
 run-name: "ops · ${{ github.event.client_payload.command || inputs.command }}"

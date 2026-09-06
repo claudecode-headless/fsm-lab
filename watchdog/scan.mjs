@@ -55,9 +55,11 @@ async function openAlertIssue(body) {
     // T44 rate-limit: comment only if the last marker comment is older than
     // 24h — a corrupt-state chain firing every ~2h scan was commenting the
     // same alert 12x/day (the alert issue itself is already deduped to ONE).
-    const r = await api(`/repos/${REPO}/issues/${existing.number}/comments?per_page=20`, 'GET');
-    const comments = (r.data || []).filter(c => (c.body || '').includes('**[fsm-watchdog]**'));
-    const last = comments[comments.length - 1];
+    // 44-h P2: prefix-match '[fsm-watchdog]' (covers the CIRCUIT-BREAKER
+    // variant too) + DESC order (per_page returns the OLDEST by default —
+    // the newest marker was invisible once the issue exceeded 20 comments).
+    const r = await api(`/repos/${REPO}/issues/${existing.number}/comments?per_page=1&sort=created&direction=desc`, 'GET');
+    const last = (r.data || []).find(c => (c.body || '').includes('[fsm-watchdog]'));
     if (last && Date.now() - Date.parse(last.created_at) < 24 * 3600_000) {
       console.log(`WATCHDOG-ALERT-SKIP (recent marker <24h on issue #${existing.number})`);
       return existing.number;
@@ -105,9 +107,10 @@ async function main() {
   if (!stale) { console.log('WATCHDOG-DONE mode=healthy'); return; }
 
   // stale: is a conductor run already in flight? (queue latency, slow tick)
-  // T44: lookback 6min >= the conductor job timeout (5min) — a 3min window
-  // re-primed runs whose predecessor was still legitimately running, feeding
-  // the breaker with benign duplicates.
+  // T44: lookback 6min < the conductor job timeout (10min) but benign: the
+  // conductor group is cancel-in-progress:false — an extra re-prime QUEUES
+  // behind the live run rather than cancelling it; worst case it feeds the
+  // breaker count one benign duplicate.
   const recent = await conductorRunsSince(6);
   const active = recent.filter(r => ['queued', 'in_progress'].includes(r.status));
   if (active.length > 0) {

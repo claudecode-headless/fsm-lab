@@ -199,7 +199,7 @@ async function main() {
           g.journal_seq = seqBase + 1;
           mkJ(s, {
             kind: 'CONTROL', command: 'reset',
-            genesisSpec: { config: cfg, tasks: spec, chainId, now: now(), journal_seq: seqBase },
+            genesisSpec: { config: cfg, tasks: spec, milestones: 3, chainId, now: now(), journal_seq: seqBase },
           });
           s = g;
           resetDone = true;
@@ -217,7 +217,8 @@ async function main() {
       }
       // unparseable control lines: audited then dropped (the rewrite removes them)
       for (const raw of ctlBad) {
-        mkJ(s, { kind: 'REJECTED', origKind: 'CONTROL', reason: 'unparseable', raw }, false);
+        mkJ(s, { kind: 'REJECTED', origKind: 'CONTROL', reason: 'unparseable', raw: String(raw).slice(0, 160) }, false);
+        s.stats.rejected_events += 1;  // 44-h P2c: count like every other reject
       }
 
       // DRAIN: report queue. F1: consumed applied-or-rejected — every reject
@@ -235,7 +236,8 @@ async function main() {
         drained++;
       }
       for (const raw of queueBad) {
-        mkJ(s, { kind: 'REJECTED', origKind: 'REPORT', reason: 'unparseable', raw }, false);
+        mkJ(s, { kind: 'REJECTED', origKind: 'REPORT', reason: 'unparseable', raw: String(raw).slice(0, 160) }, false);
+        s.stats.rejected_events += 1;
       }
 
       // wake event (a direct reset WAS the control — already applied above)

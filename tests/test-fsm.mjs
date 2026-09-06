@@ -522,9 +522,7 @@ test('T44/F9: milestone specs with ghost deps are skipped + journaled (not brick
   assert.equal(s.project.milestone, 2);
   assert.equal(s.tasks.B1.status, 'ready', 'valid spec created');
   assert.equal(s.tasks.B2, undefined, 'ghost-dep spec NOT created');
-  const rej = true; // (the REJECTED(unknown-dep) record was journaled in the same clock pass)
-  assert.ok(rej);
-  ok(s, 'milestone-door');
+  ok(s, 'milestone-door — no invariant violation, chain not bricked');
 });
 
 test('T44/F10: invariants catch lease leaks (inactive-with-lease) and duplicate tokens', () => {
@@ -607,4 +605,34 @@ test('T44/F8: rebuild parity — the PROJECTION converges across a rich sequence
     tasks: Object.fromEntries(Object.entries(st.tasks).map(([id, t]) => [id, { status: t.status, attempts: t.attempts, lease: t.lease ? t.lease.token : null }])),
   });
   assert.deepEqual(proj(reb), proj(s), 'rebuild projection must equal live projection');
+});
+
+test('T44/44-h P1: TWO-LEVEL ghost deps cascade (B1-ghost, B2-deps-B1 — the fixpoint prune)', () => {
+  const proj = fastProject();
+  const badM2 = { tasks: [{ id: 'B1', title: 'ghost', deps: ['GHOST-X'] }, { id: 'B2', title: 'deps-on-ghost', deps: ['B1'] }, { id: 'B3', title: 'clean' }] };
+  const nm = (m) => (m === 1 ? badM2 : null);
+  let s = boot({ max_parallel: 8 });
+  let now = T0;
+  const journals = [];
+  for (let i = 0; i < 100 && s.project.milestone < 2; i++) {
+    const r = apply(s, { kind: 'TICK', event_id: `t${i}`, ts: now, actor: 'x' }, now, nm);
+    s = r.state;
+    journals.push(...r.journal);
+    for (const t of Object.values(s.tasks)) {
+      if (t.status === 'assigned' && t.lease) {
+        const rr = apply(s, report(t.id, t.lease.token, { status: 'done' }, now, `r${i}${t.id}`), now, nm);
+        s = rr.state;
+        journals.push(...rr.journal);
+      }
+    }
+    now = step(Date.parse(now) - Date.parse(T0) + 61_000);
+  }
+  // B1 AND B2 pruned (the cascade); B3 created; NO invariant violation
+  assert.equal(s.tasks.B1, undefined, 'B1 pruned (ghost)');
+  assert.equal(s.tasks.B2, undefined, 'B2 pruned (dep on the pruned B1 — the fixpoint)');
+  assert.equal(s.tasks.B3.status, 'ready', 'the clean spec survives');
+  const rejected = journals.filter(j => j.kind === 'REJECTED' && j.origKind === 'MILESTONE');
+  assert.equal(rejected.length, 2, 'both invalid specs journaled as REJECTED');
+  assert.equal(rejected[0].applied, false);
+  ok(s, 'fixpoint milestone door');
 });

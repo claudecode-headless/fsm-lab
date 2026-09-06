@@ -14,7 +14,6 @@
 import { mockWork } from '../lib/mock.mjs';
 import { Store } from '../lib/store.mjs';
 
-const REPO = process.env.GITHUB_REPOSITORY || 'claudecode-headless/fsm-lab';
 const RUN_ID = process.env.GITHUB_RUN_ID || 'local';
 // T44: LAB_PAT dropped — the worker NEVER dispatches (reports ride git via
 // CAS-append; the report enqueue uses the checkout's git credentials, and
