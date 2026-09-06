@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 22,
- "journal_seq": 350,
+ "version": 23,
+ "journal_seq": 352,
  "chain": {
   "id": "c-1788692082392",
-  "seq": 6,
-  "last_tick": "2026-09-06T10:57:23.152Z",
+  "seq": 7,
+  "last_tick": "2026-09-06T10:57:57.221Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -195,20 +195,16 @@
   "T-105": {
    "id": "T-105",
    "title": "impl: watchdog",
-   "status": "assigned",
+   "status": "done",
    "behavior": "hang",
    "work_ms": 900000,
    "deps": [
     "T-102"
    ],
    "attempts": 1,
-   "lease": {
-    "token": "l-fb8421e4",
-    "expires": "2026-09-06T10:59:45.068Z",
-    "issued_at": "2026-09-06T10:55:45.068Z"
-   },
+   "lease": null,
    "created": "2026-09-06T10:54:42.392Z",
-   "updated": "2026-09-06T10:55:45.068Z",
+   "updated": "2026-09-06T10:57:57.220Z",
    "history": [
     {
      "at": "2026-09-06T10:54:42.392Z",
@@ -224,9 +220,19 @@
      "at": "2026-09-06T10:55:45.068Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-06T10:57:57.220Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "done",
+    "run_id": "34028833818",
+    "artifact": "Running an autonomous agent workflow as chained GitHub Actions jobs is viable long-term only with external persistent state, durable idempotent steps, and aggressive timeout/retry budgeting to work ar",
+    "duration_ms": 3049
+   }
   },
   "T-106": {
    "id": "T-106",
@@ -337,7 +343,7 @@
   }
  },
  "stats": {
-  "done": 6,
+  "done": 7,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -360,6 +366,8 @@
   "rep-34028775324",
   "tick-chain-1788692175960",
   "tick-chain-1788692208743",
-  "tick-chain-1788692241990"
+  "tick-chain-1788692241990",
+  "rep-34028833818",
+  "tick-chain-1788692276420"
  ]
 }
