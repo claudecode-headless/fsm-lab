@@ -1,1 +1,2 @@
 {"event_id":"rep-injected-orphan-1788691792155","task":"T-205","lease":"l-INVALID-INJECTED","outcome":{"status":"done","artifact":"orphan-injection"},"run_id":"injected-sandbox"}
+{"event_id":"rep-dup-injection-1788691794603","task":"T-207","lease":"l-ALSO-INVALID","outcome":{"status":"done"},"run_id":"injected-dup"}
