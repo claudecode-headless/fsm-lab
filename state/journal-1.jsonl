@@ -270,3 +270,6 @@
 {"id":"e270","ts":"2026-09-06T10:37:57.718Z","kind":"TICK","seq":32,"actor":"chain"}
 {"id":"e271","ts":"2026-09-06T10:38:32.872Z","kind":"TICK","seq":33,"actor":"chain"}
 {"id":"e272","ts":"2026-09-06T10:39:07.504Z","kind":"TICK","seq":34,"actor":"chain"}
+{"id":"e273","ts":"2026-09-06T10:39:40.060Z","kind":"TICK","seq":35,"actor":"chain"}
+{"id":"e274","ts":"2026-09-06T10:39:40.060Z","kind":"TIMEOUT","task":"T-205","from":"assigned","to":"ready"}
+{"id":"e275","ts":"2026-09-06T10:39:40.060Z","kind":"ASSIGN","task":"T-205","from":"ready","to":"assigned","lease":"l-393c098d","expires":"2026-09-06T10:43:40.060Z","attempt":2,"behavior":"no-report"}
