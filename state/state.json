@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 52,
- "journal_seq": 263,
+ "version": 56,
+ "journal_seq": 268,
  "chain": {
   "id": "c-1788689969158",
-  "seq": 29,
-  "last_tick": "2026-09-06T10:36:14.407Z",
+  "seq": 30,
+  "last_tick": "2026-09-06T10:36:48.856Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -603,14 +603,14 @@
    "behavior": "poison",
    "work_ms": 2000,
    "deps": [],
-   "attempts": 2,
+   "attempts": 3,
    "lease": {
-    "token": "l-30a9cd1a",
-    "expires": "2026-09-06T10:40:14.385Z",
-    "issued_at": "2026-09-06T10:36:14.385Z"
+    "token": "l-cb1683da",
+    "expires": "2026-09-06T10:40:48.851Z",
+    "issued_at": "2026-09-06T10:36:48.851Z"
    },
    "created": "2026-09-06T10:34:28.060Z",
-   "updated": "2026-09-06T10:36:14.385Z",
+   "updated": "2026-09-06T10:36:48.851Z",
    "history": [
     {
      "at": "2026-09-06T10:34:28.060Z",
@@ -636,29 +636,40 @@
      "at": "2026-09-06T10:36:14.385Z",
      "status": "assigned",
      "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-06T10:36:48.851Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=2)"
+    },
+    {
+     "at": "2026-09-06T10:36:48.851Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=2)"
+    },
+    {
+     "at": "2026-09-06T10:36:48.851Z",
+     "status": "assigned",
+     "why": "assigned(attempt=3)"
     }
    ],
    "last_result": {
     "status": "failed",
-    "run_id": "34027857341",
+    "run_id": "34027884296",
     "error": "poison-always"
    }
   },
   "T-208": {
    "id": "T-208",
    "title": "impl: parallel g",
-   "status": "assigned",
+   "status": "done",
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-7e402171",
-    "expires": "2026-09-06T10:40:14.407Z",
-    "issued_at": "2026-09-06T10:36:14.407Z"
-   },
+   "lease": null,
    "created": "2026-09-06T10:34:28.060Z",
-   "updated": "2026-09-06T10:36:14.407Z",
+   "updated": "2026-09-06T10:36:48.849Z",
    "history": [
     {
      "at": "2026-09-06T10:34:28.060Z",
@@ -669,21 +680,31 @@
      "at": "2026-09-06T10:36:14.407Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-06T10:36:48.849Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "done",
+    "run_id": "34027884214",
+    "artifact": "artifact:T-208:attempt1",
+    "duration_ms": 4005
+   }
   }
  },
  "stats": {
-  "done": 11,
+  "done": 12,
   "failed": 0,
   "quarantined": 2,
   "cancelled": 0,
-  "retries": 7,
+  "retries": 8,
   "orphaned_reports": 0,
   "rejected_events": 1,
   "timeouts": 6,
-  "dispatched": 23
+  "dispatched": 24
  },
  "dedup": [
   "tick-manual-drain-1788689968232",
@@ -728,6 +749,9 @@
   "rep-34027857341",
   "rep-34027857337",
   "rep-34027858421",
-  "tick-chain-1788690972977"
+  "tick-chain-1788690972977",
+  "rep-34027884214",
+  "rep-34027884296",
+  "tick-chain-1788691008355"
  ]
 }
