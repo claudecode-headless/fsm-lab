@@ -89,3 +89,8 @@
 {"id":"e89","ts":"2026-09-06T10:04:32.888Z","kind":"TICK","seq":69,"actor":"chain"}
 {"id":"e90","ts":"2026-09-06T10:04:41.754Z","kind":"TICK","seq":70,"actor":"chain"}
 {"id":"e91","ts":"2026-09-06T10:04:51.235Z","kind":"TICK","seq":71,"actor":"chain"}
+{"id":"e92","ts":"2026-09-06T10:05:01.233Z","kind":"TICK","seq":72,"actor":"chain"}
+{"id":"e93","ts":"2026-09-06T10:05:01.233Z","kind":"TIMEOUT","task":"T-101","from":"assigned","to":"quarantined"}
+{"id":"e94","ts":"2026-09-06T10:05:01.233Z","kind":"TIMEOUT","task":"T-102","from":"assigned","to":"quarantined"}
+{"id":"e95","ts":"2026-09-06T10:05:01.233Z","kind":"TIMEOUT","task":"T-107","from":"assigned","to":"quarantined"}
+{"id":"e96","ts":"2026-09-06T10:05:01.233Z","kind":"TIMEOUT","task":"T-108","from":"assigned","to":"quarantined"}

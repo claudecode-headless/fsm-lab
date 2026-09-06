@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 21,
- "journal_seq": 92,
+ "version": 25,
+ "journal_seq": 97,
  "chain": {
   "id": "c-1788688375990",
-  "seq": 71,
-  "last_tick": "2026-09-06T10:04:51.235Z",
+  "seq": 72,
+  "last_tick": "2026-09-06T10:05:01.233Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -26,18 +26,14 @@
   "T-101": {
    "id": "T-101",
    "title": "research: state-anchor options",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
    "attempts": 3,
-   "lease": {
-    "token": "l-6579dd10",
-    "expires": "2026-09-06T10:04:58.737Z",
-    "issued_at": "2026-09-06T10:00:58.737Z"
-   },
+   "lease": null,
    "created": "2026-09-06T09:52:55.990Z",
-   "updated": "2026-09-06T10:00:58.737Z",
+   "updated": "2026-09-06T10:05:01.233Z",
    "history": [
     {
      "at": "2026-09-06T09:52:55.990Z",
@@ -68,6 +64,11 @@
      "at": "2026-09-06T10:00:58.737Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-06T10:05:01.233Z",
+     "status": "quarantined",
+     "why": "lease-timeout(attempts=3)"
     }
    ],
    "last_result": null
@@ -75,18 +76,14 @@
   "T-102": {
    "id": "T-102",
    "title": "research: continuity mechanics",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "flaky",
    "work_ms": 3000,
    "deps": [],
    "attempts": 3,
-   "lease": {
-    "token": "l-510c310e",
-    "expires": "2026-09-06T10:04:58.737Z",
-    "issued_at": "2026-09-06T10:00:58.737Z"
-   },
+   "lease": null,
    "created": "2026-09-06T09:52:55.990Z",
-   "updated": "2026-09-06T10:00:58.737Z",
+   "updated": "2026-09-06T10:05:01.233Z",
    "history": [
     {
      "at": "2026-09-06T09:52:55.990Z",
@@ -117,6 +114,11 @@
      "at": "2026-09-06T10:00:58.737Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-06T10:05:01.233Z",
+     "status": "quarantined",
+     "why": "lease-timeout(attempts=3)"
     }
    ],
    "last_result": null
@@ -213,18 +215,14 @@
   "T-107": {
    "id": "T-107",
    "title": "edge: duplicate report",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "dup",
    "work_ms": 3000,
    "deps": [],
    "attempts": 3,
-   "lease": {
-    "token": "l-60bc8fe2",
-    "expires": "2026-09-06T10:04:58.737Z",
-    "issued_at": "2026-09-06T10:00:58.737Z"
-   },
+   "lease": null,
    "created": "2026-09-06T09:52:55.990Z",
-   "updated": "2026-09-06T10:00:58.737Z",
+   "updated": "2026-09-06T10:05:01.233Z",
    "history": [
     {
      "at": "2026-09-06T09:52:55.990Z",
@@ -255,6 +253,11 @@
      "at": "2026-09-06T10:00:58.737Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-06T10:05:01.233Z",
+     "status": "quarantined",
+     "why": "lease-timeout(attempts=3)"
     }
    ],
    "last_result": null
@@ -262,18 +265,14 @@
   "T-108": {
    "id": "T-108",
    "title": "edge: late report (orphan)",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "slow",
    "work_ms": 330000,
    "deps": [],
    "attempts": 3,
-   "lease": {
-    "token": "l-5c98da22",
-    "expires": "2026-09-06T10:04:58.737Z",
-    "issued_at": "2026-09-06T10:00:58.737Z"
-   },
+   "lease": null,
    "created": "2026-09-06T09:52:55.990Z",
-   "updated": "2026-09-06T10:00:58.737Z",
+   "updated": "2026-09-06T10:05:01.233Z",
    "history": [
     {
      "at": "2026-09-06T09:52:55.990Z",
@@ -304,6 +303,11 @@
      "at": "2026-09-06T10:00:58.737Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-06T10:05:01.233Z",
+     "status": "quarantined",
+     "why": "lease-timeout(attempts=3)"
     }
    ],
    "last_result": null
@@ -312,12 +316,12 @@
  "stats": {
   "done": 0,
   "failed": 0,
-  "quarantined": 0,
+  "quarantined": 4,
   "cancelled": 0,
   "retries": 8,
   "orphaned_reports": 0,
   "rejected_events": 0,
-  "timeouts": 8,
+  "timeouts": 12,
   "dispatched": 12
  },
  "dedup": [
@@ -391,6 +395,7 @@
   "tick-chain-1788689062992",
   "tick-chain-1788689072225",
   "tick-chain-1788689080833",
-  "tick-chain-1788689090688"
+  "tick-chain-1788689090688",
+  "tick-chain-1788689100759"
  ]
 }
