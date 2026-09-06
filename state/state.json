@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 50,
- "journal_seq": 394,
+ "version": 55,
+ "journal_seq": 403,
  "chain": {
   "id": "c-1788692082392",
-  "seq": 16,
-  "last_tick": "2026-09-06T11:33:44.845Z",
+  "seq": 17,
+  "last_tick": "2026-09-06T11:34:19.328Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -579,18 +579,14 @@
   "T-206": {
    "id": "T-206",
    "title": "impl: parallel f",
-   "status": "assigned",
+   "status": "done",
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-d6e784a3",
-    "expires": "2026-09-06T11:37:44.843Z",
-    "issued_at": "2026-09-06T11:33:44.843Z"
-   },
+   "lease": null,
    "created": "2026-09-06T11:10:46.567Z",
-   "updated": "2026-09-06T11:33:44.843Z",
+   "updated": "2026-09-06T11:34:19.327Z",
    "history": [
     {
      "at": "2026-09-06T11:10:46.567Z",
@@ -601,9 +597,19 @@
      "at": "2026-09-06T11:33:44.843Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-06T11:34:19.327Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "done",
+    "run_id": "34030603526",
+    "artifact": "artifact:T-206:attempt1",
+    "duration_ms": 4005
+   }
   },
   "T-207": {
    "id": "T-207",
@@ -612,14 +618,14 @@
    "behavior": "poison",
    "work_ms": 2000,
    "deps": [],
-   "attempts": 1,
+   "attempts": 2,
    "lease": {
-    "token": "l-aaace6c6",
-    "expires": "2026-09-06T11:37:44.844Z",
-    "issued_at": "2026-09-06T11:33:44.844Z"
+    "token": "l-3e4cc629",
+    "expires": "2026-09-06T11:38:19.322Z",
+    "issued_at": "2026-09-06T11:34:19.322Z"
    },
    "created": "2026-09-06T11:10:46.567Z",
-   "updated": "2026-09-06T11:33:44.844Z",
+   "updated": "2026-09-06T11:34:19.322Z",
    "history": [
     {
      "at": "2026-09-06T11:10:46.567Z",
@@ -630,25 +636,40 @@
      "at": "2026-09-06T11:33:44.844Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-06T11:34:19.322Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=1)"
+    },
+    {
+     "at": "2026-09-06T11:34:19.322Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=1)"
+    },
+    {
+     "at": "2026-09-06T11:34:19.322Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "failed",
+    "run_id": "34030603469",
+    "error": "poison-always"
+   }
   },
   "T-208": {
    "id": "T-208",
    "title": "impl: parallel g",
-   "status": "assigned",
+   "status": "done",
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-8aa577b0",
-    "expires": "2026-09-06T11:37:44.844Z",
-    "issued_at": "2026-09-06T11:33:44.844Z"
-   },
+   "lease": null,
    "created": "2026-09-06T11:10:46.567Z",
-   "updated": "2026-09-06T11:33:44.844Z",
+   "updated": "2026-09-06T11:34:19.328Z",
    "history": [
     {
      "at": "2026-09-06T11:10:46.567Z",
@@ -659,21 +680,31 @@
      "at": "2026-09-06T11:33:44.844Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-06T11:34:19.328Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "done",
+    "run_id": "34030603831",
+    "artifact": "artifact:T-208:attempt1",
+    "duration_ms": 4005
+   }
   }
  },
  "stats": {
-  "done": 11,
+  "done": 13,
   "failed": 0,
   "quarantined": 1,
   "cancelled": 0,
-  "retries": 7,
+  "retries": 8,
   "orphaned_reports": 6,
-  "rejected_events": 7,
+  "rejected_events": 10,
   "timeouts": 6,
-  "dispatched": 23
+  "dispatched": 24
  },
  "dedup": [
   "tick-chain-1788692079423",
@@ -704,6 +735,10 @@
   "rep-34030581110",
   "rep-34030581234",
   "rep-34030580864",
-  "tick-chain-1788694424177"
+  "tick-chain-1788694424177",
+  "rep-34030603469",
+  "rep-34030603526",
+  "rep-34030603831",
+  "tick-chain-1788694458264"
  ]
 }
