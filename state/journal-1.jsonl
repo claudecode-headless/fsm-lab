@@ -112,3 +112,9 @@
 {"id":"e112","ts":"2026-09-06T10:07:49.712Z","kind":"TICK","seq":88,"actor":"chain"}
 {"id":"e113","ts":"2026-09-06T10:08:01.324Z","kind":"TICK","seq":89,"actor":"chain"}
 {"id":"e114","ts":"2026-09-06T10:08:45.738Z","kind":"TICK","seq":90,"actor":"chain"}
+{"id":"e115","ts":"2026-09-06T10:08:55.760Z","kind":"TICK","seq":91,"actor":"chain"}
+{"id":"e116","ts":"2026-09-06T10:08:55.760Z","kind":"CANCEL_CASCADE","task":"T-103","from":"backlog","to":"cancelled","reason":"T-101"}
+{"id":"e117","ts":"2026-09-06T10:08:55.760Z","kind":"CANCEL_CASCADE","task":"T-104","from":"backlog","to":"cancelled","reason":"T-101"}
+{"id":"e118","ts":"2026-09-06T10:08:55.760Z","kind":"CANCEL_CASCADE","task":"T-105","from":"backlog","to":"cancelled","reason":"T-102"}
+{"id":"e119","ts":"2026-09-06T10:08:55.760Z","kind":"CANCEL_CASCADE","task":"T-106","from":"backlog","to":"cancelled","reason":"T-103"}
+{"id":"e120","ts":"2026-09-06T10:08:55.760Z","kind":"MILESTONE","milestone":2,"tasks":[{"id":"T-201","title":"impl: parallel a","behavior":"succeed","work_ms":4000},{"id":"T-202","title":"impl: parallel b","behavior":"succeed","work_ms":4000},{"id":"T-203","title":"impl: parallel c","behavior":"flaky","work_ms":4000},{"id":"T-204","title":"impl: parallel d","behavior":"succeed","work_ms":4000},{"id":"T-205","title":"impl: parallel e","behavior":"no-report","work_ms":3000},{"id":"T-206","title":"impl: parallel f","behavior":"succeed","work_ms":4000},{"id":"T-207","title":"impl: poison path","behavior":"poison","work_ms":2000},{"id":"T-208","title":"impl: parallel g","behavior":"succeed","work_ms":4000}]}
