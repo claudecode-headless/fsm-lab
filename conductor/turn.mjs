@@ -109,16 +109,20 @@ function summaryMd(state, applied, reason, actions) {
 async function main() {
   const store = new Store({ cwd: process.cwd() });
   const ev = buildEvent();
+  const t0 = Date.now();
 
-  // 1-3. read + apply + CAS commit (corruption recovery inside mutate)
+  // 1-3. read + drain reports + apply + CAS commit — ONE atomic commit:
+  // the queue drain, the event application, and the clock pass land together.
+  // (The depth-1 concurrency-queue discovery: report events must NOT ride
+  // workflow runs — they'd be newest-wins-cancelled. Data flows through git.)
   const out = await Promise.resolve(store.commit({
-    mutate: (cur) => {
+    mutate: (cur, journalTail, queue) => {
       let base = cur;
       if (!base) {
         const good = store.findLastGoodState();
         if (!good) {
           base = genesis({
-            config: { max_parallel: 4, lease_minutes: 4, max_attempts: 3 },
+            config: { max_parallel: 4, lease_minutes: 4, max_attempts: 3, tick_min_interval_s: 25 },
             project: { tasks: mockProject().m1, milestones: 3 },
             chainId: `c-${Date.now()}`,
             now: now(),
@@ -129,15 +133,33 @@ async function main() {
           console.log(`RECOVERY: rebuilt from git-history snapshot (seq=${base.chain.seq})`);
         }
       }
-      const r = apply(base, ev, now(), NM);
+      // DRAIN: apply every queued report (in queue order), then the wake
+      // event, then the clock — sequentially on the same evolving state.
+      let s = base;
+      const journals = [];
+      const actionsAll = [];
+      const surviving = [];
+      let drained = 0;
+      for (const q of queue) {
+        const rev = { kind: 'REPORT', event_id: q.event_id, task: q.task, lease: q.lease, outcome: q.outcome, run_id: q.run_id };
+        const rr = apply(s, rev, now(), NM);
+        s = rr.state;
+        journals.push(...rr.journal);
+        actionsAll.push(...rr.actions);
+        if (rr.applied || rr.reason === 'duplicate') drained++; // consumed either way
+        else surviving.push(q); // unparseable/unknown-task reports stay parked
+      }
+      const r = apply(s, ev, now(), NM);
       const viol = invariants(r.state);
       if (viol.length) throw new Error(`INVARIANT VIOLATION: ${viol.join('; ')}`);
-      if (r.journal.length === 0 && !r.applied) {
+      journals.push(...r.journal);
+      actionsAll.push(...r.actions);
+      if (journals.length === 0 && !r.applied) {
         return { noop: true, reason: r.reason };
       }
       return {
-        state: r.state, journal: r.journal, actions: r.actions,
-        message: `${ev.kind} seq=${r.state.chain.seq} v${r.state.version} done=${r.state.stats.done} [${r.journal[0]?.id}..${r.journal[r.journal.length - 1]?.id}]`,
+        state: r.state, journal: journals, actions: actionsAll, queue: surviving,
+        message: `${ev.kind}${drained ? `+${drained}r` : ''} seq=${r.state.chain.seq} v${r.state.version} done=${r.state.stats.done} [${journals[0]?.id}..${journals[journals.length - 1]?.id}]`,
       };
     },
   }));
@@ -180,10 +202,17 @@ async function main() {
     }
   }
 
-  // 5. chain continuation
+  // 5. chain continuation — with cadence pacing (config.tick_min_interval_s):
+  // a fast chain (sub-10s turns) burns run records for nothing; the pace
+  // sleep keeps the job occupied (free on public repos) and throttles ticks.
   const stop = actionList.some(a => a.type === 'STOP_CHAIN' || a.type === 'HOLD_CHAIN');
   let chain = { ok: true };
   if (!stop) {
+    const intervalMs = (state.config.tick_min_interval_s || 0) * 1000;
+    const elapsed = Date.now() - t0;
+    if (intervalMs > elapsed) {
+      await new Promise(res => setTimeout(res, Math.min(intervalMs - elapsed, 240_000)));
+    }
     chain = await dispatchRetry('fsm-tick', { reason: 'chain', seq: state.chain.seq + 1 });
   }
   // summary + compact log line

@@ -19,7 +19,11 @@ on:
 
 concurrency:
   group: fsm-worker-${{ github.event.client_payload.task }}
-  cancel-in-progress: false
+  # SUPERSESSION semantics: a reassigned attempt (newer lease) CANCELS the
+  # older hanging run for the same task — the retry supersedes, and a hung
+  # runner dies at reassignment instead of blocking its replacement for the
+  # full timeout window.
+  cancel-in-progress: true
 
 permissions:
   contents: write   # the report dispatch POST needs it (repository_dispatch)

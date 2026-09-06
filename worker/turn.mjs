@@ -4,13 +4,15 @@
 // deterministic, free, fast. Real mode (the seam proof): one OpenRouter
 // completion stands in for the CC turn (X7).
 //
-// The worker NEVER writes state — it reports THROUGH the conductor (single
-// writer). Its report carries the lease token: the conductor rejects stale
-// reports (the task was reassigned) as orphans; duplicates (same event_id)
-// are deduped. Failure to report at all -> lease timeout -> retry/quarantine.
-// That is the whole contract: at-least-once reporting, exactly-once applying.
+// The worker NEVER writes state — it reports through a CAS-appended line on
+// the state branch's report queue (data flows through git; dispatches are
+// the wake mechanism only — the concurrency-group depth-1 discovery made
+// run-per-report lossy: pending runs in a group are newest-wins-cancelled).
+// The tick drains the queue atomically. Report semantics: at-least-once
+// enqueue, exactly-once apply (event_id dedup on the conductor side).
 
 import { mockWork } from '../lib/mock.mjs';
+import { Store } from '../lib/store.mjs';
 
 const REPO = process.env.GITHUB_REPOSITORY || 'claudecode-headless/fsm-lab';
 const RUN_ID = process.env.GITHUB_RUN_ID || 'local';
@@ -21,18 +23,9 @@ const MODE = CP.mode || 'mock';
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
-async function dispatch(eventType, clientPayload) {
-  const r = await fetch(`https://api.github.com/repos/${REPO}/dispatches`, {
-    method: 'POST',
-    headers: {
-      Authorization: `token ${TOKEN}`,
-      Accept: 'application/vnd.github+json',
-      'Content-Type': 'application/json',
-      'User-Agent': 'fsm-lab-worker',
-    },
-    body: JSON.stringify({ event_type: eventType, client_payload: clientPayload }),
-  });
-  return r.status;
+async function enqueue(report) {
+  const store = new Store({ cwd: process.cwd() });
+  return store.enqueueReport(report);
 }
 
 async function realWork() {
@@ -88,15 +81,16 @@ async function main() {
       return;
     }
     if (w.repeatReport) {
-      // the duplicate-report class: same event_id posted twice
+      // the duplicate-report class: same event_id enqueued twice — the
+      // conductor's drain must dedup the second
       const payload = {
         event_id: `rep-${RUN_ID}`, task: CP.task, lease: CP.lease,
         outcome, run_id: RUN_ID,
       };
-      const s1 = await dispatch('fsm-report', payload);
+      const r1 = await enqueue(payload);
       await sleep(1500);
-      const s2 = await dispatch('fsm-report', payload);
-      console.log(`WORKER-REPORT-DUP first=${s1} second=${s2} (second must be deduped)`);
+      const r2 = await enqueue(payload);
+      console.log(`WORKER-REPORT-DUP first=${r1.ok} second=${r2.ok} (second must be deduped by the drain)`);
       return;
     }
   }
@@ -105,9 +99,9 @@ async function main() {
     event_id: `rep-${RUN_ID}`, task: CP.task, lease: CP.lease,
     outcome, run_id: RUN_ID,
   };
-  const status = await dispatch('fsm-report', payload);
-  console.log(`WORKER-DONE task=${CP.task} outcome=${outcome.status} dispatch=${status} (${Date.now() - t0}ms)`);
-  if (status !== 204) process.exitCode = 2;
+  const r = await enqueue(payload);
+  console.log(`WORKER-DONE task=${CP.task} outcome=${outcome.status} enqueue=${r.ok ? 'ok' : 'FAILED:' + r.err} (${Date.now() - t0}ms)`);
+  if (!r.ok) process.exitCode = 2;
 }
 
 main().catch(e => {
