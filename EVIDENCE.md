@@ -142,15 +142,32 @@ earlier than the script expected because the X5 re-prime legitimately
 counted inside the 30-min window — correct window semantics, slightly
 off test expectation.
 
-## X6 — state growth — VERIFIED LIVE
+## X6 — state growth — VERIFIED LIVE (incl. ROTATION)
 
-At ~357 events: `state.json` 8,260 bytes (task-count-scoped, overwritten
-per commit); `journal-1.jsonl` 43KB / 356 lines (rotation at 500/gen, 4 gens
-retained → hard ceiling ≈ 4 × 60KB); 239 branch commits (each carries the
-full materialized state = the recovery substrate). The growth contract:
-events grow without bound; RETAINED bytes bounded by construction; pruned
-generations live in git history. (Rotation machinery: 7/7 store tests + sim
-`grow` scenario at 871 events.)
+- Mid-run (357 events): state.json 8.3KB, journal gen-1 43KB.
+- At completion (~2,000+ journal ids across epochs): **journal-1 (498
+  lines) + journal-2/3/4 (500 lines each) — the rotation fired exactly at
+  the 500-record threshold, 4 generations retained, ~250KB hard ceiling.**
+  state.json 19KB (18 tasks with attempt-bounded history + dedup window;
+  scales with task count, not event count). 286 branch commits — each
+  carrying the full materialized state (the recovery substrate).
+- Residual: 3 late reports parked in the queue after the project halted
+  (stragglers from superseded slow workers) — 522B, harmless; the next
+  drain would consume them as not-leased rejections.
+- Scaling note (honest): per-task `history` is attempt-bounded (≤ max_attempts
+  entries) so state.json grows with TASK COUNT, not time; for 1000+-task
+  projects, trim task history to a rolling window (the journal retains the
+  full audit regardless).
+
+## X2 final closing datum — the post-recovery epoch
+
+After the X5b breaker cycle (3 kills → breaker → alert → operator re-arm),
+the system **completed the entire remaining project autonomously**:
+`phase=done M3 halted=true`, stats `{done:15, quarantined:3, retries:11,
+timeouts:9, dispatched:29}`, 19 ops-issue comments, STOP_CHAIN fired, journal
+at e518. Kill the chain three times, trip the breaker, re-arm with ONE
+dispatch — and the work finishes itself. That is the resilience thesis,
+closed end-to-end.
 
 ## X7 — the real-LLM seam — COMPLETE ⭐
 
