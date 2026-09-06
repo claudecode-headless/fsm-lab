@@ -1,0 +1,47 @@
+# chain-probe — X1: the chain-physics probe. Two questions, settled live
+# before the conductor relies on either:
+#   1. Can a workflow re-trigger ITSELF with its own GITHUB_TOKEN?
+#      (docs say no — the anti-recursion law; the probe PROVES it)
+#   2. Can it with a PAT? (the chain mechanism — hop latency measured)
+name: chain-probe
+
+run-name: "hop ${{ github.event.client_payload.n || 0 }} · ${{ github.event.client_payload.variant || inputs.variant || 'start' }}"
+
+on:
+  workflow_dispatch:
+    inputs:
+      rounds:
+        description: 'max hops (pat variant)'
+        default: '12'
+      variant:
+        description: 'pat | github-token'
+        default: 'pat'
+  repository_dispatch:
+    types: [chain-probe-next]
+
+concurrency:
+  group: chain-probe
+  cancel-in-progress: false
+
+permissions:
+  contents: write  # lets the GITHUB_TOKEN *attempt* the dispatch POST (the
+                   # point of the probe: accepted-but-fires-nothing)
+  actions: read    # run-list query (self-verifying verdict)
+
+jobs:
+  hop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Hop
+        env:
+          LAB_PAT: ${{ secrets.LAB_PAT }}
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          N: ${{ github.event.client_payload.n || '0' }}
+          MAX: ${{ github.event.client_payload.max || inputs.rounds || '12' }}
+          VARIANT: ${{ github.event.client_payload.variant || inputs.variant || 'pat' }}
+        run: node probe/hop.mjs

@@ -1,0 +1,130 @@
+// watchdog/scan.mjs — the chain-health backstop.
+//
+// The watchdog NEVER writes state (single-writer discipline: the conductor
+// group owns state). Its powers are READ + DISPATCH + ALERT-ISSUE only:
+//   1. read state (via git fetch of the fsm-state branch — read-only)
+//   2. if halted/paused -> exit (chain stopped on purpose)
+//   3. staleness = now - chain.last_tick > stale_after
+//   4. if stale AND no conductor run started recently (in-flight check) ->
+//      re-prime: dispatch fsm-tick (reason: watchdog-reprime)
+//   5. circuit breaker: >= maxReprimes re-primes within the window AND still
+//      stale -> STOP re-priming, open ONE alert issue (dedup: search open
+//      issues for the alert marker first)
+//   6. if state.json is corrupt -> alert issue (the conductor self-heals on
+//      its next tick via findLastGoodState; if the chain is dead, the
+//      re-prime dispatch triggers that recovery path)
+//
+// Cadence: schedule (intermittent) + manual dispatch. The conductor chain is
+// the primary driver; this is the safety net that catches dead links.
+
+import { Store } from '../lib/store.mjs';
+
+const REPO = process.env.GITHUB_REPOSITORY || 'claudecode-headless/fsm-lab';
+const PAT = process.env.LAB_PAT;
+const STALE_AFTER_MS = parseInt(process.env.STALE_AFTER_MIN || '4', 10) * 60_000;
+const REPRIME_WINDOW_MIN = 30;
+const MAX_REPRIMES = 3;
+
+async function api(path, method = 'GET', body = null) {
+  const r = await fetch(`https://api.github.com${path}`, {
+    method,
+    headers: {
+      Authorization: `token ${PAT}`,
+      Accept: 'application/vnd.github+json',
+      'Content-Type': 'application/json',
+      'User-Agent': 'fsm-lab-watchdog',
+    },
+    body: body ? JSON.stringify(body) : undefined,
+  });
+  const text = await r.text();
+  let data = null;
+  try { data = text ? JSON.parse(text) : null; } catch { }
+  return { status: r.status, data };
+}
+
+async function findAlertIssue() {
+  const r = await api(`/repos/${REPO}/issues?state=open&labels=fsm-watchdog-alert&per_page=10`);
+  return (r.data || [])[0] || null;
+}
+
+async function openAlertIssue(body) {
+  const existing = await findAlertIssue();
+  if (existing) {
+    await api(`/repos/${REPO}/issues/${existing.number}/comments`, 'POST', { body });
+    return existing.number;
+  }
+  const r = await api(`/repos/${REPO}/issues`, 'POST', {
+    title: 'WATCHDOG: chain dead — manual intervention required',
+    labels: ['fsm-watchdog-alert'],
+    body,
+  });
+  return r.data?.number || null;
+}
+
+async function conductorRunsSince(minutes) {
+  const since = new Date(Date.now() - minutes * 60_000).toISOString();
+  const r = await api(`/repos/${REPO}/actions/workflows/conductor.yml/runs?created=>=${since}&per_page=100`);
+  return r.data?.workflow_runs || [];
+}
+
+async function main() {
+  const store = new Store({ cwd: process.cwd() });
+  store.fetch();
+  const { state, corrupt } = store.readState();
+
+  if (!state) {
+    console.log(`state.json unreadable (corrupt=${!!corrupt}) — the conductor's recovery path handles it; alerting if chain is also stale`);
+    const body = `**[fsm-watchdog]** state.json is UNREADABLE on ${store.branch}. The conductor self-heals via git-history recovery on its next tick.`;
+    // still check chain liveness below with a null state — but we cannot know
+    // halted/paused. Conservative: alert, no re-prime (avoid thrashing a
+    // corrupt-state loop).
+    await openAlertIssue(body);
+    console.log('WATCHDOG-DONE mode=corrupt-state alert=opened no-reprime');
+    return;
+  }
+
+  if (state.chain.halted) { console.log('WATCHDOG-DONE mode=halted (project complete or halted)'); return; }
+  if (state.chain.paused) { console.log('WATCHDOG-DONE mode=paused (operator hold)'); return; }
+
+  const age = Date.now() - Date.parse(state.chain.last_tick);
+  const stale = age > STALE_AFTER_MS;
+  console.log(`WATCHDOG-SCAN seq=${state.chain.seq} last_tick=${state.chain.last_tick} age=${Math.round(age / 1000)}s stale=${stale} done=${state.stats.done}/${Object.keys(state.tasks).length}`);
+
+  if (!stale) { console.log('WATCHDOG-DONE mode=healthy'); return; }
+
+  // stale: is a conductor run already in flight? (queue latency, slow tick)
+  const recent = await conductorRunsSince(3);
+  const active = recent.filter(r => ['queued', 'in_progress'].includes(r.status));
+  if (active.length > 0) {
+    console.log(`WATCHDOG-DONE mode=stale-but-inflight (${active.length} run(s) queued/running) — waiting`);
+    return;
+  }
+
+  // circuit breaker: count my re-primes in the window (run-name carries the
+  // reason; runs dispatched by the watchdog are named via client_payload)
+  const windowRuns = await conductorRunsSince(REPRIME_WINDOW_MIN);
+  const reprimes = windowRuns.filter(r => (r.name || '').includes('watchdog-reprime'));
+  if (reprimes.length >= MAX_REPRIMES) {
+    const body = `**[fsm-watchdog CIRCUIT-BREAKER]** the chain has been re-primed ${reprimes.length}× in ${REPRIME_WINDOW_MIN}min and is STILL stale (seq=${state.chain.seq}, last_tick=${state.chain.last_tick}).\n\n`
+      + `Re-priming is now DISABLED. Manual intervention required:\n`
+      + `1. read the last conductor run's log (Actions tab)\n`
+      + `2. fix the root cause\n`
+      + `3. re-arm: POST /repos/${REPO}/dispatches {"event_type":"fsm-tick","client_payload":{"reason":"manual"}}`;
+    const n = await openAlertIssue(body);
+    console.log(`WATCHDOG-DONE mode=breaker-open alert=${n} reprimes=${reprimes.length}`);
+    return;
+  }
+
+  // re-prime
+  const r = await api(`/repos/${REPO}/dispatches`, 'POST', {
+    event_type: 'fsm-tick',
+    client_payload: { reason: 'watchdog-reprime', stale_seq: state.chain.seq },
+  });
+  console.log(`WATCHDOG-REPRIME dispatch=${r.status} (reprime ${reprimes.length + 1}/${MAX_REPRIMES} in window)`);
+  console.log('WATCHDOG-DONE mode=reprime');
+}
+
+main().catch(e => {
+  console.error('WATCHDOG-FAILED:', e.message);
+  process.exitCode = 1;
+});

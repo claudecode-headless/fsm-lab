@@ -1,0 +1,38 @@
+# fsm-watchdog — the chain-health backstop. Read-only over state; its only
+# powers are DISPATCH (re-prime) and ALERT-ISSUE. Never a state writer.
+#
+# Cadence: schedule (intermittent by nature — acceptable for a backstop) +
+# manual. The conductor chain is the primary driver; this catches dead links.
+# Circuit breaker: 3+ re-primes in 30min while still stale -> stop re-priming
+# and open ONE alert issue (deduped by label).
+name: fsm-watchdog
+
+run-name: "scan · watchdog"
+
+on:
+  schedule:
+    # :03 offset avoids the :00/:30 delay hotspot; ~6 scans/hour
+    - cron: "3,13,23,33,43,53 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: fsm-watchdog
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write   # alert issues / comments only
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Watchdog scan
+        env:
+          LAB_PAT: ${{ secrets.LAB_PAT }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          STALE_AFTER_MIN: '4'
+        run: node watchdog/scan.mjs

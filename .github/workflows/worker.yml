@@ -1,0 +1,41 @@
+# fsm-worker — the agent seat. One run = one task attempt.
+#
+# Receives {task, lease, behavior, attempt, work_ms} via fsm-task dispatch.
+# NEVER writes state — reports through the conductor (fsm-report dispatch).
+# The lease token in the report is the validity claim: stale/duplicate
+# reports are absorbed by the conductor (orphan/dedup counters).
+#
+# TTL wall: timeout-minutes kills hangs; the CONDUCTOR's lease deadline is
+# the semantic backstop (retry / quarantine). The job dying "successfully
+# but silent" (no-report behavior) is a first-class failure class the FSM
+# handles by design — this is the at-least-once contract.
+name: fsm-worker
+
+run-name: "task-${{ github.event.client_payload.task }} · ${{ github.event.client_payload.behavior }} · a${{ github.event.client_payload.attempt }}"
+
+on:
+  repository_dispatch:
+    types: [fsm-task]
+
+concurrency:
+  group: fsm-worker-${{ github.event.client_payload.task }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  work:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Work the task
+        env:
+          LAB_PAT: ${{ secrets.LAB_PAT }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          EVENT: ${{ toJSON(github.event) }}
+        run: node worker/turn.mjs
