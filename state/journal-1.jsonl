@@ -66,3 +66,4 @@
 {"id":"e66","ts":"2026-09-06T10:00:58.737Z","kind":"ASSIGN","task":"T-102","from":"ready","to":"assigned","lease":"l-510c310e","expires":"2026-09-06T10:04:58.737Z","attempt":3,"behavior":"flaky"}
 {"id":"e67","ts":"2026-09-06T10:00:58.737Z","kind":"ASSIGN","task":"T-107","from":"ready","to":"assigned","lease":"l-60bc8fe2","expires":"2026-09-06T10:04:58.737Z","attempt":3,"behavior":"dup"}
 {"id":"e68","ts":"2026-09-06T10:00:58.737Z","kind":"ASSIGN","task":"T-108","from":"ready","to":"assigned","lease":"l-5c98da22","expires":"2026-09-06T10:04:58.737Z","attempt":3,"behavior":"slow"}
+{"id":"e69","ts":"2026-09-06T10:01:12.068Z","kind":"TICK","seq":49,"actor":"chain"}
