@@ -362,3 +362,5 @@
 {"id":"e904","ts":"2026-09-07T02:37:57.248Z","applied":true,"kind":"UNLOCK","task":"T-302","from":"backlog","to":"ready"}
 {"id":"e905","ts":"2026-09-07T02:37:57.248Z","applied":true,"kind":"ASSIGN","task":"T-302","from":"ready","to":"assigned","lease":"l-009c73403519","expires":"2026-09-07T02:52:57.248Z","attempt":1,"behavior":"succeed"}
 {"id":"e906","ts":"2026-09-07T02:37:57.254Z","applied":true,"kind":"TICK","seq":154,"actor":"chain"}
+{"id":"e907","ts":"2026-09-07T02:38:31.325Z","applied":true,"kind":"REPORT","task":"T-302","lease":"l-009c73403519","to":"done","run_id":"34076930301","from":"assigned"}
+{"id":"e908","ts":"2026-09-07T02:38:31.325Z","applied":true,"kind":"PHASE","from":"executing","to":"done"}
