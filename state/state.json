@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "version": 71,
- "journal_seq": 543,
+ "journal_seq": 546,
  "chain": {
   "id": "c-1788692082392",
   "seq": 48,
@@ -816,7 +816,7 @@
   "cancelled": 0,
   "retries": 11,
   "orphaned_reports": 6,
-  "rejected_events": 103,
+  "rejected_events": 106,
   "timeouts": 9,
   "dispatched": 29
  },
@@ -888,6 +888,10 @@
   "tick-schedule-backstop-1788719358733",
   "tick-schedule-backstop-1788727588637",
   "tick-schedule-backstop-1788733612265",
-  "tick-t44-x11-drain-1788739436516"
+  "tick-t44-x11-drain-1788739436516",
+  "rep-34029519507",
+  "rep-34029519235",
+  "rep-34029518935",
+  "tick-t44-x11-drain-v2-1788739554017"
  ]
 }
