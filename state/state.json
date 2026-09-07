@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "version": 69,
- "journal_seq": 675,
+ "version": 70,
+ "journal_seq": 677,
  "chain": {
   "id": "c-1788740079284",
   "seq": 55,
@@ -17,7 +17,7 @@
  },
  "config": {
   "max_parallel": 4,
-  "lease_minutes": 4,
+  "lease_minutes": 15,
   "max_attempts": 3,
   "tick_min_interval_s": 25,
   "dedup_window": 300
@@ -801,7 +801,7 @@
   "cancelled": 0,
   "retries": 10,
   "orphaned_reports": 0,
-  "rejected_events": 2,
+  "rejected_events": 3,
   "timeouts": 9,
   "dispatched": 28
  },
@@ -881,6 +881,8 @@
   "rep-34070731723",
   "tick-chain-1788741864139",
   "rep-34070759442",
-  "tick-chain-1788741897852"
+  "tick-chain-1788741897852",
+  "ctl-1788742908791-tfas3e",
+  "ctl-direct-configure-1788742908997"
  ]
 }

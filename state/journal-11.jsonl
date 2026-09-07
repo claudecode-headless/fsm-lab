@@ -130,3 +130,5 @@
 {"id":"e672","ts":"2026-09-07T00:44:25.025Z","applied":true,"kind":"TICK","seq":55,"actor":"chain"}
 {"id":"e673","ts":"2026-09-07T00:44:58.751Z","applied":true,"kind":"REPORT","task":"T-302","lease":"l-1e67c735bc4c","to":"done","run_id":"34070759442","from":"assigned"}
 {"id":"e674","ts":"2026-09-07T00:44:58.751Z","applied":true,"kind":"PHASE","from":"done","to":"done"}
+{"id":"e675","ts":"2026-09-07T01:01:52.294Z","applied":true,"kind":"CONTROL","command":"configure","patch":{"lease_minutes":15},"before":{"lease_minutes":4}}
+{"id":"e676","ts":"2026-09-07T01:01:52.295Z","applied":false,"kind":"REJECTED","origKind":"CONTROL","task":null,"event_id":"ctl-direct-configure-1788742908997","reason":"configure-noop"}
