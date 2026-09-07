@@ -70,3 +70,13 @@
 {"id":"e612","ts":"2026-09-07T00:29:32.481Z","applied":true,"kind":"ASSIGN","task":"T-202","from":"ready","to":"assigned","lease":"l-4ba4882feb64","expires":"2026-09-07T00:33:32.481Z","attempt":1,"behavior":"succeed"}
 {"id":"e613","ts":"2026-09-07T00:29:32.481Z","applied":true,"kind":"ASSIGN","task":"T-203","from":"ready","to":"assigned","lease":"l-ba78ce1fac4c","expires":"2026-09-07T00:33:32.481Z","attempt":1,"behavior":"flaky"}
 {"id":"e614","ts":"2026-09-07T00:29:32.481Z","applied":true,"kind":"ASSIGN","task":"T-204","from":"ready","to":"assigned","lease":"l-6d6b8b2ba0bb","expires":"2026-09-07T00:33:32.481Z","attempt":1,"behavior":"succeed"}
+{"id":"e615","ts":"2026-09-07T00:30:09.065Z","applied":true,"kind":"REPORT","task":"T-203","lease":"l-ba78ce1fac4c","to":"failed","run_id":"34069984402","from":"assigned"}
+{"id":"e616","ts":"2026-09-07T00:30:09.065Z","applied":true,"kind":"RETRY","task":"T-203","from":"failed","to":"ready"}
+{"id":"e617","ts":"2026-09-07T00:30:09.065Z","applied":true,"kind":"ASSIGN","task":"T-203","from":"ready","to":"assigned","lease":"l-64d80a4fdd14","expires":"2026-09-07T00:34:09.065Z","attempt":2,"behavior":"flaky"}
+{"id":"e618","ts":"2026-09-07T00:30:09.091Z","applied":true,"kind":"REPORT","task":"T-204","lease":"l-6d6b8b2ba0bb","to":"done","run_id":"34069985239","from":"assigned"}
+{"id":"e619","ts":"2026-09-07T00:30:09.091Z","applied":true,"kind":"ASSIGN","task":"T-205","from":"ready","to":"assigned","lease":"l-a88a6cb4e9ab","expires":"2026-09-07T00:34:09.091Z","attempt":1,"behavior":"no-report"}
+{"id":"e620","ts":"2026-09-07T00:30:09.091Z","applied":true,"kind":"REPORT","task":"T-202","lease":"l-4ba4882feb64","to":"done","run_id":"34069984185","from":"assigned"}
+{"id":"e621","ts":"2026-09-07T00:30:09.091Z","applied":true,"kind":"ASSIGN","task":"T-206","from":"ready","to":"assigned","lease":"l-3fb6a44a40ac","expires":"2026-09-07T00:34:09.091Z","attempt":1,"behavior":"succeed"}
+{"id":"e622","ts":"2026-09-07T00:30:09.091Z","applied":true,"kind":"REPORT","task":"T-201","lease":"l-4d76c5d89b42","to":"done","run_id":"34069983916","from":"assigned"}
+{"id":"e623","ts":"2026-09-07T00:30:09.091Z","applied":true,"kind":"ASSIGN","task":"T-207","from":"ready","to":"assigned","lease":"l-2121b0e9f1e6","expires":"2026-09-07T00:34:09.091Z","attempt":1,"behavior":"poison"}
+{"id":"e624","ts":"2026-09-07T00:30:09.092Z","applied":true,"kind":"TICK","seq":29,"actor":"chain"}
