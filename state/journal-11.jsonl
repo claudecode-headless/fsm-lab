@@ -38,3 +38,4 @@
 {"id":"e580","ts":"2026-09-07T00:19:03.976Z","applied":true,"kind":"TICK","seq":9,"actor":"chain"}
 {"id":"e581","ts":"2026-09-07T00:19:03.976Z","applied":true,"kind":"TIMEOUT","task":"T-108","from":"assigned","to":"ready"}
 {"id":"e582","ts":"2026-09-07T00:19:03.976Z","applied":true,"kind":"ASSIGN","task":"T-108","from":"ready","to":"assigned","lease":"l-b2aa1eb691e7","expires":"2026-09-07T00:23:03.976Z","attempt":2,"behavior":"slow"}
+{"id":"e583","ts":"2026-09-07T00:19:37.710Z","applied":true,"kind":"TICK","seq":10,"actor":"chain"}
