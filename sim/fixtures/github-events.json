@@ -1,0 +1,38 @@
+{
+  "tick-dispatch": {
+    "action": "fsm-tick",
+    "client_payload": { "reason": "chain", "seq": 47 }
+  },
+  "report-dispatch": {
+    "action": "fsm-report",
+    "client_payload": {
+      "event_id": "rep-34029518935",
+      "task": "T-101",
+      "lease": "l-8f3a1b2c4d5e",
+      "outcome": { "status": "done", "artifact": "artifact:T-101:attempt1" },
+      "run_id": "34029518935"
+    }
+  },
+  "control-reset": {
+    "action": "fsm-control",
+    "client_payload": { "command": "reset" }
+  },
+  "control-configure": {
+    "action": "fsm-control",
+    "client_payload": { "command": "configure", "patch": { "lease_minutes": 15 } }
+  },
+  "schedule": {
+    "schedule": "8,18,28,38,48,58 * * * *"
+  },
+  "workflow-dispatch": {
+    "inputs": {},
+    "ref": "main"
+  },
+  "trap-event-name-only": {
+    "event_name": "fsm-control",
+    "client_payload": { "command": "reset" }
+  },
+  "trap-dispatch-without-action": {
+    "client_payload": { "command": "reset" }
+  }
+}
