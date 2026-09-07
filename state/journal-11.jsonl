@@ -353,3 +353,6 @@
 {"id":"e895","ts":"2026-09-07T02:35:11.883Z","applied":true,"kind":"TICK","seq":149,"actor":"chain"}
 {"id":"e896","ts":"2026-09-07T02:35:44.291Z","applied":true,"kind":"TICK","seq":150,"actor":"chain"}
 {"id":"e897","ts":"2026-09-07T02:36:17.834Z","applied":true,"kind":"TICK","seq":151,"actor":"chain"}
+{"id":"e898","ts":"2026-09-07T02:36:51.792Z","applied":true,"kind":"TICK","seq":152,"actor":"chain"}
+{"id":"e899","ts":"2026-09-07T02:36:51.792Z","applied":true,"kind":"TIMEOUT","task":"T-205","from":"assigned","to":"quarantined"}
+{"id":"e900","ts":"2026-09-07T02:36:51.792Z","applied":true,"kind":"MILESTONE","milestone":3,"tasks":[{"id":"T-301","title":"impl: integration","behavior":"succeed","work_ms":4000,"deps":[]},{"id":"T-302","title":"review: final","behavior":"succeed","work_ms":3000,"deps":["T-301"]}]}
