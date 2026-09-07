@@ -1,14 +1,14 @@
 {
  "schema": 1,
- "version": 71,
- "journal_seq": 546,
+ "version": 72,
+ "journal_seq": 547,
  "chain": {
   "id": "c-1788692082392",
   "seq": 48,
   "last_tick": "2026-09-07T00:03:57.227Z",
   "primed_by": "t44-x11-drain",
   "halted": true,
-  "paused": false
+  "paused": true
  },
  "project": {
   "phase": "done",
@@ -892,6 +892,7 @@
   "rep-34029519507",
   "rep-34029519235",
   "rep-34029518935",
-  "tick-t44-x11-drain-v2-1788739554017"
+  "tick-t44-x11-drain-v2-1788739554017",
+  "ctl-direct-pause-1788739940764"
  ]
 }
