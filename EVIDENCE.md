@@ -184,3 +184,100 @@ closed end-to-end.
   FSM, same lease/dedup/orphan machinery, zero special-casing. The next step
   (a full CC turn via the agent-turn composite action) drops into
   `worker/turn.mjs`'s real path unchanged.
+
+---
+
+## Task 44 (2026-09-07) — the audit + deepen round (X8–X14)
+
+Five parallel sub-agent audits (44-a..e) + two design-review rounds (44-f/g)
++ a pre-push code review (44-h) drove waves 1-2 (13 fixes) and wave 3 (the
+fourth test layer). All fixes landed in ONE atomic push (401d948) after
+local gates: 41/41→57/57 tests, sim 7/7, offline conductor smoke
+(drain + quiesce). The post-audit LIVE evidence:
+
+### X11 — consume-on-drain: the zombie loop's tombstone ⭐
+- Pre-fix (live, since session 12): 3 stale X2-era reports re-rejected
+  every backstop tick (journal e519..e538 across 5 fires; ~4 records/tick
+  forever; `rejected_events` 85→100).
+- Wake 1 post-fix (run of dispatch `t44-x11-drain-v2`, 00:05:49Z): commit
+  `TICK+3r seq=48 v71 [e543..e545]` — **exactly 3 REJECTED records, NO TICK
+  record (the held wake is not an event), seq FROZEN, queue emptied to 0
+  lines.** (The first X11 attempt at 00:03:52 ran the OLD code — its
+  checkout sha 6bdef4e proved the earlier push had silently failed; a
+  pipe-masked rc. Caught by evidence, re-pushed, re-run.)
+
+### X9 — quiescence: 10 wakes, ZERO commits
+- 10 consecutive `fsm-tick` dispatches (00:06–00:11Z, all 204): every run
+  logs `QUIESCED: held-halted (chain halted) — no commit, no self-dispatch`;
+  branch tip byte-identical across all 10 (1450b19). The A1 livelock attack
+  (mixed-deploy noop self-dispatch, ~2.9k-10.4k runs/day) is structurally
+  dead: the noop path never dispatches.
+
+### X8 — ops-nudge latency: ~77s end-to-end (was: broken since birth)
+- The nudge had 401'd on EVERY run since session 12 (runs 34026953026,
+  34028691734 logged `OPS-NUDGE tick dispatch HTTP=401`, both runs green —
+  the status was never checked). One env line (`GH_TOKEN`) fixes it.
+- Live: `pause` control dispatched 00:11:34Z → ops enqueue + **nudge 204**
+  → conductor tick 00:12:29Z → control applied + committed
+  (`control-queue +1 pause` → `TICK ... [e547]` — the held wake again
+  journal-less) → total ~77s vs the previous effective latency = the
+  schedule backstop (~2h, sparse).
+
+### X10 — full-project regression + DISJOINT rotation on the new code ⭐
+- Reset (unified drain path) → the 3-milestone / 18-task project ran
+  END-TO-END again on T44 code: v69, seq=55, 14 done / 4 quarantined,
+  phase=done, STOP_CHAIN, self-stop at 00:45:02Z; 26 ops-issue comments
+  (milestones, quarantines, PROJECT COMPLETE); 12-hex lease tokens live
+  (`l-7223772fc8e9`, `l-1e67c735bc4c`).
+- **The completion turn proves F2's hardest case LIVE**: the drain of
+  T-302's report ran the clock to `phase=done + halted` MID-MUTATE; the
+  wake TICK on that same turn was correctly HELD (no journal record, seq
+  frozen at 55) while the accumulated journal [REPORT e673, PHASE e674]
+  still committed — the 44-f "drain-halts-mid-mutate still commits" trap.
+- **Rotation (disjoint gens)**: journal-11 = [e543..e674], 132 lines = 132
+  DISTINCT ids, created from a FULL gen-10 (500 lines) + new records only
+  (the old code would have written another 500-line 99%-duplicate window).
+  Gens ≥10 exist → the numeric-ordering fix is exercised live
+  (lexicographic sorts would hide the newest gen from the tail read).
+  The pre-fix gens (8-10, overlapping) prune away as gen climbs — the
+  documented migration path; retained window converges to 4×500 distinct.
+
+### X14 — the real-lane lease budget (configure control, live)
+- `configure {lease_minutes: 15}` dispatched 00:54Z → applied through the
+  full ops→queue→drain→FSM pipeline (commit `CONTROL ... [e675..e676]`,
+  state.config.lease_minutes=15) — the runtime knob surface works.
+- Reset adopts the new config → the HANG task T-105 leased (15-min lease) →
+  a REAL worker (mode=real, minimax-m3:free via kasulty, slow-prompt)
+  dispatched on the same lease superseded the hung mock worker and
+  completed: **T-105 done, attempts=1, artifact = the model's answer**
+  (run 34071849623, 01:05Z), well inside the lease. The lease formula is
+  now executable: the sim2 `lease-margin` scenario flags lease=4min as
+  NEGATIVE budget (-358s at 164s dispatch latency) and lease=15min as
+  +302s — matching this live run.
+
+### X5c — watchdog re-prime regression on T44 code
+- In-progress tick cancelled mid-pacing (01:08:33Z — the deterministic
+  kill; last_tick frozen 01:08:39Z) → manual watchdog scan (workflow_dispatch,
+  01:16Z): `WATCHDOG-SCAN seq=10 last_tick=... age=446s stale=true done=7/8`
+  → `WATCHDOG-REPRIME dispatch=204 (reprime 1/3)` → chain revived 01:16:40Z+,
+  project continued. Same byte-exact behavior as session 12's X5.
+
+### X13 — CAS burst re-run under the new jittered backoff
+- 10 concurrent writers, each in its own clone, against the LIVE repo with
+  the conductor chain actively ticking and draining (contention last
+  round's burst never had): `BURST-RESULT writers=10 ok=10 lost=0
+  slowestWriter=39423ms` — zero lost writes; the burst items were drained
+  as journaled+consumed REJECTED(unknown-task) records, exactly per design.
+
+### X12 — commit-tree fault guard (local, fault-injected)
+- `FSM_LAB_FAULT_COMMIT_TREE=1` → commit() THROWS
+  (`commit-tree failed rc=...`), the push refspec is never built from an
+  empty sha, the branch survives byte-identical (test in
+  tests/test-store.mjs; the probe-confirmed branch-DELETION path is dead).
+
+### Post-session schedule physics (refines X5's caveat)
+- Schedules COLD-START ~3.6h after repo creation (first fire 13:11:45Z vs
+  repo ~09:35Z), then ~2h cadence vs the 10-min nominal (~5% duty) —
+  "dead on fresh repos" revised to "cold-start + sparse". External driving
+  remains the production answer; the quiescence fix makes the sparse
+  backstops FREE (no commit, no self-dispatch).

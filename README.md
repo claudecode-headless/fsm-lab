@@ -12,7 +12,7 @@ trigger ─▶ one agent turn ─▶ reply       conductor ─▶ FSM(state) ─
 (HTTP request/response)                  ▲   ▲            │ lease + event report      │
                                          │   │            ▼                           │
                               chain ─────┘   └── watchdog (re-prime, breaker)        │
-                              (PAT self-dispatch: finite jobs, infinite loop) ◀──────┘
+                              (GITHUB_TOKEN self-dispatch: finite jobs, infinite loop) ◀──────┘
 ```
 
 ## The architecture in one page
@@ -20,12 +20,12 @@ trigger ─▶ one agent turn ─▶ reply       conductor ─▶ FSM(state) ─
 | Concern | Mechanism | Where |
 |---|---|---|
 | **State anchor** | versioned `state.json` + rotating `journal-*.jsonl` on the `fsm-state` git branch; CAS = FF-only push; corruption recovery = git-history walk; event-sourced rebuild = journal replay | `lib/store.mjs` |
-| **The process (FSM)** | pure transition core: `applyEvent` + `clock` (timeouts, dep unlocks, retries, scheduling, milestone advance). Invariants machine-checked after EVERY transition | `lib/fsm.mjs` |
-| **Continuity** | every conductor turn self-dispatches the next `fsm-tick` via PAT (`GITHUB_TOKEN` dispatch never starts workflows — chain-probe-proven). The loop is finite jobs chained into an unbounded sequence | `conductor/turn.mjs` |
+| **The process (FSM)** | pure transition core: `applyEvent` + `clock` (timeouts, dep unlocks, retries, scheduling, milestone advance). Invariants machine-checked after every commit (fail-closed: violations throw pre-commit) | `lib/fsm.mjs` |
+| **Continuity** | every conductor turn self-dispatches the next `fsm-tick` via the job-scoped `GITHUB_TOKEN` (X1a: `repository_dispatch` IS the documented anti-recursion exception — probe 34025596219; 15-hop zero-secret chain, X1c). `LAB_PAT` is the fallback lane only. The loop is finite jobs chained into an unbounded sequence | `conductor/turn.mjs` |
 | **Parallelism** | `max_parallel` leases; worker runs are concurrent (per-task concurrency groups), state writes serialize through ONE conductor queue (single writer) | `worker/turn.mjs` |
 | **Task units** | issues are the human surface (ops console = issue #1); the machine surface is the state file + run names | workflows |
 | **Failure model** | every failure class has a handler: lease deadlines (hangs), retry + quarantine (poison), dedup (dup reports), orphan rejection (stale leases), CAS retry (races), git-history recovery (corruption), watchdog re-prime + circuit breaker (dead chains) | everything |
-| **Testability** | three layers, all driving the SAME lib code: unit matrix (17), store suite (7, real git transport), offline simulation (7 scenarios with a virtual clock — GHA itself mocked away) | `tests/`, `sim/` |
+| **Testability** | FOUR layers, all driving the SAME lib code: FSM unit matrix (30), store suite (12, real git transport: CAS races, disjoint rotation, corruption recovery, fault-injected commit-tree), offline simulation (7 scenarios, virtual clock), and the T44 fourth layer — `lib/conductor-core.mjs` (the turn algorithm as a lib function) driven by the GHA-semantics shim (`sim/gha-shim.mjs`: ConcurrencyGroup newest-wins-cancel, DispatchLane latency/drop) + frozen live event fixtures (`lib/event-ingest.mjs`, strict) + 7 shim-driven regression scenarios incl. sabotage-proves-the-test + a 15-test conductor-core suite (57 total) | `tests/`, `sim/`, `lib/conductor-core.mjs` |
 
 ## The state-anchor decision (argued, not assumed)
 
@@ -58,7 +58,7 @@ trigger ─▶ one agent turn ─▶ reply       conductor ─▶ FSM(state) ─
 | Stale report (task reassigned) | lease token mismatch | rejected as orphan, counted | unit `stale-lease`; sim `stale`; live X4 |
 | Poison task | attempts ≥ max | quarantined + alert comment | unit `poison`; sim; live X4 |
 | Concurrent state writers | non-FF push reject | CAS retry: re-read + re-apply (dedup absorbs double-apply) | store `CAS` tests; live X3 |
-| state.json corrupted | JSON parse fail | git-history walk → last good snapshot → continue | store `corruption`; live X4 |
+| state.json corrupted | JSON parse fail | git-history walk → last good snapshot → RECOVERY record forces the commit (quiescence can't suppress repair) → continue | store `corruption` + fault injection; live never corrupted |
 | Conductor dies mid-turn | chain staleness | watchdog re-prime (dispatch tick) | sim `crash`; live X5 |
 | Chain keeps dying | re-prime counter | circuit breaker → alert issue, stop re-priming | live X5 |
 | Runaway chain | (rate cap knob) | tick_min_interval_s + STOP_CHAIN at completion | config |
@@ -88,8 +88,8 @@ curl -s -X POST -H "Authorization: token $LAB_PAT" \
   https://api.github.com/repos/claudecode-headless/fsm-lab/dispatches \
   -d '{"event_type":"fsm-tick","client_payload":{"reason":"manual"}}'
 
-# pause / resume / halt:
-#   dispatch event_type=fsm-control, client_payload={"command":"pause"|"resume"|"halt"|"unhalt"}
+# pause / resume / halt / reset / configure:
+#   dispatch event_type=fsm-control, client_payload={"command":"pause"|"resume"|"halt"|"unhalt"|"reset"| "configure", "patch": {"lease_minutes": 15}}
 
 # watch: the fsm-state branch (git log), the Actions run names
 #   ("chain · conductor", "report:T-101 · conductor", "task-T-101 · flaky · a2"),
