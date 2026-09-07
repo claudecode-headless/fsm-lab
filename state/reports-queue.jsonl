@@ -1,1 +1,2 @@
 {"event_id":"rep-34071801553","task":"T-102","lease":"l-68cd9351af2c","outcome":{"status":"done","artifact":"artifact:T-102:attempt2","duration_ms":3003},"run_id":"34071801553"}
+{"event_id":"rep-34071802312","task":"T-104","lease":"l-bc788163e417","outcome":{"status":"done","artifact":"artifact:T-104:attempt1","duration_ms":5005},"run_id":"34071802312"}
