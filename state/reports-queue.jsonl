@@ -1,1 +1,2 @@
 {"event_id":"rep-34070049521","task":"T-207","lease":"l-2eacb61f73c1","outcome":{"status":"failed","error":"poison-always","duration_ms":2002},"run_id":"34070049521"}
+{"event_id":"rep-34070049461","task":"T-208","lease":"l-3c76e788daa1","outcome":{"status":"done","artifact":"artifact:T-208:attempt1","duration_ms":4004},"run_id":"34070049461"}
