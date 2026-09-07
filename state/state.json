@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 59,
- "journal_seq": 901,
+ "version": 60,
+ "journal_seq": 903,
  "chain": {
   "id": "c-1788742991831",
-  "seq": 152,
-  "last_tick": "2026-09-07T02:36:51.792Z",
+  "seq": 153,
+  "last_tick": "2026-09-07T02:37:24.115Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -704,19 +704,28 @@
   "T-301": {
    "id": "T-301",
    "title": "impl: integration",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-af680751bd26",
+    "expires": "2026-09-07T02:52:24.115Z",
+    "issued_at": "2026-09-07T02:37:24.115Z"
+   },
    "created": "2026-09-07T02:36:51.792Z",
-   "updated": "2026-09-07T02:36:51.792Z",
+   "updated": "2026-09-07T02:37:24.115Z",
    "history": [
     {
      "at": "2026-09-07T02:36:51.792Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-07T02:37:24.115Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null
@@ -753,7 +762,7 @@
   "orphaned_reports": 0,
   "rejected_events": 12,
   "timeouts": 6,
-  "dispatched": 24
+  "dispatched": 25
  },
  "dedup": [
   "tick-ops-nudge-1788743021343",
@@ -936,6 +945,7 @@
   "tick-chain-1788748510691",
   "tick-chain-1788748543382",
   "tick-chain-1788748576845",
-  "tick-chain-1788748610616"
+  "tick-chain-1788748610616",
+  "tick-chain-1788748643350"
  ]
 }
