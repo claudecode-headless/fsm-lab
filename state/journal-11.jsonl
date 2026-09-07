@@ -327,3 +327,4 @@
 {"id":"e869","ts":"2026-09-07T02:21:21.746Z","applied":true,"kind":"TICK","seq":125,"actor":"chain"}
 {"id":"e870","ts":"2026-09-07T02:21:21.746Z","applied":true,"kind":"TIMEOUT","task":"T-205","from":"assigned","to":"ready"}
 {"id":"e871","ts":"2026-09-07T02:21:21.746Z","applied":true,"kind":"ASSIGN","task":"T-205","from":"ready","to":"assigned","lease":"l-fffd5c35a8de","expires":"2026-09-07T02:36:21.746Z","attempt":3,"behavior":"no-report"}
+{"id":"e872","ts":"2026-09-07T02:21:53.028Z","applied":true,"kind":"TICK","seq":126,"actor":"chain"}
