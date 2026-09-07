@@ -1,3 +1,4 @@
 {"event_id":"rep-34069984402","task":"T-203","lease":"l-ba78ce1fac4c","outcome":{"status":"failed","error":"flaky-fail-1","duration_ms":2002},"run_id":"34069984402"}
 {"event_id":"rep-34069985239","task":"T-204","lease":"l-6d6b8b2ba0bb","outcome":{"status":"done","artifact":"artifact:T-204:attempt1","duration_ms":4004},"run_id":"34069985239"}
 {"event_id":"rep-34069984185","task":"T-202","lease":"l-4ba4882feb64","outcome":{"status":"done","artifact":"artifact:T-202:attempt1","duration_ms":4004},"run_id":"34069984185"}
+{"event_id":"rep-34069983916","task":"T-201","lease":"l-4d76c5d89b42","outcome":{"status":"done","artifact":"artifact:T-201:attempt1","duration_ms":4005},"run_id":"34069983916"}
