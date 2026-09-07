@@ -1,12 +1,12 @@
 {
  "schema": 1,
  "version": 71,
- "journal_seq": 539,
+ "journal_seq": 543,
  "chain": {
   "id": "c-1788692082392",
-  "seq": 47,
-  "last_tick": "2026-09-06T22:26:53.270Z",
-  "primed_by": "schedule-backstop",
+  "seq": 48,
+  "last_tick": "2026-09-07T00:03:57.227Z",
+  "primed_by": "t44-x11-drain",
   "halted": true,
   "paused": false
  },
@@ -816,7 +816,7 @@
   "cancelled": 0,
   "retries": 11,
   "orphaned_reports": 6,
-  "rejected_events": 100,
+  "rejected_events": 103,
   "timeouts": 9,
   "dispatched": 29
  },
@@ -887,6 +887,7 @@
   "tick-schedule-backstop-1788711549280",
   "tick-schedule-backstop-1788719358733",
   "tick-schedule-backstop-1788727588637",
-  "tick-schedule-backstop-1788733612265"
+  "tick-schedule-backstop-1788733612265",
+  "tick-t44-x11-drain-1788739436516"
  ]
 }
