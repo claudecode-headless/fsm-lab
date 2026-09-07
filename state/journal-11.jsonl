@@ -179,3 +179,9 @@
 {"id":"e721","ts":"2026-09-07T01:18:30.123Z","applied":false,"kind":"REJECTED","origKind":"REPORT","task":"T-BURST-8","event_id":"rep-burst-8-1788743884429","reason":"unknown-task","outcome":{"status":"done","error":null,"artifact":"burst-8"}}
 {"id":"e722","ts":"2026-09-07T01:18:30.123Z","applied":false,"kind":"REJECTED","origKind":"REPORT","task":"T-BURST-3","event_id":"rep-burst-3-1788743884628","reason":"unknown-task","outcome":{"status":"done","error":null,"artifact":"burst-3"}}
 {"id":"e723","ts":"2026-09-07T01:18:30.123Z","applied":true,"kind":"TICK","seq":15,"actor":"chain"}
+{"id":"e724","ts":"2026-09-07T01:19:01.544Z","applied":false,"kind":"REJECTED","origKind":"REPORT","task":"T-BURST-2","event_id":"rep-burst-2-1788743884771","reason":"unknown-task","outcome":{"status":"done","error":null,"artifact":"burst-2"}}
+{"id":"e725","ts":"2026-09-07T01:19:01.544Z","applied":true,"kind":"TIMEOUT","task":"T-108","from":"assigned","to":"ready"}
+{"id":"e726","ts":"2026-09-07T01:19:01.544Z","applied":true,"kind":"ASSIGN","task":"T-108","from":"ready","to":"assigned","lease":"l-4da29f26246d","expires":"2026-09-07T01:34:01.544Z","attempt":2,"behavior":"slow"}
+{"id":"e727","ts":"2026-09-07T01:19:01.549Z","applied":false,"kind":"REJECTED","origKind":"REPORT","task":"T-BURST-9","event_id":"rep-burst-9-1788743885035","reason":"unknown-task","outcome":{"status":"done","error":null,"artifact":"burst-9"}}
+{"id":"e728","ts":"2026-09-07T01:19:01.549Z","applied":false,"kind":"REJECTED","origKind":"REPORT","task":"T-BURST-0","event_id":"rep-burst-0-1788743884923","reason":"unknown-task","outcome":{"status":"done","error":null,"artifact":"burst-0"}}
+{"id":"e729","ts":"2026-09-07T01:19:01.550Z","applied":true,"kind":"TICK","seq":16,"actor":"chain"}
