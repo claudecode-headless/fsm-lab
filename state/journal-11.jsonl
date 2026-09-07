@@ -275,3 +275,5 @@
 {"id":"e817","ts":"2026-09-07T01:53:17.297Z","applied":true,"kind":"TICK","seq":76,"actor":"chain"}
 {"id":"e818","ts":"2026-09-07T01:53:49.382Z","applied":true,"kind":"TICK","seq":77,"actor":"chain"}
 {"id":"e819","ts":"2026-09-07T01:54:23.468Z","applied":true,"kind":"TICK","seq":78,"actor":"chain"}
+{"id":"e820","ts":"2026-09-07T01:54:57.988Z","applied":false,"kind":"REJECTED","origKind":"REPORT","task":"T-108","event_id":"rep-34073438112","reason":"task-not-leased(quarantined)","outcome":{"status":"done","error":null,"artifact":"artifact:T-108:late"}}
+{"id":"e821","ts":"2026-09-07T01:54:57.994Z","applied":true,"kind":"TICK","seq":79,"actor":"chain"}
