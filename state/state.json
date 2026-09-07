@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 22,
- "journal_seq": 705,
+ "version": 23,
+ "journal_seq": 707,
  "chain": {
   "id": "c-1788742991831",
-  "seq": 4,
-  "last_tick": "2026-09-07T01:05:19.969Z",
+  "seq": 5,
+  "last_tick": "2026-09-07T01:05:55.295Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -195,20 +195,16 @@
   "T-105": {
    "id": "T-105",
    "title": "impl: watchdog",
-   "status": "assigned",
+   "status": "done",
    "behavior": "hang",
    "work_ms": 900000,
    "deps": [
     "T-102"
    ],
    "attempts": 1,
-   "lease": {
-    "token": "l-9ec0123eee5e",
-    "expires": "2026-09-07T01:19:48.209Z",
-    "issued_at": "2026-09-07T01:04:48.209Z"
-   },
+   "lease": null,
    "created": "2026-09-07T01:03:11.831Z",
-   "updated": "2026-09-07T01:04:48.209Z",
+   "updated": "2026-09-07T01:05:55.290Z",
    "history": [
     {
      "at": "2026-09-07T01:03:11.831Z",
@@ -224,9 +220,19 @@
      "at": "2026-09-07T01:04:48.209Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-07T01:05:55.290Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "done",
+    "run_id": "34071849623",
+    "artifact": "The three most important properties a distributed agent orchestration system must guarantee are **correctness** (the orchestrated agents produce results that satisfy their declared contracts and invar",
+    "duration_ms": 2515
+   }
   },
   "T-106": {
    "id": "T-106",
@@ -337,7 +343,7 @@
   }
  },
  "stats": {
-  "done": 6,
+  "done": 7,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -358,6 +364,8 @@
   "rep-34071801893",
   "tick-chain-1788743087596",
   "rep-34071829216",
-  "tick-chain-1788743119374"
+  "tick-chain-1788743119374",
+  "rep-34071849623",
+  "tick-chain-1788743154136"
  ]
 }

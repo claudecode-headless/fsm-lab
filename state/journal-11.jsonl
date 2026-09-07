@@ -160,3 +160,5 @@
 {"id":"e702","ts":"2026-09-07T01:04:48.216Z","applied":true,"kind":"TICK","seq":3,"actor":"chain"}
 {"id":"e703","ts":"2026-09-07T01:05:19.966Z","applied":true,"kind":"REPORT","task":"T-106","lease":"l-b6ce8b8649c4","to":"done","run_id":"34071829216","from":"assigned"}
 {"id":"e704","ts":"2026-09-07T01:05:19.969Z","applied":true,"kind":"TICK","seq":4,"actor":"chain"}
+{"id":"e705","ts":"2026-09-07T01:05:55.290Z","applied":true,"kind":"REPORT","task":"T-105","lease":"l-9ec0123eee5e","to":"done","run_id":"34071849623","from":"assigned"}
+{"id":"e706","ts":"2026-09-07T01:05:55.295Z","applied":true,"kind":"TICK","seq":5,"actor":"chain"}
