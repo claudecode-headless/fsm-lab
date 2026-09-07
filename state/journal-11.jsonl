@@ -59,3 +59,5 @@
 {"id":"e601","ts":"2026-09-07T00:26:10.820Z","applied":true,"kind":"TICK","seq":22,"actor":"chain"}
 {"id":"e602","ts":"2026-09-07T00:26:46.764Z","applied":true,"kind":"TICK","seq":23,"actor":"chain"}
 {"id":"e603","ts":"2026-09-07T00:27:22.618Z","applied":true,"kind":"TICK","seq":24,"actor":"chain"}
+{"id":"e604","ts":"2026-09-07T00:27:57.783Z","applied":true,"kind":"TICK","seq":25,"actor":"chain"}
+{"id":"e605","ts":"2026-09-07T00:27:57.783Z","applied":true,"kind":"TIMEOUT","task":"T-108","from":"assigned","to":"quarantined"}
