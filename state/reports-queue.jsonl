@@ -1,2 +1,3 @@
 {"event_id":"rep-burst-2-1788743884771","task":"T-BURST-2","lease":"l-burst","outcome":{"status":"done","artifact":"burst-2"},"run_id":"burst-2"}
 {"event_id":"rep-burst-9-1788743885035","task":"T-BURST-9","lease":"l-burst","outcome":{"status":"done","artifact":"burst-9"},"run_id":"burst-9"}
+{"event_id":"rep-burst-0-1788743884923","task":"T-BURST-0","lease":"l-burst","outcome":{"status":"done","artifact":"burst-0"},"run_id":"burst-0"}
