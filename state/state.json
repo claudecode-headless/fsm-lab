@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "version": 72,
- "journal_seq": 547,
+ "version": 73,
+ "journal_seq": 548,
  "chain": {
   "id": "c-1788692082392",
   "seq": 48,
@@ -893,6 +893,8 @@
   "rep-34029519235",
   "rep-34029518935",
   "tick-t44-x11-drain-v2-1788739554017",
-  "ctl-direct-pause-1788739940764"
+  "ctl-direct-pause-1788739940764",
+  "ctl-1788739944603-qs91lp",
+  "tick-ops-nudge-1788739953625"
  ]
 }
