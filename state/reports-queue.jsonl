@@ -1,7 +1,0 @@
-{"event_id":"rep-burst-4-1788743884387","task":"T-BURST-4","lease":"l-burst","outcome":{"status":"done","artifact":"burst-4"},"run_id":"burst-4"}
-{"event_id":"rep-burst-5-1788743884725","task":"T-BURST-5","lease":"l-burst","outcome":{"status":"done","artifact":"burst-5"},"run_id":"burst-5"}
-{"event_id":"rep-burst-1-1788743884403","task":"T-BURST-1","lease":"l-burst","outcome":{"status":"done","artifact":"burst-1"},"run_id":"burst-1"}
-{"event_id":"rep-burst-7-1788743885010","task":"T-BURST-7","lease":"l-burst","outcome":{"status":"done","artifact":"burst-7"},"run_id":"burst-7"}
-{"event_id":"rep-burst-6-1788743884530","task":"T-BURST-6","lease":"l-burst","outcome":{"status":"done","artifact":"burst-6"},"run_id":"burst-6"}
-{"event_id":"rep-burst-8-1788743884429","task":"T-BURST-8","lease":"l-burst","outcome":{"status":"done","artifact":"burst-8"},"run_id":"burst-8"}
-{"event_id":"rep-burst-3-1788743884628","task":"T-BURST-3","lease":"l-burst","outcome":{"status":"done","artifact":"burst-3"},"run_id":"burst-3"}
