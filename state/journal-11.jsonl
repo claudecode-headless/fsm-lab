@@ -10,3 +10,14 @@
 {"id":"e552","ts":"2026-09-07T00:14:39.287Z","applied":true,"kind":"ASSIGN","task":"T-102","from":"ready","to":"assigned","lease":"l-b618ddba9c73","expires":"2026-09-07T00:18:39.287Z","attempt":1,"behavior":"flaky"}
 {"id":"e553","ts":"2026-09-07T00:14:39.287Z","applied":true,"kind":"ASSIGN","task":"T-107","from":"ready","to":"assigned","lease":"l-57a7be9cf1b7","expires":"2026-09-07T00:18:39.287Z","attempt":1,"behavior":"dup"}
 {"id":"e554","ts":"2026-09-07T00:14:39.287Z","applied":true,"kind":"ASSIGN","task":"T-108","from":"ready","to":"assigned","lease":"l-6305b62faf02","expires":"2026-09-07T00:18:39.287Z","attempt":1,"behavior":"slow"}
+{"id":"e555","ts":"2026-09-07T00:15:13.475Z","applied":true,"kind":"REPORT","task":"T-107","lease":"l-57a7be9cf1b7","to":"done","run_id":"34069186118","from":"assigned"}
+{"id":"e556","ts":"2026-09-07T00:15:13.480Z","applied":true,"kind":"REPORT","task":"T-101","lease":"l-93b9340a5625","to":"done","run_id":"34069185713","from":"assigned"}
+{"id":"e557","ts":"2026-09-07T00:15:13.480Z","applied":true,"kind":"UNLOCK","task":"T-103","from":"backlog","to":"ready"}
+{"id":"e558","ts":"2026-09-07T00:15:13.480Z","applied":true,"kind":"UNLOCK","task":"T-104","from":"backlog","to":"ready"}
+{"id":"e559","ts":"2026-09-07T00:15:13.480Z","applied":true,"kind":"ASSIGN","task":"T-103","from":"ready","to":"assigned","lease":"l-cb317337ecca","expires":"2026-09-07T00:19:13.480Z","attempt":1,"behavior":"succeed"}
+{"id":"e560","ts":"2026-09-07T00:15:13.480Z","applied":true,"kind":"ASSIGN","task":"T-104","from":"ready","to":"assigned","lease":"l-b9e4a9b02864","expires":"2026-09-07T00:19:13.480Z","attempt":1,"behavior":"succeed"}
+{"id":"e561","ts":"2026-09-07T00:15:13.497Z","applied":false,"kind":"REJECTED","origKind":"REPORT","task":"T-107","event_id":"rep-34069186118","reason":"duplicate"}
+{"id":"e562","ts":"2026-09-07T00:15:13.497Z","applied":true,"kind":"REPORT","task":"T-102","lease":"l-b618ddba9c73","to":"failed","run_id":"34069185438","from":"assigned"}
+{"id":"e563","ts":"2026-09-07T00:15:13.497Z","applied":true,"kind":"RETRY","task":"T-102","from":"failed","to":"ready"}
+{"id":"e564","ts":"2026-09-07T00:15:13.497Z","applied":true,"kind":"ASSIGN","task":"T-102","from":"ready","to":"assigned","lease":"l-f1bdf5cdd8cb","expires":"2026-09-07T00:19:13.497Z","attempt":2,"behavior":"flaky"}
+{"id":"e565","ts":"2026-09-07T00:15:13.498Z","applied":true,"kind":"TICK","seq":2,"actor":"chain"}
