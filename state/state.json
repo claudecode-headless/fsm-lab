@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "version": 27,
- "journal_seq": 784,
+ "version": 29,
+ "journal_seq": 787,
  "chain": {
   "id": "c-1788742991831",
-  "seq": 68,
-  "last_tick": "2026-09-07T01:48:50.916Z",
+  "seq": 69,
+  "last_tick": "2026-09-07T01:49:23.957Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
  },
  "project": {
   "phase": "executing",
-  "milestone": 1,
+  "milestone": 2,
   "milestones_total": 3
  },
  "config": {
@@ -315,18 +315,14 @@
   "T-108": {
    "id": "T-108",
    "title": "edge: late report (orphan)",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "slow",
    "work_ms": 330000,
    "deps": [],
    "attempts": 3,
-   "lease": {
-    "token": "l-aa977e608f29",
-    "expires": "2026-09-07T01:49:09.959Z",
-    "issued_at": "2026-09-07T01:34:09.959Z"
-   },
+   "lease": null,
    "created": "2026-09-07T01:03:11.831Z",
-   "updated": "2026-09-07T01:34:09.959Z",
+   "updated": "2026-09-07T01:49:23.957Z",
    "history": [
     {
      "at": "2026-09-07T01:03:11.831Z",
@@ -357,6 +353,171 @@
      "at": "2026-09-07T01:34:09.959Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-07T01:49:23.957Z",
+     "status": "quarantined",
+     "why": "lease-timeout(attempts=3)"
+    }
+   ],
+   "last_result": null
+  },
+  "T-201": {
+   "id": "T-201",
+   "title": "impl: parallel a",
+   "status": "ready",
+   "behavior": "succeed",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-07T01:49:23.957Z",
+   "updated": "2026-09-07T01:49:23.957Z",
+   "history": [
+    {
+     "at": "2026-09-07T01:49:23.957Z",
+     "status": "ready",
+     "why": "created"
+    }
+   ],
+   "last_result": null
+  },
+  "T-202": {
+   "id": "T-202",
+   "title": "impl: parallel b",
+   "status": "ready",
+   "behavior": "succeed",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-07T01:49:23.957Z",
+   "updated": "2026-09-07T01:49:23.957Z",
+   "history": [
+    {
+     "at": "2026-09-07T01:49:23.957Z",
+     "status": "ready",
+     "why": "created"
+    }
+   ],
+   "last_result": null
+  },
+  "T-203": {
+   "id": "T-203",
+   "title": "impl: parallel c",
+   "status": "ready",
+   "behavior": "flaky",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-07T01:49:23.957Z",
+   "updated": "2026-09-07T01:49:23.957Z",
+   "history": [
+    {
+     "at": "2026-09-07T01:49:23.957Z",
+     "status": "ready",
+     "why": "created"
+    }
+   ],
+   "last_result": null
+  },
+  "T-204": {
+   "id": "T-204",
+   "title": "impl: parallel d",
+   "status": "ready",
+   "behavior": "succeed",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-07T01:49:23.957Z",
+   "updated": "2026-09-07T01:49:23.957Z",
+   "history": [
+    {
+     "at": "2026-09-07T01:49:23.957Z",
+     "status": "ready",
+     "why": "created"
+    }
+   ],
+   "last_result": null
+  },
+  "T-205": {
+   "id": "T-205",
+   "title": "impl: parallel e",
+   "status": "ready",
+   "behavior": "no-report",
+   "work_ms": 3000,
+   "deps": [],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-07T01:49:23.957Z",
+   "updated": "2026-09-07T01:49:23.957Z",
+   "history": [
+    {
+     "at": "2026-09-07T01:49:23.957Z",
+     "status": "ready",
+     "why": "created"
+    }
+   ],
+   "last_result": null
+  },
+  "T-206": {
+   "id": "T-206",
+   "title": "impl: parallel f",
+   "status": "ready",
+   "behavior": "succeed",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-07T01:49:23.957Z",
+   "updated": "2026-09-07T01:49:23.957Z",
+   "history": [
+    {
+     "at": "2026-09-07T01:49:23.957Z",
+     "status": "ready",
+     "why": "created"
+    }
+   ],
+   "last_result": null
+  },
+  "T-207": {
+   "id": "T-207",
+   "title": "impl: poison path",
+   "status": "ready",
+   "behavior": "poison",
+   "work_ms": 2000,
+   "deps": [],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-07T01:49:23.957Z",
+   "updated": "2026-09-07T01:49:23.957Z",
+   "history": [
+    {
+     "at": "2026-09-07T01:49:23.957Z",
+     "status": "ready",
+     "why": "created"
+    }
+   ],
+   "last_result": null
+  },
+  "T-208": {
+   "id": "T-208",
+   "title": "impl: parallel g",
+   "status": "ready",
+   "behavior": "succeed",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-07T01:49:23.957Z",
+   "updated": "2026-09-07T01:49:23.957Z",
+   "history": [
+    {
+     "at": "2026-09-07T01:49:23.957Z",
+     "status": "ready",
+     "why": "created"
     }
    ],
    "last_result": null
@@ -365,12 +526,12 @@
  "stats": {
   "done": 7,
   "failed": 0,
-  "quarantined": 0,
+  "quarantined": 1,
   "cancelled": 0,
   "retries": 3,
   "orphaned_reports": 0,
   "rejected_events": 11,
-  "timeouts": 2,
+  "timeouts": 3,
   "dispatched": 11
  },
  "dedup": [
@@ -459,6 +620,7 @@
   "tick-chain-1788745628005",
   "tick-chain-1788745661204",
   "tick-chain-1788745696190",
-  "tick-chain-1788745729852"
+  "tick-chain-1788745729852",
+  "tick-chain-1788745763094"
  ]
 }
