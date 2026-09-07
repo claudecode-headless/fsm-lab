@@ -44,3 +44,4 @@
 {"id":"e586","ts":"2026-09-07T00:20:09.784Z","applied":true,"kind":"ASSIGN","task":"T-105","from":"ready","to":"assigned","lease":"l-cb2a1588b424","expires":"2026-09-07T00:24:09.784Z","attempt":2,"behavior":"hang"}
 {"id":"e587","ts":"2026-09-07T00:20:40.535Z","applied":true,"kind":"TICK","seq":12,"actor":"chain"}
 {"id":"e588","ts":"2026-09-07T00:21:15.604Z","applied":true,"kind":"TICK","seq":13,"actor":"chain"}
+{"id":"e589","ts":"2026-09-07T00:21:50.644Z","applied":true,"kind":"TICK","seq":14,"actor":"chain"}
