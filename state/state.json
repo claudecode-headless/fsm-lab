@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 21,
- "journal_seq": 703,
+ "version": 22,
+ "journal_seq": 705,
  "chain": {
   "id": "c-1788742991831",
-  "seq": 3,
-  "last_tick": "2026-09-07T01:04:48.216Z",
+  "seq": 4,
+  "last_tick": "2026-09-07T01:05:19.969Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -231,7 +231,7 @@
   "T-106": {
    "id": "T-106",
    "title": "review: M1",
-   "status": "assigned",
+   "status": "done",
    "behavior": "succeed",
    "work_ms": 3000,
    "deps": [
@@ -239,13 +239,9 @@
     "T-104"
    ],
    "attempts": 1,
-   "lease": {
-    "token": "l-b6ce8b8649c4",
-    "expires": "2026-09-07T01:19:48.215Z",
-    "issued_at": "2026-09-07T01:04:48.215Z"
-   },
+   "lease": null,
    "created": "2026-09-07T01:03:11.831Z",
-   "updated": "2026-09-07T01:04:48.215Z",
+   "updated": "2026-09-07T01:05:19.966Z",
    "history": [
     {
      "at": "2026-09-07T01:03:11.831Z",
@@ -261,9 +257,19 @@
      "at": "2026-09-07T01:04:48.215Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-07T01:05:19.966Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "done",
+    "run_id": "34071829216",
+    "artifact": "artifact:T-106:attempt1",
+    "duration_ms": 3003
+   }
   },
   "T-107": {
    "id": "T-107",
@@ -331,7 +337,7 @@
   }
  },
  "stats": {
-  "done": 5,
+  "done": 6,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -350,6 +356,8 @@
   "rep-34071801553",
   "rep-34071802312",
   "rep-34071801893",
-  "tick-chain-1788743087596"
+  "tick-chain-1788743087596",
+  "rep-34071829216",
+  "tick-chain-1788743119374"
  ]
 }
