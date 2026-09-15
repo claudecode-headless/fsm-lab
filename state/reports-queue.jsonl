@@ -3,3 +3,4 @@
 {"event_id":"rep-34947018536-a1","task":"T-204","lease":"l-a73057883d91","outcome":{"status":"done","artifact":"artifact:T-204:attempt1","duration_ms":4005},"run_id":"34947018536"}
 {"event_id":"rep-34947018630-a1","task":"T-207","lease":"l-07323cf8b1df","outcome":{"status":"failed","error":"poison-always","duration_ms":2003},"run_id":"34947018630"}
 {"event_id":"rep-34947018973-a1","task":"T-208","lease":"l-1c5989990e8f","outcome":{"status":"done","artifact":"artifact:T-208:attempt1","duration_ms":4005},"run_id":"34947018973"}
+{"event_id":"rep-34947019925-a1","task":"T-201","lease":"l-f81f92a4bab8","outcome":{"status":"done","artifact":"artifact:T-201:attempt1","duration_ms":4002},"run_id":"34947019925"}
