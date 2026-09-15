@@ -397,3 +397,5 @@
 {"id":"e942","ts":"2026-09-15T07:42:25.673Z","applied":true,"kind":"TICK","seq":6,"actor":"chain"}
 {"id":"e943","ts":"2026-09-15T07:42:58.216Z","applied":true,"kind":"TICK","seq":7,"actor":"chain"}
 {"id":"e944","ts":"2026-09-15T07:43:32.438Z","applied":true,"kind":"TICK","seq":8,"actor":"chain"}
+{"id":"e945","ts":"2026-09-15T07:44:04.722Z","applied":false,"kind":"REJECTED","origKind":"REPORT","task":"T-101","event_id":"rep-34942829452-a2","reason":"task-not-leased(done)","outcome":{"status":"done","error":null,"artifact":"artifact:T-101:attempt1"}}
+{"id":"e946","ts":"2026-09-15T07:44:04.724Z","applied":true,"kind":"TICK","seq":9,"actor":"chain"}
