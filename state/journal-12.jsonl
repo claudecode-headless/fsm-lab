@@ -15,3 +15,5 @@
 {"id":"e1058","ts":"2026-09-15T08:28:07.735Z","applied":true,"kind":"ASSIGN","task":"T-207","from":"ready","to":"assigned","lease":"l-ac5555984cfa","expires":"2026-09-15T08:43:07.735Z","attempt":3,"behavior":"poison"}
 {"id":"e1059","ts":"2026-09-15T08:28:07.769Z","applied":true,"kind":"REPORT","task":"T-203","lease":"l-e930f560de9f","to":"done","run_id":"34947068104","from":"assigned"}
 {"id":"e1060","ts":"2026-09-15T08:28:07.770Z","applied":true,"kind":"TICK","seq":87,"actor":"chain"}
+{"id":"e1061","ts":"2026-09-15T08:28:45.013Z","applied":true,"kind":"REPORT","task":"T-207","lease":"l-ac5555984cfa","to":"quarantined","run_id":"34947118647","from":"assigned"}
+{"id":"e1062","ts":"2026-09-15T08:28:45.024Z","applied":true,"kind":"TICK","seq":88,"actor":"chain"}
