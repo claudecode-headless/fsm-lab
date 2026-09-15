@@ -104,3 +104,7 @@
 {"id":"e1147","ts":"2026-09-15T09:13:03.911Z","applied":true,"kind":"MILESTONE","milestone":3,"tasks":[{"id":"T-301","title":"impl: integration","behavior":"succeed","work_ms":4000,"deps":[]},{"id":"T-302","title":"review: final","behavior":"succeed","work_ms":3000,"deps":["T-301"]}]}
 {"id":"e1148","ts":"2026-09-15T09:13:37.318Z","applied":true,"kind":"TICK","seq":167,"actor":"chain"}
 {"id":"e1149","ts":"2026-09-15T09:13:37.318Z","applied":true,"kind":"ASSIGN","task":"T-301","from":"ready","to":"assigned","lease":"l-2d1344817868","expires":"2026-09-15T09:28:37.318Z","attempt":1,"behavior":"succeed"}
+{"id":"e1150","ts":"2026-09-15T09:14:09.264Z","applied":true,"kind":"REPORT","task":"T-301","lease":"l-2d1344817868","to":"done","run_id":"34951370074","from":"assigned"}
+{"id":"e1151","ts":"2026-09-15T09:14:09.264Z","applied":true,"kind":"UNLOCK","task":"T-302","from":"backlog","to":"ready"}
+{"id":"e1152","ts":"2026-09-15T09:14:09.264Z","applied":true,"kind":"ASSIGN","task":"T-302","from":"ready","to":"assigned","lease":"l-39b8007596bb","expires":"2026-09-15T09:29:09.264Z","attempt":1,"behavior":"succeed"}
+{"id":"e1153","ts":"2026-09-15T09:14:09.270Z","applied":true,"kind":"TICK","seq":168,"actor":"chain"}
