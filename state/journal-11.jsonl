@@ -393,3 +393,4 @@
 {"id":"e938","ts":"2026-09-15T07:40:41.507Z","applied":true,"kind":"TICK","seq":3,"actor":"chain"}
 {"id":"e939","ts":"2026-09-15T07:41:19.392Z","applied":true,"kind":"REPORT","task":"T-106","lease":"l-507f7fff95f6","to":"done","run_id":"34942927014","from":"assigned"}
 {"id":"e940","ts":"2026-09-15T07:41:19.399Z","applied":true,"kind":"TICK","seq":4,"actor":"chain"}
+{"id":"e941","ts":"2026-09-15T07:41:53.133Z","applied":true,"kind":"TICK","seq":5,"actor":"chain"}
