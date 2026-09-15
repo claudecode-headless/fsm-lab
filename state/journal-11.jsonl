@@ -484,3 +484,6 @@
 {"id":"e1029","ts":"2026-09-15T08:25:20.523Z","applied":true,"kind":"TICK","seq":82,"actor":"chain"}
 {"id":"e1030","ts":"2026-09-15T08:25:20.523Z","applied":true,"kind":"TIMEOUT","task":"T-108","from":"assigned","to":"quarantined"}
 {"id":"e1031","ts":"2026-09-15T08:25:54.303Z","applied":true,"kind":"TICK","seq":83,"actor":"chain"}
+{"id":"e1032","ts":"2026-09-15T08:26:27.190Z","applied":true,"kind":"TICK","seq":84,"actor":"chain"}
+{"id":"e1033","ts":"2026-09-15T08:26:27.190Z","applied":true,"kind":"TIMEOUT","task":"T-105","from":"assigned","to":"quarantined"}
+{"id":"e1034","ts":"2026-09-15T08:26:27.190Z","applied":true,"kind":"MILESTONE","milestone":2,"tasks":[{"id":"T-201","title":"impl: parallel a","behavior":"succeed","work_ms":4000},{"id":"T-202","title":"impl: parallel b","behavior":"succeed","work_ms":4000},{"id":"T-203","title":"impl: parallel c","behavior":"flaky","work_ms":4000},{"id":"T-204","title":"impl: parallel d","behavior":"succeed","work_ms":4000},{"id":"T-205","title":"impl: parallel e","behavior":"no-report","work_ms":3000},{"id":"T-206","title":"impl: parallel f","behavior":"succeed","work_ms":4000},{"id":"T-207","title":"impl: poison path","behavior":"poison","work_ms":2000},{"id":"T-208","title":"impl: parallel g","behavior":"succeed","work_ms":4000}]}
