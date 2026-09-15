@@ -456,3 +456,4 @@
 {"id":"e1001","ts":"2026-09-15T08:11:10.853Z","applied":true,"kind":"TIMEOUT","task":"T-105","from":"assigned","to":"ready"}
 {"id":"e1002","ts":"2026-09-15T08:11:10.853Z","applied":true,"kind":"ASSIGN","task":"T-105","from":"ready","to":"assigned","lease":"l-f01d6ed1b96d","expires":"2026-09-15T08:26:10.853Z","attempt":3,"behavior":"hang"}
 {"id":"e1003","ts":"2026-09-15T08:11:44.411Z","applied":true,"kind":"TICK","seq":58,"actor":"chain"}
+{"id":"e1004","ts":"2026-09-15T08:12:17.159Z","applied":true,"kind":"TICK","seq":59,"actor":"chain"}
