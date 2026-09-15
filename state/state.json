@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 53,
- "journal_seq": 1056,
+ "version": 57,
+ "journal_seq": 1061,
  "chain": {
   "id": "c-1789457940180",
-  "seq": 86,
-  "last_tick": "2026-09-15T08:27:33.565Z",
+  "seq": 87,
+  "last_tick": "2026-09-15T08:28:07.770Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -450,18 +450,14 @@
   "T-203": {
    "id": "T-203",
    "title": "impl: parallel c",
-   "status": "assigned",
+   "status": "done",
    "behavior": "flaky",
    "work_ms": 4000,
    "deps": [],
    "attempts": 2,
-   "lease": {
-    "token": "l-e930f560de9f",
-    "expires": "2026-09-15T08:42:33.558Z",
-    "issued_at": "2026-09-15T08:27:33.558Z"
-   },
+   "lease": null,
    "created": "2026-09-15T08:26:27.190Z",
-   "updated": "2026-09-15T08:27:33.558Z",
+   "updated": "2026-09-15T08:28:07.769Z",
    "history": [
     {
      "at": "2026-09-15T08:26:27.190Z",
@@ -487,12 +483,18 @@
      "at": "2026-09-15T08:27:33.558Z",
      "status": "assigned",
      "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-15T08:28:07.769Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "failed",
-    "run_id": "34947017856",
-    "error": "flaky-fail-1"
+    "status": "done",
+    "run_id": "34947068104",
+    "artifact": "artifact:T-203:attempt2",
+    "duration_ms": 4004
    }
   },
   "T-204": {
@@ -601,14 +603,14 @@
    "behavior": "poison",
    "work_ms": 2000,
    "deps": [],
-   "attempts": 2,
+   "attempts": 3,
    "lease": {
-    "token": "l-6c7d4d297aea",
-    "expires": "2026-09-15T08:42:33.563Z",
-    "issued_at": "2026-09-15T08:27:33.563Z"
+    "token": "l-ac5555984cfa",
+    "expires": "2026-09-15T08:43:07.735Z",
+    "issued_at": "2026-09-15T08:28:07.735Z"
    },
    "created": "2026-09-15T08:26:27.190Z",
-   "updated": "2026-09-15T08:27:33.563Z",
+   "updated": "2026-09-15T08:28:07.735Z",
    "history": [
     {
      "at": "2026-09-15T08:26:27.190Z",
@@ -634,11 +636,26 @@
      "at": "2026-09-15T08:27:33.563Z",
      "status": "assigned",
      "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-15T08:28:07.735Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=2)"
+    },
+    {
+     "at": "2026-09-15T08:28:07.735Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=2)"
+    },
+    {
+     "at": "2026-09-15T08:28:07.735Z",
+     "status": "assigned",
+     "why": "assigned(attempt=3)"
     }
    ],
    "last_result": {
     "status": "failed",
-    "run_id": "34947018630",
+    "run_id": "34947067490",
     "error": "poison-always"
    }
   },
@@ -679,15 +696,15 @@
   }
  },
  "stats": {
-  "done": 11,
+  "done": 12,
   "failed": 0,
   "quarantined": 2,
   "cancelled": 0,
-  "retries": 7,
+  "retries": 8,
   "orphaned_reports": 0,
   "rejected_events": 3,
   "timeouts": 6,
-  "dispatched": 23,
+  "dispatched": 24,
   "infra_retries": 0
  },
  "dedup": [
@@ -793,6 +810,9 @@
   "rep-34947018973-a1",
   "rep-34947019925-a1",
   "rep-34947018049-a1",
-  "tick-chain-1789460852312"
+  "tick-chain-1789460852312",
+  "rep-34947067490-a1",
+  "rep-34947068104-a1",
+  "tick-chain-1789460887113"
  ]
 }
