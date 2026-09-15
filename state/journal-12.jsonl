@@ -36,3 +36,5 @@
 {"id":"e1079","ts":"2026-09-15T08:38:25.901Z","applied":true,"kind":"TICK","seq":105,"actor":"chain"}
 {"id":"e1080","ts":"2026-09-15T08:39:03.529Z","applied":true,"kind":"TICK","seq":106,"actor":"chain"}
 {"id":"e1081","ts":"2026-09-15T08:39:37.536Z","applied":true,"kind":"TICK","seq":107,"actor":"chain"}
+{"id":"e1082","ts":"2026-09-15T08:40:10.091Z","applied":false,"kind":"REJECTED","origKind":"REPORT","task":"T-108","event_id":"rep-34942831380-a2","reason":"task-not-leased(quarantined)","outcome":{"status":"done","error":null,"artifact":"artifact:T-108:late"}}
+{"id":"e1083","ts":"2026-09-15T08:40:10.093Z","applied":true,"kind":"TICK","seq":108,"actor":"chain"}
