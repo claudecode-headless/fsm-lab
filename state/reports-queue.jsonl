@@ -1,2 +1,3 @@
 {"event_id":"rep-34942830895-a1","task":"T-102","lease":"l-5a0d160ae293","outcome":{"status":"failed","error":"flaky-fail-1","duration_ms":2002},"run_id":"34942830895"}
 {"event_id":"rep-34942829452-a1","task":"T-101","lease":"l-35af0af538ed","outcome":{"status":"done","artifact":"artifact:T-101:attempt1","duration_ms":4003},"run_id":"34942829452"}
+{"event_id":"rep-34942830663-a1","task":"T-107","lease":"l-5736dd98dd2f","outcome":{"status":"done","artifact":"artifact:T-107","duration_ms":3003},"run_id":"34942830663"}
