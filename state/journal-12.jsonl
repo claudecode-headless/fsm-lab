@@ -41,3 +41,6 @@
 {"id":"e1084","ts":"2026-09-15T08:40:42.115Z","applied":true,"kind":"TICK","seq":109,"actor":"chain"}
 {"id":"e1085","ts":"2026-09-15T08:41:17.883Z","applied":true,"kind":"TICK","seq":110,"actor":"chain"}
 {"id":"e1086","ts":"2026-09-15T08:41:52.579Z","applied":true,"kind":"TICK","seq":111,"actor":"chain"}
+{"id":"e1087","ts":"2026-09-15T08:42:28.899Z","applied":true,"kind":"TICK","seq":112,"actor":"chain"}
+{"id":"e1088","ts":"2026-09-15T08:42:28.899Z","applied":true,"kind":"TIMEOUT","task":"T-205","from":"assigned","to":"ready"}
+{"id":"e1089","ts":"2026-09-15T08:42:28.899Z","applied":true,"kind":"ASSIGN","task":"T-205","from":"ready","to":"assigned","lease":"l-8fe1638ee1a8","expires":"2026-09-15T08:57:28.899Z","attempt":2,"behavior":"no-report"}
