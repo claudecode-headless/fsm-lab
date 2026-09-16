@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 95,
- "journal_seq": 1582,
+ "version": 98,
+ "journal_seq": 1586,
  "chain": {
   "id": "c-1789583988738",
-  "seq": 118,
-  "last_tick": "2026-09-16T19:47:29.994Z",
+  "seq": 119,
+  "last_tick": "2026-09-16T19:48:02.056Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -773,14 +773,14 @@
    "behavior": "no-report",
    "work_ms": 3000,
    "deps": [],
-   "attempts": 1,
+   "attempts": 2,
    "lease": {
-    "token": "l-03fa9061441a",
-    "expires": "2026-09-16T20:29:41.099Z",
-    "issued_at": "2026-09-16T19:44:41.099Z"
+    "token": "l-cb28ebc04b8b",
+    "expires": "2026-09-16T20:33:02.050Z",
+    "issued_at": "2026-09-16T19:48:02.050Z"
    },
    "created": "2026-09-16T19:34:35.654Z",
-   "updated": "2026-09-16T19:44:41.099Z",
+   "updated": "2026-09-16T19:48:02.050Z",
    "history": [
     {
      "at": "2026-09-16T19:34:35.654Z",
@@ -791,9 +791,28 @@
      "at": "2026-09-16T19:44:41.099Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-16T19:48:02.050Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=1)"
+    },
+    {
+     "at": "2026-09-16T19:48:02.050Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=1)"
+    },
+    {
+     "at": "2026-09-16T19:48:02.050Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "work_failed",
+    "run_id": "35142399440",
+    "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
+   }
   },
   "T-206": {
    "id": "T-206",
@@ -888,11 +907,11 @@
   "failed": 0,
   "quarantined": 7,
   "cancelled": 1,
-  "retries": 21,
+  "retries": 22,
   "orphaned_reports": 0,
   "rejected_events": 0,
   "timeouts": 0,
-  "dispatched": 36,
+  "dispatched": 37,
   "infra_retries": 0
  },
  "dedup": [
@@ -1045,6 +1064,8 @@
   "tick-chain-1789587951317",
   "tick-chain-1789587984692",
   "tick-chain-1789588017279",
-  "tick-chain-1789588049116"
+  "tick-chain-1789588049116",
+  "rep-35142399440-a1",
+  "tick-chain-1789588081013"
  ]
 }
