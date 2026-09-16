@@ -255,3 +255,5 @@
 {"id":"e1298","ts":"2026-09-16T18:12:44.572Z","applied":true,"kind":"TICK","seq":98,"actor":"chain"}
 {"id":"e1299","ts":"2026-09-16T18:13:26.762Z","applied":true,"kind":"TICK","seq":99,"actor":"chain"}
 {"id":"e1300","ts":"2026-09-16T18:14:03.887Z","applied":true,"kind":"TICK","seq":100,"actor":"chain"}
+{"id":"e1301","ts":"2026-09-16T18:14:38.723Z","applied":true,"kind":"CONTROL","command":"configure","patch":{"lease_minutes":45},"before":{"lease_minutes":15},"actor":"xfnwfpho1","note":"T46 X21 clean epoch — the 45-min lease (real CC turns need real walls)"}
+{"id":"e1302","ts":"2026-09-16T18:14:38.725Z","applied":true,"kind":"TICK","seq":101,"actor":"chain"}

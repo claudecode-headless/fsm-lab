@@ -1,1 +1,0 @@
-{"cmd":"configure","patch":{"lease_minutes":45},"note":"T46 X21 clean epoch — the 45-min lease (real CC turns need real walls)","sender":"xfnwfpho1","ts":"2026-09-16T18:14:32.713Z","id":"ctl-1789582472717-89xewx"}
