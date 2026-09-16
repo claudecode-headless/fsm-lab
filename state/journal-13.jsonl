@@ -114,3 +114,6 @@
 {"id":"e1649","ts":"2026-09-16T20:05:39.582Z","applied":true,"kind":"TICK","seq":150,"actor":"chain"}
 {"id":"e1650","ts":"2026-09-16T20:06:13.239Z","applied":true,"kind":"TICK","seq":151,"actor":"chain"}
 {"id":"e1651","ts":"2026-09-16T20:06:46.482Z","applied":true,"kind":"TICK","seq":152,"actor":"chain"}
+{"id":"e1652","ts":"2026-09-16T20:07:26.134Z","applied":true,"kind":"REPORT","task":"T-301","lease":"l-1030d5602118","to":"quarantined","run_id":"35144248800","from":"assigned"}
+{"id":"e1653","ts":"2026-09-16T20:07:26.134Z","applied":true,"kind":"CANCEL_CASCADE","task":"T-302","from":"backlog","to":"cancelled","reason":"T-301"}
+{"id":"e1654","ts":"2026-09-16T20:07:26.134Z","applied":true,"kind":"PHASE","from":"executing","to":"done","degraded":true}

@@ -1,17 +1,17 @@
 {
  "schema": 1,
- "version": 131,
- "journal_seq": 1652,
+ "version": 134,
+ "journal_seq": 1655,
  "chain": {
   "id": "c-1789583988738",
   "seq": 152,
   "last_tick": "2026-09-16T20:06:46.482Z",
   "primed_by": "chain",
-  "halted": false,
+  "halted": true,
   "paused": false
  },
  "project": {
-  "phase": "executing",
+  "phase": "done",
   "milestone": 3,
   "milestones_total": 3,
   "mode": "cc"
@@ -1025,18 +1025,14 @@
   "T-301": {
    "id": "T-301",
    "title": "impl: integration",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
    "attempts": 3,
-   "lease": {
-    "token": "l-1030d5602118",
-    "expires": "2026-09-16T20:48:26.462Z",
-    "issued_at": "2026-09-16T20:03:26.462Z"
-   },
+   "lease": null,
    "created": "2026-09-16T19:56:28.580Z",
-   "updated": "2026-09-16T20:03:26.462Z",
+   "updated": "2026-09-16T20:07:26.134Z",
    "history": [
     {
      "at": "2026-09-16T19:56:28.580Z",
@@ -1077,18 +1073,23 @@
      "at": "2026-09-16T20:03:26.462Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-16T20:07:26.134Z",
+     "status": "quarantined",
+     "why": "worker-failed(attempts=3)"
     }
    ],
    "last_result": {
     "status": "work_failed",
-    "run_id": "35143895565",
+    "run_id": "35144248800",
     "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
    }
   },
   "T-302": {
    "id": "T-302",
    "title": "review: final",
-   "status": "backlog",
+   "status": "cancelled",
    "behavior": "succeed",
    "work_ms": 3000,
    "deps": [
@@ -1097,12 +1098,17 @@
    "attempts": 0,
    "lease": null,
    "created": "2026-09-16T19:56:28.580Z",
-   "updated": "2026-09-16T19:56:28.580Z",
+   "updated": "2026-09-16T20:07:26.134Z",
    "history": [
     {
      "at": "2026-09-16T19:56:28.580Z",
      "status": "backlog",
      "why": "created"
+    },
+    {
+     "at": "2026-09-16T20:07:26.134Z",
+     "status": "cancelled",
+     "why": "dep-failed-cascade"
     }
    ],
    "last_result": null
@@ -1111,8 +1117,8 @@
  "stats": {
   "done": 4,
   "failed": 0,
-  "quarantined": 11,
-  "cancelled": 1,
+  "quarantined": 12,
+  "cancelled": 2,
   "retries": 31,
   "orphaned_reports": 0,
   "rejected_events": 0,
@@ -1318,6 +1324,8 @@
   "tick-chain-1789589106155",
   "tick-chain-1789589138318",
   "tick-chain-1789589171061",
-  "tick-chain-1789589204940"
+  "tick-chain-1789589204940",
+  "rep-35144248800-a1",
+  "tick-chain-1789589245275"
  ]
 }
