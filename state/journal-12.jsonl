@@ -252,3 +252,4 @@
 {"id":"e1295","ts":"2026-09-16T18:12:06.773Z","applied":true,"kind":"ASSIGN","task":"T-202","from":"ready","to":"assigned","lease":"l-3bc7c5f840db","expires":"2026-09-16T18:27:06.773Z","attempt":1,"behavior":"succeed","task_ref":{"kind":"state-task","id":"T-202"}}
 {"id":"e1296","ts":"2026-09-16T18:12:06.773Z","applied":true,"kind":"ASSIGN","task":"T-203","from":"ready","to":"assigned","lease":"l-eea6a66afadc","expires":"2026-09-16T18:27:06.773Z","attempt":1,"behavior":"flaky","task_ref":{"kind":"state-task","id":"T-203"}}
 {"id":"e1297","ts":"2026-09-16T18:12:06.773Z","applied":true,"kind":"ASSIGN","task":"T-204","from":"ready","to":"assigned","lease":"l-e184d82d0739","expires":"2026-09-16T18:27:06.773Z","attempt":1,"behavior":"succeed","task_ref":{"kind":"state-task","id":"T-204"}}
+{"id":"e1298","ts":"2026-09-16T18:12:44.572Z","applied":true,"kind":"TICK","seq":98,"actor":"chain"}
