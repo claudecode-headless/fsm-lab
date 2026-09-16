@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "version": 1,
- "journal_seq": 1160,
+ "journal_seq": 1163,
  "chain": {
-  "id": "c-1789578679021",
+  "id": "c-1789578712327",
   "seq": 0,
-  "last_tick": "2026-09-16T17:11:19.021Z",
+  "last_tick": "2026-09-16T17:11:52.327Z",
   "primed_by": "genesis",
   "halted": false,
   "paused": false
@@ -14,7 +14,7 @@
   "phase": "executing",
   "milestone": 1,
   "milestones_total": 3,
-  "mode": "mock"
+  "mode": "cc"
  },
  "config": {
   "max_parallel": 4,
@@ -33,11 +33,11 @@
    "deps": [],
    "attempts": 0,
    "lease": null,
-   "created": "2026-09-16T17:11:19.021Z",
-   "updated": "2026-09-16T17:11:19.021Z",
+   "created": "2026-09-16T17:11:52.327Z",
+   "updated": "2026-09-16T17:11:52.327Z",
    "history": [
     {
-     "at": "2026-09-16T17:11:19.021Z",
+     "at": "2026-09-16T17:11:52.327Z",
      "status": "ready",
      "why": "created"
     }
@@ -53,11 +53,11 @@
    "deps": [],
    "attempts": 0,
    "lease": null,
-   "created": "2026-09-16T17:11:19.021Z",
-   "updated": "2026-09-16T17:11:19.021Z",
+   "created": "2026-09-16T17:11:52.327Z",
+   "updated": "2026-09-16T17:11:52.327Z",
    "history": [
     {
-     "at": "2026-09-16T17:11:19.021Z",
+     "at": "2026-09-16T17:11:52.327Z",
      "status": "ready",
      "why": "created"
     }
@@ -75,11 +75,11 @@
    ],
    "attempts": 0,
    "lease": null,
-   "created": "2026-09-16T17:11:19.021Z",
-   "updated": "2026-09-16T17:11:19.021Z",
+   "created": "2026-09-16T17:11:52.327Z",
+   "updated": "2026-09-16T17:11:52.327Z",
    "history": [
     {
-     "at": "2026-09-16T17:11:19.021Z",
+     "at": "2026-09-16T17:11:52.327Z",
      "status": "backlog",
      "why": "created"
     }
@@ -97,11 +97,11 @@
    ],
    "attempts": 0,
    "lease": null,
-   "created": "2026-09-16T17:11:19.021Z",
-   "updated": "2026-09-16T17:11:19.021Z",
+   "created": "2026-09-16T17:11:52.327Z",
+   "updated": "2026-09-16T17:11:52.327Z",
    "history": [
     {
-     "at": "2026-09-16T17:11:19.021Z",
+     "at": "2026-09-16T17:11:52.327Z",
      "status": "backlog",
      "why": "created"
     }
@@ -119,11 +119,11 @@
    ],
    "attempts": 0,
    "lease": null,
-   "created": "2026-09-16T17:11:19.021Z",
-   "updated": "2026-09-16T17:11:19.021Z",
+   "created": "2026-09-16T17:11:52.327Z",
+   "updated": "2026-09-16T17:11:52.327Z",
    "history": [
     {
-     "at": "2026-09-16T17:11:19.021Z",
+     "at": "2026-09-16T17:11:52.327Z",
      "status": "backlog",
      "why": "created"
     }
@@ -142,11 +142,11 @@
    ],
    "attempts": 0,
    "lease": null,
-   "created": "2026-09-16T17:11:19.021Z",
-   "updated": "2026-09-16T17:11:19.021Z",
+   "created": "2026-09-16T17:11:52.327Z",
+   "updated": "2026-09-16T17:11:52.327Z",
    "history": [
     {
-     "at": "2026-09-16T17:11:19.021Z",
+     "at": "2026-09-16T17:11:52.327Z",
      "status": "backlog",
      "why": "created"
     }
@@ -162,11 +162,11 @@
    "deps": [],
    "attempts": 0,
    "lease": null,
-   "created": "2026-09-16T17:11:19.021Z",
-   "updated": "2026-09-16T17:11:19.021Z",
+   "created": "2026-09-16T17:11:52.327Z",
+   "updated": "2026-09-16T17:11:52.327Z",
    "history": [
     {
-     "at": "2026-09-16T17:11:19.021Z",
+     "at": "2026-09-16T17:11:52.327Z",
      "status": "ready",
      "why": "created"
     }
@@ -182,11 +182,11 @@
    "deps": [],
    "attempts": 0,
    "lease": null,
-   "created": "2026-09-16T17:11:19.021Z",
-   "updated": "2026-09-16T17:11:19.021Z",
+   "created": "2026-09-16T17:11:52.327Z",
+   "updated": "2026-09-16T17:11:52.327Z",
    "history": [
     {
-     "at": "2026-09-16T17:11:19.021Z",
+     "at": "2026-09-16T17:11:52.327Z",
      "status": "ready",
      "why": "created"
     }
