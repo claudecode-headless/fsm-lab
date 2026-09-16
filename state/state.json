@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 27,
- "journal_seq": 1427,
+ "version": 30,
+ "journal_seq": 1431,
  "chain": {
   "id": "c-1789583988738",
-  "seq": 31,
-  "last_tick": "2026-09-16T18:57:24.434Z",
+  "seq": 32,
+  "last_tick": "2026-09-16T18:58:10.152Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -31,14 +31,14 @@
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 1,
+   "attempts": 2,
    "lease": {
-    "token": "l-d7d66cc7a014",
-    "expires": "2026-09-16T19:24:48.738Z",
-    "issued_at": "2026-09-16T18:39:48.738Z"
+    "token": "l-79db36353c7f",
+    "expires": "2026-09-16T19:43:10.150Z",
+    "issued_at": "2026-09-16T18:58:10.150Z"
    },
    "created": "2026-09-16T18:39:48.738Z",
-   "updated": "2026-09-16T18:39:48.738Z",
+   "updated": "2026-09-16T18:58:10.150Z",
    "history": [
     {
      "at": "2026-09-16T18:39:48.738Z",
@@ -49,9 +49,28 @@
      "at": "2026-09-16T18:39:48.738Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-16T18:58:10.150Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=1)"
+    },
+    {
+     "at": "2026-09-16T18:58:10.150Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=1)"
+    },
+    {
+     "at": "2026-09-16T18:58:10.150Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "work_failed",
+    "run_id": "35135798771",
+    "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"nvidia/nemotron-3-ultra-550b-a55b:fre)"
+   }
   },
   "T-102": {
    "id": "T-102",
@@ -355,11 +374,11 @@
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
-  "retries": 6,
+  "retries": 7,
   "orphaned_reports": 0,
   "rejected_events": 0,
   "timeouts": 0,
-  "dispatched": 11,
+  "dispatched": 12,
   "infra_retries": 0
  },
  "dedup": [
@@ -401,6 +420,8 @@
   "rep-35137088565-a1",
   "tick-chain-1789584972420",
   "tick-chain-1789585008752",
-  "tick-chain-1789585042529"
+  "tick-chain-1789585042529",
+  "rep-35135798771-a1",
+  "tick-chain-1789585087066"
  ]
 }
