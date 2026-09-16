@@ -331,3 +331,4 @@
 {"id":"e1374","ts":"2026-09-16T18:39:48.738Z","applied":true,"kind":"ASSIGN","task":"T-108","from":"ready","to":"assigned","lease":"l-67780d1847ca","expires":"2026-09-16T19:24:48.738Z","attempt":1,"behavior":"slow","task_ref":{"kind":"state-task","id":"T-108"}}
 {"id":"e1375","ts":"2026-09-16T18:40:21.915Z","applied":true,"kind":"TICK","seq":2,"actor":"chain"}
 {"id":"e1376","ts":"2026-09-16T18:40:55.157Z","applied":true,"kind":"TICK","seq":3,"actor":"chain"}
+{"id":"e1377","ts":"2026-09-16T18:41:26.949Z","applied":true,"kind":"TICK","seq":4,"actor":"chain"}

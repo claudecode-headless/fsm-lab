@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "version": 5,
- "journal_seq": 1377,
+ "journal_seq": 1378,
  "chain": {
   "id": "c-1789583988738",
-  "seq": 3,
-  "last_tick": "2026-09-16T18:40:55.157Z",
+  "seq": 4,
+  "last_tick": "2026-09-16T18:41:26.949Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -245,6 +245,7 @@
  "dedup": [
   "tick-ops-nudge-1789583986345",
   "tick-chain-1789584020441",
-  "tick-chain-1789584053665"
+  "tick-chain-1789584053665",
+  "tick-chain-1789584085734"
  ]
 }
