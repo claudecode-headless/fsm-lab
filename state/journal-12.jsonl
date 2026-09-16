@@ -148,3 +148,4 @@
 {"id":"e1191","ts":"2026-09-16T17:24:31.282Z","applied":true,"kind":"REPORT","task":"T-108","lease":"l-3d7550880478","to":"ready","reason":"infra-retry","run_id":"dispatch-verify","error":"dispatch-unverified","from":"assigned"}
 {"id":"e1192","ts":"2026-09-16T17:24:31.282Z","applied":true,"kind":"ASSIGN","task":"T-108","from":"ready","to":"assigned","lease":"l-662383246ae2","expires":"2026-09-16T17:39:31.282Z","attempt":1,"behavior":"slow","task_ref":{"kind":"state-task","id":"T-108"}}
 {"id":"e1193","ts":"2026-09-16T17:24:31.282Z","applied":true,"kind":"TICK","seq":19,"actor":"chain"}
+{"id":"e1194","ts":"2026-09-16T17:26:49.052Z","applied":true,"kind":"TICK","seq":20,"actor":"chain"}
