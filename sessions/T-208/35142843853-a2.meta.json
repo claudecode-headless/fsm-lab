@@ -1,0 +1,20 @@
+{
+  "task": "T-208",
+  "run_id": "35142843853",
+  "attempt": 2,
+  "session": "c-1789583988738/T-208/pending-a2",
+  "mode": "cc",
+  "fake": false,
+  "harness": "claude-code",
+  "deadline_utc": "2026-09-16T20:32:09.000Z",
+  "status": "work_failed",
+  "detail": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")",
+  "models": [
+    "dots-studio/dots-3-note-preview:free"
+  ],
+  "lane_attempts_used": 1,
+  "duration_ms": 177168,
+  "artifact_refs": [],
+  "transcript": "sessions/T-208/35142843853-a2.txt",
+  "written_at": "2026-09-16T19:52:18.382Z"
+}
