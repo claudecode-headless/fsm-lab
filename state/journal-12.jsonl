@@ -264,3 +264,5 @@
 {"id":"e1307","ts":"2026-09-16T18:15:12.394Z","applied":true,"kind":"ASSIGN","task":"T-107","from":"ready","to":"assigned","lease":"l-4608239b683f","expires":"2026-09-16T19:00:12.394Z","attempt":1,"behavior":"dup","task_ref":{"kind":"state-task","id":"T-107"}}
 {"id":"e1308","ts":"2026-09-16T18:15:12.394Z","applied":true,"kind":"ASSIGN","task":"T-108","from":"ready","to":"assigned","lease":"l-156c9d3ddff5","expires":"2026-09-16T19:00:12.394Z","attempt":1,"behavior":"slow","task_ref":{"kind":"state-task","id":"T-108"}}
 {"id":"e1309","ts":"2026-09-16T18:15:46.821Z","applied":true,"kind":"TICK","seq":2,"actor":"chain"}
+{"id":"e1310","ts":"2026-09-16T18:17:01.186Z","applied":false,"kind":"REJECTED","origKind":"REPORT","task":"T-201","event_id":"rep-35132914357-a1","reason":"unknown-task","outcome":{"status":"done","error":null,"artifact":"\n\nI've hit a wall on all fronts. Here's the honest status:\n\n**What I've tried:**\n- The working directory `/tmp/cc-turn-YBVGMH` is empty — no repo, no `state.json`, no project files.\n- `git clone https"}}
+{"id":"e1311","ts":"2026-09-16T18:17:01.188Z","applied":true,"kind":"TICK","seq":3,"actor":"chain"}
