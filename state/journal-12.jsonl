@@ -110,3 +110,4 @@
 {"id":"e1153","ts":"2026-09-15T09:14:09.270Z","applied":true,"kind":"TICK","seq":168,"actor":"chain"}
 {"id":"e1154","ts":"2026-09-15T09:14:44.288Z","applied":true,"kind":"REPORT","task":"T-302","lease":"l-39b8007596bb","to":"done","run_id":"34951420578","from":"assigned"}
 {"id":"e1155","ts":"2026-09-15T09:14:44.288Z","applied":true,"kind":"PHASE","from":"executing","to":"done"}
+{"id":"e1156","ts":"2026-09-16T01:32:27.028Z","applied":true,"kind":"RECOVERY","reason":"history-walk","dropFrom":1156,"droppedRecords":0,"snapshotSha":"f7fdd76ea1baa3acf6ba734c4b0763e7f6eb965e"}

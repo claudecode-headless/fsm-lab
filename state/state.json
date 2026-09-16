@@ -1,1 +1,1004 @@
-{"chain": {"seq": 16
+{
+ "schema": 1,
+ "version": 70,
+ "journal_seq": 1157,
+ "chain": {
+  "id": "c-1789457940180",
+  "seq": 168,
+  "last_tick": "2026-09-15T09:14:09.270Z",
+  "primed_by": "chain",
+  "halted": true,
+  "paused": false
+ },
+ "project": {
+  "phase": "done",
+  "milestone": 3,
+  "milestones_total": 3
+ },
+ "config": {
+  "max_parallel": 8,
+  "lease_minutes": 15,
+  "max_attempts": 3,
+  "tick_min_interval_s": 25,
+  "dedup_window": 300
+ },
+ "tasks": {
+  "T-101": {
+   "id": "T-101",
+   "title": "research: state-anchor options",
+   "status": "done",
+   "behavior": "succeed",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": null,
+   "created": "2026-09-15T07:39:00.180Z",
+   "updated": "2026-09-15T07:40:07.148Z",
+   "history": [
+    {
+     "at": "2026-09-15T07:39:00.180Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-15T07:39:33.901Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-15T07:40:07.148Z",
+     "status": "done",
+     "why": "worker-done"
+    }
+   ],
+   "last_result": {
+    "status": "done",
+    "run_id": "34942829452",
+    "artifact": "artifact:T-101:attempt1",
+    "duration_ms": 4003
+   }
+  },
+  "T-102": {
+   "id": "T-102",
+   "title": "research: continuity mechanics",
+   "status": "done",
+   "behavior": "flaky",
+   "work_ms": 3000,
+   "deps": [],
+   "attempts": 2,
+   "lease": null,
+   "created": "2026-09-15T07:39:00.180Z",
+   "updated": "2026-09-15T07:40:41.503Z",
+   "history": [
+    {
+     "at": "2026-09-15T07:39:00.180Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-15T07:39:33.901Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-15T07:40:07.144Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=1)"
+    },
+    {
+     "at": "2026-09-15T07:40:07.144Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=1)"
+    },
+    {
+     "at": "2026-09-15T07:40:07.144Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-15T07:40:41.503Z",
+     "status": "done",
+     "why": "worker-done"
+    }
+   ],
+   "last_result": {
+    "status": "done",
+    "run_id": "34942879560",
+    "artifact": "artifact:T-102:attempt2",
+    "duration_ms": 3004
+   }
+  },
+  "T-103": {
+   "id": "T-103",
+   "title": "impl: state store CAS",
+   "status": "done",
+   "behavior": "succeed",
+   "work_ms": 5000,
+   "deps": [
+    "T-101"
+   ],
+   "attempts": 1,
+   "lease": null,
+   "created": "2026-09-15T07:39:00.180Z",
+   "updated": "2026-09-15T07:40:41.507Z",
+   "history": [
+    {
+     "at": "2026-09-15T07:39:00.180Z",
+     "status": "backlog",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-15T07:40:07.148Z",
+     "status": "ready",
+     "why": "deps-satisfied"
+    },
+    {
+     "at": "2026-09-15T07:40:07.148Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-15T07:40:41.507Z",
+     "status": "done",
+     "why": "worker-done"
+    }
+   ],
+   "last_result": {
+    "status": "done",
+    "run_id": "34942879053",
+    "artifact": "artifact:T-103:attempt1",
+    "duration_ms": 5003
+   }
+  },
+  "T-104": {
+   "id": "T-104",
+   "title": "impl: conductor loop",
+   "status": "done",
+   "behavior": "succeed",
+   "work_ms": 5000,
+   "deps": [
+    "T-101"
+   ],
+   "attempts": 1,
+   "lease": null,
+   "created": "2026-09-15T07:39:00.180Z",
+   "updated": "2026-09-15T07:40:41.500Z",
+   "history": [
+    {
+     "at": "2026-09-15T07:39:00.180Z",
+     "status": "backlog",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-15T07:40:07.148Z",
+     "status": "ready",
+     "why": "deps-satisfied"
+    },
+    {
+     "at": "2026-09-15T07:40:07.149Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-15T07:40:41.500Z",
+     "status": "done",
+     "why": "worker-done"
+    }
+   ],
+   "last_result": {
+    "status": "done",
+    "run_id": "34942876383",
+    "artifact": "artifact:T-104:attempt1",
+    "duration_ms": 5004
+   }
+  },
+  "T-105": {
+   "id": "T-105",
+   "title": "impl: watchdog",
+   "status": "quarantined",
+   "behavior": "hang",
+   "work_ms": 900000,
+   "deps": [
+    "T-102"
+   ],
+   "attempts": 3,
+   "lease": null,
+   "created": "2026-09-15T07:39:00.180Z",
+   "updated": "2026-09-15T08:26:27.190Z",
+   "history": [
+    {
+     "at": "2026-09-15T07:39:00.180Z",
+     "status": "backlog",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-15T07:40:41.503Z",
+     "status": "ready",
+     "why": "deps-satisfied"
+    },
+    {
+     "at": "2026-09-15T07:40:41.503Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-15T07:56:00.226Z",
+     "status": "ready",
+     "why": "lease-timeout(attempts=1)"
+    },
+    {
+     "at": "2026-09-15T07:56:00.226Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-15T08:11:10.853Z",
+     "status": "ready",
+     "why": "lease-timeout(attempts=2)"
+    },
+    {
+     "at": "2026-09-15T08:11:10.853Z",
+     "status": "assigned",
+     "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-15T08:26:27.190Z",
+     "status": "quarantined",
+     "why": "lease-timeout(attempts=3)"
+    }
+   ],
+   "last_result": null
+  },
+  "T-106": {
+   "id": "T-106",
+   "title": "review: M1",
+   "status": "done",
+   "behavior": "succeed",
+   "work_ms": 3000,
+   "deps": [
+    "T-103",
+    "T-104"
+   ],
+   "attempts": 1,
+   "lease": null,
+   "created": "2026-09-15T07:39:00.180Z",
+   "updated": "2026-09-15T07:41:19.392Z",
+   "history": [
+    {
+     "at": "2026-09-15T07:39:00.180Z",
+     "status": "backlog",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-15T07:40:41.507Z",
+     "status": "ready",
+     "why": "deps-satisfied"
+    },
+    {
+     "at": "2026-09-15T07:40:41.507Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-15T07:41:19.392Z",
+     "status": "done",
+     "why": "worker-done"
+    }
+   ],
+   "last_result": {
+    "status": "done",
+    "run_id": "34942927014",
+    "artifact": "artifact:T-106:attempt1",
+    "duration_ms": 3003
+   }
+  },
+  "T-107": {
+   "id": "T-107",
+   "title": "edge: duplicate report",
+   "status": "done",
+   "behavior": "dup",
+   "work_ms": 3000,
+   "deps": [],
+   "attempts": 1,
+   "lease": null,
+   "created": "2026-09-15T07:39:00.180Z",
+   "updated": "2026-09-15T07:40:07.149Z",
+   "history": [
+    {
+     "at": "2026-09-15T07:39:00.180Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-15T07:39:33.901Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-15T07:40:07.149Z",
+     "status": "done",
+     "why": "worker-done"
+    }
+   ],
+   "last_result": {
+    "status": "done",
+    "run_id": "34942830663",
+    "artifact": "artifact:T-107",
+    "duration_ms": 3003
+   }
+  },
+  "T-108": {
+   "id": "T-108",
+   "title": "edge: late report (orphan)",
+   "status": "quarantined",
+   "behavior": "slow",
+   "work_ms": 330000,
+   "deps": [],
+   "attempts": 3,
+   "lease": null,
+   "created": "2026-09-15T07:39:00.180Z",
+   "updated": "2026-09-15T08:25:20.523Z",
+   "history": [
+    {
+     "at": "2026-09-15T07:39:00.180Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-15T07:39:33.901Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-15T07:54:56.157Z",
+     "status": "ready",
+     "why": "lease-timeout(attempts=1)"
+    },
+    {
+     "at": "2026-09-15T07:54:56.157Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-15T08:10:04.580Z",
+     "status": "ready",
+     "why": "lease-timeout(attempts=2)"
+    },
+    {
+     "at": "2026-09-15T08:10:04.580Z",
+     "status": "assigned",
+     "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-15T08:25:20.523Z",
+     "status": "quarantined",
+     "why": "lease-timeout(attempts=3)"
+    }
+   ],
+   "last_result": null
+  },
+  "T-201": {
+   "id": "T-201",
+   "title": "impl: parallel a",
+   "status": "done",
+   "behavior": "succeed",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": null,
+   "created": "2026-09-15T08:26:27.190Z",
+   "updated": "2026-09-15T08:27:33.564Z",
+   "history": [
+    {
+     "at": "2026-09-15T08:26:27.190Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-15T08:27:00.806Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-15T08:27:33.564Z",
+     "status": "done",
+     "why": "worker-done"
+    }
+   ],
+   "last_result": {
+    "status": "done",
+    "run_id": "34947019925",
+    "artifact": "artifact:T-201:attempt1",
+    "duration_ms": 4002
+   }
+  },
+  "T-202": {
+   "id": "T-202",
+   "title": "impl: parallel b",
+   "status": "done",
+   "behavior": "succeed",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": null,
+   "created": "2026-09-15T08:26:27.190Z",
+   "updated": "2026-09-15T08:27:33.564Z",
+   "history": [
+    {
+     "at": "2026-09-15T08:26:27.190Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-15T08:27:00.806Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-15T08:27:33.564Z",
+     "status": "done",
+     "why": "worker-done"
+    }
+   ],
+   "last_result": {
+    "status": "done",
+    "run_id": "34947018049",
+    "artifact": "artifact:T-202:attempt1",
+    "duration_ms": 4003
+   }
+  },
+  "T-203": {
+   "id": "T-203",
+   "title": "impl: parallel c",
+   "status": "done",
+   "behavior": "flaky",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 2,
+   "lease": null,
+   "created": "2026-09-15T08:26:27.190Z",
+   "updated": "2026-09-15T08:28:07.769Z",
+   "history": [
+    {
+     "at": "2026-09-15T08:26:27.190Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-15T08:27:00.806Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-15T08:27:33.558Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=1)"
+    },
+    {
+     "at": "2026-09-15T08:27:33.558Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=1)"
+    },
+    {
+     "at": "2026-09-15T08:27:33.558Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-15T08:28:07.769Z",
+     "status": "done",
+     "why": "worker-done"
+    }
+   ],
+   "last_result": {
+    "status": "done",
+    "run_id": "34947068104",
+    "artifact": "artifact:T-203:attempt2",
+    "duration_ms": 4004
+   }
+  },
+  "T-204": {
+   "id": "T-204",
+   "title": "impl: parallel d",
+   "status": "done",
+   "behavior": "succeed",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": null,
+   "created": "2026-09-15T08:26:27.190Z",
+   "updated": "2026-09-15T08:27:33.563Z",
+   "history": [
+    {
+     "at": "2026-09-15T08:26:27.190Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-15T08:27:00.806Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-15T08:27:33.563Z",
+     "status": "done",
+     "why": "worker-done"
+    }
+   ],
+   "last_result": {
+    "status": "done",
+    "run_id": "34947018536",
+    "artifact": "artifact:T-204:attempt1",
+    "duration_ms": 4005
+   }
+  },
+  "T-205": {
+   "id": "T-205",
+   "title": "impl: parallel e",
+   "status": "quarantined",
+   "behavior": "no-report",
+   "work_ms": 3000,
+   "deps": [],
+   "attempts": 3,
+   "lease": null,
+   "created": "2026-09-15T08:26:27.190Z",
+   "updated": "2026-09-15T09:13:03.911Z",
+   "history": [
+    {
+     "at": "2026-09-15T08:26:27.190Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-15T08:27:00.806Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-15T08:42:28.899Z",
+     "status": "ready",
+     "why": "lease-timeout(attempts=1)"
+    },
+    {
+     "at": "2026-09-15T08:42:28.899Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-15T08:57:43.352Z",
+     "status": "ready",
+     "why": "lease-timeout(attempts=2)"
+    },
+    {
+     "at": "2026-09-15T08:57:43.352Z",
+     "status": "assigned",
+     "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-15T09:13:03.911Z",
+     "status": "quarantined",
+     "why": "lease-timeout(attempts=3)"
+    }
+   ],
+   "last_result": null
+  },
+  "T-206": {
+   "id": "T-206",
+   "title": "impl: parallel f",
+   "status": "done",
+   "behavior": "succeed",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": null,
+   "created": "2026-09-15T08:26:27.190Z",
+   "updated": "2026-09-15T08:27:33.563Z",
+   "history": [
+    {
+     "at": "2026-09-15T08:26:27.190Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-15T08:27:00.806Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-15T08:27:33.563Z",
+     "status": "done",
+     "why": "worker-done"
+    }
+   ],
+   "last_result": {
+    "status": "done",
+    "run_id": "34947018500",
+    "artifact": "artifact:T-206:attempt1",
+    "duration_ms": 4005
+   }
+  },
+  "T-207": {
+   "id": "T-207",
+   "title": "impl: poison path",
+   "status": "quarantined",
+   "behavior": "poison",
+   "work_ms": 2000,
+   "deps": [],
+   "attempts": 3,
+   "lease": null,
+   "created": "2026-09-15T08:26:27.190Z",
+   "updated": "2026-09-15T08:28:45.013Z",
+   "history": [
+    {
+     "at": "2026-09-15T08:26:27.190Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-15T08:27:00.806Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-15T08:27:33.563Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=1)"
+    },
+    {
+     "at": "2026-09-15T08:27:33.563Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=1)"
+    },
+    {
+     "at": "2026-09-15T08:27:33.563Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-15T08:28:07.735Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=2)"
+    },
+    {
+     "at": "2026-09-15T08:28:07.735Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=2)"
+    },
+    {
+     "at": "2026-09-15T08:28:07.735Z",
+     "status": "assigned",
+     "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-15T08:28:45.013Z",
+     "status": "quarantined",
+     "why": "worker-failed(attempts=3)"
+    }
+   ],
+   "last_result": {
+    "status": "failed",
+    "run_id": "34947118647",
+    "error": "poison-always"
+   }
+  },
+  "T-208": {
+   "id": "T-208",
+   "title": "impl: parallel g",
+   "status": "done",
+   "behavior": "succeed",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": null,
+   "created": "2026-09-15T08:26:27.190Z",
+   "updated": "2026-09-15T08:27:33.564Z",
+   "history": [
+    {
+     "at": "2026-09-15T08:26:27.190Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-15T08:27:00.806Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-15T08:27:33.564Z",
+     "status": "done",
+     "why": "worker-done"
+    }
+   ],
+   "last_result": {
+    "status": "done",
+    "run_id": "34947018973",
+    "artifact": "artifact:T-208:attempt1",
+    "duration_ms": 4005
+   }
+  },
+  "T-301": {
+   "id": "T-301",
+   "title": "impl: integration",
+   "status": "done",
+   "behavior": "succeed",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": null,
+   "created": "2026-09-15T09:13:03.911Z",
+   "updated": "2026-09-15T09:14:09.264Z",
+   "history": [
+    {
+     "at": "2026-09-15T09:13:03.911Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-15T09:13:37.318Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-15T09:14:09.264Z",
+     "status": "done",
+     "why": "worker-done"
+    }
+   ],
+   "last_result": {
+    "status": "done",
+    "run_id": "34951370074",
+    "artifact": "artifact:T-301:attempt1",
+    "duration_ms": 4005
+   }
+  },
+  "T-302": {
+   "id": "T-302",
+   "title": "review: final",
+   "status": "done",
+   "behavior": "succeed",
+   "work_ms": 3000,
+   "deps": [
+    "T-301"
+   ],
+   "attempts": 1,
+   "lease": null,
+   "created": "2026-09-15T09:13:03.911Z",
+   "updated": "2026-09-15T09:14:44.288Z",
+   "history": [
+    {
+     "at": "2026-09-15T09:13:03.911Z",
+     "status": "backlog",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-15T09:14:09.264Z",
+     "status": "ready",
+     "why": "deps-satisfied"
+    },
+    {
+     "at": "2026-09-15T09:14:09.264Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-15T09:14:44.288Z",
+     "status": "done",
+     "why": "worker-done"
+    }
+   ],
+   "last_result": {
+    "status": "done",
+    "run_id": "34951420578",
+    "artifact": "artifact:T-302:attempt1",
+    "duration_ms": 3002
+   }
+  }
+ },
+ "stats": {
+  "done": 14,
+  "failed": 0,
+  "quarantined": 4,
+  "cancelled": 0,
+  "retries": 10,
+  "orphaned_reports": 0,
+  "rejected_events": 4,
+  "timeouts": 9,
+  "dispatched": 28,
+  "infra_retries": 0
+ },
+ "dedup": [
+  "tick-ops-nudge-1789457972945",
+  "rep-34942830895-a1",
+  "rep-34942829452-a1",
+  "rep-34942830663-a1",
+  "tick-chain-1789458005997",
+  "rep-34942876383-a1",
+  "rep-34942879560-a1",
+  "rep-34942879053-a1",
+  "tick-chain-1789458040469",
+  "rep-34942927014-a1",
+  "tick-chain-1789458078226",
+  "tick-chain-1789458112087",
+  "tick-chain-1789458145155",
+  "tick-chain-1789458177583",
+  "tick-chain-1789458211577",
+  "rep-34942829452-a2",
+  "tick-chain-1789458244001",
+  "tick-chain-1789458278939",
+  "tick-chain-1789458313928",
+  "tick-chain-1789458349898",
+  "tick-chain-1789458383858",
+  "tick-chain-1789458416895",
+  "tick-chain-1789458449464",
+  "tick-chain-1789458482585",
+  "tick-chain-1789458522646",
+  "tick-chain-1789458556794",
+  "tick-chain-1789458590209",
+  "tick-chain-1789458623265",
+  "tick-chain-1789458657566",
+  "tick-chain-1789458691174",
+  "tick-chain-1789458724153",
+  "tick-chain-1789458757932",
+  "tick-chain-1789458791289",
+  "tick-chain-1789458824951",
+  "tick-chain-1789458860029",
+  "tick-chain-1789458894635",
+  "tick-chain-1789458926914",
+  "tick-chain-1789458959483",
+  "tick-chain-1789458993631",
+  "tick-chain-1789459028007",
+  "tick-chain-1789459060611",
+  "tick-chain-1789459097009",
+  "tick-chain-1789459131869",
+  "tick-chain-1789459166533",
+  "tick-chain-1789459198963",
+  "tick-chain-1789459233213",
+  "tick-chain-1789459267676",
+  "tick-chain-1789459303158",
+  "tick-chain-1789459336590",
+  "tick-chain-1789459369939",
+  "tick-chain-1789459403593",
+  "tick-chain-1789459438078",
+  "tick-chain-1789459471601",
+  "tick-chain-1789459504270",
+  "tick-chain-1789459536530",
+  "tick-chain-1789459568049",
+  "tick-chain-1789459601108",
+  "tick-chain-1789459636617",
+  "tick-chain-1789459670104",
+  "tick-chain-1789459704013",
+  "tick-chain-1789459735598",
+  "tick-chain-1789459767873",
+  "tick-chain-1789459803687",
+  "tick-chain-1789459837084",
+  "tick-chain-1789459870292",
+  "tick-chain-1789459903135",
+  "tick-chain-1789459936616",
+  "tick-chain-1789459970179",
+  "tick-chain-1789460003945",
+  "tick-chain-1789460036775",
+  "tick-chain-1789460081060",
+  "tick-chain-1789460115611",
+  "tick-chain-1789460148250",
+  "tick-chain-1789460181459",
+  "tick-chain-1789460214130",
+  "tick-chain-1789460247584",
+  "tick-chain-1789460280548",
+  "tick-chain-1789460312525",
+  "tick-chain-1789460345376",
+  "tick-chain-1789460378258",
+  "tick-chain-1789460412283",
+  "tick-chain-1789460448962",
+  "ctl-1789460481252-exra29",
+  "rep-34942830895-a2",
+  "tick-chain-1789460483794",
+  "tick-chain-1789460517577",
+  "tick-chain-1789460553504",
+  "tick-chain-1789460587775",
+  "tick-chain-1789460620556",
+  "tick-chain-1789460653738",
+  "tick-chain-1789460686416",
+  "tick-chain-1789460719318",
+  "tick-chain-1789460753040",
+  "tick-chain-1789460786120",
+  "tick-chain-1789460819367",
+  "rep-34947017856-a1",
+  "rep-34947018500-a1",
+  "rep-34947018536-a1",
+  "rep-34947018630-a1",
+  "rep-34947018973-a1",
+  "rep-34947019925-a1",
+  "rep-34947018049-a1",
+  "tick-chain-1789460852312",
+  "rep-34947067490-a1",
+  "rep-34947068104-a1",
+  "tick-chain-1789460887113",
+  "rep-34947118647-a1",
+  "tick-chain-1789460923938",
+  "tick-chain-1789460957865",
+  "tick-chain-1789460989759",
+  "tick-chain-1789461022023",
+  "tick-chain-1789461056891",
+  "tick-chain-1789461091745",
+  "tick-chain-1789461126443",
+  "tick-chain-1789461161580",
+  "tick-chain-1789461198681",
+  "tick-chain-1789461234336",
+  "tick-chain-1789461268480",
+  "tick-chain-1789461300510",
+  "tick-chain-1789461333008",
+  "tick-chain-1789461366395",
+  "tick-chain-1789461399086",
+  "tick-chain-1789461433260",
+  "tick-chain-1789461468189",
+  "tick-chain-1789461504765",
+  "tick-chain-1789461542247",
+  "tick-chain-1789461576716",
+  "rep-34942831380-a2",
+  "tick-chain-1789461609520",
+  "tick-chain-1789461641076",
+  "tick-chain-1789461676501",
+  "tick-chain-1789461711981",
+  "tick-chain-1789461747316",
+  "tick-chain-1789461783996",
+  "tick-chain-1789461818997",
+  "tick-chain-1789461852121",
+  "tick-chain-1789461884835",
+  "tick-chain-1789461917859",
+  "tick-chain-1789461953378",
+  "tick-chain-1789461986944",
+  "tick-chain-1789462020147",
+  "tick-chain-1789462053886",
+  "tick-chain-1789462087921",
+  "tick-chain-1789462120791",
+  "tick-chain-1789462153574",
+  "tick-chain-1789462190395",
+  "tick-chain-1789462224803",
+  "tick-chain-1789462257198",
+  "tick-chain-1789462292039",
+  "tick-chain-1789462324751",
+  "tick-chain-1789462358202",
+  "tick-chain-1789462393627",
+  "tick-chain-1789462427363",
+  "tick-chain-1789462462735",
+  "tick-chain-1789462496166",
+  "tick-chain-1789462528099",
+  "tick-chain-1789462564367",
+  "tick-chain-1789462597934",
+  "tick-chain-1789462629877",
+  "tick-chain-1789462662469",
+  "tick-chain-1789462694965",
+  "tick-chain-1789462726728",
+  "tick-chain-1789462759873",
+  "tick-chain-1789462796024",
+  "tick-chain-1789462829005",
+  "tick-chain-1789462863663",
+  "tick-chain-1789462897237",
+  "tick-chain-1789462931035",
+  "tick-chain-1789462963457",
+  "tick-chain-1789462996291",
+  "tick-chain-1789463030759",
+  "tick-chain-1789463075288",
+  "tick-chain-1789463108967",
+  "tick-chain-1789463145193",
+  "tick-chain-1789463179612",
+  "tick-chain-1789463213937",
+  "tick-chain-1789463247409",
+  "tick-chain-1789463280392",
+  "tick-chain-1789463314669",
+  "tick-chain-1789463348754",
+  "tick-chain-1789463381298",
+  "tick-chain-1789463416657",
+  "tick-chain-1789463450948",
+  "tick-chain-1789463483200",
+  "tick-chain-1789463516030",
+  "tick-chain-1789463548864",
+  "tick-chain-1789463582727",
+  "tick-chain-1789463616135",
+  "rep-34951370074-a1",
+  "tick-chain-1789463648222",
+  "rep-34951420578-a1",
+  "tick-chain-1789463682892",
+  "tick-manual-1789522346495"
+ ]
+}
