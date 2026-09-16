@@ -404,3 +404,5 @@
 {"id":"e1447","ts":"2026-09-16T19:03:41.381Z","applied":true,"kind":"TICK","seq":42,"actor":"chain"}
 {"id":"e1448","ts":"2026-09-16T19:04:17.403Z","applied":true,"kind":"TICK","seq":43,"actor":"chain"}
 {"id":"e1449","ts":"2026-09-16T19:04:50.302Z","applied":true,"kind":"TICK","seq":44,"actor":"chain"}
+{"id":"e1450","ts":"2026-09-16T19:05:23.347Z","applied":true,"kind":"REPORT","task":"T-105","lease":"l-707016de308b","to":"quarantined","run_id":"35138195650","from":"assigned"}
+{"id":"e1451","ts":"2026-09-16T19:05:23.349Z","applied":true,"kind":"TICK","seq":45,"actor":"chain"}
