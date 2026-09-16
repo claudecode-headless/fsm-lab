@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 13,
- "journal_seq": 1211,
+ "version": 21,
+ "journal_seq": 1220,
  "chain": {
   "id": "c-1789578712327",
-  "seq": 36,
-  "last_tick": "2026-09-16T17:36:21.211Z",
+  "seq": 37,
+  "last_tick": "2026-09-16T17:36:54.377Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -33,12 +33,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-df3fd5339368",
-    "expires": "2026-09-16T17:39:31.279Z",
-    "issued_at": "2026-09-16T17:24:31.279Z"
+    "token": "l-081cc8c2f2e4",
+    "expires": "2026-09-16T17:51:54.374Z",
+    "issued_at": "2026-09-16T17:36:54.374Z"
    },
    "created": "2026-09-16T17:11:52.327Z",
-   "updated": "2026-09-16T17:24:31.279Z",
+   "updated": "2026-09-16T17:36:54.374Z",
    "history": [
     {
      "at": "2026-09-16T17:11:52.327Z",
@@ -59,6 +59,16 @@
      "at": "2026-09-16T17:24:31.279Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-16T17:36:54.374Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-16T17:36:54.374Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": {
@@ -66,7 +76,7 @@
     "run_id": "dispatch-verify",
     "error": "dispatch-unverified"
    },
-   "infra_attempts": 1
+   "infra_attempts": 2
   },
   "T-102": {
    "id": "T-102",
@@ -77,12 +87,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-2baff7611c33",
-    "expires": "2026-09-16T17:39:31.281Z",
-    "issued_at": "2026-09-16T17:24:31.281Z"
+    "token": "l-9e2015151f9c",
+    "expires": "2026-09-16T17:51:54.376Z",
+    "issued_at": "2026-09-16T17:36:54.376Z"
    },
    "created": "2026-09-16T17:11:52.327Z",
-   "updated": "2026-09-16T17:24:31.281Z",
+   "updated": "2026-09-16T17:36:54.376Z",
    "history": [
     {
      "at": "2026-09-16T17:11:52.327Z",
@@ -103,6 +113,16 @@
      "at": "2026-09-16T17:24:31.281Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-16T17:36:54.376Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-16T17:36:54.376Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": {
@@ -110,7 +130,7 @@
     "run_id": "dispatch-verify",
     "error": "dispatch-unverified"
    },
-   "infra_attempts": 1
+   "infra_attempts": 2
   },
   "T-103": {
    "id": "T-103",
@@ -210,12 +230,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-d219f70844f8",
-    "expires": "2026-09-16T17:39:31.281Z",
-    "issued_at": "2026-09-16T17:24:31.281Z"
+    "token": "l-4d7181546f4b",
+    "expires": "2026-09-16T17:51:54.376Z",
+    "issued_at": "2026-09-16T17:36:54.376Z"
    },
    "created": "2026-09-16T17:11:52.327Z",
-   "updated": "2026-09-16T17:24:31.281Z",
+   "updated": "2026-09-16T17:36:54.376Z",
    "history": [
     {
      "at": "2026-09-16T17:11:52.327Z",
@@ -236,6 +256,16 @@
      "at": "2026-09-16T17:24:31.281Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-16T17:36:54.376Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-16T17:36:54.376Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": {
@@ -243,7 +273,7 @@
     "run_id": "dispatch-verify",
     "error": "dispatch-unverified"
    },
-   "infra_attempts": 1
+   "infra_attempts": 2
   },
   "T-108": {
    "id": "T-108",
@@ -254,12 +284,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-662383246ae2",
-    "expires": "2026-09-16T17:39:31.282Z",
-    "issued_at": "2026-09-16T17:24:31.282Z"
+    "token": "l-6248fb51343b",
+    "expires": "2026-09-16T17:51:54.376Z",
+    "issued_at": "2026-09-16T17:36:54.376Z"
    },
    "created": "2026-09-16T17:11:52.327Z",
-   "updated": "2026-09-16T17:24:31.282Z",
+   "updated": "2026-09-16T17:36:54.376Z",
    "history": [
     {
      "at": "2026-09-16T17:11:52.327Z",
@@ -280,6 +310,16 @@
      "at": "2026-09-16T17:24:31.282Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-16T17:36:54.376Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-16T17:36:54.376Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": {
@@ -287,7 +327,7 @@
     "run_id": "dispatch-verify",
     "error": "dispatch-unverified"
    },
-   "infra_attempts": 1
+   "infra_attempts": 2
   }
  },
  "stats": {
@@ -299,8 +339,8 @@
   "orphaned_reports": 0,
   "rejected_events": 0,
   "timeouts": 0,
-  "dispatched": 8,
-  "infra_retries": 4
+  "dispatched": 12,
+  "infra_retries": 8
  },
  "dedup": [
   "tick-chain-1789578745523",
@@ -342,6 +382,11 @@
   "tick-chain-1789580081845",
   "tick-chain-1789580114119",
   "tick-chain-1789580146703",
-  "tick-chain-1789580179430"
+  "tick-chain-1789580179430",
+  "rep-synthetic-verify-T-101-a1-1789579471279",
+  "rep-synthetic-verify-T-102-a1-1789579471281",
+  "rep-synthetic-verify-T-107-a1-1789579471281",
+  "rep-synthetic-verify-T-108-a1-1789579471282",
+  "tick-chain-1789580212319"
  ]
 }
