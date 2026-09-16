@@ -1,12 +1,12 @@
 {
  "schema": 1,
  "version": 21,
- "journal_seq": 1227,
+ "journal_seq": 1228,
  "chain": {
   "id": "c-1789578712327",
-  "seq": 44,
-  "last_tick": "2026-09-16T17:40:54.878Z",
-  "primed_by": "manual re-prime — the X21 chain link died after the hot-fix dispatch (watchdog cadence is sparse)",
+  "seq": 45,
+  "last_tick": "2026-09-16T17:41:28.444Z",
+  "primed_by": "chain",
   "halted": false,
   "paused": false
  },
@@ -394,6 +394,7 @@
   "tick-chain-1789580350431",
   "tick-chain-1789580383291",
   "tick-chain-1789580419030",
-  "tick-manual re-prime — the X21 chain link died after the hot-fix dispatch (watchdog cadence is sparse)-1789580453079"
+  "tick-manual re-prime — the X21 chain link died after the hot-fix dispatch (watchdog cadence is sparse)-1789580453079",
+  "tick-chain-1789580486663"
  ]
 }
