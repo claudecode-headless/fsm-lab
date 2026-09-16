@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 38,
- "journal_seq": 1453,
+ "version": 43,
+ "journal_seq": 1459,
  "chain": {
   "id": "c-1789583988738",
-  "seq": 46,
-  "last_tick": "2026-09-16T19:05:59.000Z",
+  "seq": 47,
+  "last_tick": "2026-09-16T19:06:37.106Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -27,18 +27,14 @@
   "T-101": {
    "id": "T-101",
    "title": "research: state-anchor options",
-   "status": "assigned",
+   "status": "done",
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
    "attempts": 2,
-   "lease": {
-    "token": "l-79db36353c7f",
-    "expires": "2026-09-16T19:43:10.150Z",
-    "issued_at": "2026-09-16T18:58:10.150Z"
-   },
+   "lease": null,
    "created": "2026-09-16T18:39:48.738Z",
-   "updated": "2026-09-16T18:58:10.150Z",
+   "updated": "2026-09-16T19:06:37.104Z",
    "history": [
     {
      "at": "2026-09-16T18:39:48.738Z",
@@ -64,12 +60,18 @@
      "at": "2026-09-16T18:58:10.150Z",
      "status": "assigned",
      "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-16T19:06:37.104Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "work_failed",
-    "run_id": "35135798771",
-    "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"nvidia/nemotron-3-ultra-550b-a55b:fre)"
+    "status": "done",
+    "run_id": "35137693347",
+    "artifact": "\n\nI'm blocked from locating the project on this machine and from reaching GitHub. Let me report the state accurately rather than guess.\n\n## T-101: state-anchor options — research blocked\n\n**What I tri",
+    "duration_ms": 482088
    }
   },
   "T-102": {
@@ -140,21 +142,35 @@
   "T-103": {
    "id": "T-103",
    "title": "impl: state store CAS",
-   "status": "backlog",
+   "status": "assigned",
    "behavior": "succeed",
    "work_ms": 5000,
    "deps": [
     "T-101"
    ],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-8d3bbd446c7a",
+    "expires": "2026-09-16T19:51:37.104Z",
+    "issued_at": "2026-09-16T19:06:37.104Z"
+   },
    "created": "2026-09-16T18:39:48.738Z",
-   "updated": "2026-09-16T18:39:48.738Z",
+   "updated": "2026-09-16T19:06:37.104Z",
    "history": [
     {
      "at": "2026-09-16T18:39:48.738Z",
      "status": "backlog",
      "why": "created"
+    },
+    {
+     "at": "2026-09-16T19:06:37.104Z",
+     "status": "ready",
+     "why": "deps-satisfied"
+    },
+    {
+     "at": "2026-09-16T19:06:37.104Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null
@@ -162,21 +178,35 @@
   "T-104": {
    "id": "T-104",
    "title": "impl: conductor loop",
-   "status": "backlog",
+   "status": "assigned",
    "behavior": "succeed",
    "work_ms": 5000,
    "deps": [
     "T-101"
    ],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-83c26e236556",
+    "expires": "2026-09-16T19:51:37.104Z",
+    "issued_at": "2026-09-16T19:06:37.104Z"
+   },
    "created": "2026-09-16T18:39:48.738Z",
-   "updated": "2026-09-16T18:39:48.738Z",
+   "updated": "2026-09-16T19:06:37.104Z",
    "history": [
     {
      "at": "2026-09-16T18:39:48.738Z",
      "status": "backlog",
      "why": "created"
+    },
+    {
+     "at": "2026-09-16T19:06:37.104Z",
+     "status": "ready",
+     "why": "deps-satisfied"
+    },
+    {
+     "at": "2026-09-16T19:06:37.104Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null
@@ -407,7 +437,7 @@
   }
  },
  "stats": {
-  "done": 3,
+  "done": 4,
   "failed": 0,
   "quarantined": 1,
   "cancelled": 0,
@@ -415,7 +445,7 @@
   "orphaned_reports": 0,
   "rejected_events": 0,
   "timeouts": 0,
-  "dispatched": 14,
+  "dispatched": 16,
   "infra_retries": 0
  },
  "dedup": [
@@ -477,6 +507,8 @@
   "tick-chain-1789585488303",
   "rep-35138195650-a1",
   "tick-chain-1789585521565",
-  "tick-chain-1789585555636"
+  "tick-chain-1789585555636",
+  "rep-35137693347-a1",
+  "tick-chain-1789585593468"
  ]
 }
