@@ -122,3 +122,4 @@
 {"id":"e1165","ts":"2026-09-16T17:12:27.218Z","applied":true,"kind":"ASSIGN","task":"T-102","from":"ready","to":"assigned","lease":"l-9e37e14dea35","expires":"2026-09-16T17:27:27.218Z","attempt":1,"behavior":"flaky","task_ref":{"kind":"state-task","id":"T-102"}}
 {"id":"e1166","ts":"2026-09-16T17:12:27.218Z","applied":true,"kind":"ASSIGN","task":"T-107","from":"ready","to":"assigned","lease":"l-63cd0064623e","expires":"2026-09-16T17:27:27.218Z","attempt":1,"behavior":"dup","task_ref":{"kind":"state-task","id":"T-107"}}
 {"id":"e1167","ts":"2026-09-16T17:12:27.218Z","applied":true,"kind":"ASSIGN","task":"T-108","from":"ready","to":"assigned","lease":"l-3d7550880478","expires":"2026-09-16T17:27:27.218Z","attempt":1,"behavior":"slow","task_ref":{"kind":"state-task","id":"T-108"}}
+{"id":"e1168","ts":"2026-09-16T17:14:47.617Z","applied":true,"kind":"TICK","seq":2,"actor":"chain"}
