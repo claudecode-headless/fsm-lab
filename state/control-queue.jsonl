@@ -1,1 +1,2 @@
 {"cmd":"reset","note":"T46 X21 — the synthetic CC epoch (first real CC workers through the FSM, mode=cc epoch-wide)","sender":"xfnwfpho1","ts":"2026-09-16T17:11:18.365Z","id":"ctl-1789578678371-z07uxe"}
+{"cmd":"reset","note":"T46 X21 take-2 — the cc epoch (EPOCH_MODE var now set; replaces the accidental mock genesis above)","sender":"xfnwfpho1","ts":"2026-09-16T17:11:47.208Z","id":"ctl-1789578707215-uj615a"}
