@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 43,
- "journal_seq": 1471,
+ "version": 46,
+ "journal_seq": 1475,
  "chain": {
   "id": "c-1789583988738",
-  "seq": 59,
-  "last_tick": "2026-09-16T19:13:26.716Z",
+  "seq": 60,
+  "last_tick": "2026-09-16T19:13:59.688Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -184,14 +184,14 @@
    "deps": [
     "T-101"
    ],
-   "attempts": 1,
+   "attempts": 2,
    "lease": {
-    "token": "l-83c26e236556",
-    "expires": "2026-09-16T19:51:37.104Z",
-    "issued_at": "2026-09-16T19:06:37.104Z"
+    "token": "l-c3be75a60e0d",
+    "expires": "2026-09-16T19:58:59.686Z",
+    "issued_at": "2026-09-16T19:13:59.686Z"
    },
    "created": "2026-09-16T18:39:48.738Z",
-   "updated": "2026-09-16T19:06:37.104Z",
+   "updated": "2026-09-16T19:13:59.686Z",
    "history": [
     {
      "at": "2026-09-16T18:39:48.738Z",
@@ -207,9 +207,28 @@
      "at": "2026-09-16T19:06:37.104Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-16T19:13:59.686Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=1)"
+    },
+    {
+     "at": "2026-09-16T19:13:59.686Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=1)"
+    },
+    {
+     "at": "2026-09-16T19:13:59.686Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "work_failed",
+    "run_id": "35138558396",
+    "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
+   }
   },
   "T-105": {
    "id": "T-105",
@@ -441,11 +460,11 @@
   "failed": 0,
   "quarantined": 1,
   "cancelled": 0,
-  "retries": 9,
+  "retries": 10,
   "orphaned_reports": 0,
   "rejected_events": 0,
   "timeouts": 0,
-  "dispatched": 16,
+  "dispatched": 17,
   "infra_retries": 0
  },
  "dedup": [
@@ -521,6 +540,8 @@
   "tick-chain-1789585904090",
   "tick-chain-1789585939722",
   "tick-chain-1789585972543",
-  "tick-chain-1789586004795"
+  "tick-chain-1789586004795",
+  "rep-35138558396-a1",
+  "tick-chain-1789586037425"
  ]
 }
