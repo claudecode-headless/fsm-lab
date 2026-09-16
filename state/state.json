@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 16,
- "journal_seq": 1360,
+ "version": 23,
+ "journal_seq": 1368,
  "chain": {
   "id": "c-1789582512392",
-  "seq": 40,
-  "last_tick": "2026-09-16T18:38:12.400Z",
+  "seq": 41,
+  "last_tick": "2026-09-16T18:38:43.845Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -27,18 +27,14 @@
   "T-101": {
    "id": "T-101",
    "title": "research: state-anchor options",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
    "attempts": 3,
-   "lease": {
-    "token": "l-20d59368a4e3",
-    "expires": "2026-09-16T19:19:52.949Z",
-    "issued_at": "2026-09-16T18:34:52.949Z"
-   },
+   "lease": null,
    "created": "2026-09-16T18:15:12.392Z",
-   "updated": "2026-09-16T18:34:52.949Z",
+   "updated": "2026-09-16T18:38:43.843Z",
    "history": [
     {
      "at": "2026-09-16T18:15:12.392Z",
@@ -74,11 +70,16 @@
      "at": "2026-09-16T18:34:52.949Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-16T18:38:43.843Z",
+     "status": "quarantined",
+     "why": "worker-failed(attempts=3)"
     }
    ],
    "last_result": {
     "status": "work_failed",
-    "run_id": "35134940567",
+    "run_id": "35135295458",
     "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
    }
   },
@@ -89,14 +90,14 @@
    "behavior": "flaky",
    "work_ms": 3000,
    "deps": [],
-   "attempts": 1,
+   "attempts": 2,
    "lease": {
-    "token": "l-477eca1cc027",
-    "expires": "2026-09-16T19:12:33.973Z",
-    "issued_at": "2026-09-16T18:27:33.973Z"
+    "token": "l-9a9734d132fa",
+    "expires": "2026-09-16T19:23:43.844Z",
+    "issued_at": "2026-09-16T18:38:43.844Z"
    },
    "created": "2026-09-16T18:15:12.392Z",
-   "updated": "2026-09-16T18:27:33.973Z",
+   "updated": "2026-09-16T18:38:43.844Z",
    "history": [
     {
      "at": "2026-09-16T18:15:12.392Z",
@@ -117,19 +118,34 @@
      "at": "2026-09-16T18:27:33.973Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-16T18:38:43.844Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=1)"
+    },
+    {
+     "at": "2026-09-16T18:38:43.844Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=1)"
+    },
+    {
+     "at": "2026-09-16T18:38:43.844Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
     }
    ],
    "last_result": {
-    "status": "infra_failed",
-    "run_id": "dispatch-verify",
-    "error": "dispatch-unverified"
+    "status": "work_failed",
+    "run_id": "35134529857",
+    "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
    },
    "infra_attempts": 1
   },
   "T-103": {
    "id": "T-103",
    "title": "impl: state store CAS",
-   "status": "backlog",
+   "status": "cancelled",
    "behavior": "succeed",
    "work_ms": 5000,
    "deps": [
@@ -138,12 +154,17 @@
    "attempts": 0,
    "lease": null,
    "created": "2026-09-16T18:15:12.392Z",
-   "updated": "2026-09-16T18:15:12.392Z",
+   "updated": "2026-09-16T18:38:43.843Z",
    "history": [
     {
      "at": "2026-09-16T18:15:12.392Z",
      "status": "backlog",
      "why": "created"
+    },
+    {
+     "at": "2026-09-16T18:38:43.843Z",
+     "status": "cancelled",
+     "why": "dep-failed-cascade"
     }
    ],
    "last_result": null
@@ -151,7 +172,7 @@
   "T-104": {
    "id": "T-104",
    "title": "impl: conductor loop",
-   "status": "backlog",
+   "status": "cancelled",
    "behavior": "succeed",
    "work_ms": 5000,
    "deps": [
@@ -160,12 +181,17 @@
    "attempts": 0,
    "lease": null,
    "created": "2026-09-16T18:15:12.392Z",
-   "updated": "2026-09-16T18:15:12.392Z",
+   "updated": "2026-09-16T18:38:43.843Z",
    "history": [
     {
      "at": "2026-09-16T18:15:12.392Z",
      "status": "backlog",
      "why": "created"
+    },
+    {
+     "at": "2026-09-16T18:38:43.843Z",
+     "status": "cancelled",
+     "why": "dep-failed-cascade"
     }
    ],
    "last_result": null
@@ -195,7 +221,7 @@
   "T-106": {
    "id": "T-106",
    "title": "review: M1",
-   "status": "backlog",
+   "status": "cancelled",
    "behavior": "succeed",
    "work_ms": 3000,
    "deps": [
@@ -205,12 +231,17 @@
    "attempts": 0,
    "lease": null,
    "created": "2026-09-16T18:15:12.392Z",
-   "updated": "2026-09-16T18:15:12.392Z",
+   "updated": "2026-09-16T18:38:43.843Z",
    "history": [
     {
      "at": "2026-09-16T18:15:12.392Z",
      "status": "backlog",
      "why": "created"
+    },
+    {
+     "at": "2026-09-16T18:38:43.843Z",
+     "status": "cancelled",
+     "why": "dep-failed-cascade"
     }
    ],
    "last_result": null
@@ -307,13 +338,13 @@
  "stats": {
   "done": 0,
   "failed": 0,
-  "quarantined": 0,
-  "cancelled": 0,
-  "retries": 2,
+  "quarantined": 1,
+  "cancelled": 3,
+  "retries": 3,
   "orphaned_reports": 0,
   "rejected_events": 1,
   "timeouts": 1,
-  "dispatched": 9,
+  "dispatched": 10,
   "infra_retries": 3
  },
  "dedup": [
@@ -362,6 +393,9 @@
   "tick-chain-1789583791996",
   "tick-schedule-backstop-1789583824953",
   "tick-chain-1789583857342",
-  "tick-chain-1789583889397"
+  "tick-chain-1789583889397",
+  "rep-35135295458-a1",
+  "rep-35134529857-a1",
+  "tick-chain-1789583922079"
  ]
 }

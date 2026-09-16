@@ -314,3 +314,11 @@
 {"id":"e1357","ts":"2026-09-16T18:37:08.067Z","applied":true,"kind":"TICK","seq":38,"actor":"schedule-backstop"}
 {"id":"e1358","ts":"2026-09-16T18:37:39.307Z","applied":true,"kind":"TICK","seq":39,"actor":"chain"}
 {"id":"e1359","ts":"2026-09-16T18:38:12.400Z","applied":true,"kind":"TICK","seq":40,"actor":"chain"}
+{"id":"e1360","ts":"2026-09-16T18:38:43.843Z","applied":true,"kind":"REPORT","task":"T-101","lease":"l-20d59368a4e3","to":"quarantined","run_id":"35135295458","from":"assigned"}
+{"id":"e1361","ts":"2026-09-16T18:38:43.843Z","applied":true,"kind":"CANCEL_CASCADE","task":"T-103","from":"backlog","to":"cancelled","reason":"T-101"}
+{"id":"e1362","ts":"2026-09-16T18:38:43.843Z","applied":true,"kind":"CANCEL_CASCADE","task":"T-104","from":"backlog","to":"cancelled","reason":"T-101"}
+{"id":"e1363","ts":"2026-09-16T18:38:43.843Z","applied":true,"kind":"CANCEL_CASCADE","task":"T-106","from":"backlog","to":"cancelled","reason":"T-103"}
+{"id":"e1364","ts":"2026-09-16T18:38:43.844Z","applied":true,"kind":"REPORT","task":"T-102","lease":"l-477eca1cc027","to":"failed","run_id":"35134529857","from":"assigned"}
+{"id":"e1365","ts":"2026-09-16T18:38:43.844Z","applied":true,"kind":"RETRY","task":"T-102","from":"failed","to":"ready"}
+{"id":"e1366","ts":"2026-09-16T18:38:43.844Z","applied":true,"kind":"ASSIGN","task":"T-102","from":"ready","to":"assigned","lease":"l-9a9734d132fa","expires":"2026-09-16T19:23:43.844Z","attempt":2,"behavior":"flaky","task_ref":{"kind":"state-task","id":"T-102"}}
+{"id":"e1367","ts":"2026-09-16T18:38:43.845Z","applied":true,"kind":"TICK","seq":41,"actor":"chain"}
