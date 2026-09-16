@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 30,
- "journal_seq": 1433,
+ "version": 34,
+ "journal_seq": 1438,
  "chain": {
   "id": "c-1789583988738",
-  "seq": 34,
-  "last_tick": "2026-09-16T18:59:13.276Z",
+  "seq": 35,
+  "last_tick": "2026-09-16T18:59:45.534Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -190,14 +190,14 @@
    "deps": [
     "T-102"
    ],
-   "attempts": 1,
+   "attempts": 2,
    "lease": {
-    "token": "l-6feb9e59d780",
-    "expires": "2026-09-16T19:41:15.525Z",
-    "issued_at": "2026-09-16T18:56:15.525Z"
+    "token": "l-0c85cce779aa",
+    "expires": "2026-09-16T19:44:45.531Z",
+    "issued_at": "2026-09-16T18:59:45.531Z"
    },
    "created": "2026-09-16T18:39:48.738Z",
-   "updated": "2026-09-16T18:56:15.525Z",
+   "updated": "2026-09-16T18:59:45.531Z",
    "history": [
     {
      "at": "2026-09-16T18:39:48.738Z",
@@ -213,9 +213,28 @@
      "at": "2026-09-16T18:56:15.525Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-16T18:59:45.531Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=1)"
+    },
+    {
+     "at": "2026-09-16T18:59:45.531Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=1)"
+    },
+    {
+     "at": "2026-09-16T18:59:45.531Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "work_failed",
+    "run_id": "35137503996",
+    "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
+   }
   },
   "T-106": {
    "id": "T-106",
@@ -308,18 +327,14 @@
   "T-108": {
    "id": "T-108",
    "title": "edge: late report (orphan)",
-   "status": "assigned",
+   "status": "done",
    "behavior": "slow",
    "work_ms": 330000,
    "deps": [],
    "attempts": 3,
-   "lease": {
-    "token": "l-1d6df40263ad",
-    "expires": "2026-09-16T19:40:41.851Z",
-    "issued_at": "2026-09-16T18:55:41.851Z"
-   },
+   "lease": null,
    "created": "2026-09-16T18:39:48.738Z",
-   "updated": "2026-09-16T18:55:41.851Z",
+   "updated": "2026-09-16T18:59:45.529Z",
    "history": [
     {
      "at": "2026-09-16T18:39:48.738Z",
@@ -360,25 +375,31 @@
      "at": "2026-09-16T18:55:41.851Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-16T18:59:45.529Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "work_failed",
-    "run_id": "35136147214",
-    "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
+    "status": "done",
+    "run_id": "35137448559",
+    "artifact": "\n\nThe sandbox blocks all writes (even `mkdir` in the working dir) — read-only. No repo, no state, no dispatch envelope, no journal. This is the **T-108 edge-case drill: late report (orphan)**, and the",
+    "duration_ms": 200677
    }
   }
  },
  "stats": {
-  "done": 2,
+  "done": 3,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
-  "retries": 7,
+  "retries": 8,
   "orphaned_reports": 0,
   "rejected_events": 0,
   "timeouts": 0,
-  "dispatched": 12,
+  "dispatched": 13,
   "infra_retries": 0
  },
  "dedup": [
@@ -424,6 +445,9 @@
   "rep-35135798771-a1",
   "tick-chain-1789585087066",
   "tick-chain-1789585120490",
-  "tick-chain-1789585152004"
+  "tick-chain-1789585152004",
+  "rep-35137448559-a1",
+  "rep-35137503996-a1",
+  "tick-chain-1789585183856"
  ]
 }
