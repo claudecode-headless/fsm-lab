@@ -263,3 +263,4 @@
 {"id":"e1306","ts":"2026-09-16T18:15:12.394Z","applied":true,"kind":"ASSIGN","task":"T-102","from":"ready","to":"assigned","lease":"l-d4aa3d815534","expires":"2026-09-16T19:00:12.394Z","attempt":1,"behavior":"flaky","task_ref":{"kind":"state-task","id":"T-102"}}
 {"id":"e1307","ts":"2026-09-16T18:15:12.394Z","applied":true,"kind":"ASSIGN","task":"T-107","from":"ready","to":"assigned","lease":"l-4608239b683f","expires":"2026-09-16T19:00:12.394Z","attempt":1,"behavior":"dup","task_ref":{"kind":"state-task","id":"T-107"}}
 {"id":"e1308","ts":"2026-09-16T18:15:12.394Z","applied":true,"kind":"ASSIGN","task":"T-108","from":"ready","to":"assigned","lease":"l-156c9d3ddff5","expires":"2026-09-16T19:00:12.394Z","attempt":1,"behavior":"slow","task_ref":{"kind":"state-task","id":"T-108"}}
+{"id":"e1309","ts":"2026-09-16T18:15:46.821Z","applied":true,"kind":"TICK","seq":2,"actor":"chain"}
