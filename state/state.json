@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "version": 21,
- "journal_seq": 1230,
+ "journal_seq": 1231,
  "chain": {
   "id": "c-1789578712327",
-  "seq": 47,
-  "last_tick": "2026-09-16T17:42:37.344Z",
+  "seq": 48,
+  "last_tick": "2026-09-16T17:43:18.822Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -397,6 +397,7 @@
   "tick-manual re-prime — the X21 chain link died after the hot-fix dispatch (watchdog cadence is sparse)-1789580453079",
   "tick-chain-1789580486663",
   "tick-chain-1789580520220",
-  "tick-chain-1789580555367"
+  "tick-chain-1789580555367",
+  "tick-chain-1789580595012"
  ]
 }
