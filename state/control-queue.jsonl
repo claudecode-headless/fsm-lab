@@ -1,1 +1,0 @@
-{"cmd":"configure","patch":{"max_parallel":4},"note":"T46 X17 revert to default max_parallel (46-B4-CONT)","sender":"xfnwfpho1","ts":"2026-09-16T01:42:49.941Z","id":"ctl-1789522969944-nqqhcr"}

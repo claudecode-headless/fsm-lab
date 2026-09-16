@@ -111,3 +111,5 @@
 {"id":"e1154","ts":"2026-09-15T09:14:44.288Z","applied":true,"kind":"REPORT","task":"T-302","lease":"l-39b8007596bb","to":"done","run_id":"34951420578","from":"assigned"}
 {"id":"e1155","ts":"2026-09-15T09:14:44.288Z","applied":true,"kind":"PHASE","from":"executing","to":"done"}
 {"id":"e1156","ts":"2026-09-16T01:32:27.028Z","applied":true,"kind":"RECOVERY","reason":"history-walk","dropFrom":1156,"droppedRecords":0,"snapshotSha":"f7fdd76ea1baa3acf6ba734c4b0763e7f6eb965e"}
+{"id":"e1157","ts":"2026-09-16T01:42:53.781Z","applied":true,"kind":"CONTROL","command":"configure","patch":{"max_parallel":4},"before":{"max_parallel":8},"actor":"xfnwfpho1","note":"T46 X17 revert to default max_parallel (46-B4-CONT)"}
+{"id":"e1158","ts":"2026-09-16T01:42:53.783Z","applied":false,"kind":"REJECTED","origKind":"CONTROL","task":null,"event_id":"ctl-direct-configure-1789522972711","reason":"configure-noop"}

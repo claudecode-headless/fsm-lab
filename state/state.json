@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "version": 70,
- "journal_seq": 1157,
+ "version": 71,
+ "journal_seq": 1159,
  "chain": {
   "id": "c-1789457940180",
   "seq": 168,
@@ -16,7 +16,7 @@
   "milestones_total": 3
  },
  "config": {
-  "max_parallel": 8,
+  "max_parallel": 4,
   "lease_minutes": 15,
   "max_attempts": 3,
   "tick_min_interval_s": 25,
@@ -801,7 +801,7 @@
   "cancelled": 0,
   "retries": 10,
   "orphaned_reports": 0,
-  "rejected_events": 4,
+  "rejected_events": 5,
   "timeouts": 9,
   "dispatched": 28,
   "infra_retries": 0
@@ -999,6 +999,8 @@
   "tick-chain-1789463648222",
   "rep-34951420578-a1",
   "tick-chain-1789463682892",
-  "tick-manual-1789522346495"
+  "tick-manual-1789522346495",
+  "ctl-1789522969944-nqqhcr",
+  "ctl-direct-configure-1789522972711"
  ]
 }
