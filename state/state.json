@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "version": 1,
- "journal_seq": 1163,
+ "version": 5,
+ "journal_seq": 1168,
  "chain": {
   "id": "c-1789578712327",
-  "seq": 0,
-  "last_tick": "2026-09-16T17:11:52.327Z",
-  "primed_by": "genesis",
+  "seq": 1,
+  "last_tick": "2026-09-16T17:12:27.218Z",
+  "primed_by": "chain",
   "halted": false,
   "paused": false
  },
@@ -27,19 +27,28 @@
   "T-101": {
    "id": "T-101",
    "title": "research: state-anchor options",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-c6d6f3ccb0dc",
+    "expires": "2026-09-16T17:27:27.218Z",
+    "issued_at": "2026-09-16T17:12:27.218Z"
+   },
    "created": "2026-09-16T17:11:52.327Z",
-   "updated": "2026-09-16T17:11:52.327Z",
+   "updated": "2026-09-16T17:12:27.218Z",
    "history": [
     {
      "at": "2026-09-16T17:11:52.327Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-16T17:12:27.218Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null
@@ -47,19 +56,28 @@
   "T-102": {
    "id": "T-102",
    "title": "research: continuity mechanics",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "flaky",
    "work_ms": 3000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-9e37e14dea35",
+    "expires": "2026-09-16T17:27:27.218Z",
+    "issued_at": "2026-09-16T17:12:27.218Z"
+   },
    "created": "2026-09-16T17:11:52.327Z",
-   "updated": "2026-09-16T17:11:52.327Z",
+   "updated": "2026-09-16T17:12:27.218Z",
    "history": [
     {
      "at": "2026-09-16T17:11:52.327Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-16T17:12:27.218Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null
@@ -156,19 +174,28 @@
   "T-107": {
    "id": "T-107",
    "title": "edge: duplicate report",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "dup",
    "work_ms": 3000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-63cd0064623e",
+    "expires": "2026-09-16T17:27:27.218Z",
+    "issued_at": "2026-09-16T17:12:27.218Z"
+   },
    "created": "2026-09-16T17:11:52.327Z",
-   "updated": "2026-09-16T17:11:52.327Z",
+   "updated": "2026-09-16T17:12:27.218Z",
    "history": [
     {
      "at": "2026-09-16T17:11:52.327Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-16T17:12:27.218Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null
@@ -176,19 +203,28 @@
   "T-108": {
    "id": "T-108",
    "title": "edge: late report (orphan)",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "slow",
    "work_ms": 330000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-3d7550880478",
+    "expires": "2026-09-16T17:27:27.218Z",
+    "issued_at": "2026-09-16T17:12:27.218Z"
+   },
    "created": "2026-09-16T17:11:52.327Z",
-   "updated": "2026-09-16T17:11:52.327Z",
+   "updated": "2026-09-16T17:12:27.218Z",
    "history": [
     {
      "at": "2026-09-16T17:11:52.327Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-16T17:12:27.218Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null
@@ -203,8 +239,10 @@
   "orphaned_reports": 0,
   "rejected_events": 0,
   "timeouts": 0,
-  "dispatched": 0,
+  "dispatched": 4,
   "infra_retries": 0
  },
- "dedup": []
+ "dedup": [
+  "tick-chain-1789578745523"
+ ]
 }
