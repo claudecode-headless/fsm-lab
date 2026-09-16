@@ -175,3 +175,4 @@
 {"id":"e1218","ts":"2026-09-16T17:36:54.376Z","applied":true,"kind":"ASSIGN","task":"T-108","from":"ready","to":"assigned","lease":"l-6248fb51343b","expires":"2026-09-16T17:51:54.376Z","attempt":1,"behavior":"slow","task_ref":{"kind":"state-task","id":"T-108"}}
 {"id":"e1219","ts":"2026-09-16T17:36:54.377Z","applied":true,"kind":"TICK","seq":37,"actor":"chain"}
 {"id":"e1220","ts":"2026-09-16T17:37:27.313Z","applied":true,"kind":"TICK","seq":38,"actor":"chain"}
+{"id":"e1221","ts":"2026-09-16T17:38:05.869Z","applied":true,"kind":"TICK","seq":39,"actor":"chain"}
