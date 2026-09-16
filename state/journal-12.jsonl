@@ -180,3 +180,4 @@
 {"id":"e1223","ts":"2026-09-16T17:39:14.949Z","applied":true,"kind":"TICK","seq":41,"actor":"chain"}
 {"id":"e1224","ts":"2026-09-16T17:39:44.574Z","applied":true,"kind":"TICK","seq":42,"actor":"chain"}
 {"id":"e1225","ts":"2026-09-16T17:40:20.834Z","applied":true,"kind":"TICK","seq":43,"actor":"chain"}
+{"id":"e1226","ts":"2026-09-16T17:40:54.878Z","applied":true,"kind":"TICK","seq":44,"actor":"manual re-prime — the X21 chain link died after the hot-fix dispatch (watchdog cadence is sparse)"}
