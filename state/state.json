@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 49,
- "journal_seq": 1489,
+ "version": 51,
+ "journal_seq": 1492,
  "chain": {
   "id": "c-1789583988738",
-  "seq": 71,
-  "last_tick": "2026-09-16T19:20:56.825Z",
+  "seq": 72,
+  "last_tick": "2026-09-16T19:21:31.546Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -178,20 +178,16 @@
   "T-104": {
    "id": "T-104",
    "title": "impl: conductor loop",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "succeed",
    "work_ms": 5000,
    "deps": [
     "T-101"
    ],
    "attempts": 3,
-   "lease": {
-    "token": "l-6c73ec592c96",
-    "expires": "2026-09-16T20:01:50.852Z",
-    "issued_at": "2026-09-16T19:16:50.852Z"
-   },
+   "lease": null,
    "created": "2026-09-16T18:39:48.738Z",
-   "updated": "2026-09-16T19:16:50.852Z",
+   "updated": "2026-09-16T19:21:31.545Z",
    "history": [
     {
      "at": "2026-09-16T18:39:48.738Z",
@@ -237,11 +233,16 @@
      "at": "2026-09-16T19:16:50.852Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-16T19:21:31.545Z",
+     "status": "quarantined",
+     "why": "worker-failed(attempts=3)"
     }
    ],
    "last_result": {
     "status": "work_failed",
-    "run_id": "35139311340",
+    "run_id": "35139614164",
     "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
    }
   },
@@ -319,7 +320,7 @@
   "T-106": {
    "id": "T-106",
    "title": "review: M1",
-   "status": "backlog",
+   "status": "cancelled",
    "behavior": "succeed",
    "work_ms": 3000,
    "deps": [
@@ -329,12 +330,17 @@
    "attempts": 0,
    "lease": null,
    "created": "2026-09-16T18:39:48.738Z",
-   "updated": "2026-09-16T18:39:48.738Z",
+   "updated": "2026-09-16T19:21:31.545Z",
    "history": [
     {
      "at": "2026-09-16T18:39:48.738Z",
      "status": "backlog",
      "why": "created"
+    },
+    {
+     "at": "2026-09-16T19:21:31.545Z",
+     "status": "cancelled",
+     "why": "dep-failed-cascade"
     }
    ],
    "last_result": null
@@ -473,8 +479,8 @@
  "stats": {
   "done": 4,
   "failed": 0,
-  "quarantined": 1,
-  "cancelled": 0,
+  "quarantined": 2,
+  "cancelled": 1,
   "retries": 11,
   "orphaned_reports": 0,
   "rejected_events": 0,
@@ -569,6 +575,8 @@
   "tick-chain-1789586312134",
   "tick-chain-1789586347234",
   "tick-chain-1789586384106",
-  "tick-chain-1789586453960"
+  "tick-chain-1789586453960",
+  "rep-35139614164-a1",
+  "tick-chain-1789586489000"
  ]
 }
