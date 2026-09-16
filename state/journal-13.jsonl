@@ -90,3 +90,4 @@
 {"id":"e1625","ts":"2026-09-16T19:56:28.580Z","applied":true,"kind":"MILESTONE","milestone":3,"tasks":[{"id":"T-301","title":"impl: integration","behavior":"succeed","work_ms":4000,"deps":[]},{"id":"T-302","title":"review: final","behavior":"succeed","work_ms":3000,"deps":["T-301"]}]}
 {"id":"e1626","ts":"2026-09-16T19:56:28.583Z","applied":true,"kind":"TICK","seq":134,"actor":"chain"}
 {"id":"e1627","ts":"2026-09-16T19:56:28.583Z","applied":true,"kind":"ASSIGN","task":"T-301","from":"ready","to":"assigned","lease":"l-3d27293f938f","expires":"2026-09-16T20:41:28.583Z","attempt":1,"behavior":"succeed","task_ref":{"kind":"state-task","id":"T-301"}}
+{"id":"e1628","ts":"2026-09-16T19:57:11.980Z","applied":true,"kind":"TICK","seq":135,"actor":"chain"}
