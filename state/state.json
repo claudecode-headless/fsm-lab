@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 24,
- "journal_seq": 1243,
+ "version": 28,
+ "journal_seq": 1248,
  "chain": {
   "id": "c-1789578712327",
-  "seq": 57,
-  "last_tick": "2026-09-16T17:48:53.997Z",
+  "seq": 58,
+  "last_tick": "2026-09-16T17:49:26.526Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -96,18 +96,14 @@
   "T-102": {
    "id": "T-102",
    "title": "research: continuity mechanics",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "flaky",
    "work_ms": 3000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-9e2015151f9c",
-    "expires": "2026-09-16T17:51:54.376Z",
-    "issued_at": "2026-09-16T17:36:54.376Z"
-   },
+   "lease": null,
    "created": "2026-09-16T17:11:52.327Z",
-   "updated": "2026-09-16T17:36:54.376Z",
+   "updated": "2026-09-16T17:49:26.524Z",
    "history": [
     {
      "at": "2026-09-16T17:11:52.327Z",
@@ -138,6 +134,11 @@
      "at": "2026-09-16T17:36:54.376Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-16T17:49:26.524Z",
+     "status": "quarantined",
+     "why": "infra-exhausted(infra_attempts=3)"
     }
    ],
    "last_result": {
@@ -145,7 +146,7 @@
     "run_id": "dispatch-verify",
     "error": "dispatch-unverified"
    },
-   "infra_attempts": 2
+   "infra_attempts": 3
   },
   "T-103": {
    "id": "T-103",
@@ -194,7 +195,7 @@
   "T-105": {
    "id": "T-105",
    "title": "impl: watchdog",
-   "status": "backlog",
+   "status": "cancelled",
    "behavior": "hang",
    "work_ms": 900000,
    "deps": [
@@ -203,12 +204,17 @@
    "attempts": 0,
    "lease": null,
    "created": "2026-09-16T17:11:52.327Z",
-   "updated": "2026-09-16T17:11:52.327Z",
+   "updated": "2026-09-16T17:49:26.524Z",
    "history": [
     {
      "at": "2026-09-16T17:11:52.327Z",
      "status": "backlog",
      "why": "created"
+    },
+    {
+     "at": "2026-09-16T17:49:26.524Z",
+     "status": "cancelled",
+     "why": "dep-failed-cascade"
     }
    ],
    "last_result": null
@@ -239,18 +245,14 @@
   "T-107": {
    "id": "T-107",
    "title": "edge: duplicate report",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "dup",
    "work_ms": 3000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-4d7181546f4b",
-    "expires": "2026-09-16T17:51:54.376Z",
-    "issued_at": "2026-09-16T17:36:54.376Z"
-   },
+   "lease": null,
    "created": "2026-09-16T17:11:52.327Z",
-   "updated": "2026-09-16T17:36:54.376Z",
+   "updated": "2026-09-16T17:49:26.525Z",
    "history": [
     {
      "at": "2026-09-16T17:11:52.327Z",
@@ -281,6 +283,11 @@
      "at": "2026-09-16T17:36:54.376Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-16T17:49:26.525Z",
+     "status": "quarantined",
+     "why": "infra-exhausted(infra_attempts=3)"
     }
    ],
    "last_result": {
@@ -288,23 +295,19 @@
     "run_id": "dispatch-verify",
     "error": "dispatch-unverified"
    },
-   "infra_attempts": 2
+   "infra_attempts": 3
   },
   "T-108": {
    "id": "T-108",
    "title": "edge: late report (orphan)",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "slow",
    "work_ms": 330000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-6248fb51343b",
-    "expires": "2026-09-16T17:51:54.376Z",
-    "issued_at": "2026-09-16T17:36:54.376Z"
-   },
+   "lease": null,
    "created": "2026-09-16T17:11:52.327Z",
-   "updated": "2026-09-16T17:36:54.376Z",
+   "updated": "2026-09-16T17:49:26.526Z",
    "history": [
     {
      "at": "2026-09-16T17:11:52.327Z",
@@ -335,6 +338,11 @@
      "at": "2026-09-16T17:36:54.376Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-16T17:49:26.526Z",
+     "status": "quarantined",
+     "why": "infra-exhausted(infra_attempts=3)"
     }
    ],
    "last_result": {
@@ -342,14 +350,14 @@
     "run_id": "dispatch-verify",
     "error": "dispatch-unverified"
    },
-   "infra_attempts": 2
+   "infra_attempts": 3
   }
  },
  "stats": {
   "done": 0,
   "failed": 0,
-  "quarantined": 0,
-  "cancelled": 0,
+  "quarantined": 3,
+  "cancelled": 1,
   "retries": 1,
   "orphaned_reports": 0,
   "rejected_events": 0,
@@ -423,6 +431,10 @@
   "tick-chain-1789580830287",
   "tick-chain-1789580863709",
   "tick-chain-1789580896698",
-  "tick-chain-1789580930821"
+  "tick-chain-1789580930821",
+  "rep-synthetic-verify-T-102-a1-1789580214376",
+  "rep-synthetic-verify-T-107-a1-1789580214376",
+  "rep-synthetic-verify-T-108-a1-1789580214376",
+  "tick-chain-1789580964369"
  ]
 }
