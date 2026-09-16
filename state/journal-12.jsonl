@@ -433,3 +433,7 @@
 {"id":"e1476","ts":"2026-09-16T19:15:07.685Z","applied":true,"kind":"TICK","seq":62,"actor":"chain"}
 {"id":"e1477","ts":"2026-09-16T19:15:42.005Z","applied":true,"kind":"TICK","seq":63,"actor":"chain"}
 {"id":"e1478","ts":"2026-09-16T19:16:20.438Z","applied":true,"kind":"TICK","seq":64,"actor":"chain"}
+{"id":"e1479","ts":"2026-09-16T19:16:50.852Z","applied":true,"kind":"REPORT","task":"T-104","lease":"l-c3be75a60e0d","to":"failed","run_id":"35139311340","from":"assigned"}
+{"id":"e1480","ts":"2026-09-16T19:16:50.852Z","applied":true,"kind":"RETRY","task":"T-104","from":"failed","to":"ready"}
+{"id":"e1481","ts":"2026-09-16T19:16:50.852Z","applied":true,"kind":"ASSIGN","task":"T-104","from":"ready","to":"assigned","lease":"l-6c73ec592c96","expires":"2026-09-16T20:01:50.852Z","attempt":3,"behavior":"succeed","task_ref":{"kind":"state-task","id":"T-104"}}
+{"id":"e1482","ts":"2026-09-16T19:16:50.854Z","applied":true,"kind":"TICK","seq":65,"actor":"chain"}
