@@ -84,3 +84,5 @@
 {"id":"e1619","ts":"2026-09-16T19:55:21.218Z","applied":true,"kind":"REPORT","task":"T-205","lease":"l-0c84d540f791","to":"quarantined","run_id":"35143064605","from":"assigned"}
 {"id":"e1620","ts":"2026-09-16T19:55:21.221Z","applied":true,"kind":"REPORT","task":"T-206","lease":"l-91595290e246","to":"quarantined","run_id":"35143123664","from":"assigned"}
 {"id":"e1621","ts":"2026-09-16T19:55:21.221Z","applied":true,"kind":"TICK","seq":132,"actor":"chain"}
+{"id":"e1622","ts":"2026-09-16T19:55:54.415Z","applied":true,"kind":"REPORT","task":"T-208","lease":"l-7e2884003b38","to":"quarantined","run_id":"35143177811","from":"assigned"}
+{"id":"e1623","ts":"2026-09-16T19:55:54.418Z","applied":true,"kind":"TICK","seq":133,"actor":"chain"}

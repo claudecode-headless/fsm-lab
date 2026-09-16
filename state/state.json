@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 121,
- "journal_seq": 1622,
+ "version": 122,
+ "journal_seq": 1624,
  "chain": {
   "id": "c-1789583988738",
-  "seq": 132,
-  "last_tick": "2026-09-16T19:55:21.221Z",
+  "seq": 133,
+  "last_tick": "2026-09-16T19:55:54.418Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -960,18 +960,14 @@
   "T-208": {
    "id": "T-208",
    "title": "impl: parallel g",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
    "attempts": 3,
-   "lease": {
-    "token": "l-7e2884003b38",
-    "expires": "2026-09-16T20:37:30.041Z",
-    "issued_at": "2026-09-16T19:52:30.041Z"
-   },
+   "lease": null,
    "created": "2026-09-16T19:34:35.654Z",
-   "updated": "2026-09-16T19:52:30.041Z",
+   "updated": "2026-09-16T19:55:54.415Z",
    "history": [
     {
      "at": "2026-09-16T19:34:35.654Z",
@@ -1012,11 +1008,16 @@
      "at": "2026-09-16T19:52:30.041Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-16T19:55:54.415Z",
+     "status": "quarantined",
+     "why": "worker-failed(attempts=3)"
     }
    ],
    "last_result": {
     "status": "work_failed",
-    "run_id": "35142843853",
+    "run_id": "35143177811",
     "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
    }
   }
@@ -1024,7 +1025,7 @@
  "stats": {
   "done": 4,
   "failed": 0,
-  "quarantined": 9,
+  "quarantined": 10,
   "cancelled": 1,
   "retries": 29,
   "orphaned_reports": 0,
@@ -1207,6 +1208,8 @@
   "tick-chain-1789588483605",
   "rep-35143064605-a1",
   "rep-35143123664-a1",
-  "tick-chain-1789588519720"
+  "tick-chain-1789588519720",
+  "rep-35143177811-a1",
+  "tick-chain-1789588552739"
  ]
 }
