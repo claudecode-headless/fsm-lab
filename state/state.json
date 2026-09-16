@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 119,
- "journal_seq": 1619,
+ "version": 121,
+ "journal_seq": 1622,
  "chain": {
   "id": "c-1789583988738",
-  "seq": 131,
-  "last_tick": "2026-09-16T19:54:44.837Z",
+  "seq": 132,
+  "last_tick": "2026-09-16T19:55:21.221Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -769,18 +769,14 @@
   "T-205": {
    "id": "T-205",
    "title": "impl: parallel e",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "no-report",
    "work_ms": 3000,
    "deps": [],
    "attempts": 3,
-   "lease": {
-    "token": "l-0c84d540f791",
-    "expires": "2026-09-16T20:36:21.414Z",
-    "issued_at": "2026-09-16T19:51:21.414Z"
-   },
+   "lease": null,
    "created": "2026-09-16T19:34:35.654Z",
-   "updated": "2026-09-16T19:51:21.414Z",
+   "updated": "2026-09-16T19:55:21.218Z",
    "history": [
     {
      "at": "2026-09-16T19:34:35.654Z",
@@ -821,29 +817,30 @@
      "at": "2026-09-16T19:51:21.414Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-16T19:55:21.218Z",
+     "status": "quarantined",
+     "why": "worker-failed(attempts=3)"
     }
    ],
    "last_result": {
     "status": "work_failed",
-    "run_id": "35142733147",
+    "run_id": "35143064605",
     "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
    }
   },
   "T-206": {
    "id": "T-206",
    "title": "impl: parallel f",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
    "attempts": 3,
-   "lease": {
-    "token": "l-91595290e246",
-    "expires": "2026-09-16T20:36:58.387Z",
-    "issued_at": "2026-09-16T19:51:58.387Z"
-   },
+   "lease": null,
    "created": "2026-09-16T19:34:35.654Z",
-   "updated": "2026-09-16T19:51:58.387Z",
+   "updated": "2026-09-16T19:55:21.221Z",
    "history": [
     {
      "at": "2026-09-16T19:34:35.654Z",
@@ -884,11 +881,16 @@
      "at": "2026-09-16T19:51:58.387Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-16T19:55:21.221Z",
+     "status": "quarantined",
+     "why": "worker-failed(attempts=3)"
     }
    ],
    "last_result": {
     "status": "work_failed",
-    "run_id": "35142794933",
+    "run_id": "35143123664",
     "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
    }
   },
@@ -1022,7 +1024,7 @@
  "stats": {
   "done": 4,
   "failed": 0,
-  "quarantined": 7,
+  "quarantined": 9,
   "cancelled": 1,
   "retries": 29,
   "orphaned_reports": 0,
@@ -1202,6 +1204,9 @@
   "tick-chain-1789588381888",
   "tick-chain-1789588416613",
   "tick-chain-1789588450705",
-  "tick-chain-1789588483605"
+  "tick-chain-1789588483605",
+  "rep-35143064605-a1",
+  "rep-35143123664-a1",
+  "tick-chain-1789588519720"
  ]
 }
