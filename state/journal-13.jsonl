@@ -392,3 +392,13 @@
 {"id":"e1927","ts":"2026-09-17T05:11:02.118Z","applied":true,"kind":"ASSIGN","task":"T-202","from":"ready","to":"assigned","lease":"l-f308d7cbd900","expires":"2026-09-17T05:56:02.118Z","attempt":1,"behavior":"succeed","task_ref":{"kind":"state-task","id":"T-202"}}
 {"id":"e1928","ts":"2026-09-17T05:11:02.118Z","applied":true,"kind":"ASSIGN","task":"T-203","from":"ready","to":"assigned","lease":"l-47a1c4bcb26f","expires":"2026-09-17T05:56:02.118Z","attempt":1,"behavior":"flaky","task_ref":{"kind":"state-task","id":"T-203"}}
 {"id":"e1929","ts":"2026-09-17T05:11:02.118Z","applied":true,"kind":"ASSIGN","task":"T-204","from":"ready","to":"assigned","lease":"l-fa581d709330","expires":"2026-09-17T05:56:02.118Z","attempt":1,"behavior":"succeed","task_ref":{"kind":"state-task","id":"T-204"}}
+{"id":"e1930","ts":"2026-09-17T05:11:38.267Z","applied":true,"kind":"REPORT","task":"T-201","lease":"l-ab2c931d7c9d","to":"done","run_id":"35184737632","from":"assigned"}
+{"id":"e1931","ts":"2026-09-17T05:11:38.267Z","applied":true,"kind":"ASSIGN","task":"T-205","from":"ready","to":"assigned","lease":"l-6e88302508da","expires":"2026-09-17T05:56:38.267Z","attempt":1,"behavior":"no-report","task_ref":{"kind":"state-task","id":"T-205"}}
+{"id":"e1932","ts":"2026-09-17T05:11:38.294Z","applied":true,"kind":"REPORT","task":"T-204","lease":"l-fa581d709330","to":"done","run_id":"35184737463","from":"assigned"}
+{"id":"e1933","ts":"2026-09-17T05:11:38.294Z","applied":true,"kind":"ASSIGN","task":"T-206","from":"ready","to":"assigned","lease":"l-a84ae60b017b","expires":"2026-09-17T05:56:38.294Z","attempt":1,"behavior":"succeed","task_ref":{"kind":"state-task","id":"T-206"}}
+{"id":"e1934","ts":"2026-09-17T05:11:38.295Z","applied":true,"kind":"REPORT","task":"T-202","lease":"l-f308d7cbd900","to":"done","run_id":"35184737357","from":"assigned"}
+{"id":"e1935","ts":"2026-09-17T05:11:38.295Z","applied":true,"kind":"ASSIGN","task":"T-207","from":"ready","to":"assigned","lease":"l-f0e447da576e","expires":"2026-09-17T05:56:38.295Z","attempt":1,"behavior":"poison","task_ref":{"kind":"state-task","id":"T-207"}}
+{"id":"e1936","ts":"2026-09-17T05:11:38.295Z","applied":true,"kind":"REPORT","task":"T-203","lease":"l-47a1c4bcb26f","to":"failed","run_id":"35184737928","from":"assigned"}
+{"id":"e1937","ts":"2026-09-17T05:11:38.295Z","applied":true,"kind":"RETRY","task":"T-203","from":"failed","to":"ready"}
+{"id":"e1938","ts":"2026-09-17T05:11:38.295Z","applied":true,"kind":"ASSIGN","task":"T-203","from":"ready","to":"assigned","lease":"l-88076c4fdd90","expires":"2026-09-17T05:56:38.295Z","attempt":2,"behavior":"flaky","task_ref":{"kind":"state-task","id":"T-203"}}
+{"id":"e1939","ts":"2026-09-17T05:11:38.296Z","applied":true,"kind":"TICK","seq":241,"actor":"chain"}
