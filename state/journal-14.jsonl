@@ -162,3 +162,7 @@
 {"id":"e2197","ts":"2026-09-17T07:27:23.198Z","applied":true,"kind":"MILESTONE","milestone":3,"tasks":[{"id":"T-301","title":"impl: integration","behavior":"succeed","work_ms":4000,"deps":[]},{"id":"T-302","title":"review: final","behavior":"succeed","work_ms":3000,"deps":["T-301"]}]}
 {"id":"e2198","ts":"2026-09-17T07:27:53.953Z","applied":true,"kind":"TICK","seq":483,"actor":"chain"}
 {"id":"e2199","ts":"2026-09-17T07:27:53.953Z","applied":true,"kind":"ASSIGN","task":"T-301","from":"ready","to":"assigned","lease":"l-77a3eb940009","expires":"2026-09-17T08:12:53.953Z","attempt":1,"behavior":"succeed","task_ref":{"kind":"state-task","id":"T-301"}}
+{"id":"e2200","ts":"2026-09-17T07:28:27.052Z","applied":true,"kind":"REPORT","task":"T-301","lease":"l-77a3eb940009","to":"done","run_id":"35194657234","from":"assigned"}
+{"id":"e2201","ts":"2026-09-17T07:28:27.052Z","applied":true,"kind":"UNLOCK","task":"T-302","from":"backlog","to":"ready"}
+{"id":"e2202","ts":"2026-09-17T07:28:27.052Z","applied":true,"kind":"ASSIGN","task":"T-302","from":"ready","to":"assigned","lease":"l-02a73c8d6d14","expires":"2026-09-17T08:13:27.052Z","attempt":1,"behavior":"succeed","task_ref":{"kind":"state-task","id":"T-302"}}
+{"id":"e2203","ts":"2026-09-17T07:28:27.056Z","applied":true,"kind":"TICK","seq":484,"actor":"chain"}

@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 60,
- "journal_seq": 2200,
+ "version": 63,
+ "journal_seq": 2204,
  "chain": {
   "id": "c-1789613587421",
-  "seq": 483,
-  "last_tick": "2026-09-17T07:27:53.953Z",
+  "seq": 484,
+  "last_tick": "2026-09-17T07:28:27.056Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -705,18 +705,14 @@
   "T-301": {
    "id": "T-301",
    "title": "impl: integration",
-   "status": "assigned",
+   "status": "done",
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-77a3eb940009",
-    "expires": "2026-09-17T08:12:53.953Z",
-    "issued_at": "2026-09-17T07:27:53.953Z"
-   },
+   "lease": null,
    "created": "2026-09-17T07:27:23.198Z",
-   "updated": "2026-09-17T07:27:53.953Z",
+   "updated": "2026-09-17T07:28:27.052Z",
    "history": [
     {
      "at": "2026-09-17T07:27:23.198Z",
@@ -727,35 +723,59 @@
      "at": "2026-09-17T07:27:53.953Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-17T07:28:27.052Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "done",
+    "run_id": "35194657234",
+    "artifact": "shim(fast): completed task T-301 attempt 1",
+    "duration_ms": 4007
+   }
   },
   "T-302": {
    "id": "T-302",
    "title": "review: final",
-   "status": "backlog",
+   "status": "assigned",
    "behavior": "succeed",
    "work_ms": 3000,
    "deps": [
     "T-301"
    ],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-02a73c8d6d14",
+    "expires": "2026-09-17T08:13:27.052Z",
+    "issued_at": "2026-09-17T07:28:27.052Z"
+   },
    "created": "2026-09-17T07:27:23.198Z",
-   "updated": "2026-09-17T07:27:23.198Z",
+   "updated": "2026-09-17T07:28:27.052Z",
    "history": [
     {
      "at": "2026-09-17T07:27:23.198Z",
      "status": "backlog",
      "why": "created"
+    },
+    {
+     "at": "2026-09-17T07:28:27.052Z",
+     "status": "ready",
+     "why": "deps-satisfied"
+    },
+    {
+     "at": "2026-09-17T07:28:27.052Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null
   }
  },
  "stats": {
-  "done": 13,
+  "done": 14,
   "failed": 0,
   "quarantined": 3,
   "cancelled": 0,
@@ -763,12 +783,10 @@
   "orphaned_reports": 0,
   "rejected_events": 1,
   "timeouts": 6,
-  "dispatched": 25,
+  "dispatched": 26,
   "infra_retries": 0
  },
  "dedup": [
-  "tick-chain-1789620285531",
-  "tick-chain-1789620318473",
   "tick-chain-1789620352083",
   "tick-chain-1789620384906",
   "tick-chain-1789620418218",
@@ -1066,6 +1084,8 @@
   "tick-chain-1789629974533",
   "tick-chain-1789630009380",
   "tick-chain-1789630041275",
-  "tick-chain-1789630072775"
+  "tick-chain-1789630072775",
+  "rep-35194657234-a1",
+  "tick-chain-1789630104853"
  ]
 }
