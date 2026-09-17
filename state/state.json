@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 22,
- "journal_seq": 1757,
+ "version": 23,
+ "journal_seq": 1759,
  "chain": {
   "id": "c-1789613587421",
-  "seq": 78,
-  "last_tick": "2026-09-17T03:37:25.334Z",
+  "seq": 79,
+  "last_tick": "2026-09-17T03:38:02.063Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -310,18 +310,14 @@
   "T-108": {
    "id": "T-108",
    "title": "edge: late report (orphan)",
-   "status": "assigned",
+   "status": "done",
    "behavior": "slow",
    "work_ms": 330000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-7de324964fca",
-    "expires": "2026-09-17T03:38:42.777Z",
-    "issued_at": "2026-09-17T02:53:42.777Z"
-   },
+   "lease": null,
    "created": "2026-09-17T02:53:07.421Z",
-   "updated": "2026-09-17T02:53:42.777Z",
+   "updated": "2026-09-17T03:38:02.062Z",
    "history": [
     {
      "at": "2026-09-17T02:53:07.421Z",
@@ -332,13 +328,23 @@
      "at": "2026-09-17T02:53:42.777Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-17T03:38:02.062Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "done",
+    "run_id": "35176126379",
+    "artifact": "shim(slow): completed task T-108 attempt 1 AFTER the window (wall 2641104ms > budget 2577503ms — the late-report class)",
+    "duration_ms": 2641207
+   }
   }
  },
  "stats": {
-  "done": 6,
+  "done": 7,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -434,6 +440,8 @@
   "tick-chain-1789616145037",
   "tick-chain-1789616176913",
   "tick-chain-1789616210672",
-  "tick-chain-1789616243336"
+  "tick-chain-1789616243336",
+  "rep-35176126379-a1",
+  "tick-chain-1789616279750"
  ]
 }
