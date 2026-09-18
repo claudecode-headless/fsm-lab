@@ -229,3 +229,6 @@
 {"id":"e2264","ts":"2026-09-18T23:43:02.722Z","applied":true,"kind":"TICK","seq":31,"actor":"chain"}
 {"id":"e2265","ts":"2026-09-18T23:43:36.880Z","applied":true,"kind":"TICK","seq":32,"actor":"chain"}
 {"id":"e2266","ts":"2026-09-18T23:44:15.763Z","applied":true,"kind":"TICK","seq":33,"actor":"chain"}
+{"id":"e2267","ts":"2026-09-18T23:44:48.697Z","applied":true,"kind":"REPORT","task":"X23-PAUSE","lease":"l-8564c9b34c7c","to":"ready","reason":"infra-retry","run_id":"35406294146","error":"lane-exhausted(3/6 lanes, last lane-429)","from":"assigned"}
+{"id":"e2268","ts":"2026-09-18T23:44:48.697Z","applied":true,"kind":"ASSIGN","task":"X23-PAUSE","from":"ready","to":"assigned","lease":"l-253d12c807b7","expires":"2026-09-19T00:29:48.697Z","attempt":1,"behavior":"real","task_ref":{"kind":"state-task","id":"X23-PAUSE"}}
+{"id":"e2269","ts":"2026-09-18T23:44:48.699Z","applied":true,"kind":"TICK","seq":34,"actor":"chain"}

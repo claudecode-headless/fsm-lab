@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 4,
- "journal_seq": 2267,
+ "version": 6,
+ "journal_seq": 2270,
  "chain": {
   "id": "c-1789773939223",
-  "seq": 33,
-  "last_tick": "2026-09-18T23:44:15.763Z",
+  "seq": 34,
+  "last_tick": "2026-09-18T23:44:48.699Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -37,12 +37,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-8564c9b34c7c",
-    "expires": "2026-09-19T00:20:25.781Z",
-    "issued_at": "2026-09-18T23:35:25.781Z"
+    "token": "l-253d12c807b7",
+    "expires": "2026-09-19T00:29:48.697Z",
+    "issued_at": "2026-09-18T23:44:48.697Z"
    },
    "created": "2026-09-18T23:25:39.223Z",
-   "updated": "2026-09-18T23:35:25.781Z",
+   "updated": "2026-09-18T23:44:48.697Z",
    "history": [
     {
      "at": "2026-09-18T23:25:39.223Z",
@@ -63,11 +63,21 @@
      "at": "2026-09-18T23:35:25.781Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-18T23:44:48.697Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-18T23:44:48.697Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35405647915",
+    "run_id": "35406294146",
     "error": "lane-exhausted(3/6 lanes, last lane-429)"
    },
    "spec": {
@@ -78,7 +88,7 @@
     "issue": 11,
     "body_sha8": "d48f348f"
    },
-   "infra_attempts": 1
+   "infra_attempts": 2
   }
  },
  "stats": {
@@ -90,8 +100,8 @@
   "orphaned_reports": 0,
   "rejected_events": 0,
   "timeouts": 0,
-  "dispatched": 2,
-  "infra_retries": 1
+  "dispatched": 3,
+  "infra_retries": 2
  },
  "dedup": [
   "tick-intake-1789773938058",
@@ -127,11 +137,18 @@
   "tick-chain-1789774945892",
   "tick-chain-1789774980740",
   "tick-chain-1789775014978",
-  "tick-chain-1789775053440"
+  "tick-chain-1789775053440",
+  "rep-35406294146-a1",
+  "tick-chain-1789775087002"
  ],
  "budget_window": [
   {
    "ts": "2026-09-18T23:35:25.783Z",
+   "task": "X23-PAUSE",
+   "detail": "lane-exhausted(3/6 lanes, last lane-429)"
+  },
+  {
+   "ts": "2026-09-18T23:44:48.699Z",
    "task": "X23-PAUSE",
    "detail": "lane-exhausted(3/6 lanes, last lane-429)"
   }
