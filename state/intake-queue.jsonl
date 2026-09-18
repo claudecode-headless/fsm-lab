@@ -1,0 +1,1 @@
+{"issue":6,"body_sha8":"46ef973e","spec":{"id":"X22-REPORT","title":"Write the X22 status report artifact","accept":"A markdown file with one summary paragraph (what this proof is) and a short next-steps list (3 items)","artifacts":["tasks/X22-REPORT/report.md"],"mode":"cc","lease_minutes":"15"},"enqueued_at":"2026-09-18T02:00:49.856Z","author":"xfnwfpho1"}
