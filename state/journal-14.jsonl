@@ -173,3 +173,5 @@
 {"id":"e2208","ts":"2026-09-18T02:01:00.861Z","applied":true,"kind":"ASSIGN","task":"X22-REPORT","from":"ready","to":"assigned","lease":"l-814c3392a7d1","expires":"2026-09-18T02:46:00.861Z","attempt":1,"behavior":"real","task_ref":{"kind":"state-task","id":"X22-REPORT"}}
 {"id":"e2209","ts":"2026-09-18T02:01:32.993Z","applied":true,"kind":"TICK","seq":2,"actor":"chain"}
 {"id":"e2210","ts":"2026-09-18T02:02:05.085Z","applied":true,"kind":"TICK","seq":3,"actor":"chain"}
+{"id":"e2211","ts":"2026-09-18T02:02:45.630Z","applied":true,"kind":"REPORT","task":"X22-REPORT","lease":"l-814c3392a7d1","to":"done","run_id":"35297656079","from":"assigned"}
+{"id":"e2212","ts":"2026-09-18T02:02:45.630Z","applied":true,"kind":"PHASE","from":"executing","to":"done","stats":{"done":1,"failed":0,"quarantined":0,"cancelled":0,"retries":0,"orphaned_reports":0,"rejected_events":0,"timeouts":0,"dispatched":1,"infra_retries":0,"taskCount":1},"taskIds":["X22-REPORT"],"issue":6}

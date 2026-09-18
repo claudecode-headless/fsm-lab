@@ -1,17 +1,17 @@
 {
  "schema": 1,
- "version": 2,
- "journal_seq": 2211,
+ "version": 4,
+ "journal_seq": 2213,
  "chain": {
   "id": "c-1789696860858",
   "seq": 3,
   "last_tick": "2026-09-18T02:02:05.085Z",
   "primed_by": "chain",
-  "halted": false,
+  "halted": true,
   "paused": false
  },
  "project": {
-  "phase": "executing",
+  "phase": "done",
   "milestone": 1,
   "milestones_total": 1,
   "mode": "cc",
@@ -31,18 +31,14 @@
   "X22-REPORT": {
    "id": "X22-REPORT",
    "title": "Write the X22 status report artifact",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-814c3392a7d1",
-    "expires": "2026-09-18T02:46:00.861Z",
-    "issued_at": "2026-09-18T02:01:00.861Z"
-   },
+   "lease": null,
    "created": "2026-09-18T02:01:00.859Z",
-   "updated": "2026-09-18T02:01:00.861Z",
+   "updated": "2026-09-18T02:02:45.630Z",
    "history": [
     {
      "at": "2026-09-18T02:01:00.859Z",
@@ -53,9 +49,19 @@
      "at": "2026-09-18T02:01:00.861Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-18T02:02:45.630Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35297656079",
+    "artifact": "\n\nThe write needs your approval. Granting the permission prompt should create the artifact. In the meantime, here is the exact content of `tasks/X22-REPORT/report.md`:\n\n```markdown\n# X22 Status Report",
+    "duration_ms": 79900
+   },
    "spec": {
     "accept": "A markdown file with one summary paragraph (what this proof is) and a short next-steps list (3 items)",
     "artifacts": [
@@ -63,11 +69,12 @@
     ],
     "issue": 6,
     "body_sha8": "46ef973e"
-   }
+   },
+   "terminal_seq": 3
   }
  },
  "stats": {
-  "done": 0,
+  "done": 1,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -81,6 +88,8 @@
  "dedup": [
   "tick-intake-1789696859654",
   "tick-chain-1789696891480",
-  "tick-chain-1789696923146"
+  "tick-chain-1789696923146",
+  "rep-35297656079-a1",
+  "tick-chain-1789696963795"
  ]
 }
