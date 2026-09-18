@@ -1,0 +1,20 @@
+{
+  "task": "X22-REPORT",
+  "run_id": "35297656079",
+  "attempt": 1,
+  "session": "c-1789696860858/X22-REPORT/35297645214-a1",
+  "mode": "cc",
+  "fake": false,
+  "harness": "claude-code",
+  "deadline_utc": "2026-09-18T02:44:00.861Z",
+  "status": "done",
+  "detail": null,
+  "models": [
+    "dots-studio/dots-3-note-preview:free"
+  ],
+  "lane_attempts_used": 1,
+  "duration_ms": 79900,
+  "artifact_refs": [],
+  "transcript": "sessions/X22-REPORT/35297656079-a1.txt",
+  "written_at": "2026-09-18T02:02:36.718Z"
+}
