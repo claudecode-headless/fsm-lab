@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 2,
- "journal_seq": 2249,
+ "version": 4,
+ "journal_seq": 2252,
  "chain": {
   "id": "c-1789773939223",
-  "seq": 17,
-  "last_tick": "2026-09-18T23:34:51.506Z",
+  "seq": 18,
+  "last_tick": "2026-09-18T23:35:25.783Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -37,12 +37,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-917e4ed651e6",
-    "expires": "2026-09-19T00:10:39.226Z",
-    "issued_at": "2026-09-18T23:25:39.226Z"
+    "token": "l-8564c9b34c7c",
+    "expires": "2026-09-19T00:20:25.781Z",
+    "issued_at": "2026-09-18T23:35:25.781Z"
    },
    "created": "2026-09-18T23:25:39.223Z",
-   "updated": "2026-09-18T23:25:39.226Z",
+   "updated": "2026-09-18T23:35:25.781Z",
    "history": [
     {
      "at": "2026-09-18T23:25:39.223Z",
@@ -53,9 +53,23 @@
      "at": "2026-09-18T23:25:39.226Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-18T23:35:25.781Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-18T23:35:25.781Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "infra_failed",
+    "run_id": "35405647915",
+    "error": "lane-exhausted(3/6 lanes, last lane-429)"
+   },
    "spec": {
     "accept": "A markdown file summarizing the park -> resume -> complete sequence in one paragraph plus a 3-item checklist of the machinery events observed (alert issue, pause control, resume)",
     "artifacts": [
@@ -63,7 +77,8 @@
     ],
     "issue": 11,
     "body_sha8": "d48f348f"
-   }
+   },
+   "infra_attempts": 1
   }
  },
  "stats": {
@@ -75,8 +90,8 @@
   "orphaned_reports": 0,
   "rejected_events": 0,
   "timeouts": 0,
-  "dispatched": 1,
-  "infra_retries": 0
+  "dispatched": 2,
+  "infra_retries": 1
  },
  "dedup": [
   "tick-intake-1789773938058",
@@ -95,6 +110,15 @@
   "tick-chain-1789774384542",
   "tick-chain-1789774421924",
   "tick-chain-1789774456416",
-  "tick-chain-1789774489644"
+  "tick-chain-1789774489644",
+  "rep-35405647915-a1",
+  "tick-chain-1789774523781"
+ ],
+ "budget_window": [
+  {
+   "ts": "2026-09-18T23:35:25.783Z",
+   "task": "X23-PAUSE",
+   "detail": "lane-exhausted(3/6 lanes, last lane-429)"
+  }
  ]
 }
