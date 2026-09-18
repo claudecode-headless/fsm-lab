@@ -181,3 +181,4 @@
 {"id":"e2216","ts":"2026-09-18T02:13:55.918Z","applied":true,"kind":"TICK","seq":2,"actor":"chain"}
 {"id":"e2217","ts":"2026-09-18T02:14:31.903Z","applied":true,"kind":"REPORT","task":"X22-REPORT2","lease":"l-ad1d0146d31f","to":"done","run_id":"35298497608","from":"assigned"}
 {"id":"e2218","ts":"2026-09-18T02:14:31.903Z","applied":true,"kind":"PHASE","from":"executing","to":"done","stats":{"done":1,"failed":0,"quarantined":0,"cancelled":0,"retries":0,"orphaned_reports":0,"rejected_events":0,"timeouts":0,"dispatched":1,"infra_retries":0,"taskCount":1},"taskIds":["X22-REPORT2"],"issue":7}
+{"id":"e2219","ts":"2026-09-18T02:27:16.275Z","applied":true,"kind":"REPORT","task":"X22-REPORT2","to":"done","pr":8,"note":"pr-opened (pointer-only, law 6)"}
