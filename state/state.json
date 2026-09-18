@@ -1,17 +1,17 @@
 {
  "schema": 1,
- "version": 2,
- "journal_seq": 2217,
+ "version": 4,
+ "journal_seq": 2219,
  "chain": {
   "id": "c-1789697601515",
   "seq": 2,
   "last_tick": "2026-09-18T02:13:55.918Z",
   "primed_by": "chain",
-  "halted": false,
+  "halted": true,
   "paused": false
  },
  "project": {
-  "phase": "executing",
+  "phase": "done",
   "milestone": 1,
   "milestones_total": 1,
   "mode": "cc",
@@ -31,18 +31,14 @@
   "X22-REPORT2": {
    "id": "X22-REPORT2",
    "title": "Write the X22 status report artifact (retry with acceptEdits)",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-ad1d0146d31f",
-    "expires": "2026-09-18T02:58:21.518Z",
-    "issued_at": "2026-09-18T02:13:21.518Z"
-   },
+   "lease": null,
    "created": "2026-09-18T02:13:21.515Z",
-   "updated": "2026-09-18T02:13:21.518Z",
+   "updated": "2026-09-18T02:14:31.903Z",
    "history": [
     {
      "at": "2026-09-18T02:13:21.515Z",
@@ -53,9 +49,19 @@
      "at": "2026-09-18T02:13:21.518Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-18T02:14:31.903Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35298497608",
+    "artifact": "\n\nDone. Wrote `tasks/X22-REPORT2/report.md` per the spec:\n\n- **Summary paragraph** — frames X22 as a T46 drill-epoch worker turn on chain c-1789457940180 (seq 168, halted), outcome class `work_failed`",
+    "duration_ms": 19574
+   },
    "spec": {
     "accept": "A markdown file with one summary paragraph (what this proof is) and a short next-steps list (3 items)",
     "artifacts": [
@@ -63,11 +69,12 @@
     ],
     "issue": 7,
     "body_sha8": "d56e05d2"
-   }
+   },
+   "terminal_seq": 2
   }
  },
  "stats": {
-  "done": 0,
+  "done": 1,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -80,6 +87,8 @@
  },
  "dedup": [
   "tick-intake-1789697599578",
-  "tick-chain-1789697634710"
+  "tick-chain-1789697634710",
+  "rep-35298497608-a1",
+  "tick-chain-1789697670108"
  ]
 }
