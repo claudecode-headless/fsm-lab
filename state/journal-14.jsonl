@@ -189,3 +189,5 @@
 {"id":"e2224","ts":"2026-09-18T02:29:43.822Z","applied":true,"kind":"TICK","seq":3,"actor":"chain"}
 {"id":"e2225","ts":"2026-09-18T02:30:18.121Z","applied":true,"kind":"TICK","seq":4,"actor":"chain"}
 {"id":"e2226","ts":"2026-09-18T02:30:50.451Z","applied":true,"kind":"TICK","seq":5,"actor":"chain"}
+{"id":"e2227","ts":"2026-09-18T02:31:24.784Z","applied":true,"kind":"REPORT","task":"X22-FINAL","lease":"l-802f6d910375","to":"done","run_id":"35299478212","from":"assigned"}
+{"id":"e2228","ts":"2026-09-18T02:31:24.784Z","applied":true,"kind":"PHASE","from":"executing","to":"done","stats":{"done":1,"failed":0,"quarantined":0,"cancelled":0,"retries":0,"orphaned_reports":0,"rejected_events":0,"timeouts":0,"dispatched":1,"infra_retries":0,"taskCount":1},"taskIds":["X22-FINAL"],"issue":9}
