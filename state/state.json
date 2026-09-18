@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "version": 4,
- "journal_seq": 2229,
+ "version": 5,
+ "journal_seq": 2230,
  "chain": {
   "id": "c-1789698520934",
   "seq": 5,
@@ -70,7 +70,8 @@
     "issue": 9,
     "body_sha8": "277be532"
    },
-   "terminal_seq": 5
+   "terminal_seq": 5,
+   "pr": 10
   }
  },
  "stats": {
