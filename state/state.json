@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "version": 2,
- "journal_seq": 2235,
+ "journal_seq": 2236,
  "chain": {
   "id": "c-1789773939223",
-  "seq": 3,
-  "last_tick": "2026-09-18T23:26:47.905Z",
+  "seq": 4,
+  "last_tick": "2026-09-18T23:27:21.976Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -81,6 +81,7 @@
  "dedup": [
   "tick-intake-1789773938058",
   "tick-chain-1789773974781",
-  "tick-chain-1789774006779"
+  "tick-chain-1789774006779",
+  "tick-chain-1789774040112"
  ]
 }
