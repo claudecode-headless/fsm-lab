@@ -1,21 +1,21 @@
 {
  "schema": 1,
- "version": 5,
- "journal_seq": 2230,
+ "version": 2,
+ "journal_seq": 2233,
  "chain": {
-  "id": "c-1789698520934",
-  "seq": 5,
-  "last_tick": "2026-09-18T02:30:50.451Z",
-  "primed_by": "chain",
-  "halted": true,
+  "id": "c-1789773939223",
+  "seq": 1,
+  "last_tick": "2026-09-18T23:25:39.226Z",
+  "primed_by": "intake",
+  "halted": false,
   "paused": false
  },
  "project": {
-  "phase": "done",
+  "phase": "executing",
   "milestone": 1,
   "milestones_total": 1,
   "mode": "cc",
-  "issue": 9
+  "issue": 11
  },
  "config": {
   "max_parallel": 4,
@@ -28,54 +28,46 @@
   "prune_tasks_after_ticks": 20
  },
  "tasks": {
-  "X22-FINAL": {
-   "id": "X22-FINAL",
-   "title": "Write the final X22 proof report",
-   "status": "done",
+  "X23-PAUSE": {
+   "id": "X23-PAUSE",
+   "title": "Write the X23 budget-pause proof report",
+   "status": "assigned",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-18T02:28:40.934Z",
-   "updated": "2026-09-18T02:31:24.784Z",
+   "lease": {
+    "token": "l-917e4ed651e6",
+    "expires": "2026-09-19T00:10:39.226Z",
+    "issued_at": "2026-09-18T23:25:39.226Z"
+   },
+   "created": "2026-09-18T23:25:39.223Z",
+   "updated": "2026-09-18T23:25:39.226Z",
    "history": [
     {
-     "at": "2026-09-18T02:28:40.934Z",
+     "at": "2026-09-18T23:25:39.223Z",
      "status": "ready",
      "why": "created"
     },
     {
-     "at": "2026-09-18T02:28:40.937Z",
+     "at": "2026-09-18T23:25:39.226Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-18T02:31:24.784Z",
-     "status": "done",
-     "why": "worker-done"
     }
    ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35299478212",
-    "artifact": "\n\nReport written to `tasks/X22-FINAL/report.md`.\n\n**Summary of what I did:**\n\nThe working directory was a clean sandbox — no `fsm-lab` repo checkout, no network/git access, and the only writable path ",
-    "duration_ms": 144821
-   },
+   "last_result": null,
    "spec": {
-    "accept": "A markdown file summarizing what was proven live (the dogfood loop) in one paragraph plus a 3-item checklist of the three live fixes",
+    "accept": "A markdown file summarizing the park -> resume -> complete sequence in one paragraph plus a 3-item checklist of the machinery events observed (alert issue, pause control, resume)",
     "artifacts": [
-     "tasks/X22-FINAL/report.md"
+     "tasks/X23-PAUSE/report.md"
     ],
-    "issue": 9,
-    "body_sha8": "277be532"
-   },
-   "terminal_seq": 5,
-   "pr": 10
+    "issue": 11,
+    "body_sha8": "d48f348f"
+   }
   }
  },
  "stats": {
-  "done": 1,
+  "done": 0,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -87,12 +79,6 @@
   "infra_retries": 0
  },
  "dedup": [
-  "tick-intake-1789698519768",
-  "tick-chain-1789698551335",
-  "tick-chain-1789698582702",
-  "tick-chain-1789698616872",
-  "tick-chain-1789698649124",
-  "rep-35299478212-a1",
-  "tick-chain-1789698681209"
+  "tick-intake-1789773938058"
  ]
 }
