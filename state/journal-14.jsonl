@@ -359,3 +359,8 @@
 {"id":"e2394","ts":"2026-09-19T01:29:46.434Z","applied":true,"kind":"TICK","seq":36,"actor":"chain"}
 {"id":"e2395","ts":"2026-09-19T01:30:19.369Z","applied":true,"kind":"TICK","seq":37,"actor":"chain"}
 {"id":"e2396","ts":"2026-09-19T01:30:53.410Z","applied":true,"kind":"TICK","seq":38,"actor":"chain"}
+{"id":"e2397","ts":"2026-09-19T01:31:26.062Z","applied":true,"kind":"REPORT","task":"T-107","lease":"l-32924be028e3","to":"quarantined","run_id":"35412514369","from":"assigned"}
+{"id":"e2398","ts":"2026-09-19T01:31:26.063Z","applied":true,"kind":"TICK","seq":39,"actor":"chain"}
+{"id":"e2399","ts":"2026-09-19T01:31:26.063Z","applied":true,"kind":"PRUNE","task":"T-101","from_status":"done"}
+{"id":"e2400","ts":"2026-09-19T01:31:26.063Z","applied":true,"kind":"PRUNE","task":"T-102","from_status":"quarantined"}
+{"id":"e2401","ts":"2026-09-19T01:31:26.063Z","applied":true,"kind":"PRUNE","task":"T-105","from_status":"cancelled"}

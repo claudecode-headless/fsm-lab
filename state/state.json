@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 51,
- "journal_seq": 2397,
+ "version": 52,
+ "journal_seq": 2402,
  "chain": {
   "id": "c-1789776612277",
-  "seq": 38,
-  "last_tick": "2026-09-19T01:30:53.410Z",
+  "seq": 39,
+  "last_tick": "2026-09-19T01:31:26.063Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -30,116 +30,17 @@
  "tasks": {
   "T-101": {
    "id": "T-101",
-   "title": "research: state-anchor options",
    "status": "done",
-   "behavior": "succeed",
-   "work_ms": 4000,
-   "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T01:15:17.124Z",
-   "history": [
-    {
-     "at": "2026-09-19T00:10:12.277Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-19T00:10:12.279Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-19T00:19:32.755Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-19T00:19:32.755Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-19T00:30:30.322Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-19T00:30:30.322Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-19T01:15:17.124Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35409593573",
-    "artifact": "\n\nI've now tried a wide range of approaches and hit the same wall on every one. Here's an honest status report:\n\n**What I tried:**\n- `git clone https://github.com/fsm-lab/fsm-lab.git` — requires appro",
-    "duration_ms": 202005
-   },
-   "infra_attempts": 2,
-   "terminal_seq": 18
+   "done_at": "2026-09-19T01:15:17.124Z",
+   "pruned": true
   },
   "T-102": {
    "id": "T-102",
-   "title": "research: continuity mechanics",
    "status": "quarantined",
-   "behavior": "flaky",
-   "work_ms": 3000,
-   "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T01:15:17.124Z",
-   "history": [
-    {
-     "at": "2026-09-19T00:10:12.277Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-19T00:10:12.279Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-19T00:19:32.755Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-19T00:19:32.755Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-19T00:30:30.323Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-19T00:30:30.323Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-19T01:15:17.124Z",
-     "status": "quarantined",
-     "why": "worker-poison"
-    }
-   ],
-   "last_result": {
-    "status": "poison",
-    "run_id": "35409593956",
-    "error": "write-back-door(root-not-declared(research-continuity-mechanics.md))"
-   },
-   "infra_attempts": 2,
-   "terminal_seq": 18
+   "done_at": "2026-09-19T01:15:17.124Z",
+   "pruned": true
   },
   "T-103": {
    "id": "T-103",
@@ -251,31 +152,10 @@
   },
   "T-105": {
    "id": "T-105",
-   "title": "impl: watchdog",
    "status": "cancelled",
-   "behavior": "hang",
-   "work_ms": 900000,
-   "deps": [
-    "T-102"
-   ],
    "attempts": 0,
-   "lease": null,
-   "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T01:20:18.286Z",
-   "history": [
-    {
-     "at": "2026-09-19T00:10:12.277Z",
-     "status": "backlog",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-19T01:20:18.286Z",
-     "status": "cancelled",
-     "why": "dep-failed-cascade"
-    }
-   ],
-   "last_result": null,
-   "terminal_seq": 18
+   "done_at": "2026-09-19T01:20:18.286Z",
+   "pruned": true
   },
   "T-106": {
    "id": "T-106",
@@ -309,18 +189,14 @@
   "T-107": {
    "id": "T-107",
    "title": "edge: duplicate report",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "dup",
    "work_ms": 3000,
    "deps": [],
    "attempts": 3,
-   "lease": {
-    "token": "l-32924be028e3",
-    "expires": "2026-09-19T02:08:40.196Z",
-    "issued_at": "2026-09-19T01:23:40.196Z"
-   },
+   "lease": null,
    "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T01:23:40.196Z",
+   "updated": "2026-09-19T01:31:26.062Z",
    "history": [
     {
      "at": "2026-09-19T00:10:12.277Z",
@@ -381,14 +257,20 @@
      "at": "2026-09-19T01:23:40.196Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-19T01:31:26.062Z",
+     "status": "quarantined",
+     "why": "worker-failed(attempts=3)"
     }
    ],
    "last_result": {
     "status": "work_failed",
-    "run_id": "35412340474",
+    "run_id": "35412514369",
     "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
    },
-   "infra_attempts": 2
+   "infra_attempts": 2,
+   "terminal_seq": 38
   },
   "T-108": {
    "id": "T-108",
@@ -470,7 +352,7 @@
  "stats": {
   "done": 1,
   "failed": 0,
-  "quarantined": 3,
+  "quarantined": 4,
   "cancelled": 2,
   "retries": 6,
   "orphaned_reports": 0,
@@ -543,7 +425,9 @@
   "tick-chain-1789781352497",
   "tick-chain-1789781384889",
   "tick-chain-1789781416911",
-  "tick-chain-1789781450940"
+  "tick-chain-1789781450940",
+  "rep-35412514369-a1",
+  "tick-chain-1789781483105"
  ],
  "budget_window": []
 }
