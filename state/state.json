@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 73,
- "journal_seq": 2459,
+ "version": 82,
+ "journal_seq": 2469,
  "chain": {
   "id": "c-1789776612277",
-  "seq": 71,
-  "last_tick": "2026-09-19T01:49:53.794Z",
+  "seq": 72,
+  "last_tick": "2026-09-19T01:51:01.241Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -156,14 +156,14 @@
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 2,
+   "attempts": 3,
    "lease": {
-    "token": "l-00eea8cfa7e9",
-    "expires": "2026-09-19T02:32:05.594Z",
-    "issued_at": "2026-09-19T01:47:05.594Z"
+    "token": "l-3e1f9573354b",
+    "expires": "2026-09-19T02:36:01.240Z",
+    "issued_at": "2026-09-19T01:51:01.240Z"
    },
    "created": "2026-09-19T01:43:42.844Z",
-   "updated": "2026-09-19T01:47:05.594Z",
+   "updated": "2026-09-19T01:51:01.240Z",
    "history": [
     {
      "at": "2026-09-19T01:43:42.844Z",
@@ -189,11 +189,26 @@
      "at": "2026-09-19T01:47:05.594Z",
      "status": "assigned",
      "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-19T01:51:01.240Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=2)"
+    },
+    {
+     "at": "2026-09-19T01:51:01.240Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=2)"
+    },
+    {
+     "at": "2026-09-19T01:51:01.240Z",
+     "status": "assigned",
+     "why": "assigned(attempt=3)"
     }
    ],
    "last_result": {
     "status": "work_failed",
-    "run_id": "35413539791",
+    "run_id": "35413712626",
     "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
    }
   },
@@ -204,14 +219,14 @@
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 2,
+   "attempts": 3,
    "lease": {
-    "token": "l-4059ba72724c",
-    "expires": "2026-09-19T02:32:05.531Z",
-    "issued_at": "2026-09-19T01:47:05.531Z"
+    "token": "l-25b4fcefe9d9",
+    "expires": "2026-09-19T02:36:01.237Z",
+    "issued_at": "2026-09-19T01:51:01.237Z"
    },
    "created": "2026-09-19T01:43:42.844Z",
-   "updated": "2026-09-19T01:47:05.531Z",
+   "updated": "2026-09-19T01:51:01.237Z",
    "history": [
     {
      "at": "2026-09-19T01:43:42.844Z",
@@ -237,11 +252,26 @@
      "at": "2026-09-19T01:47:05.531Z",
      "status": "assigned",
      "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-19T01:51:01.237Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=2)"
+    },
+    {
+     "at": "2026-09-19T01:51:01.237Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=2)"
+    },
+    {
+     "at": "2026-09-19T01:51:01.237Z",
+     "status": "assigned",
+     "why": "assigned(attempt=3)"
     }
    ],
    "last_result": {
     "status": "work_failed",
-    "run_id": "35413539943",
+    "run_id": "35413712247",
     "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
    }
   },
@@ -252,14 +282,14 @@
    "behavior": "flaky",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 2,
+   "attempts": 3,
    "lease": {
-    "token": "l-f1a7b95532fe",
-    "expires": "2026-09-19T02:32:05.593Z",
-    "issued_at": "2026-09-19T01:47:05.593Z"
+    "token": "l-35f4cffdeaf9",
+    "expires": "2026-09-19T02:36:01.239Z",
+    "issued_at": "2026-09-19T01:51:01.239Z"
    },
    "created": "2026-09-19T01:43:42.844Z",
-   "updated": "2026-09-19T01:47:05.593Z",
+   "updated": "2026-09-19T01:51:01.239Z",
    "history": [
     {
      "at": "2026-09-19T01:43:42.844Z",
@@ -285,11 +315,26 @@
      "at": "2026-09-19T01:47:05.593Z",
      "status": "assigned",
      "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-19T01:51:01.239Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=2)"
+    },
+    {
+     "at": "2026-09-19T01:51:01.239Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=2)"
+    },
+    {
+     "at": "2026-09-19T01:51:01.239Z",
+     "status": "assigned",
+     "why": "assigned(attempt=3)"
     }
    ],
    "last_result": {
     "status": "work_failed",
-    "run_id": "35413539788",
+    "run_id": "35413712386",
     "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
    }
   },
@@ -408,11 +453,11 @@
   "failed": 0,
   "quarantined": 5,
   "cancelled": 2,
-  "retries": 11,
+  "retries": 14,
   "orphaned_reports": 0,
   "rejected_events": 3,
   "timeouts": 0,
-  "dispatched": 28,
+  "dispatched": 31,
   "infra_retries": 7,
   "budget_pauses": 2
  },
@@ -519,7 +564,11 @@
   "tick-chain-1789782488395",
   "tick-chain-1789782521349",
   "tick-chain-1789782555421",
-  "tick-chain-1789782591248"
+  "tick-chain-1789782591248",
+  "rep-35413712247-a1",
+  "rep-35413712386-a1",
+  "rep-35413712626-a1",
+  "tick-chain-1789782659646"
  ],
  "budget_window": []
 }
