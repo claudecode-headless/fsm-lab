@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 55,
- "journal_seq": 2418,
+ "version": 58,
+ "journal_seq": 2423,
  "chain": {
   "id": "c-1789776612277",
-  "seq": 52,
-  "last_tick": "2026-09-19T01:38:42.003Z",
+  "seq": 53,
+  "last_tick": "2026-09-19T01:39:15.178Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -123,14 +123,14 @@
    "deps": [
     "T-101"
    ],
-   "attempts": 2,
+   "attempts": 3,
    "lease": {
-    "token": "l-aa450108bf3b",
-    "expires": "2026-09-19T02:20:55.429Z",
-    "issued_at": "2026-09-19T01:35:55.429Z"
+    "token": "l-66b20e827888",
+    "expires": "2026-09-19T02:24:15.171Z",
+    "issued_at": "2026-09-19T01:39:15.171Z"
    },
    "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T01:35:55.429Z",
+   "updated": "2026-09-19T01:39:15.171Z",
    "history": [
     {
      "at": "2026-09-19T00:10:12.277Z",
@@ -161,11 +161,26 @@
      "at": "2026-09-19T01:35:55.429Z",
      "status": "assigned",
      "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-19T01:39:15.171Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=2)"
+    },
+    {
+     "at": "2026-09-19T01:39:15.171Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=2)"
+    },
+    {
+     "at": "2026-09-19T01:39:15.171Z",
+     "status": "assigned",
+     "why": "assigned(attempt=3)"
     }
    ],
    "last_result": {
     "status": "work_failed",
-    "run_id": "35412340440",
+    "run_id": "35413152505",
     "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
    }
   },
@@ -293,79 +308,10 @@
   },
   "T-108": {
    "id": "T-108",
-   "title": "edge: late report (orphan)",
    "status": "quarantined",
-   "behavior": "slow",
-   "work_ms": 330000,
-   "deps": [],
    "attempts": 3,
-   "lease": null,
-   "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T01:28:09.059Z",
-   "history": [
-    {
-     "at": "2026-09-19T00:10:12.277Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-19T00:10:12.279Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-19T00:30:30.319Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-19T00:30:30.319Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-19T01:15:17.123Z",
-     "status": "failed",
-     "why": "worker-failed(attempts=1)"
-    },
-    {
-     "at": "2026-09-19T01:20:18.286Z",
-     "status": "ready",
-     "why": "retry-scan(attempts=1)"
-    },
-    {
-     "at": "2026-09-19T01:20:18.286Z",
-     "status": "assigned",
-     "why": "assigned(attempt=2)"
-    },
-    {
-     "at": "2026-09-19T01:23:40.227Z",
-     "status": "failed",
-     "why": "worker-failed(attempts=2)"
-    },
-    {
-     "at": "2026-09-19T01:23:40.227Z",
-     "status": "ready",
-     "why": "retry-scan(attempts=2)"
-    },
-    {
-     "at": "2026-09-19T01:23:40.227Z",
-     "status": "assigned",
-     "why": "assigned(attempt=3)"
-    },
-    {
-     "at": "2026-09-19T01:28:09.059Z",
-     "status": "quarantined",
-     "why": "worker-failed(attempts=3)"
-    }
-   ],
-   "last_result": {
-    "status": "work_failed",
-    "run_id": "35412514564",
-    "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
-   },
-   "infra_attempts": 1,
-   "terminal_seq": 32
+   "done_at": "2026-09-19T01:28:09.059Z",
+   "pruned": true
   }
  },
  "stats": {
@@ -373,11 +319,11 @@
   "failed": 0,
   "quarantined": 4,
   "cancelled": 2,
-  "retries": 7,
+  "retries": 8,
   "orphaned_reports": 0,
   "rejected_events": 3,
   "timeouts": 0,
-  "dispatched": 20,
+  "dispatched": 21,
   "infra_retries": 7,
   "budget_pauses": 2
  },
@@ -460,7 +406,9 @@
   "tick-chain-1789781822832",
   "tick-chain-1789781855491",
   "tick-chain-1789781888318",
-  "tick-chain-1789781920805"
+  "tick-chain-1789781920805",
+  "rep-35413152505-a1",
+  "tick-chain-1789781953338"
  ],
  "budget_window": []
 }
