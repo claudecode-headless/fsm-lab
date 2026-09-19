@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 113,
- "journal_seq": 2542,
+ "version": 116,
+ "journal_seq": 2546,
  "chain": {
   "id": "c-1789776612277",
-  "seq": 107,
-  "last_tick": "2026-09-19T06:43:34.591Z",
+  "seq": 108,
+  "last_tick": "2026-09-19T06:44:14.172Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -587,18 +587,14 @@
   "T-301": {
    "id": "T-301",
    "title": "impl: integration",
-   "status": "assigned",
+   "status": "done",
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-2ce65ea41ce8",
-    "expires": "2026-09-19T07:27:33.016Z",
-    "issued_at": "2026-09-19T06:42:33.016Z"
-   },
+   "lease": null,
    "created": "2026-09-19T06:42:33.015Z",
-   "updated": "2026-09-19T06:42:33.016Z",
+   "updated": "2026-09-19T06:44:14.111Z",
    "history": [
     {
      "at": "2026-09-19T06:42:33.015Z",
@@ -609,35 +605,83 @@
      "at": "2026-09-19T06:42:33.016Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-19T06:44:14.111Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "done",
+    "run_id": "35427339036",
+    "artifact": "I checked the environment before doing anything, and there's nothing here to work against. Here's what I found:\n\n**Working directory `/tmp/cc-turn-n7fumR` is completely empty.** No git repository (`Is",
+    "duration_ms": 52738,
+    "lane_stats": {
+     "calls": 4,
+     "ok": 4,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 17982,
+     "cost": 0.003118154,
+     "p50_ms": 15593,
+     "p95_ms": 21406,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 4,
+       "ok": 4,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 17982,
+       "cost": 0.003118154,
+       "p50_ms": 15593,
+       "p95_ms": 21406
+      }
+     }
+    }
+   },
+   "terminal_seq": 107
   },
   "T-302": {
    "id": "T-302",
    "title": "review: final",
-   "status": "backlog",
+   "status": "assigned",
    "behavior": "succeed",
    "work_ms": 3000,
    "deps": [
     "T-301"
    ],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-d9723e5e06d1",
+    "expires": "2026-09-19T07:29:14.111Z",
+    "issued_at": "2026-09-19T06:44:14.111Z"
+   },
    "created": "2026-09-19T06:42:33.015Z",
-   "updated": "2026-09-19T06:42:33.015Z",
+   "updated": "2026-09-19T06:44:14.111Z",
    "history": [
     {
      "at": "2026-09-19T06:42:33.015Z",
      "status": "backlog",
      "why": "created"
+    },
+    {
+     "at": "2026-09-19T06:44:14.111Z",
+     "status": "ready",
+     "why": "deps-satisfied"
+    },
+    {
+     "at": "2026-09-19T06:44:14.111Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null
   }
  },
  "stats": {
-  "done": 6,
+  "done": 7,
   "failed": 0,
   "quarantined": 8,
   "cancelled": 2,
@@ -645,7 +689,7 @@
   "orphaned_reports": 2,
   "rejected_events": 8,
   "timeouts": 4,
-  "dispatched": 42,
+  "dispatched": 43,
   "infra_retries": 10,
   "budget_pauses": 4
  },
@@ -811,7 +855,9 @@
   "rep-35427290045-a1",
   "tick-chain-1789800149456",
   "tick-chain-1789800181583",
-  "tick-chain-1789800213558"
+  "tick-chain-1789800213558",
+  "rep-35427339036-a1",
+  "tick-chain-1789800251809"
  ],
  "budget_window": []
 }

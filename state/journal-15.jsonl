@@ -4,3 +4,7 @@
 {"id":"e2539","ts":"2026-09-19T06:42:33.016Z","applied":true,"kind":"ASSIGN","task":"T-301","from":"ready","to":"assigned","lease":"l-2ce65ea41ce8","expires":"2026-09-19T07:27:33.016Z","attempt":1,"behavior":"succeed","task_ref":{"kind":"state-task","id":"T-301"}}
 {"id":"e2540","ts":"2026-09-19T06:43:03.075Z","applied":true,"kind":"TICK","seq":106,"actor":"chain"}
 {"id":"e2541","ts":"2026-09-19T06:43:34.591Z","applied":true,"kind":"TICK","seq":107,"actor":"chain"}
+{"id":"e2542","ts":"2026-09-19T06:44:14.111Z","applied":true,"kind":"REPORT","task":"T-301","lease":"l-2ce65ea41ce8","to":"done","run_id":"35427339036","lane_stats":{"calls":4,"ok":4,"err429":0,"err5xx":0,"tokens":17982,"cost":0.003118154,"p50_ms":15593,"p95_ms":21406,"rate_classes":{},"models":{"deepseek/deepseek-v4.1-flash":{"calls":4,"ok":4,"err429":0,"err5xx":0,"tokens":17982,"cost":0.003118154,"p50_ms":15593,"p95_ms":21406}}},"from":"assigned"}
+{"id":"e2543","ts":"2026-09-19T06:44:14.111Z","applied":true,"kind":"UNLOCK","task":"T-302","from":"backlog","to":"ready"}
+{"id":"e2544","ts":"2026-09-19T06:44:14.111Z","applied":true,"kind":"ASSIGN","task":"T-302","from":"ready","to":"assigned","lease":"l-d9723e5e06d1","expires":"2026-09-19T07:29:14.111Z","attempt":1,"behavior":"succeed","task_ref":{"kind":"state-task","id":"T-302"}}
+{"id":"e2545","ts":"2026-09-19T06:44:14.172Z","applied":true,"kind":"TICK","seq":108,"actor":"chain"}
