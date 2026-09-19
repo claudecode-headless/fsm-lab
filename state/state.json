@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 64,
- "journal_seq": 2444,
+ "version": 73,
+ "journal_seq": 2454,
  "chain": {
   "id": "c-1789776612277",
-  "seq": 65,
-  "last_tick": "2026-09-19T01:46:30.390Z",
+  "seq": 66,
+  "last_tick": "2026-09-19T01:47:05.594Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -156,14 +156,14 @@
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 1,
+   "attempts": 2,
    "lease": {
-    "token": "l-ab674038739d",
-    "expires": "2026-09-19T02:28:42.846Z",
-    "issued_at": "2026-09-19T01:43:42.846Z"
+    "token": "l-00eea8cfa7e9",
+    "expires": "2026-09-19T02:32:05.594Z",
+    "issued_at": "2026-09-19T01:47:05.594Z"
    },
    "created": "2026-09-19T01:43:42.844Z",
-   "updated": "2026-09-19T01:43:42.846Z",
+   "updated": "2026-09-19T01:47:05.594Z",
    "history": [
     {
      "at": "2026-09-19T01:43:42.844Z",
@@ -174,9 +174,28 @@
      "at": "2026-09-19T01:43:42.846Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-19T01:47:05.594Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=1)"
+    },
+    {
+     "at": "2026-09-19T01:47:05.594Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=1)"
+    },
+    {
+     "at": "2026-09-19T01:47:05.594Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "work_failed",
+    "run_id": "35413539791",
+    "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
+   }
   },
   "T-202": {
    "id": "T-202",
@@ -185,14 +204,14 @@
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 1,
+   "attempts": 2,
    "lease": {
-    "token": "l-fc1f5e2fcc11",
-    "expires": "2026-09-19T02:28:42.846Z",
-    "issued_at": "2026-09-19T01:43:42.846Z"
+    "token": "l-4059ba72724c",
+    "expires": "2026-09-19T02:32:05.531Z",
+    "issued_at": "2026-09-19T01:47:05.531Z"
    },
    "created": "2026-09-19T01:43:42.844Z",
-   "updated": "2026-09-19T01:43:42.846Z",
+   "updated": "2026-09-19T01:47:05.531Z",
    "history": [
     {
      "at": "2026-09-19T01:43:42.844Z",
@@ -203,9 +222,28 @@
      "at": "2026-09-19T01:43:42.846Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-19T01:47:05.531Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=1)"
+    },
+    {
+     "at": "2026-09-19T01:47:05.531Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=1)"
+    },
+    {
+     "at": "2026-09-19T01:47:05.531Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "work_failed",
+    "run_id": "35413539943",
+    "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
+   }
   },
   "T-203": {
    "id": "T-203",
@@ -214,14 +252,14 @@
    "behavior": "flaky",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 1,
+   "attempts": 2,
    "lease": {
-    "token": "l-5237bf7a2666",
-    "expires": "2026-09-19T02:28:42.846Z",
-    "issued_at": "2026-09-19T01:43:42.846Z"
+    "token": "l-f1a7b95532fe",
+    "expires": "2026-09-19T02:32:05.593Z",
+    "issued_at": "2026-09-19T01:47:05.593Z"
    },
    "created": "2026-09-19T01:43:42.844Z",
-   "updated": "2026-09-19T01:43:42.846Z",
+   "updated": "2026-09-19T01:47:05.593Z",
    "history": [
     {
      "at": "2026-09-19T01:43:42.844Z",
@@ -232,9 +270,28 @@
      "at": "2026-09-19T01:43:42.846Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-19T01:47:05.593Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=1)"
+    },
+    {
+     "at": "2026-09-19T01:47:05.593Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=1)"
+    },
+    {
+     "at": "2026-09-19T01:47:05.593Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "work_failed",
+    "run_id": "35413539788",
+    "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
+   }
   },
   "T-204": {
    "id": "T-204",
@@ -351,11 +408,11 @@
   "failed": 0,
   "quarantined": 5,
   "cancelled": 2,
-  "retries": 8,
+  "retries": 11,
   "orphaned_reports": 0,
   "rejected_events": 3,
   "timeouts": 0,
-  "dispatched": 25,
+  "dispatched": 28,
   "infra_retries": 7,
   "budget_pauses": 2
  },
@@ -453,7 +510,11 @@
   "tick-chain-1789782290055",
   "tick-chain-1789782324335",
   "tick-chain-1789782356462",
-  "tick-chain-1789782389113"
+  "tick-chain-1789782389113",
+  "rep-35413539943-a1",
+  "rep-35413539788-a1",
+  "rep-35413539791-a1",
+  "tick-chain-1789782423744"
  ],
  "budget_window": []
 }

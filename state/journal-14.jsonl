@@ -406,3 +406,13 @@
 {"id":"e2441","ts":"2026-09-19T01:45:26.032Z","applied":true,"kind":"TICK","seq":63,"actor":"chain"}
 {"id":"e2442","ts":"2026-09-19T01:45:58.197Z","applied":true,"kind":"TICK","seq":64,"actor":"chain"}
 {"id":"e2443","ts":"2026-09-19T01:46:30.390Z","applied":true,"kind":"TICK","seq":65,"actor":"chain"}
+{"id":"e2444","ts":"2026-09-19T01:47:05.531Z","applied":true,"kind":"REPORT","task":"T-202","lease":"l-fc1f5e2fcc11","to":"failed","run_id":"35413539943","from":"assigned"}
+{"id":"e2445","ts":"2026-09-19T01:47:05.531Z","applied":true,"kind":"RETRY","task":"T-202","from":"failed","to":"ready"}
+{"id":"e2446","ts":"2026-09-19T01:47:05.531Z","applied":true,"kind":"ASSIGN","task":"T-202","from":"ready","to":"assigned","lease":"l-4059ba72724c","expires":"2026-09-19T02:32:05.531Z","attempt":2,"behavior":"succeed","task_ref":{"kind":"state-task","id":"T-202"}}
+{"id":"e2447","ts":"2026-09-19T01:47:05.593Z","applied":true,"kind":"REPORT","task":"T-203","lease":"l-5237bf7a2666","to":"failed","run_id":"35413539788","from":"assigned"}
+{"id":"e2448","ts":"2026-09-19T01:47:05.593Z","applied":true,"kind":"RETRY","task":"T-203","from":"failed","to":"ready"}
+{"id":"e2449","ts":"2026-09-19T01:47:05.593Z","applied":true,"kind":"ASSIGN","task":"T-203","from":"ready","to":"assigned","lease":"l-f1a7b95532fe","expires":"2026-09-19T02:32:05.593Z","attempt":2,"behavior":"flaky","task_ref":{"kind":"state-task","id":"T-203"}}
+{"id":"e2450","ts":"2026-09-19T01:47:05.594Z","applied":true,"kind":"REPORT","task":"T-201","lease":"l-ab674038739d","to":"failed","run_id":"35413539791","from":"assigned"}
+{"id":"e2451","ts":"2026-09-19T01:47:05.594Z","applied":true,"kind":"RETRY","task":"T-201","from":"failed","to":"ready"}
+{"id":"e2452","ts":"2026-09-19T01:47:05.594Z","applied":true,"kind":"ASSIGN","task":"T-201","from":"ready","to":"assigned","lease":"l-00eea8cfa7e9","expires":"2026-09-19T02:32:05.594Z","attempt":2,"behavior":"succeed","task_ref":{"kind":"state-task","id":"T-201"}}
+{"id":"e2453","ts":"2026-09-19T01:47:05.594Z","applied":true,"kind":"TICK","seq":66,"actor":"chain"}
