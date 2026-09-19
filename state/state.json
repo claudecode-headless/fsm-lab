@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 91,
- "journal_seq": 2508,
+ "version": 93,
+ "journal_seq": 2511,
  "chain": {
   "id": "c-1789776612277",
-  "seq": 100,
-  "last_tick": "2026-09-19T02:07:07.031Z",
+  "seq": 101,
+  "last_tick": "2026-09-19T02:07:41.715Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -93,12 +93,12 @@
    "deps": [],
    "attempts": 3,
    "lease": {
-    "token": "l-3e1f9573354b",
-    "expires": "2026-09-19T02:36:01.240Z",
-    "issued_at": "2026-09-19T01:51:01.240Z"
+    "token": "l-db9f5ecd8b86",
+    "expires": "2026-09-19T02:52:41.713Z",
+    "issued_at": "2026-09-19T02:07:41.713Z"
    },
    "created": "2026-09-19T01:43:42.844Z",
-   "updated": "2026-09-19T01:51:01.240Z",
+   "updated": "2026-09-19T02:07:41.713Z",
    "history": [
     {
      "at": "2026-09-19T01:43:42.844Z",
@@ -139,13 +139,24 @@
      "at": "2026-09-19T01:51:01.240Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-19T02:07:41.713Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-19T02:07:41.713Z",
+     "status": "assigned",
+     "why": "assigned(attempt=3)"
     }
    ],
    "last_result": {
-    "status": "work_failed",
-    "run_id": "35413712626",
-    "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
-   }
+    "status": "infra_failed",
+    "run_id": "35413914639",
+    "error": "lane-exhausted(3/6 lanes, last lane-429)"
+   },
+   "infra_attempts": 1
   },
   "T-202": {
    "id": "T-202",
@@ -390,8 +401,8 @@
   "orphaned_reports": 0,
   "rejected_events": 3,
   "timeouts": 0,
-  "dispatched": 35,
-  "infra_retries": 9,
+  "dispatched": 36,
+  "infra_retries": 10,
   "budget_pauses": 2
  },
  "dedup": [
@@ -533,7 +544,9 @@
   "rep-35414081365-a1",
   "rep-35414108308-a1",
   "tick-chain-1789783592281",
-  "tick-chain-1789783624777"
+  "tick-chain-1789783624777",
+  "rep-35413914639-a1",
+  "tick-chain-1789783659769"
  ],
  "budget_window": [
   {
@@ -544,6 +557,11 @@
   {
    "ts": "2026-09-19T02:06:34.943Z",
    "task": "T-204",
+   "detail": "lane-exhausted(3/6 lanes, last lane-429)"
+  },
+  {
+   "ts": "2026-09-19T02:07:41.715Z",
+   "task": "T-201",
    "detail": "lane-exhausted(3/6 lanes, last lane-429)"
   }
  ]
