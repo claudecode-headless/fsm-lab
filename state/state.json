@@ -1,21 +1,21 @@
 {
  "schema": 1,
- "version": 8,
- "journal_seq": 2288,
+ "version": 5,
+ "journal_seq": 2294,
  "chain": {
-  "id": "c-1789773939223",
-  "seq": 50,
-  "last_tick": "2026-09-18T23:54:15.215Z",
-  "primed_by": "chain",
-  "halted": true,
+  "id": "c-1789776543995",
+  "seq": 1,
+  "last_tick": "2026-09-19T00:09:04.040Z",
+  "primed_by": "console",
+  "halted": false,
   "paused": false
  },
  "project": {
-  "phase": "done",
+  "phase": "executing",
   "milestone": 1,
-  "milestones_total": 1,
-  "mode": "cc",
-  "issue": 11
+  "milestones_total": 3,
+  "mode": "mock",
+  "issue": null
  },
  "config": {
   "max_parallel": 4,
@@ -28,149 +28,225 @@
   "prune_tasks_after_ticks": 20
  },
  "tasks": {
-  "X23-PAUSE": {
-   "id": "X23-PAUSE",
-   "title": "Write the X23 budget-pause proof report",
-   "status": "quarantined",
-   "behavior": "real",
+  "T-101": {
+   "id": "T-101",
+   "title": "research: state-anchor options",
+   "status": "assigned",
+   "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-18T23:25:39.223Z",
-   "updated": "2026-09-18T23:54:48.750Z",
+   "lease": {
+    "token": "l-f017b6469c0d",
+    "expires": "2026-09-19T00:54:04.040Z",
+    "issued_at": "2026-09-19T00:09:04.040Z"
+   },
+   "created": "2026-09-19T00:09:03.995Z",
+   "updated": "2026-09-19T00:09:04.040Z",
    "history": [
     {
-     "at": "2026-09-18T23:25:39.223Z",
+     "at": "2026-09-19T00:09:03.995Z",
      "status": "ready",
      "why": "created"
     },
     {
-     "at": "2026-09-18T23:25:39.226Z",
+     "at": "2026-09-19T00:09:04.040Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-18T23:35:25.781Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-18T23:35:25.781Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-18T23:44:48.697Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-18T23:44:48.697Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-18T23:54:48.750Z",
-     "status": "quarantined",
-     "why": "infra-exhausted(infra_attempts=3)"
     }
    ],
-   "last_result": {
-    "status": "infra_failed",
-    "run_id": "35406878582",
-    "error": "lane-exhausted(3/6 lanes, last lane-429)"
+   "last_result": null
+  },
+  "T-102": {
+   "id": "T-102",
+   "title": "research: continuity mechanics",
+   "status": "assigned",
+   "behavior": "flaky",
+   "work_ms": 3000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-145095f66f49",
+    "expires": "2026-09-19T00:54:04.040Z",
+    "issued_at": "2026-09-19T00:09:04.040Z"
    },
-   "spec": {
-    "accept": "A markdown file summarizing the park -> resume -> complete sequence in one paragraph plus a 3-item checklist of the machinery events observed (alert issue, pause control, resume)",
-    "artifacts": [
-     "tasks/X23-PAUSE/report.md"
-    ],
-    "issue": 11,
-    "body_sha8": "d48f348f"
+   "created": "2026-09-19T00:09:03.995Z",
+   "updated": "2026-09-19T00:09:04.040Z",
+   "history": [
+    {
+     "at": "2026-09-19T00:09:03.995Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-19T00:09:04.040Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null
+  },
+  "T-103": {
+   "id": "T-103",
+   "title": "impl: state store CAS",
+   "status": "backlog",
+   "behavior": "succeed",
+   "work_ms": 5000,
+   "deps": [
+    "T-101"
+   ],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-19T00:09:03.995Z",
+   "updated": "2026-09-19T00:09:03.995Z",
+   "history": [
+    {
+     "at": "2026-09-19T00:09:03.995Z",
+     "status": "backlog",
+     "why": "created"
+    }
+   ],
+   "last_result": null
+  },
+  "T-104": {
+   "id": "T-104",
+   "title": "impl: conductor loop",
+   "status": "backlog",
+   "behavior": "succeed",
+   "work_ms": 5000,
+   "deps": [
+    "T-101"
+   ],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-19T00:09:03.995Z",
+   "updated": "2026-09-19T00:09:03.995Z",
+   "history": [
+    {
+     "at": "2026-09-19T00:09:03.995Z",
+     "status": "backlog",
+     "why": "created"
+    }
+   ],
+   "last_result": null
+  },
+  "T-105": {
+   "id": "T-105",
+   "title": "impl: watchdog",
+   "status": "backlog",
+   "behavior": "hang",
+   "work_ms": 900000,
+   "deps": [
+    "T-102"
+   ],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-19T00:09:03.995Z",
+   "updated": "2026-09-19T00:09:03.995Z",
+   "history": [
+    {
+     "at": "2026-09-19T00:09:03.995Z",
+     "status": "backlog",
+     "why": "created"
+    }
+   ],
+   "last_result": null
+  },
+  "T-106": {
+   "id": "T-106",
+   "title": "review: M1",
+   "status": "backlog",
+   "behavior": "succeed",
+   "work_ms": 3000,
+   "deps": [
+    "T-103",
+    "T-104"
+   ],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-19T00:09:03.995Z",
+   "updated": "2026-09-19T00:09:03.995Z",
+   "history": [
+    {
+     "at": "2026-09-19T00:09:03.995Z",
+     "status": "backlog",
+     "why": "created"
+    }
+   ],
+   "last_result": null
+  },
+  "T-107": {
+   "id": "T-107",
+   "title": "edge: duplicate report",
+   "status": "assigned",
+   "behavior": "dup",
+   "work_ms": 3000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-bf607d949e0a",
+    "expires": "2026-09-19T00:54:04.040Z",
+    "issued_at": "2026-09-19T00:09:04.040Z"
    },
-   "infra_attempts": 3,
-   "terminal_seq": 50
+   "created": "2026-09-19T00:09:03.995Z",
+   "updated": "2026-09-19T00:09:04.040Z",
+   "history": [
+    {
+     "at": "2026-09-19T00:09:03.995Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-19T00:09:04.040Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null
+  },
+  "T-108": {
+   "id": "T-108",
+   "title": "edge: late report (orphan)",
+   "status": "assigned",
+   "behavior": "slow",
+   "work_ms": 330000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-11c4ce18a00e",
+    "expires": "2026-09-19T00:54:04.040Z",
+    "issued_at": "2026-09-19T00:09:04.040Z"
+   },
+   "created": "2026-09-19T00:09:03.995Z",
+   "updated": "2026-09-19T00:09:04.040Z",
+   "history": [
+    {
+     "at": "2026-09-19T00:09:03.995Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-19T00:09:04.040Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null
   }
  },
  "stats": {
   "done": 0,
   "failed": 0,
-  "quarantined": 1,
+  "quarantined": 0,
   "cancelled": 0,
   "retries": 0,
   "orphaned_reports": 0,
   "rejected_events": 0,
   "timeouts": 0,
-  "dispatched": 3,
-  "infra_retries": 2
+  "dispatched": 4,
+  "infra_retries": 0
  },
  "dedup": [
-  "tick-intake-1789773938058",
-  "tick-chain-1789773974781",
-  "tick-chain-1789774006779",
-  "tick-chain-1789774040112",
-  "tick-chain-1789774073428",
-  "tick-chain-1789774112764",
-  "tick-chain-1789774145464",
-  "tick-pinger-1789774178488",
-  "tick-chain-1789774212012",
-  "tick-chain-1789774245470",
-  "tick-chain-1789774281301",
-  "tick-chain-1789774316293",
-  "tick-chain-1789774349715",
-  "tick-chain-1789774384542",
-  "tick-chain-1789774421924",
-  "tick-chain-1789774456416",
-  "tick-chain-1789774489644",
-  "rep-35405647915-a1",
-  "tick-chain-1789774523781",
-  "tick-chain-1789774557846",
-  "tick-chain-1789774593017",
-  "tick-chain-1789774626306",
-  "tick-chain-1789774663198",
-  "tick-chain-1789774698389",
-  "tick-chain-1789774734178",
-  "tick-chain-1789774769413",
-  "tick-chain-1789774804846",
-  "tick-chain-1789774839656",
-  "tick-chain-1789774878656",
-  "tick-chain-1789774912849",
-  "tick-chain-1789774945892",
-  "tick-chain-1789774980740",
-  "tick-chain-1789775014978",
-  "tick-chain-1789775053440",
-  "rep-35406294146-a1",
-  "tick-chain-1789775087002",
-  "tick-chain-1789775144906",
-  "tick-chain-1789775178206",
-  "tick-chain-1789775210273",
-  "tick-chain-1789775244695",
-  "tick-chain-1789775277739",
-  "tick-chain-1789775311744",
-  "tick-chain-1789775347129",
-  "tick-chain-1789775381687",
-  "tick-chain-1789775416919",
-  "tick-chain-1789775453926",
-  "tick-chain-1789775487808",
-  "tick-chain-1789775521630",
-  "tick-chain-1789775555725",
-  "tick-chain-1789775589101",
-  "tick-chain-1789775621685",
-  "tick-chain-1789775653566",
-  "rep-35406878582-a1",
-  "tick-chain-1789775686879"
- ],
- "budget_window": [
-  {
-   "ts": "2026-09-18T23:44:48.699Z",
-   "task": "X23-PAUSE",
-   "detail": "lane-exhausted(3/6 lanes, last lane-429)"
-  },
-  {
-   "ts": "2026-09-18T23:54:48.752Z",
-   "task": "X23-PAUSE",
-   "detail": "lane-exhausted(3/6 lanes, last lane-429)"
-  }
+  "tick-console-1789776542181"
  ]
 }
