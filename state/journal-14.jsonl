@@ -464,3 +464,8 @@
 {"id":"e2499","ts":"2026-09-19T02:05:29.204Z","applied":true,"kind":"TICK","seq":97,"actor":"chain"}
 {"id":"e2500","ts":"2026-09-19T02:05:29.204Z","applied":true,"kind":"PRUNE","task":"T-202","from_status":"quarantined"}
 {"id":"e2501","ts":"2026-09-19T02:06:02.351Z","applied":true,"kind":"TICK","seq":98,"actor":"chain"}
+{"id":"e2502","ts":"2026-09-19T02:06:34.941Z","applied":true,"kind":"REPORT","task":"T-205","lease":"l-4ed832209da8","to":"ready","reason":"infra-retry","run_id":"35414081365","error":"lane-exhausted(3/6 lanes, last lane-429)","from":"assigned"}
+{"id":"e2503","ts":"2026-09-19T02:06:34.941Z","applied":true,"kind":"ASSIGN","task":"T-205","from":"ready","to":"assigned","lease":"l-c230dfb7202e","expires":"2026-09-19T02:51:34.941Z","attempt":1,"behavior":"no-report","task_ref":{"kind":"state-task","id":"T-205"}}
+{"id":"e2504","ts":"2026-09-19T02:06:34.942Z","applied":true,"kind":"REPORT","task":"T-204","lease":"l-26fd6c0d2c91","to":"ready","reason":"infra-retry","run_id":"35414108308","error":"lane-exhausted(3/6 lanes, last lane-429)","from":"assigned"}
+{"id":"e2505","ts":"2026-09-19T02:06:34.942Z","applied":true,"kind":"ASSIGN","task":"T-204","from":"ready","to":"assigned","lease":"l-6a8cf1eab062","expires":"2026-09-19T02:51:34.942Z","attempt":2,"behavior":"succeed","task_ref":{"kind":"state-task","id":"T-204"}}
+{"id":"e2506","ts":"2026-09-19T02:06:34.944Z","applied":true,"kind":"TICK","seq":99,"actor":"chain"}

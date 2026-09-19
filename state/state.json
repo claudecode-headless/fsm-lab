@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 87,
- "journal_seq": 2502,
+ "version": 91,
+ "journal_seq": 2507,
  "chain": {
   "id": "c-1789776612277",
-  "seq": 98,
-  "last_tick": "2026-09-19T02:06:02.351Z",
+  "seq": 99,
+  "last_tick": "2026-09-19T02:06:34.944Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -226,12 +226,12 @@
    "deps": [],
    "attempts": 2,
    "lease": {
-    "token": "l-26fd6c0d2c91",
-    "expires": "2026-09-19T02:39:56.775Z",
-    "issued_at": "2026-09-19T01:54:56.775Z"
+    "token": "l-6a8cf1eab062",
+    "expires": "2026-09-19T02:51:34.942Z",
+    "issued_at": "2026-09-19T02:06:34.942Z"
    },
    "created": "2026-09-19T01:43:42.844Z",
-   "updated": "2026-09-19T01:54:56.775Z",
+   "updated": "2026-09-19T02:06:34.942Z",
    "history": [
     {
      "at": "2026-09-19T01:43:42.844Z",
@@ -257,13 +257,24 @@
      "at": "2026-09-19T01:54:56.775Z",
      "status": "assigned",
      "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-19T02:06:34.942Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-19T02:06:34.942Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
     }
    ],
    "last_result": {
-    "status": "work_failed",
-    "run_id": "35413540832",
-    "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
-   }
+    "status": "infra_failed",
+    "run_id": "35414108308",
+    "error": "lane-exhausted(3/6 lanes, last lane-429)"
+   },
+   "infra_attempts": 1
   },
   "T-205": {
    "id": "T-205",
@@ -274,12 +285,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-4ed832209da8",
-    "expires": "2026-09-19T02:39:24.554Z",
-    "issued_at": "2026-09-19T01:54:24.554Z"
+    "token": "l-c230dfb7202e",
+    "expires": "2026-09-19T02:51:34.941Z",
+    "issued_at": "2026-09-19T02:06:34.941Z"
    },
    "created": "2026-09-19T01:43:42.844Z",
-   "updated": "2026-09-19T01:54:24.554Z",
+   "updated": "2026-09-19T02:06:34.941Z",
    "history": [
     {
      "at": "2026-09-19T01:43:42.844Z",
@@ -290,9 +301,24 @@
      "at": "2026-09-19T01:54:24.554Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-19T02:06:34.941Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-19T02:06:34.941Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "infra_failed",
+    "run_id": "35414081365",
+    "error": "lane-exhausted(3/6 lanes, last lane-429)"
+   },
+   "infra_attempts": 1
   },
   "T-206": {
    "id": "T-206",
@@ -364,8 +390,8 @@
   "orphaned_reports": 0,
   "rejected_events": 3,
   "timeouts": 0,
-  "dispatched": 33,
-  "infra_retries": 7,
+  "dispatched": 35,
+  "infra_retries": 9,
   "budget_pauses": 2
  },
  "dedup": [
@@ -503,7 +529,21 @@
   "tick-chain-1789783463649",
   "tick-chain-1789783495902",
   "tick-chain-1789783527153",
-  "tick-chain-1789783559479"
+  "tick-chain-1789783559479",
+  "rep-35414081365-a1",
+  "rep-35414108308-a1",
+  "tick-chain-1789783592281"
  ],
- "budget_window": []
+ "budget_window": [
+  {
+   "ts": "2026-09-19T02:06:34.942Z",
+   "task": "T-205",
+   "detail": "lane-exhausted(3/6 lanes, last lane-429)"
+  },
+  {
+   "ts": "2026-09-19T02:06:34.943Z",
+   "task": "T-204",
+   "detail": "lane-exhausted(3/6 lanes, last lane-429)"
+  }
+ ]
 }
