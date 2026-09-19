@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 39,
- "journal_seq": 2371,
+ "version": 45,
+ "journal_seq": 2378,
  "chain": {
   "id": "c-1789776612277",
-  "seq": 24,
-  "last_tick": "2026-09-19T01:23:05.314Z",
+  "seq": 25,
+  "last_tick": "2026-09-19T01:23:40.228Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -290,14 +290,14 @@
    "behavior": "dup",
    "work_ms": 3000,
    "deps": [],
-   "attempts": 2,
+   "attempts": 3,
    "lease": {
-    "token": "l-cc7562319ee3",
-    "expires": "2026-09-19T02:05:18.286Z",
-    "issued_at": "2026-09-19T01:20:18.286Z"
+    "token": "l-32924be028e3",
+    "expires": "2026-09-19T02:08:40.196Z",
+    "issued_at": "2026-09-19T01:23:40.196Z"
    },
    "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T01:20:18.286Z",
+   "updated": "2026-09-19T01:23:40.196Z",
    "history": [
     {
      "at": "2026-09-19T00:10:12.277Z",
@@ -343,11 +343,26 @@
      "at": "2026-09-19T01:20:18.286Z",
      "status": "assigned",
      "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-19T01:23:40.196Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=2)"
+    },
+    {
+     "at": "2026-09-19T01:23:40.196Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=2)"
+    },
+    {
+     "at": "2026-09-19T01:23:40.196Z",
+     "status": "assigned",
+     "why": "assigned(attempt=3)"
     }
    ],
    "last_result": {
     "status": "work_failed",
-    "run_id": "35409593958",
+    "run_id": "35412340474",
     "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
    },
    "infra_attempts": 2
@@ -359,14 +374,14 @@
    "behavior": "slow",
    "work_ms": 330000,
    "deps": [],
-   "attempts": 2,
+   "attempts": 3,
    "lease": {
-    "token": "l-6828ac868512",
-    "expires": "2026-09-19T02:05:18.286Z",
-    "issued_at": "2026-09-19T01:20:18.286Z"
+    "token": "l-1b32cd8819c6",
+    "expires": "2026-09-19T02:08:40.227Z",
+    "issued_at": "2026-09-19T01:23:40.227Z"
    },
    "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T01:20:18.286Z",
+   "updated": "2026-09-19T01:23:40.227Z",
    "history": [
     {
      "at": "2026-09-19T00:10:12.277Z",
@@ -402,11 +417,26 @@
      "at": "2026-09-19T01:20:18.286Z",
      "status": "assigned",
      "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-19T01:23:40.227Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=2)"
+    },
+    {
+     "at": "2026-09-19T01:23:40.227Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=2)"
+    },
+    {
+     "at": "2026-09-19T01:23:40.227Z",
+     "status": "assigned",
+     "why": "assigned(attempt=3)"
     }
    ],
    "last_result": {
     "status": "work_failed",
-    "run_id": "35409593367",
+    "run_id": "35412340778",
     "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
    },
    "infra_attempts": 1
@@ -417,11 +447,11 @@
   "failed": 0,
   "quarantined": 1,
   "cancelled": 1,
-  "retries": 3,
+  "retries": 5,
   "orphaned_reports": 0,
   "rejected_events": 3,
   "timeouts": 0,
-  "dispatched": 16,
+  "dispatched": 18,
   "infra_retries": 7,
   "budget_pauses": 2
  },
@@ -469,7 +499,10 @@
   "tick-chain-1789780918189",
   "tick-chain-1789780951369",
   "rep-35412339983-a1",
-  "tick-chain-1789780983695"
+  "tick-chain-1789780983695",
+  "rep-35412340474-a1",
+  "rep-35412340778-a1",
+  "tick-chain-1789781018656"
  ],
  "budget_window": []
 }
