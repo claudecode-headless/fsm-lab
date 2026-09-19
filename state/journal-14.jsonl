@@ -386,3 +386,6 @@
 {"id":"e2421","ts":"2026-09-19T01:39:15.178Z","applied":true,"kind":"TICK","seq":53,"actor":"chain"}
 {"id":"e2422","ts":"2026-09-19T01:39:15.178Z","applied":true,"kind":"PRUNE","task":"T-108","from_status":"quarantined"}
 {"id":"e2423","ts":"2026-09-19T01:39:46.878Z","applied":true,"kind":"TICK","seq":54,"actor":"chain"}
+{"id":"e2424","ts":"2026-09-19T01:40:57.362Z","applied":true,"kind":"TICK","seq":55,"actor":"chain"}
+{"id":"e2425","ts":"2026-09-19T01:40:57.362Z","applied":true,"kind":"PRUNE","task":"T-103","from_status":"quarantined"}
+{"id":"e2426","ts":"2026-09-19T01:40:57.362Z","applied":true,"kind":"PRUNE","task":"T-106","from_status":"cancelled"}

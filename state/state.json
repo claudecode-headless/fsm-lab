@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "version": 58,
- "journal_seq": 2424,
+ "journal_seq": 2427,
  "chain": {
   "id": "c-1789776612277",
-  "seq": 54,
-  "last_tick": "2026-09-19T01:39:46.878Z",
+  "seq": 55,
+  "last_tick": "2026-09-19T01:40:57.362Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -44,75 +44,10 @@
   },
   "T-103": {
    "id": "T-103",
-   "title": "impl: state store CAS",
    "status": "quarantined",
-   "behavior": "succeed",
-   "work_ms": 5000,
-   "deps": [
-    "T-101"
-   ],
    "attempts": 3,
-   "lease": null,
-   "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T01:29:14.682Z",
-   "history": [
-    {
-     "at": "2026-09-19T00:10:12.277Z",
-     "status": "backlog",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-19T01:20:18.286Z",
-     "status": "ready",
-     "why": "deps-satisfied"
-    },
-    {
-     "at": "2026-09-19T01:20:18.286Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-19T01:23:05.308Z",
-     "status": "failed",
-     "why": "worker-failed(attempts=1)"
-    },
-    {
-     "at": "2026-09-19T01:23:05.308Z",
-     "status": "ready",
-     "why": "retry-scan(attempts=1)"
-    },
-    {
-     "at": "2026-09-19T01:23:05.308Z",
-     "status": "assigned",
-     "why": "assigned(attempt=2)"
-    },
-    {
-     "at": "2026-09-19T01:25:55.081Z",
-     "status": "failed",
-     "why": "worker-failed(attempts=2)"
-    },
-    {
-     "at": "2026-09-19T01:25:55.081Z",
-     "status": "ready",
-     "why": "retry-scan(attempts=2)"
-    },
-    {
-     "at": "2026-09-19T01:25:55.081Z",
-     "status": "assigned",
-     "why": "assigned(attempt=3)"
-    },
-    {
-     "at": "2026-09-19T01:29:14.682Z",
-     "status": "quarantined",
-     "why": "worker-failed(attempts=3)"
-    }
-   ],
-   "last_result": {
-    "status": "work_failed",
-    "run_id": "35412633998",
-    "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
-   },
-   "terminal_seq": 34
+   "done_at": "2026-09-19T01:29:14.682Z",
+   "pruned": true
   },
   "T-104": {
    "id": "T-104",
@@ -193,32 +128,10 @@
   },
   "T-106": {
    "id": "T-106",
-   "title": "review: M1",
    "status": "cancelled",
-   "behavior": "succeed",
-   "work_ms": 3000,
-   "deps": [
-    "T-103",
-    "T-104"
-   ],
    "attempts": 0,
-   "lease": null,
-   "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T01:29:14.682Z",
-   "history": [
-    {
-     "at": "2026-09-19T00:10:12.277Z",
-     "status": "backlog",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-19T01:29:14.682Z",
-     "status": "cancelled",
-     "why": "dep-failed-cascade"
-    }
-   ],
-   "last_result": null,
-   "terminal_seq": 34
+   "done_at": "2026-09-19T01:29:14.682Z",
+   "pruned": true
   },
   "T-107": {
    "id": "T-107",
@@ -409,7 +322,8 @@
   "tick-chain-1789781920805",
   "rep-35413152505-a1",
   "tick-chain-1789781953338",
-  "tick-chain-1789781985619"
+  "tick-chain-1789781985619",
+  "tick-chain-1789782055143"
  ],
  "budget_window": []
 }
