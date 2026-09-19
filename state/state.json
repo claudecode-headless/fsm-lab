@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "version": 58,
- "journal_seq": 2430,
+ "journal_seq": 2432,
  "chain": {
   "id": "c-1789776612277",
-  "seq": 58,
-  "last_tick": "2026-09-19T01:42:36.326Z",
+  "seq": 59,
+  "last_tick": "2026-09-19T01:43:08.423Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -135,89 +135,10 @@
   },
   "T-107": {
    "id": "T-107",
-   "title": "edge: duplicate report",
    "status": "quarantined",
-   "behavior": "dup",
-   "work_ms": 3000,
-   "deps": [],
    "attempts": 3,
-   "lease": null,
-   "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T01:31:26.062Z",
-   "history": [
-    {
-     "at": "2026-09-19T00:10:12.277Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-19T00:10:12.279Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-19T00:19:32.756Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-19T00:19:32.756Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-19T00:30:30.323Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-19T00:30:30.323Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-19T01:15:17.124Z",
-     "status": "failed",
-     "why": "worker-failed(attempts=1)"
-    },
-    {
-     "at": "2026-09-19T01:20:18.286Z",
-     "status": "ready",
-     "why": "retry-scan(attempts=1)"
-    },
-    {
-     "at": "2026-09-19T01:20:18.286Z",
-     "status": "assigned",
-     "why": "assigned(attempt=2)"
-    },
-    {
-     "at": "2026-09-19T01:23:40.196Z",
-     "status": "failed",
-     "why": "worker-failed(attempts=2)"
-    },
-    {
-     "at": "2026-09-19T01:23:40.196Z",
-     "status": "ready",
-     "why": "retry-scan(attempts=2)"
-    },
-    {
-     "at": "2026-09-19T01:23:40.196Z",
-     "status": "assigned",
-     "why": "assigned(attempt=3)"
-    },
-    {
-     "at": "2026-09-19T01:31:26.062Z",
-     "status": "quarantined",
-     "why": "worker-failed(attempts=3)"
-    }
-   ],
-   "last_result": {
-    "status": "work_failed",
-    "run_id": "35412514369",
-    "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
-   },
-   "infra_attempts": 2,
-   "terminal_seq": 38
+   "done_at": "2026-09-19T01:31:26.062Z",
+   "pruned": true
   },
   "T-108": {
    "id": "T-108",
@@ -326,7 +247,8 @@
   "tick-chain-1789782055143",
   "tick-chain-1789782089898",
   "tick-chain-1789782123279",
-  "tick-chain-1789782154954"
+  "tick-chain-1789782154954",
+  "tick-chain-1789782187066"
  ],
  "budget_window": []
 }
