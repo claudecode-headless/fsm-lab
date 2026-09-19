@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "version": 104,
- "journal_seq": 2527,
+ "version": 108,
+ "journal_seq": 2532,
  "chain": {
   "id": "c-1789776612277",
   "seq": 102,
@@ -236,18 +236,14 @@
   "T-204": {
    "id": "T-204",
    "title": "impl: parallel d",
-   "status": "assigned",
+   "status": "done",
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
    "attempts": 3,
-   "lease": {
-    "token": "l-bec3293272ec",
-    "expires": "2026-09-19T06:44:10.869Z",
-    "issued_at": "2026-09-19T05:59:10.869Z"
-   },
+   "lease": null,
    "created": "2026-09-19T01:43:42.844Z",
-   "updated": "2026-09-19T05:59:10.869Z",
+   "updated": "2026-09-19T06:30:44.908Z",
    "history": [
     {
      "at": "2026-09-19T01:43:42.844Z",
@@ -293,30 +289,55 @@
      "at": "2026-09-19T05:59:10.869Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-19T06:30:44.908Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "infra_failed",
-    "run_id": "35414108308",
-    "error": "lane-exhausted(3/6 lanes, last lane-429)"
+    "status": "done",
+    "run_id": "35425380731",
+    "artifact": "I can't start this task as dispatched — the lane has no workspace or spec to work from. What I found:\n\n**Environment (verified):**\n- Working directory `/tmp/cc-turn-KZN8eH` is **empty** (no files, no ",
+    "duration_ms": 42697,
+    "lane_stats": {
+     "calls": 11,
+     "ok": 11,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 53403,
+     "cost": 0.0087786888,
+     "p50_ms": 2637,
+     "p95_ms": 8175,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 11,
+       "ok": 11,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 53403,
+       "cost": 0.0087786888,
+       "p50_ms": 2637,
+       "p95_ms": 8175
+      }
+     }
+    }
    },
    "infra_attempts": 1
   },
   "T-205": {
    "id": "T-205",
    "title": "impl: parallel e",
-   "status": "assigned",
+   "status": "done",
    "behavior": "no-report",
    "work_ms": 3000,
    "deps": [],
    "attempts": 2,
-   "lease": {
-    "token": "l-5a1114604713",
-    "expires": "2026-09-19T06:44:10.869Z",
-    "issued_at": "2026-09-19T05:59:10.869Z"
-   },
+   "lease": null,
    "created": "2026-09-19T01:43:42.844Z",
-   "updated": "2026-09-19T05:59:10.869Z",
+   "updated": "2026-09-19T06:30:44.907Z",
    "history": [
     {
      "at": "2026-09-19T01:43:42.844Z",
@@ -347,30 +368,55 @@
      "at": "2026-09-19T05:59:10.869Z",
      "status": "assigned",
      "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-19T06:30:44.907Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "infra_failed",
-    "run_id": "35414081365",
-    "error": "lane-exhausted(3/6 lanes, last lane-429)"
+    "status": "done",
+    "run_id": "35425380855",
+    "artifact": "I can't start this one as specified — here's what I found:\n\n**Blockers**\n1. **The task title is truncated.** `T-205: impl: parallel e` cuts off mid-word. I don't know whether this is \"parallel executi",
+    "duration_ms": 22082,
+    "lane_stats": {
+     "calls": 4,
+     "ok": 4,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 35649,
+     "cost": 0.0055573112,
+     "p50_ms": 3641,
+     "p95_ms": 12710,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 4,
+       "ok": 4,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 35649,
+       "cost": 0.0055573112,
+       "p50_ms": 3641,
+       "p95_ms": 12710
+      }
+     }
+    }
    },
    "infra_attempts": 1
   },
   "T-206": {
    "id": "T-206",
    "title": "impl: parallel f",
-   "status": "assigned",
+   "status": "done",
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-1afcbe40d2e0",
-    "expires": "2026-09-19T06:44:10.869Z",
-    "issued_at": "2026-09-19T05:59:10.869Z"
-   },
+   "lease": null,
    "created": "2026-09-19T01:43:42.844Z",
-   "updated": "2026-09-19T05:59:10.869Z",
+   "updated": "2026-09-19T06:30:44.909Z",
    "history": [
     {
      "at": "2026-09-19T01:43:42.844Z",
@@ -381,25 +427,54 @@
      "at": "2026-09-19T05:59:10.869Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-19T06:30:44.909Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "done",
+    "run_id": "35425381226",
+    "artifact": "I investigated before acting, and I can't execute this turn. Here's the situation:\n\n**Findings (read-only checks)**\n- Working dir `/tmp/cc-turn-Rfl2vM` is **empty** — no checkout, no repo, no task fil",
+    "duration_ms": 55544,
+    "lane_stats": {
+     "calls": 6,
+     "ok": 6,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 46802,
+     "cost": 0.0080329088,
+     "p50_ms": 8579,
+     "p95_ms": 26984,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 6,
+       "ok": 6,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 46802,
+       "cost": 0.0080329088,
+       "p50_ms": 8579,
+       "p95_ms": 26984
+      }
+     }
+    }
+   }
   },
   "T-207": {
    "id": "T-207",
    "title": "impl: poison path",
-   "status": "assigned",
+   "status": "done",
    "behavior": "poison",
    "work_ms": 2000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-6e96bff58342",
-    "expires": "2026-09-19T06:44:10.869Z",
-    "issued_at": "2026-09-19T05:59:10.869Z"
-   },
+   "lease": null,
    "created": "2026-09-19T01:43:42.844Z",
-   "updated": "2026-09-19T05:59:10.869Z",
+   "updated": "2026-09-19T06:30:44.908Z",
    "history": [
     {
      "at": "2026-09-19T01:43:42.844Z",
@@ -410,9 +485,42 @@
      "at": "2026-09-19T05:59:10.869Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-19T06:30:44.908Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "done",
+    "run_id": "35425381435",
+    "artifact": "I checked the environment before writing anything. Here's the situation:\n\n**Blocker: there is no codebase to implement into.**\n\n- The working directory `/tmp/cc-turn-S36k2y` is empty (`ls -la` shows o",
+    "duration_ms": 48584,
+    "lane_stats": {
+     "calls": 5,
+     "ok": 5,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 41724,
+     "cost": 0.007048014399999999,
+     "p50_ms": 3878,
+     "p95_ms": 32475,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 5,
+       "ok": 5,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 41724,
+       "cost": 0.007048014399999999,
+       "p50_ms": 3878,
+       "p95_ms": 32475
+      }
+     }
+    }
+   }
   },
   "T-208": {
    "id": "T-208",
@@ -436,13 +544,13 @@
   }
  },
  "stats": {
-  "done": 1,
+  "done": 5,
   "failed": 0,
   "quarantined": 8,
   "cancelled": 2,
   "retries": 17,
   "orphaned_reports": 2,
-  "rejected_events": 7,
+  "rejected_events": 8,
   "timeouts": 4,
   "dispatched": 40,
   "infra_retries": 10,
@@ -597,28 +705,13 @@
   "rep-35414688270-a1",
   "rep-35414743384-a1",
   "tick-console-1789797547926",
-  "ctl-12-budget-pause-1789797555432"
+  "ctl-12-budget-pause-1789797555432",
+  "rep-35425380855-a1",
+  "rep-35425380731-a1",
+  "rep-35425381435-a1",
+  "rep-35425381226-a1",
+  "rep-35426665941-a1",
+  "tick-pinger-1789799442485"
  ],
- "budget_window": [
-  {
-   "ts": "2026-09-19T05:59:10.872Z",
-   "task": "T-203",
-   "detail": "lane-exhausted(3/6 lanes, last lane-429)"
-  },
-  {
-   "ts": "2026-09-19T05:59:10.872Z",
-   "task": "T-204",
-   "detail": "lane-exhausted(3/6 lanes, last lane-429)"
-  },
-  {
-   "ts": "2026-09-19T05:59:10.873Z",
-   "task": "T-205",
-   "detail": "lane-exhausted(3/6 lanes, last lane-429)"
-  },
-  {
-   "ts": "2026-09-19T05:59:10.873Z",
-   "task": "T-201",
-   "detail": "lane-exhausted(3/6 lanes, last lane-429)"
-  }
- ]
+ "budget_window": []
 }
