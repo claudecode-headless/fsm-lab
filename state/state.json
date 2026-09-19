@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 45,
- "journal_seq": 2381,
+ "version": 48,
+ "journal_seq": 2385,
  "chain": {
   "id": "c-1789776612277",
-  "seq": 28,
-  "last_tick": "2026-09-19T01:25:23.946Z",
+  "seq": 29,
+  "last_tick": "2026-09-19T01:25:55.104Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -150,14 +150,14 @@
    "deps": [
     "T-101"
    ],
-   "attempts": 2,
+   "attempts": 3,
    "lease": {
-    "token": "l-abdbae26b8cc",
-    "expires": "2026-09-19T02:08:05.308Z",
-    "issued_at": "2026-09-19T01:23:05.308Z"
+    "token": "l-210a083c16f4",
+    "expires": "2026-09-19T02:10:55.081Z",
+    "issued_at": "2026-09-19T01:25:55.081Z"
    },
    "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T01:23:05.308Z",
+   "updated": "2026-09-19T01:25:55.081Z",
    "history": [
     {
      "at": "2026-09-19T00:10:12.277Z",
@@ -188,11 +188,26 @@
      "at": "2026-09-19T01:23:05.308Z",
      "status": "assigned",
      "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-19T01:25:55.081Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=2)"
+    },
+    {
+     "at": "2026-09-19T01:25:55.081Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=2)"
+    },
+    {
+     "at": "2026-09-19T01:25:55.081Z",
+     "status": "assigned",
+     "why": "assigned(attempt=3)"
     }
    ],
    "last_result": {
     "status": "work_failed",
-    "run_id": "35412339983",
+    "run_id": "35412484761",
     "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
    }
   },
@@ -447,11 +462,11 @@
   "failed": 0,
   "quarantined": 1,
   "cancelled": 1,
-  "retries": 5,
+  "retries": 6,
   "orphaned_reports": 0,
   "rejected_events": 3,
   "timeouts": 0,
-  "dispatched": 18,
+  "dispatched": 19,
   "infra_retries": 7,
   "budget_pauses": 2
  },
@@ -505,7 +520,9 @@
   "tick-chain-1789781018656",
   "tick-chain-1789781054399",
   "tick-chain-1789781087845",
-  "tick-chain-1789781122484"
+  "tick-chain-1789781122484",
+  "rep-35412484761-a1",
+  "tick-chain-1789781154077"
  ],
  "budget_window": []
 }
