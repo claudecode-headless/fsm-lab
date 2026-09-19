@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "version": 110,
- "journal_seq": 2536,
+ "version": 113,
+ "journal_seq": 2540,
  "chain": {
   "id": "c-1789776612277",
-  "seq": 104,
-  "last_tick": "2026-09-19T06:41:58.498Z",
+  "seq": 105,
+  "last_tick": "2026-09-19T06:42:33.016Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
  },
  "project": {
   "phase": "executing",
-  "milestone": 2,
+  "milestone": 3,
   "milestones_total": 3,
   "mode": "cc",
   "issue": null
@@ -528,18 +528,14 @@
   "T-208": {
    "id": "T-208",
    "title": "impl: parallel g",
-   "status": "assigned",
+   "status": "done",
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-2e772cd69336",
-    "expires": "2026-09-19T07:26:26.955Z",
-    "issued_at": "2026-09-19T06:41:26.955Z"
-   },
+   "lease": null,
    "created": "2026-09-19T01:43:42.844Z",
-   "updated": "2026-09-19T06:41:26.955Z",
+   "updated": "2026-09-19T06:42:33.015Z",
    "history": [
     {
      "at": "2026-09-19T01:43:42.844Z",
@@ -550,13 +546,98 @@
      "at": "2026-09-19T06:41:26.955Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-19T06:42:33.015Z",
+     "status": "done",
+     "why": "worker-done"
+    }
+   ],
+   "last_result": {
+    "status": "done",
+    "run_id": "35427290045",
+    "artifact": "I can't proceed on this one, and I want to flag why rather than invent an implementation.\n\n## Blocker\n\nThe task lane is empty:\n\n- `/tmp/cc-turn-yH7nHi` contains nothing — no repo, no `state.json`, no ",
+    "duration_ms": 46530,
+    "lane_stats": {
+     "calls": 7,
+     "ok": 7,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 61499,
+     "cost": 0.009714736799999998,
+     "p50_ms": 7384,
+     "p95_ms": 12606,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 7,
+       "ok": 7,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 61499,
+       "cost": 0.009714736799999998,
+       "p50_ms": 7384,
+       "p95_ms": 12606
+      }
+     }
+    }
+   },
+   "terminal_seq": 104
+  },
+  "T-301": {
+   "id": "T-301",
+   "title": "impl: integration",
+   "status": "assigned",
+   "behavior": "succeed",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-2ce65ea41ce8",
+    "expires": "2026-09-19T07:27:33.016Z",
+    "issued_at": "2026-09-19T06:42:33.016Z"
+   },
+   "created": "2026-09-19T06:42:33.015Z",
+   "updated": "2026-09-19T06:42:33.016Z",
+   "history": [
+    {
+     "at": "2026-09-19T06:42:33.015Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-19T06:42:33.016Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null
+  },
+  "T-302": {
+   "id": "T-302",
+   "title": "review: final",
+   "status": "backlog",
+   "behavior": "succeed",
+   "work_ms": 3000,
+   "deps": [
+    "T-301"
+   ],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-19T06:42:33.015Z",
+   "updated": "2026-09-19T06:42:33.015Z",
+   "history": [
+    {
+     "at": "2026-09-19T06:42:33.015Z",
+     "status": "backlog",
+     "why": "created"
     }
    ],
    "last_result": null
   }
  },
  "stats": {
-  "done": 5,
+  "done": 6,
   "failed": 0,
   "quarantined": 8,
   "cancelled": 2,
@@ -564,7 +645,7 @@
   "orphaned_reports": 2,
   "rejected_events": 8,
   "timeouts": 4,
-  "dispatched": 41,
+  "dispatched": 42,
   "infra_retries": 10,
   "budget_pauses": 4
  },
@@ -726,7 +807,9 @@
   "tick-pinger-1789799442485",
   "ctl-IC_kwDOUQB5Sc8AAAABViFEsA-resume-1789800072459",
   "tick-console-1789800084437",
-  "tick-chain-1789800117130"
+  "tick-chain-1789800117130",
+  "rep-35427290045-a1",
+  "tick-chain-1789800149456"
  ],
  "budget_window": []
 }
