@@ -356,3 +356,4 @@
 {"id":"e2391","ts":"2026-09-19T01:29:14.682Z","applied":true,"kind":"REPORT","task":"T-103","lease":"l-210a083c16f4","to":"quarantined","run_id":"35412633998","from":"assigned"}
 {"id":"e2392","ts":"2026-09-19T01:29:14.682Z","applied":true,"kind":"CANCEL_CASCADE","task":"T-106","from":"backlog","to":"cancelled","reason":"T-103"}
 {"id":"e2393","ts":"2026-09-19T01:29:14.683Z","applied":true,"kind":"TICK","seq":35,"actor":"chain"}
+{"id":"e2394","ts":"2026-09-19T01:29:46.434Z","applied":true,"kind":"TICK","seq":36,"actor":"chain"}
