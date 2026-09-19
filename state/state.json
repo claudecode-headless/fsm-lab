@@ -1,17 +1,17 @@
 {
  "schema": 1,
- "version": 116,
- "journal_seq": 2547,
+ "version": 118,
+ "journal_seq": 2549,
  "chain": {
   "id": "c-1789776612277",
   "seq": 109,
   "last_tick": "2026-09-19T06:44:48.068Z",
   "primed_by": "chain",
-  "halted": false,
+  "halted": true,
   "paused": false
  },
  "project": {
-  "phase": "executing",
+  "phase": "done",
   "milestone": 3,
   "milestones_total": 3,
   "mode": "cc",
@@ -646,20 +646,16 @@
   "T-302": {
    "id": "T-302",
    "title": "review: final",
-   "status": "assigned",
+   "status": "done",
    "behavior": "succeed",
    "work_ms": 3000,
    "deps": [
     "T-301"
    ],
    "attempts": 1,
-   "lease": {
-    "token": "l-d9723e5e06d1",
-    "expires": "2026-09-19T07:29:14.111Z",
-    "issued_at": "2026-09-19T06:44:14.111Z"
-   },
+   "lease": null,
    "created": "2026-09-19T06:42:33.015Z",
-   "updated": "2026-09-19T06:44:14.111Z",
+   "updated": "2026-09-19T06:45:57.167Z",
    "history": [
     {
      "at": "2026-09-19T06:42:33.015Z",
@@ -675,13 +671,47 @@
      "at": "2026-09-19T06:44:14.111Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-19T06:45:57.167Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "done",
+    "run_id": "35427414278",
+    "artifact": "## T-302 · review: final — outcome: `infra_failed`\n\nI could not execute this review, because the turn was provisioned with no work product to review. Reporting honestly rather than fabricating a revie",
+    "duration_ms": 64323,
+    "lane_stats": {
+     "calls": 6,
+     "ok": 6,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 38596,
+     "cost": 0.0062697968,
+     "p50_ms": 12276,
+     "p95_ms": 20562,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 6,
+       "ok": 6,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 38596,
+       "cost": 0.0062697968,
+       "p50_ms": 12276,
+       "p95_ms": 20562
+      }
+     }
+    }
+   },
+   "terminal_seq": 109
   }
  },
  "stats": {
-  "done": 7,
+  "done": 8,
   "failed": 0,
   "quarantined": 8,
   "cancelled": 2,
@@ -858,7 +888,9 @@
   "tick-chain-1789800213558",
   "rep-35427339036-a1",
   "tick-chain-1789800251809",
-  "tick-chain-1789800287160"
+  "tick-chain-1789800287160",
+  "rep-35427414278-a1",
+  "tick-chain-1789800356350"
  ],
  "budget_window": []
 }
