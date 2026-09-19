@@ -2,3 +2,4 @@
 {"id":"e2537","ts":"2026-09-19T06:42:33.015Z","applied":true,"kind":"MILESTONE","milestone":3,"tasks":[{"id":"T-301","title":"impl: integration","behavior":"succeed","work_ms":4000,"deps":[]},{"id":"T-302","title":"review: final","behavior":"succeed","work_ms":3000,"deps":["T-301"]}]}
 {"id":"e2538","ts":"2026-09-19T06:42:33.016Z","applied":true,"kind":"TICK","seq":105,"actor":"chain"}
 {"id":"e2539","ts":"2026-09-19T06:42:33.016Z","applied":true,"kind":"ASSIGN","task":"T-301","from":"ready","to":"assigned","lease":"l-2ce65ea41ce8","expires":"2026-09-19T07:27:33.016Z","attempt":1,"behavior":"succeed","task_ref":{"kind":"state-task","id":"T-301"}}
+{"id":"e2540","ts":"2026-09-19T06:43:03.075Z","applied":true,"kind":"TICK","seq":106,"actor":"chain"}
