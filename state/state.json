@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "version": 87,
- "journal_seq": 2486,
+ "journal_seq": 2487,
  "chain": {
   "id": "c-1789776612277",
-  "seq": 83,
-  "last_tick": "2026-09-19T01:57:44.492Z",
+  "seq": 84,
+  "last_tick": "2026-09-19T01:58:17.453Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -546,7 +546,8 @@
   "tick-chain-1789782959360",
   "tick-chain-1789782993330",
   "tick-chain-1789783027756",
-  "tick-chain-1789783061778"
+  "tick-chain-1789783061778",
+  "tick-chain-1789783094934"
  ],
  "budget_window": []
 }
