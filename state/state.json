@@ -1,15 +1,14 @@
 {
  "schema": 1,
- "version": 26,
- "journal_seq": 2352,
+ "version": 36,
+ "journal_seq": 2363,
  "chain": {
   "id": "c-1789776612277",
-  "seq": 18,
-  "last_tick": "2026-09-19T00:30:30.324Z",
+  "seq": 19,
+  "last_tick": "2026-09-19T01:20:18.293Z",
   "primed_by": "console",
   "halted": false,
-  "paused": true,
-  "paused_reason": "lane-budget-exhausted"
+  "paused": false
  },
  "project": {
   "phase": "executing",
@@ -83,7 +82,8 @@
     "artifact": "\n\nI've now tried a wide range of approaches and hit the same wall on every one. Here's an honest status report:\n\n**What I tried:**\n- `git clone https://github.com/fsm-lab/fsm-lab.git` — requires appro",
     "duration_ms": 202005
    },
-   "infra_attempts": 2
+   "infra_attempts": 2,
+   "terminal_seq": 18
   },
   "T-102": {
    "id": "T-102",
@@ -138,26 +138,41 @@
     "run_id": "35409593956",
     "error": "write-back-door(root-not-declared(research-continuity-mechanics.md))"
    },
-   "infra_attempts": 2
+   "infra_attempts": 2,
+   "terminal_seq": 18
   },
   "T-103": {
    "id": "T-103",
    "title": "impl: state store CAS",
-   "status": "backlog",
+   "status": "assigned",
    "behavior": "succeed",
    "work_ms": 5000,
    "deps": [
     "T-101"
    ],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-2ae2b917ef0e",
+    "expires": "2026-09-19T02:05:18.286Z",
+    "issued_at": "2026-09-19T01:20:18.286Z"
+   },
    "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T00:10:12.277Z",
+   "updated": "2026-09-19T01:20:18.286Z",
    "history": [
     {
      "at": "2026-09-19T00:10:12.277Z",
      "status": "backlog",
      "why": "created"
+    },
+    {
+     "at": "2026-09-19T01:20:18.286Z",
+     "status": "ready",
+     "why": "deps-satisfied"
+    },
+    {
+     "at": "2026-09-19T01:20:18.286Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null
@@ -165,21 +180,35 @@
   "T-104": {
    "id": "T-104",
    "title": "impl: conductor loop",
-   "status": "backlog",
+   "status": "assigned",
    "behavior": "succeed",
    "work_ms": 5000,
    "deps": [
     "T-101"
    ],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-9ea81c0d528f",
+    "expires": "2026-09-19T02:05:18.286Z",
+    "issued_at": "2026-09-19T01:20:18.286Z"
+   },
    "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T00:10:12.277Z",
+   "updated": "2026-09-19T01:20:18.286Z",
    "history": [
     {
      "at": "2026-09-19T00:10:12.277Z",
      "status": "backlog",
      "why": "created"
+    },
+    {
+     "at": "2026-09-19T01:20:18.286Z",
+     "status": "ready",
+     "why": "deps-satisfied"
+    },
+    {
+     "at": "2026-09-19T01:20:18.286Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null
@@ -187,7 +216,7 @@
   "T-105": {
    "id": "T-105",
    "title": "impl: watchdog",
-   "status": "backlog",
+   "status": "cancelled",
    "behavior": "hang",
    "work_ms": 900000,
    "deps": [
@@ -196,15 +225,21 @@
    "attempts": 0,
    "lease": null,
    "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T00:10:12.277Z",
+   "updated": "2026-09-19T01:20:18.286Z",
    "history": [
     {
      "at": "2026-09-19T00:10:12.277Z",
      "status": "backlog",
      "why": "created"
+    },
+    {
+     "at": "2026-09-19T01:20:18.286Z",
+     "status": "cancelled",
+     "why": "dep-failed-cascade"
     }
    ],
-   "last_result": null
+   "last_result": null,
+   "terminal_seq": 18
   },
   "T-106": {
    "id": "T-106",
@@ -232,14 +267,18 @@
   "T-107": {
    "id": "T-107",
    "title": "edge: duplicate report",
-   "status": "failed",
+   "status": "assigned",
    "behavior": "dup",
    "work_ms": 3000,
    "deps": [],
-   "attempts": 1,
-   "lease": null,
+   "attempts": 2,
+   "lease": {
+    "token": "l-cc7562319ee3",
+    "expires": "2026-09-19T02:05:18.286Z",
+    "issued_at": "2026-09-19T01:20:18.286Z"
+   },
    "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T01:15:17.124Z",
+   "updated": "2026-09-19T01:20:18.286Z",
    "history": [
     {
      "at": "2026-09-19T00:10:12.277Z",
@@ -275,6 +314,16 @@
      "at": "2026-09-19T01:15:17.124Z",
      "status": "failed",
      "why": "worker-failed(attempts=1)"
+    },
+    {
+     "at": "2026-09-19T01:20:18.286Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=1)"
+    },
+    {
+     "at": "2026-09-19T01:20:18.286Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
     }
    ],
    "last_result": {
@@ -287,14 +336,18 @@
   "T-108": {
    "id": "T-108",
    "title": "edge: late report (orphan)",
-   "status": "failed",
+   "status": "assigned",
    "behavior": "slow",
    "work_ms": 330000,
    "deps": [],
-   "attempts": 1,
-   "lease": null,
+   "attempts": 2,
+   "lease": {
+    "token": "l-6828ac868512",
+    "expires": "2026-09-19T02:05:18.286Z",
+    "issued_at": "2026-09-19T01:20:18.286Z"
+   },
    "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T01:15:17.123Z",
+   "updated": "2026-09-19T01:20:18.286Z",
    "history": [
     {
      "at": "2026-09-19T00:10:12.277Z",
@@ -320,6 +373,16 @@
      "at": "2026-09-19T01:15:17.123Z",
      "status": "failed",
      "why": "worker-failed(attempts=1)"
+    },
+    {
+     "at": "2026-09-19T01:20:18.286Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=1)"
+    },
+    {
+     "at": "2026-09-19T01:20:18.286Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
     }
    ],
    "last_result": {
@@ -332,14 +395,14 @@
  },
  "stats": {
   "done": 1,
-  "failed": 2,
+  "failed": 0,
   "quarantined": 1,
-  "cancelled": 0,
-  "retries": 0,
+  "cancelled": 1,
+  "retries": 2,
   "orphaned_reports": 0,
   "rejected_events": 3,
   "timeouts": 0,
-  "dispatched": 11,
+  "dispatched": 15,
   "infra_retries": 7,
   "budget_pauses": 2
  },
@@ -379,7 +442,9 @@
   "rep-35409593958-a1",
   "rep-35409593573-a1",
   "rep-35409593956-a1",
-  "tick-schedule-backstop-1789780514814"
+  "tick-schedule-backstop-1789780514814",
+  "ctl-IC_kwDOUQB5Sc8AAAABVgX1RA-resume-1789780807603",
+  "tick-console-1789780817298"
  ],
  "budget_window": []
 }
