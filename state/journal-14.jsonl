@@ -350,3 +350,5 @@
 {"id":"e2385","ts":"2026-09-19T01:26:27.004Z","applied":true,"kind":"TICK","seq":30,"actor":"chain"}
 {"id":"e2386","ts":"2026-09-19T01:26:59.846Z","applied":true,"kind":"TICK","seq":31,"actor":"chain"}
 {"id":"e2387","ts":"2026-09-19T01:27:34.477Z","applied":true,"kind":"TICK","seq":32,"actor":"chain"}
+{"id":"e2388","ts":"2026-09-19T01:28:09.059Z","applied":true,"kind":"REPORT","task":"T-108","lease":"l-1b32cd8819c6","to":"quarantined","run_id":"35412514564","from":"assigned"}
+{"id":"e2389","ts":"2026-09-19T01:28:09.060Z","applied":true,"kind":"TICK","seq":33,"actor":"chain"}

@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 48,
- "journal_seq": 2388,
+ "version": 49,
+ "journal_seq": 2390,
  "chain": {
   "id": "c-1789776612277",
-  "seq": 32,
-  "last_tick": "2026-09-19T01:27:34.477Z",
+  "seq": 33,
+  "last_tick": "2026-09-19T01:28:09.060Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -385,18 +385,14 @@
   "T-108": {
    "id": "T-108",
    "title": "edge: late report (orphan)",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "slow",
    "work_ms": 330000,
    "deps": [],
    "attempts": 3,
-   "lease": {
-    "token": "l-1b32cd8819c6",
-    "expires": "2026-09-19T02:08:40.227Z",
-    "issued_at": "2026-09-19T01:23:40.227Z"
-   },
+   "lease": null,
    "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T01:23:40.227Z",
+   "updated": "2026-09-19T01:28:09.059Z",
    "history": [
     {
      "at": "2026-09-19T00:10:12.277Z",
@@ -447,20 +443,26 @@
      "at": "2026-09-19T01:23:40.227Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-19T01:28:09.059Z",
+     "status": "quarantined",
+     "why": "worker-failed(attempts=3)"
     }
    ],
    "last_result": {
     "status": "work_failed",
-    "run_id": "35412340778",
+    "run_id": "35412514564",
     "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
    },
-   "infra_attempts": 1
+   "infra_attempts": 1,
+   "terminal_seq": 32
   }
  },
  "stats": {
   "done": 1,
   "failed": 0,
-  "quarantined": 1,
+  "quarantined": 2,
   "cancelled": 1,
   "retries": 6,
   "orphaned_reports": 0,
@@ -525,7 +527,9 @@
   "tick-chain-1789781154077",
   "tick-chain-1789781185378",
   "tick-chain-1789781217737",
-  "tick-chain-1789781252118"
+  "tick-chain-1789781252118",
+  "rep-35412514564-a1",
+  "tick-chain-1789781286106"
  ],
  "budget_window": []
 }
