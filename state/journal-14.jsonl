@@ -435,3 +435,6 @@
 {"id":"e2470","ts":"2026-09-19T01:52:45.155Z","applied":true,"kind":"TICK","seq":74,"actor":"chain"}
 {"id":"e2471","ts":"2026-09-19T01:53:17.858Z","applied":true,"kind":"TICK","seq":75,"actor":"chain"}
 {"id":"e2472","ts":"2026-09-19T01:53:51.407Z","applied":true,"kind":"TICK","seq":76,"actor":"chain"}
+{"id":"e2473","ts":"2026-09-19T01:54:24.554Z","applied":true,"kind":"REPORT","task":"T-202","lease":"l-25b4fcefe9d9","to":"quarantined","run_id":"35413914698","from":"assigned"}
+{"id":"e2474","ts":"2026-09-19T01:54:24.554Z","applied":true,"kind":"ASSIGN","task":"T-205","from":"ready","to":"assigned","lease":"l-4ed832209da8","expires":"2026-09-19T02:39:24.554Z","attempt":1,"behavior":"no-report","task_ref":{"kind":"state-task","id":"T-205"}}
+{"id":"e2475","ts":"2026-09-19T01:54:24.556Z","applied":true,"kind":"TICK","seq":77,"actor":"chain"}
