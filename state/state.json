@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 5,
- "journal_seq": 2329,
+ "version": 11,
+ "journal_seq": 2336,
  "chain": {
   "id": "c-1789776612277",
-  "seq": 16,
-  "last_tick": "2026-09-19T00:18:50.730Z",
+  "seq": 17,
+  "last_tick": "2026-09-19T00:19:32.756Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -37,12 +37,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-ea9922573a2d",
-    "expires": "2026-09-19T00:55:12.279Z",
-    "issued_at": "2026-09-19T00:10:12.279Z"
+    "token": "l-c853b0ce0ac6",
+    "expires": "2026-09-19T01:04:32.755Z",
+    "issued_at": "2026-09-19T00:19:32.755Z"
    },
    "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T00:10:12.279Z",
+   "updated": "2026-09-19T00:19:32.755Z",
    "history": [
     {
      "at": "2026-09-19T00:10:12.277Z",
@@ -53,9 +53,24 @@
      "at": "2026-09-19T00:10:12.279Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-19T00:19:32.755Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-19T00:19:32.755Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "infra_failed",
+    "run_id": "35408418529",
+    "error": "lane-exhausted(3/6 lanes, last lane-429)"
+   },
+   "infra_attempts": 1
   },
   "T-102": {
    "id": "T-102",
@@ -66,12 +81,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-351be97d403a",
-    "expires": "2026-09-19T00:55:12.279Z",
-    "issued_at": "2026-09-19T00:10:12.279Z"
+    "token": "l-2fef68ae3473",
+    "expires": "2026-09-19T01:04:32.755Z",
+    "issued_at": "2026-09-19T00:19:32.755Z"
    },
    "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T00:10:12.279Z",
+   "updated": "2026-09-19T00:19:32.755Z",
    "history": [
     {
      "at": "2026-09-19T00:10:12.277Z",
@@ -82,9 +97,24 @@
      "at": "2026-09-19T00:10:12.279Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-19T00:19:32.755Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-19T00:19:32.755Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "infra_failed",
+    "run_id": "35408418198",
+    "error": "lane-exhausted(3/6 lanes, last lane-429)"
+   },
+   "infra_attempts": 1
   },
   "T-103": {
    "id": "T-103",
@@ -184,12 +214,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-059f1de025a1",
-    "expires": "2026-09-19T00:55:12.279Z",
-    "issued_at": "2026-09-19T00:10:12.279Z"
+    "token": "l-88e2b0331be2",
+    "expires": "2026-09-19T01:04:32.756Z",
+    "issued_at": "2026-09-19T00:19:32.756Z"
    },
    "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T00:10:12.279Z",
+   "updated": "2026-09-19T00:19:32.756Z",
    "history": [
     {
      "at": "2026-09-19T00:10:12.277Z",
@@ -200,9 +230,24 @@
      "at": "2026-09-19T00:10:12.279Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-19T00:19:32.756Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-19T00:19:32.756Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "infra_failed",
+    "run_id": "35408418653",
+    "error": "lane-exhausted(3/6 lanes, last lane-429)"
+   },
+   "infra_attempts": 1
   },
   "T-108": {
    "id": "T-108",
@@ -243,8 +288,8 @@
   "orphaned_reports": 0,
   "rejected_events": 3,
   "timeouts": 0,
-  "dispatched": 4,
-  "infra_retries": 0
+  "dispatched": 7,
+  "infra_retries": 3
  },
  "dedup": [
   "rep-35408382027-a1",
@@ -265,6 +310,27 @@
   "tick-chain-1789777026299",
   "tick-chain-1789777058432",
   "tick-chain-1789777091804",
-  "tick-chain-1789777128646"
+  "tick-chain-1789777128646",
+  "rep-35408418529-a1",
+  "rep-35408418198-a1",
+  "rep-35408418653-a1",
+  "tick-chain-1789777168045"
+ ],
+ "budget_window": [
+  {
+   "ts": "2026-09-19T00:19:32.755Z",
+   "task": "T-101",
+   "detail": "lane-exhausted(3/6 lanes, last lane-429)"
+  },
+  {
+   "ts": "2026-09-19T00:19:32.756Z",
+   "task": "T-102",
+   "detail": "lane-exhausted(3/6 lanes, last lane-429)"
+  },
+  {
+   "ts": "2026-09-19T00:19:32.756Z",
+   "task": "T-107",
+   "detail": "lane-exhausted(3/6 lanes, last lane-429)"
+  }
  ]
 }
