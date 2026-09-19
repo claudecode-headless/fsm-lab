@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 49,
- "journal_seq": 2391,
+ "version": 51,
+ "journal_seq": 2394,
  "chain": {
   "id": "c-1789776612277",
-  "seq": 34,
-  "last_tick": "2026-09-19T01:28:41.178Z",
+  "seq": 35,
+  "last_tick": "2026-09-19T01:29:14.683Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -144,20 +144,16 @@
   "T-103": {
    "id": "T-103",
    "title": "impl: state store CAS",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "succeed",
    "work_ms": 5000,
    "deps": [
     "T-101"
    ],
    "attempts": 3,
-   "lease": {
-    "token": "l-210a083c16f4",
-    "expires": "2026-09-19T02:10:55.081Z",
-    "issued_at": "2026-09-19T01:25:55.081Z"
-   },
+   "lease": null,
    "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T01:25:55.081Z",
+   "updated": "2026-09-19T01:29:14.682Z",
    "history": [
     {
      "at": "2026-09-19T00:10:12.277Z",
@@ -203,13 +199,19 @@
      "at": "2026-09-19T01:25:55.081Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-19T01:29:14.682Z",
+     "status": "quarantined",
+     "why": "worker-failed(attempts=3)"
     }
    ],
    "last_result": {
     "status": "work_failed",
-    "run_id": "35412484761",
+    "run_id": "35412633998",
     "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
-   }
+   },
+   "terminal_seq": 34
   },
   "T-104": {
    "id": "T-104",
@@ -278,7 +280,7 @@
   "T-106": {
    "id": "T-106",
    "title": "review: M1",
-   "status": "backlog",
+   "status": "cancelled",
    "behavior": "succeed",
    "work_ms": 3000,
    "deps": [
@@ -288,15 +290,21 @@
    "attempts": 0,
    "lease": null,
    "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T00:10:12.277Z",
+   "updated": "2026-09-19T01:29:14.682Z",
    "history": [
     {
      "at": "2026-09-19T00:10:12.277Z",
      "status": "backlog",
      "why": "created"
+    },
+    {
+     "at": "2026-09-19T01:29:14.682Z",
+     "status": "cancelled",
+     "why": "dep-failed-cascade"
     }
    ],
-   "last_result": null
+   "last_result": null,
+   "terminal_seq": 34
   },
   "T-107": {
    "id": "T-107",
@@ -462,8 +470,8 @@
  "stats": {
   "done": 1,
   "failed": 0,
-  "quarantined": 2,
-  "cancelled": 1,
+  "quarantined": 3,
+  "cancelled": 2,
   "retries": 6,
   "orphaned_reports": 0,
   "rejected_events": 3,
@@ -530,7 +538,9 @@
   "tick-chain-1789781252118",
   "rep-35412514564-a1",
   "tick-chain-1789781286106",
-  "tick-chain-1789781318671"
+  "tick-chain-1789781318671",
+  "rep-35412633998-a1",
+  "tick-chain-1789781352497"
  ],
  "budget_window": []
 }
