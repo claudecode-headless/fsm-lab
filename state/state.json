@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "version": 87,
- "journal_seq": 2499,
+ "journal_seq": 2501,
  "chain": {
   "id": "c-1789776612277",
-  "seq": 96,
-  "last_tick": "2026-09-19T02:04:57.477Z",
+  "seq": 97,
+  "last_tick": "2026-09-19T02:05:29.204Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -149,68 +149,10 @@
   },
   "T-202": {
    "id": "T-202",
-   "title": "impl: parallel b",
    "status": "quarantined",
-   "behavior": "succeed",
-   "work_ms": 4000,
-   "deps": [],
    "attempts": 3,
-   "lease": null,
-   "created": "2026-09-19T01:43:42.844Z",
-   "updated": "2026-09-19T01:54:24.554Z",
-   "history": [
-    {
-     "at": "2026-09-19T01:43:42.844Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-19T01:43:42.846Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-19T01:47:05.531Z",
-     "status": "failed",
-     "why": "worker-failed(attempts=1)"
-    },
-    {
-     "at": "2026-09-19T01:47:05.531Z",
-     "status": "ready",
-     "why": "retry-scan(attempts=1)"
-    },
-    {
-     "at": "2026-09-19T01:47:05.531Z",
-     "status": "assigned",
-     "why": "assigned(attempt=2)"
-    },
-    {
-     "at": "2026-09-19T01:51:01.237Z",
-     "status": "failed",
-     "why": "worker-failed(attempts=2)"
-    },
-    {
-     "at": "2026-09-19T01:51:01.237Z",
-     "status": "ready",
-     "why": "retry-scan(attempts=2)"
-    },
-    {
-     "at": "2026-09-19T01:51:01.237Z",
-     "status": "assigned",
-     "why": "assigned(attempt=3)"
-    },
-    {
-     "at": "2026-09-19T01:54:24.554Z",
-     "status": "quarantined",
-     "why": "worker-failed(attempts=3)"
-    }
-   ],
-   "last_result": {
-    "status": "work_failed",
-    "run_id": "35413914698",
-    "error": "cc-exit-1([claude-code:unrecognized_model] {\"model\":\"dots-studio/dots-3-note-preview:free\")"
-   },
-   "terminal_seq": 76
+   "done_at": "2026-09-19T01:54:24.554Z",
+   "pruned": true
   },
   "T-203": {
    "id": "T-203",
@@ -559,7 +501,8 @@
   "tick-chain-1789783396210",
   "tick-chain-1789783429136",
   "tick-chain-1789783463649",
-  "tick-chain-1789783495902"
+  "tick-chain-1789783495902",
+  "tick-chain-1789783527153"
  ],
  "budget_window": []
 }
