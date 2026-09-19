@@ -1,15 +1,14 @@
 {
  "schema": 1,
- "version": 12,
- "journal_seq": 2337,
+ "version": 21,
+ "journal_seq": 2347,
  "chain": {
   "id": "c-1789776612277",
-  "seq": 17,
-  "last_tick": "2026-09-19T00:19:32.756Z",
-  "primed_by": "chain",
+  "seq": 18,
+  "last_tick": "2026-09-19T00:30:30.324Z",
+  "primed_by": "console",
   "halted": false,
-  "paused": true,
-  "paused_reason": "lane-budget-exhausted"
+  "paused": false
  },
  "project": {
   "phase": "executing",
@@ -38,12 +37,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-c853b0ce0ac6",
-    "expires": "2026-09-19T01:04:32.755Z",
-    "issued_at": "2026-09-19T00:19:32.755Z"
+    "token": "l-b33405af86a7",
+    "expires": "2026-09-19T01:15:30.322Z",
+    "issued_at": "2026-09-19T00:30:30.322Z"
    },
    "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T00:19:32.755Z",
+   "updated": "2026-09-19T00:30:30.322Z",
    "history": [
     {
      "at": "2026-09-19T00:10:12.277Z",
@@ -64,14 +63,24 @@
      "at": "2026-09-19T00:19:32.755Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-19T00:30:30.322Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-19T00:30:30.322Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35408418529",
+    "run_id": "35408967485",
     "error": "lane-exhausted(3/6 lanes, last lane-429)"
    },
-   "infra_attempts": 1
+   "infra_attempts": 2
   },
   "T-102": {
    "id": "T-102",
@@ -82,12 +91,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-2fef68ae3473",
-    "expires": "2026-09-19T01:04:32.755Z",
-    "issued_at": "2026-09-19T00:19:32.755Z"
+    "token": "l-a6b4af34fc8c",
+    "expires": "2026-09-19T01:15:30.323Z",
+    "issued_at": "2026-09-19T00:30:30.323Z"
    },
    "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T00:19:32.755Z",
+   "updated": "2026-09-19T00:30:30.323Z",
    "history": [
     {
      "at": "2026-09-19T00:10:12.277Z",
@@ -108,14 +117,24 @@
      "at": "2026-09-19T00:19:32.755Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-19T00:30:30.323Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-19T00:30:30.323Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35408418198",
+    "run_id": "35408967470",
     "error": "lane-exhausted(3/6 lanes, last lane-429)"
    },
-   "infra_attempts": 1
+   "infra_attempts": 2
   },
   "T-103": {
    "id": "T-103",
@@ -215,12 +234,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-88e2b0331be2",
-    "expires": "2026-09-19T01:04:32.756Z",
-    "issued_at": "2026-09-19T00:19:32.756Z"
+    "token": "l-3bf7abc7ee4c",
+    "expires": "2026-09-19T01:15:30.323Z",
+    "issued_at": "2026-09-19T00:30:30.323Z"
    },
    "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T00:19:32.756Z",
+   "updated": "2026-09-19T00:30:30.323Z",
    "history": [
     {
      "at": "2026-09-19T00:10:12.277Z",
@@ -241,14 +260,24 @@
      "at": "2026-09-19T00:19:32.756Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-19T00:30:30.323Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-19T00:30:30.323Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35408418653",
+    "run_id": "35408967892",
     "error": "lane-exhausted(3/6 lanes, last lane-429)"
    },
-   "infra_attempts": 1
+   "infra_attempts": 2
   },
   "T-108": {
    "id": "T-108",
@@ -259,12 +288,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-efc4df8728c7",
-    "expires": "2026-09-19T00:55:12.279Z",
-    "issued_at": "2026-09-19T00:10:12.279Z"
+    "token": "l-5ceac48d0702",
+    "expires": "2026-09-19T01:15:30.319Z",
+    "issued_at": "2026-09-19T00:30:30.319Z"
    },
    "created": "2026-09-19T00:10:12.277Z",
-   "updated": "2026-09-19T00:10:12.279Z",
+   "updated": "2026-09-19T00:30:30.319Z",
    "history": [
     {
      "at": "2026-09-19T00:10:12.277Z",
@@ -275,9 +304,24 @@
      "at": "2026-09-19T00:10:12.279Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-19T00:30:30.319Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-19T00:30:30.319Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "infra_failed",
+    "run_id": "35408418689",
+    "error": "lane-exhausted(3/6 lanes, last lane-429)"
+   },
+   "infra_attempts": 1
   }
  },
  "stats": {
@@ -289,8 +333,8 @@
   "orphaned_reports": 0,
   "rejected_events": 3,
   "timeouts": 0,
-  "dispatched": 7,
-  "infra_retries": 3,
+  "dispatched": 11,
+  "infra_retries": 7,
   "budget_pauses": 1
  },
  "dedup": [
@@ -317,22 +361,33 @@
   "rep-35408418198-a1",
   "rep-35408418653-a1",
   "tick-chain-1789777168045",
-  "ctl-12-budget-pause-1789777175473"
+  "ctl-12-budget-pause-1789777175473",
+  "ctl-IC_kwDOUQB5Sc8AAAABVgCp_A-resume-1789777818198",
+  "rep-35408418689-a1",
+  "rep-35408967485-a1",
+  "rep-35408967892-a1",
+  "rep-35408967470-a1",
+  "tick-console-1789777828170"
  ],
  "budget_window": [
   {
-   "ts": "2026-09-19T00:19:32.755Z",
+   "ts": "2026-09-19T00:30:30.322Z",
+   "task": "T-108",
+   "detail": "lane-exhausted(3/6 lanes, last lane-429)"
+  },
+  {
+   "ts": "2026-09-19T00:30:30.323Z",
    "task": "T-101",
    "detail": "lane-exhausted(3/6 lanes, last lane-429)"
   },
   {
-   "ts": "2026-09-19T00:19:32.756Z",
-   "task": "T-102",
+   "ts": "2026-09-19T00:30:30.323Z",
+   "task": "T-107",
    "detail": "lane-exhausted(3/6 lanes, last lane-429)"
   },
   {
-   "ts": "2026-09-19T00:19:32.756Z",
-   "task": "T-107",
+   "ts": "2026-09-19T00:30:30.324Z",
+   "task": "T-102",
    "detail": "lane-exhausted(3/6 lanes, last lane-429)"
   }
  ]
