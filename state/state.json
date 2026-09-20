@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "version": 118,
- "journal_seq": 2559,
+ "journal_seq": 2560,
  "chain": {
   "id": "c-1789776612277",
   "seq": 109,
@@ -900,7 +900,8 @@
   "tick-pinger-1789881126923",
   "tick-pinger-1789897811481",
   "tick-pinger-1789912643993",
-  "tick-pinger-1789924882967"
+  "tick-pinger-1789924882967",
+  "tick-pinger-1789933131591"
  ],
  "budget_window": []
 }
