@@ -22,3 +22,4 @@
 {"id":"e2557","ts":"2026-09-20T13:57:24.802Z","applied":false,"kind":"TICK","actor":"pinger","event_id":"tick-pinger-1789912643993","note":"pinger-liveness (held chain — audit-only marker, no state change, no self-dispatch)"}
 {"id":"e2558","ts":"2026-09-20T17:21:24.250Z","applied":false,"kind":"TICK","actor":"pinger","event_id":"tick-pinger-1789924882967","note":"pinger-liveness (held chain — audit-only marker, no state change, no self-dispatch)"}
 {"id":"e2559","ts":"2026-09-20T19:38:53.575Z","applied":false,"kind":"TICK","actor":"pinger","event_id":"tick-pinger-1789933131591","note":"pinger-liveness (held chain — audit-only marker, no state change, no self-dispatch)"}
+{"id":"e2560","ts":"2026-09-20T21:50:59.929Z","applied":false,"kind":"TICK","actor":"pinger","event_id":"tick-pinger-1789941058356","note":"pinger-liveness (held chain — audit-only marker, no state change, no self-dispatch)"}
