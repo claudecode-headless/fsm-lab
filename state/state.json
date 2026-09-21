@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "version": 73,
- "journal_seq": 3157,
+ "journal_seq": 3158,
  "chain": {
   "id": "c-1789971997876",
   "seq": 503,
@@ -277,7 +277,6 @@
   "infra_retries": 4
  },
  "dedup": [
-  "tick-chain-1789979554777",
   "tick-chain-1789979589418",
   "tick-chain-1789979621886",
   "tick-chain-1789979655052",
@@ -576,6 +575,7 @@
   "rep-35593036664-a1",
   "tick-chain-1789989320657",
   "tick-pinger-1790006354254",
-  "tick-pinger-1790022224325"
+  "tick-pinger-1790022224325",
+  "tick-pinger-1790033317815"
  ]
 }
