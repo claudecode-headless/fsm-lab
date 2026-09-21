@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "version": 30,
- "journal_seq": 2642,
+ "journal_seq": 2644,
  "chain": {
   "id": "c-1789971997876",
-  "seq": 44,
-  "last_tick": "2026-09-21T06:52:12.196Z",
+  "seq": 45,
+  "last_tick": "2026-09-21T06:52:45.656Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -44,57 +44,10 @@
   },
   "T-103": {
    "id": "T-103",
-   "title": "impl: state store CAS",
    "status": "done",
-   "behavior": "succeed",
-   "work_ms": 5000,
-   "deps": [
-    "T-101"
-   ],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-21T06:26:37.876Z",
-   "updated": "2026-09-21T06:41:23.559Z",
-   "history": [
-    {
-     "at": "2026-09-21T06:26:37.876Z",
-     "status": "backlog",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-21T06:28:20.340Z",
-     "status": "ready",
-     "why": "deps-satisfied"
-    },
-    {
-     "at": "2026-09-21T06:28:20.340Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-21T06:40:50.969Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-21T06:40:50.969Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-21T06:41:23.559Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35569518923",
-    "artifact": "shim(fast): completed task T-103 attempt 1",
-    "duration_ms": 5007
-   },
-   "infra_attempts": 1,
-   "terminal_seq": 24
+   "done_at": "2026-09-21T06:41:23.559Z",
+   "pruned": true
   },
   "T-104": {
    "id": "T-104",
@@ -302,6 +255,7 @@
   "tick-chain-1789973430043",
   "tick-chain-1789973462841",
   "tick-chain-1789973496730",
-  "tick-chain-1789973529647"
+  "tick-chain-1789973529647",
+  "tick-chain-1789973562684"
  ]
 }
