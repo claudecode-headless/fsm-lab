@@ -98,3 +98,6 @@
 {"id":"e2633","ts":"2026-09-21T06:49:23.302Z","applied":true,"kind":"TICK","seq":39,"actor":"chain","event_id":"tick-chain-1789973360695"}
 {"id":"e2634","ts":"2026-09-21T06:49:54.904Z","applied":true,"kind":"TICK","seq":40,"actor":"chain","event_id":"tick-chain-1789973392921"}
 {"id":"e2635","ts":"2026-09-21T06:50:31.956Z","applied":true,"kind":"TICK","seq":41,"actor":"chain","event_id":"tick-chain-1789973430043"}
+{"id":"e2636","ts":"2026-09-21T06:51:05.515Z","applied":true,"kind":"TICK","seq":42,"actor":"chain","event_id":"tick-chain-1789973462841"}
+{"id":"e2637","ts":"2026-09-21T06:51:05.515Z","applied":true,"kind":"PRUNE","task":"T-104","from_status":"done"}
+{"id":"e2638","ts":"2026-09-21T06:51:05.515Z","applied":true,"kind":"PRUNE","task":"T-107","from_status":"done"}

@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "version": 30,
- "journal_seq": 2636,
+ "journal_seq": 2639,
  "chain": {
   "id": "c-1789971997876",
-  "seq": 41,
-  "last_tick": "2026-09-21T06:50:31.956Z",
+  "seq": 42,
+  "last_tick": "2026-09-21T06:51:05.515Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -153,46 +153,10 @@
   },
   "T-104": {
    "id": "T-104",
-   "title": "impl: conductor loop",
    "status": "done",
-   "behavior": "succeed",
-   "work_ms": 5000,
-   "deps": [
-    "T-101"
-   ],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-21T06:26:37.876Z",
-   "updated": "2026-09-21T06:39:45.914Z",
-   "history": [
-    {
-     "at": "2026-09-21T06:26:37.876Z",
-     "status": "backlog",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-21T06:28:20.340Z",
-     "status": "ready",
-     "why": "deps-satisfied"
-    },
-    {
-     "at": "2026-09-21T06:39:11.471Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-21T06:39:45.914Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35569405022",
-    "artifact": "shim(fast): completed task T-104 attempt 1",
-    "duration_ms": 5008
-   },
-   "terminal_seq": 21
+   "done_at": "2026-09-21T06:39:45.914Z",
+   "pruned": true
   },
   "T-105": {
    "id": "T-105",
@@ -276,50 +240,10 @@
   },
   "T-107": {
    "id": "T-107",
-   "title": "edge: duplicate report",
    "status": "done",
-   "behavior": "dup",
-   "work_ms": 3000,
-   "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-21T06:26:37.876Z",
-   "updated": "2026-09-21T06:39:45.913Z",
-   "history": [
-    {
-     "at": "2026-09-21T06:26:37.876Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-21T06:26:37.879Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-21T06:39:11.471Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-21T06:39:11.471Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-21T06:39:45.913Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35569405452",
-    "artifact": "shim(dup-report): task T-107 attempt 1 completed — the report is delivered TWICE (same event_id; the drain must dedup)",
-    "duration_ms": 3005
-   },
-   "infra_attempts": 1,
-   "terminal_seq": 21
+   "done_at": "2026-09-21T06:39:45.913Z",
+   "pruned": true
   },
   "T-108": {
    "id": "T-108",
@@ -430,6 +354,7 @@
   "tick-chain-1789973326113",
   "tick-chain-1789973360695",
   "tick-chain-1789973392921",
-  "tick-chain-1789973430043"
+  "tick-chain-1789973430043",
+  "tick-chain-1789973462841"
  ]
 }
