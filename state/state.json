@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 31,
- "journal_seq": 2703,
+ "version": 33,
+ "journal_seq": 2706,
  "chain": {
   "id": "c-1789971997876",
-  "seq": 102,
-  "last_tick": "2026-09-21T07:25:09.619Z",
+  "seq": 103,
+  "last_tick": "2026-09-21T07:25:42.006Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -65,14 +65,14 @@
    "deps": [
     "T-102"
    ],
-   "attempts": 1,
+   "attempts": 2,
    "lease": {
-    "token": "l-87ad48b99295",
-    "expires": "2026-09-21T07:25:18.704Z",
-    "issued_at": "2026-09-21T06:40:18.704Z"
+    "token": "l-6cdd5e3533de",
+    "expires": "2026-09-21T08:10:42.006Z",
+    "issued_at": "2026-09-21T07:25:42.006Z"
    },
    "created": "2026-09-21T06:26:37.876Z",
-   "updated": "2026-09-21T06:40:18.704Z",
+   "updated": "2026-09-21T07:25:42.006Z",
    "history": [
     {
      "at": "2026-09-21T06:26:37.876Z",
@@ -88,6 +88,16 @@
      "at": "2026-09-21T06:40:18.704Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-21T07:25:42.006Z",
+     "status": "ready",
+     "why": "lease-timeout(attempts=1)"
+    },
+    {
+     "at": "2026-09-21T07:25:42.006Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
     }
    ],
    "last_result": null
@@ -159,11 +169,11 @@
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
-  "retries": 1,
+  "retries": 2,
   "orphaned_reports": 0,
   "rejected_events": 1,
-  "timeouts": 0,
-  "dispatched": 13,
+  "timeouts": 1,
+  "dispatched": 14,
   "infra_retries": 4
  },
  "dedup": [
@@ -280,6 +290,7 @@
   "tick-chain-1789975440208",
   "rep-35569443359-a1",
   "tick-chain-1789975475202",
-  "tick-chain-1789975507762"
+  "tick-chain-1789975507762",
+  "tick-chain-1789975539752"
  ]
 }
