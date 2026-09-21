@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 60,
- "journal_seq": 2898,
+ "version": 61,
+ "journal_seq": 2900,
  "chain": {
   "id": "c-1789971997876",
-  "seq": 267,
-  "last_tick": "2026-09-21T08:59:28.629Z",
+  "seq": 268,
+  "last_tick": "2026-09-21T09:00:00.912Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -362,18 +362,14 @@
   "T-207": {
    "id": "T-207",
    "title": "impl: poison path",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "poison",
    "work_ms": 2000,
    "deps": [],
    "attempts": 3,
-   "lease": {
-    "token": "l-7c5fb8050276",
-    "expires": "2026-09-21T09:44:28.626Z",
-    "issued_at": "2026-09-21T08:59:28.626Z"
-   },
+   "lease": null,
    "created": "2026-09-21T08:57:13.611Z",
-   "updated": "2026-09-21T08:59:28.626Z",
+   "updated": "2026-09-21T09:00:00.909Z",
    "history": [
     {
      "at": "2026-09-21T08:57:13.611Z",
@@ -414,13 +410,19 @@
      "at": "2026-09-21T08:59:28.626Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-21T09:00:00.909Z",
+     "status": "quarantined",
+     "why": "worker-failed(attempts=3)"
     }
    ],
    "last_result": {
     "status": "work_failed",
-    "run_id": "35580744218",
+    "run_id": "35580789976",
     "error": "poison-always"
-   }
+   },
+   "terminal_seq": 267
   },
   "T-208": {
    "id": "T-208",
@@ -462,7 +464,7 @@
  "stats": {
   "done": 13,
   "failed": 0,
-  "quarantined": 1,
+  "quarantined": 2,
   "cancelled": 0,
   "retries": 6,
   "orphaned_reports": 0,
@@ -759,6 +761,8 @@
   "rep-35580743900-a1",
   "rep-35580744218-a1",
   "rep-35580744189-a1",
-  "tick-chain-1789981167303"
+  "tick-chain-1789981167303",
+  "rep-35580789976-a1",
+  "tick-chain-1789981199619"
  ]
 }
