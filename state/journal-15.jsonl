@@ -54,3 +54,10 @@
 {"id":"e2589","ts":"2026-09-21T06:37:32.349Z","applied":true,"kind":"TICK","seq":18,"actor":"chain","event_id":"tick-chain-1789972649828"}
 {"id":"e2590","ts":"2026-09-21T06:38:05.446Z","applied":true,"kind":"TICK","seq":19,"actor":"chain","event_id":"tick-chain-1789972682821"}
 {"id":"e2591","ts":"2026-09-21T06:38:38.299Z","applied":true,"kind":"TICK","seq":20,"actor":"chain","event_id":"tick-chain-1789972715873"}
+{"id":"e2592","ts":"2026-09-21T06:39:11.469Z","applied":true,"kind":"REPORT","task":"T-102","lease":"l-ccca4c5b4838","to":"ready","reason":"infra-retry","run_id":"dispatch-verify","error":"dispatch-unverified","from":"assigned"}
+{"id":"e2593","ts":"2026-09-21T06:39:11.469Z","applied":true,"kind":"ASSIGN","task":"T-102","from":"ready","to":"assigned","lease":"l-0df6278f8165","expires":"2026-09-21T07:24:11.469Z","attempt":1,"behavior":"flaky","task_ref":{"kind":"state-task","id":"T-102"}}
+{"id":"e2594","ts":"2026-09-21T06:39:11.471Z","applied":true,"kind":"REPORT","task":"T-107","lease":"l-3cf90ddfa4d3","to":"ready","reason":"infra-retry","run_id":"dispatch-verify","error":"dispatch-unverified","from":"assigned"}
+{"id":"e2595","ts":"2026-09-21T06:39:11.471Z","applied":true,"kind":"ASSIGN","task":"T-104","from":"ready","to":"assigned","lease":"l-1f916e63f7ae","expires":"2026-09-21T07:24:11.471Z","attempt":1,"behavior":"succeed","task_ref":{"kind":"state-task","id":"T-104"}}
+{"id":"e2596","ts":"2026-09-21T06:39:11.471Z","applied":true,"kind":"REPORT","task":"T-108","lease":"l-cad796b1a690","to":"ready","reason":"infra-retry","run_id":"dispatch-verify","error":"dispatch-unverified","from":"assigned"}
+{"id":"e2597","ts":"2026-09-21T06:39:11.471Z","applied":true,"kind":"ASSIGN","task":"T-107","from":"ready","to":"assigned","lease":"l-ae8eae32ce93","expires":"2026-09-21T07:24:11.471Z","attempt":1,"behavior":"dup","task_ref":{"kind":"state-task","id":"T-107"}}
+{"id":"e2598","ts":"2026-09-21T06:39:11.472Z","applied":true,"kind":"TICK","seq":21,"actor":"chain","event_id":"tick-chain-1789972748434"}
