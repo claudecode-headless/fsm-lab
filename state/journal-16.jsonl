@@ -115,3 +115,5 @@
 {"id":"e3150","ts":"2026-09-21T11:14:49.146Z","applied":true,"kind":"UNLOCK","task":"T-302","from":"backlog","to":"ready"}
 {"id":"e3151","ts":"2026-09-21T11:14:49.146Z","applied":true,"kind":"ASSIGN","task":"T-302","from":"ready","to":"assigned","lease":"l-346351fe6f66","expires":"2026-09-21T11:59:49.146Z","attempt":1,"behavior":"succeed","task_ref":{"kind":"state-task","id":"T-302"}}
 {"id":"e3152","ts":"2026-09-21T11:14:49.151Z","applied":true,"kind":"TICK","seq":503,"actor":"chain","event_id":"tick-chain-1789989287724"}
+{"id":"e3153","ts":"2026-09-21T11:15:22.252Z","applied":true,"kind":"REPORT","task":"T-302","lease":"l-346351fe6f66","to":"done","run_id":"35593036664","from":"assigned"}
+{"id":"e3154","ts":"2026-09-21T11:15:22.252Z","applied":true,"kind":"PHASE","from":"executing","to":"done","stats":{"done":15,"failed":0,"quarantined":3,"cancelled":0,"retries":8,"orphaned_reports":0,"rejected_events":1,"timeouts":6,"dispatched":30,"infra_retries":4,"taskCount":18},"taskIds":["T-101","T-102","T-103","T-104","T-105","T-106","T-107","T-108","T-201","T-202","T-203","T-204","T-205","T-206","T-207","T-208","T-301","T-302"]}
