@@ -345,3 +345,12 @@
 {"id":"e2880","ts":"2026-09-21T08:58:23.317Z","applied":true,"kind":"REPORT","task":"T-201","lease":"l-f49c5e986f28","to":"done","run_id":"35580641802","from":"assigned"}
 {"id":"e2881","ts":"2026-09-21T08:58:23.317Z","applied":true,"kind":"ASSIGN","task":"T-207","from":"ready","to":"assigned","lease":"l-eb7409ad5a01","expires":"2026-09-21T09:43:23.317Z","attempt":1,"behavior":"poison","task_ref":{"kind":"state-task","id":"T-207"}}
 {"id":"e2882","ts":"2026-09-21T08:58:23.317Z","applied":true,"kind":"TICK","seq":265,"actor":"chain","event_id":"tick-chain-1789981101286"}
+{"id":"e2883","ts":"2026-09-21T08:58:57.047Z","applied":true,"kind":"REPORT","task":"T-203","lease":"l-e86766e77931","to":"failed","run_id":"35580642167","from":"assigned"}
+{"id":"e2884","ts":"2026-09-21T08:58:57.047Z","applied":true,"kind":"RETRY","task":"T-203","from":"failed","to":"ready"}
+{"id":"e2885","ts":"2026-09-21T08:58:57.047Z","applied":true,"kind":"ASSIGN","task":"T-203","from":"ready","to":"assigned","lease":"l-07e899fd7b0f","expires":"2026-09-21T09:43:57.047Z","attempt":2,"behavior":"flaky","task_ref":{"kind":"state-task","id":"T-203"}}
+{"id":"e2886","ts":"2026-09-21T08:58:57.053Z","applied":true,"kind":"REPORT","task":"T-206","lease":"l-be8628e9b472","to":"done","run_id":"35580698827","from":"assigned"}
+{"id":"e2887","ts":"2026-09-21T08:58:57.053Z","applied":true,"kind":"ASSIGN","task":"T-208","from":"ready","to":"assigned","lease":"l-7faee96f28bd","expires":"2026-09-21T09:43:57.053Z","attempt":1,"behavior":"succeed","task_ref":{"kind":"state-task","id":"T-208"}}
+{"id":"e2888","ts":"2026-09-21T08:58:57.053Z","applied":true,"kind":"REPORT","task":"T-207","lease":"l-eb7409ad5a01","to":"failed","run_id":"35580698775","from":"assigned"}
+{"id":"e2889","ts":"2026-09-21T08:58:57.053Z","applied":true,"kind":"RETRY","task":"T-207","from":"failed","to":"ready"}
+{"id":"e2890","ts":"2026-09-21T08:58:57.053Z","applied":true,"kind":"ASSIGN","task":"T-207","from":"ready","to":"assigned","lease":"l-5ee4504b9b3e","expires":"2026-09-21T09:43:57.053Z","attempt":2,"behavior":"poison","task_ref":{"kind":"state-task","id":"T-207"}}
+{"id":"e2891","ts":"2026-09-21T08:58:57.054Z","applied":true,"kind":"TICK","seq":266,"actor":"chain","event_id":"tick-chain-1789981134889"}
