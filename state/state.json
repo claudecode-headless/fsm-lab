@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "version": 30,
- "journal_seq": 2639,
+ "journal_seq": 2641,
  "chain": {
   "id": "c-1789971997876",
-  "seq": 42,
-  "last_tick": "2026-09-21T06:51:05.515Z",
+  "seq": 43,
+  "last_tick": "2026-09-21T06:51:39.466Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -37,65 +37,10 @@
   },
   "T-102": {
    "id": "T-102",
-   "title": "research: continuity mechanics",
    "status": "done",
-   "behavior": "flaky",
-   "work_ms": 3000,
-   "deps": [],
    "attempts": 2,
-   "lease": null,
-   "created": "2026-09-21T06:26:37.876Z",
-   "updated": "2026-09-21T06:40:18.704Z",
-   "history": [
-    {
-     "at": "2026-09-21T06:26:37.876Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-21T06:26:37.879Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-21T06:39:11.469Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-21T06:39:11.469Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-21T06:39:45.911Z",
-     "status": "failed",
-     "why": "worker-failed(attempts=1)"
-    },
-    {
-     "at": "2026-09-21T06:39:45.911Z",
-     "status": "ready",
-     "why": "retry-scan(attempts=1)"
-    },
-    {
-     "at": "2026-09-21T06:39:45.911Z",
-     "status": "assigned",
-     "why": "assigned(attempt=2)"
-    },
-    {
-     "at": "2026-09-21T06:40:18.704Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35569443311",
-    "artifact": "shim(flaky): completed task T-102 attempt 2",
-    "duration_ms": 3007
-   },
-   "infra_attempts": 1,
-   "terminal_seq": 22
+   "done_at": "2026-09-21T06:40:18.704Z",
+   "pruned": true
   },
   "T-103": {
    "id": "T-103",
@@ -355,6 +300,7 @@
   "tick-chain-1789973360695",
   "tick-chain-1789973392921",
   "tick-chain-1789973430043",
-  "tick-chain-1789973462841"
+  "tick-chain-1789973462841",
+  "tick-chain-1789973496730"
  ]
 }
