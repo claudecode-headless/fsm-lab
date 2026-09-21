@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 55,
- "journal_seq": 2892,
+ "version": 60,
+ "journal_seq": 2898,
  "chain": {
   "id": "c-1789971997876",
-  "seq": 266,
-  "last_tick": "2026-09-21T08:58:57.054Z",
+  "seq": 267,
+  "last_tick": "2026-09-21T08:59:28.629Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -210,18 +210,14 @@
   "T-203": {
    "id": "T-203",
    "title": "impl: parallel c",
-   "status": "assigned",
+   "status": "done",
    "behavior": "flaky",
    "work_ms": 4000,
    "deps": [],
    "attempts": 2,
-   "lease": {
-    "token": "l-07e899fd7b0f",
-    "expires": "2026-09-21T09:43:57.047Z",
-    "issued_at": "2026-09-21T08:58:57.047Z"
-   },
+   "lease": null,
    "created": "2026-09-21T08:57:13.611Z",
-   "updated": "2026-09-21T08:58:57.047Z",
+   "updated": "2026-09-21T08:59:28.624Z",
    "history": [
     {
      "at": "2026-09-21T08:57:13.611Z",
@@ -247,13 +243,20 @@
      "at": "2026-09-21T08:58:57.047Z",
      "status": "assigned",
      "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-21T08:59:28.624Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "work_failed",
-    "run_id": "35580642167",
-    "error": "flaky-fail-1"
-   }
+    "status": "done",
+    "run_id": "35580743900",
+    "artifact": "shim(flaky): completed task T-203 attempt 2",
+    "duration_ms": 4007
+   },
+   "terminal_seq": 266
   },
   "T-204": {
    "id": "T-204",
@@ -363,14 +366,14 @@
    "behavior": "poison",
    "work_ms": 2000,
    "deps": [],
-   "attempts": 2,
+   "attempts": 3,
    "lease": {
-    "token": "l-5ee4504b9b3e",
-    "expires": "2026-09-21T09:43:57.053Z",
-    "issued_at": "2026-09-21T08:58:57.053Z"
+    "token": "l-7c5fb8050276",
+    "expires": "2026-09-21T09:44:28.626Z",
+    "issued_at": "2026-09-21T08:59:28.626Z"
    },
    "created": "2026-09-21T08:57:13.611Z",
-   "updated": "2026-09-21T08:58:57.053Z",
+   "updated": "2026-09-21T08:59:28.626Z",
    "history": [
     {
      "at": "2026-09-21T08:57:13.611Z",
@@ -396,29 +399,40 @@
      "at": "2026-09-21T08:58:57.053Z",
      "status": "assigned",
      "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-21T08:59:28.626Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=2)"
+    },
+    {
+     "at": "2026-09-21T08:59:28.626Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=2)"
+    },
+    {
+     "at": "2026-09-21T08:59:28.626Z",
+     "status": "assigned",
+     "why": "assigned(attempt=3)"
     }
    ],
    "last_result": {
     "status": "work_failed",
-    "run_id": "35580698775",
+    "run_id": "35580744218",
     "error": "poison-always"
    }
   },
   "T-208": {
    "id": "T-208",
    "title": "impl: parallel g",
-   "status": "assigned",
+   "status": "done",
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-7faee96f28bd",
-    "expires": "2026-09-21T09:43:57.053Z",
-    "issued_at": "2026-09-21T08:58:57.053Z"
-   },
+   "lease": null,
    "created": "2026-09-21T08:57:13.611Z",
-   "updated": "2026-09-21T08:58:57.053Z",
+   "updated": "2026-09-21T08:59:28.629Z",
    "history": [
     {
      "at": "2026-09-21T08:57:13.611Z",
@@ -429,21 +443,32 @@
      "at": "2026-09-21T08:58:57.053Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-21T08:59:28.629Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "done",
+    "run_id": "35580744189",
+    "artifact": "shim(fast): completed task T-208 attempt 1",
+    "duration_ms": 4004
+   },
+   "terminal_seq": 266
   }
  },
  "stats": {
-  "done": 11,
+  "done": 13,
   "failed": 0,
   "quarantined": 1,
   "cancelled": 0,
-  "retries": 5,
+  "retries": 6,
   "orphaned_reports": 0,
   "rejected_events": 1,
   "timeouts": 3,
-  "dispatched": 25,
+  "dispatched": 26,
   "infra_retries": 4
  },
  "dedup": [
@@ -730,6 +755,10 @@
   "rep-35580642167-a1",
   "rep-35580698827-a1",
   "rep-35580698775-a1",
-  "tick-chain-1789981134889"
+  "tick-chain-1789981134889",
+  "rep-35580743900-a1",
+  "rep-35580744218-a1",
+  "rep-35580744189-a1",
+  "tick-chain-1789981167303"
  ]
 }
