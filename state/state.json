@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 21,
- "journal_seq": 2608,
+ "version": 24,
+ "journal_seq": 2612,
  "chain": {
   "id": "c-1789971997876",
-  "seq": 22,
-  "last_tick": "2026-09-21T06:39:45.914Z",
+  "seq": 23,
+  "last_tick": "2026-09-21T06:40:18.707Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -38,18 +38,14 @@
   "T-102": {
    "id": "T-102",
    "title": "research: continuity mechanics",
-   "status": "assigned",
+   "status": "done",
    "behavior": "flaky",
    "work_ms": 3000,
    "deps": [],
    "attempts": 2,
-   "lease": {
-    "token": "l-d9de5d413185",
-    "expires": "2026-09-21T07:24:45.911Z",
-    "issued_at": "2026-09-21T06:39:45.911Z"
-   },
+   "lease": null,
    "created": "2026-09-21T06:26:37.876Z",
-   "updated": "2026-09-21T06:39:45.911Z",
+   "updated": "2026-09-21T06:40:18.704Z",
    "history": [
     {
      "at": "2026-09-21T06:26:37.876Z",
@@ -85,14 +81,21 @@
      "at": "2026-09-21T06:39:45.911Z",
      "status": "assigned",
      "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-21T06:40:18.704Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "work_failed",
-    "run_id": "35569404832",
-    "error": "flaky-fail-1"
+    "status": "done",
+    "run_id": "35569443311",
+    "artifact": "shim(flaky): completed task T-102 attempt 2",
+    "duration_ms": 3007
    },
-   "infra_attempts": 1
+   "infra_attempts": 1,
+   "terminal_seq": 22
   },
   "T-103": {
    "id": "T-103",
@@ -176,21 +179,35 @@
   "T-105": {
    "id": "T-105",
    "title": "impl: watchdog",
-   "status": "backlog",
+   "status": "assigned",
    "behavior": "hang",
    "work_ms": 900000,
    "deps": [
     "T-102"
    ],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-87ad48b99295",
+    "expires": "2026-09-21T07:25:18.704Z",
+    "issued_at": "2026-09-21T06:40:18.704Z"
+   },
    "created": "2026-09-21T06:26:37.876Z",
-   "updated": "2026-09-21T06:26:37.876Z",
+   "updated": "2026-09-21T06:40:18.704Z",
    "history": [
     {
      "at": "2026-09-21T06:26:37.876Z",
      "status": "backlog",
      "why": "created"
+    },
+    {
+     "at": "2026-09-21T06:40:18.704Z",
+     "status": "ready",
+     "why": "deps-satisfied"
+    },
+    {
+     "at": "2026-09-21T06:40:18.704Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null
@@ -311,7 +328,7 @@
   }
  },
  "stats": {
-  "done": 3,
+  "done": 4,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -319,7 +336,7 @@
   "orphaned_reports": 0,
   "rejected_events": 1,
   "timeouts": 0,
-  "dispatched": 10,
+  "dispatched": 11,
   "infra_retries": 3
  },
  "dedup": [
@@ -351,6 +368,8 @@
   "rep-35569404832-a1",
   "rep-35569405452-a1",
   "rep-35569405022-a1",
-  "tick-chain-1789972783210"
+  "tick-chain-1789972783210",
+  "rep-35569443311-a1",
+  "tick-chain-1789972816351"
  ]
 }
