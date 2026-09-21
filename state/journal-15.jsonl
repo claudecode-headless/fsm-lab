@@ -81,3 +81,5 @@
 {"id":"e2616","ts":"2026-09-21T06:41:23.559Z","applied":true,"kind":"UNLOCK","task":"T-106","from":"backlog","to":"ready"}
 {"id":"e2617","ts":"2026-09-21T06:41:23.559Z","applied":true,"kind":"ASSIGN","task":"T-106","from":"ready","to":"assigned","lease":"l-1977ae433bdd","expires":"2026-09-21T07:26:23.559Z","attempt":1,"behavior":"succeed","task_ref":{"kind":"state-task","id":"T-106"}}
 {"id":"e2618","ts":"2026-09-21T06:41:23.565Z","applied":true,"kind":"TICK","seq":25,"actor":"chain","event_id":"tick-chain-1789972881449"}
+{"id":"e2619","ts":"2026-09-21T06:41:55.852Z","applied":true,"kind":"REPORT","task":"T-106","lease":"l-1977ae433bdd","to":"done","run_id":"35569557142","from":"assigned"}
+{"id":"e2620","ts":"2026-09-21T06:41:55.855Z","applied":true,"kind":"TICK","seq":26,"actor":"chain","event_id":"tick-chain-1789972914277"}
