@@ -379,3 +379,7 @@
 {"id":"e2914","ts":"2026-09-21T09:08:28.820Z","applied":true,"kind":"TICK","seq":283,"actor":"chain","event_id":"tick-chain-1789981706109"}
 {"id":"e2915","ts":"2026-09-21T09:09:03.525Z","applied":true,"kind":"TICK","seq":284,"actor":"chain","event_id":"tick-chain-1789981740054"}
 {"id":"e2916","ts":"2026-09-21T09:09:03.525Z","applied":true,"kind":"PRUNE","task":"T-105","from_status":"quarantined"}
+{"id":"e2917","ts":"2026-09-21T09:09:39.340Z","applied":true,"kind":"TICK","seq":285,"actor":"chain","event_id":"tick-chain-1789981777053"}
+{"id":"e2918","ts":"2026-09-21T09:09:39.340Z","applied":true,"kind":"PRUNE","task":"T-201","from_status":"done"}
+{"id":"e2919","ts":"2026-09-21T09:09:39.340Z","applied":true,"kind":"PRUNE","task":"T-202","from_status":"done"}
+{"id":"e2920","ts":"2026-09-21T09:09:39.340Z","applied":true,"kind":"PRUNE","task":"T-204","from_status":"done"}
