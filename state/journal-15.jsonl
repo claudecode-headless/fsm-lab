@@ -61,3 +61,12 @@
 {"id":"e2596","ts":"2026-09-21T06:39:11.471Z","applied":true,"kind":"REPORT","task":"T-108","lease":"l-cad796b1a690","to":"ready","reason":"infra-retry","run_id":"dispatch-verify","error":"dispatch-unverified","from":"assigned"}
 {"id":"e2597","ts":"2026-09-21T06:39:11.471Z","applied":true,"kind":"ASSIGN","task":"T-107","from":"ready","to":"assigned","lease":"l-ae8eae32ce93","expires":"2026-09-21T07:24:11.471Z","attempt":1,"behavior":"dup","task_ref":{"kind":"state-task","id":"T-107"}}
 {"id":"e2598","ts":"2026-09-21T06:39:11.472Z","applied":true,"kind":"TICK","seq":21,"actor":"chain","event_id":"tick-chain-1789972748434"}
+{"id":"e2599","ts":"2026-09-21T06:39:45.911Z","applied":true,"kind":"REPORT","task":"T-102","lease":"l-0df6278f8165","to":"failed","run_id":"35569404832","from":"assigned"}
+{"id":"e2600","ts":"2026-09-21T06:39:45.911Z","applied":true,"kind":"RETRY","task":"T-102","from":"failed","to":"ready"}
+{"id":"e2601","ts":"2026-09-21T06:39:45.911Z","applied":true,"kind":"ASSIGN","task":"T-102","from":"ready","to":"assigned","lease":"l-d9de5d413185","expires":"2026-09-21T07:24:45.911Z","attempt":2,"behavior":"flaky","task_ref":{"kind":"state-task","id":"T-102"}}
+{"id":"e2602","ts":"2026-09-21T06:39:45.913Z","applied":true,"kind":"REPORT","task":"T-107","lease":"l-ae8eae32ce93","to":"done","run_id":"35569405452","from":"assigned"}
+{"id":"e2603","ts":"2026-09-21T06:39:45.913Z","applied":true,"kind":"ASSIGN","task":"T-108","from":"ready","to":"assigned","lease":"l-92cf0821b1e8","expires":"2026-09-21T07:24:45.913Z","attempt":1,"behavior":"slow","task_ref":{"kind":"state-task","id":"T-108"}}
+{"id":"e2604","ts":"2026-09-21T06:39:45.914Z","applied":true,"kind":"REPORT","task":"T-104","lease":"l-1f916e63f7ae","to":"done","run_id":"35569405022","from":"assigned"}
+{"id":"e2605","ts":"2026-09-21T06:39:45.914Z","applied":false,"kind":"REJECTED","origKind":"REPORT","task":"T-107","event_id":"rep-35569405452-a1","reason":"duplicate"}
+{"id":"e2606","ts":"2026-09-21T06:39:45.914Z","applied":true,"kind":"TICK","seq":22,"actor":"chain","event_id":"tick-chain-1789972783210"}
+{"id":"e2607","ts":"2026-09-21T06:39:45.914Z","applied":true,"kind":"PRUNE","task":"T-101","from_status":"done"}

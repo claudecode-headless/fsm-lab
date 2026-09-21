@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 15,
- "journal_seq": 2599,
+ "version": 21,
+ "journal_seq": 2608,
  "chain": {
   "id": "c-1789971997876",
-  "seq": 21,
-  "last_tick": "2026-09-21T06:39:11.472Z",
+  "seq": 22,
+  "last_tick": "2026-09-21T06:39:45.914Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -30,39 +30,10 @@
  "tasks": {
   "T-101": {
    "id": "T-101",
-   "title": "research: state-anchor options",
    "status": "done",
-   "behavior": "succeed",
-   "work_ms": 4000,
-   "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-21T06:26:37.876Z",
-   "updated": "2026-09-21T06:28:20.340Z",
-   "history": [
-    {
-     "at": "2026-09-21T06:26:37.876Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-21T06:26:37.879Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-21T06:28:20.340Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35568515416",
-    "artifact": "shim(fast): completed task T-101 attempt 1",
-    "duration_ms": 4007
-   },
-   "terminal_seq": 1
+   "done_at": "2026-09-21T06:28:20.340Z",
+   "pruned": true
   },
   "T-102": {
    "id": "T-102",
@@ -71,14 +42,14 @@
    "behavior": "flaky",
    "work_ms": 3000,
    "deps": [],
-   "attempts": 1,
+   "attempts": 2,
    "lease": {
-    "token": "l-0df6278f8165",
-    "expires": "2026-09-21T07:24:11.469Z",
-    "issued_at": "2026-09-21T06:39:11.469Z"
+    "token": "l-d9de5d413185",
+    "expires": "2026-09-21T07:24:45.911Z",
+    "issued_at": "2026-09-21T06:39:45.911Z"
    },
    "created": "2026-09-21T06:26:37.876Z",
-   "updated": "2026-09-21T06:39:11.469Z",
+   "updated": "2026-09-21T06:39:45.911Z",
    "history": [
     {
      "at": "2026-09-21T06:26:37.876Z",
@@ -99,12 +70,27 @@
      "at": "2026-09-21T06:39:11.469Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-21T06:39:45.911Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=1)"
+    },
+    {
+     "at": "2026-09-21T06:39:45.911Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=1)"
+    },
+    {
+     "at": "2026-09-21T06:39:45.911Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
     }
    ],
    "last_result": {
-    "status": "infra_failed",
-    "run_id": "dispatch-verify",
-    "error": "dispatch-unverified"
+    "status": "work_failed",
+    "run_id": "35569404832",
+    "error": "flaky-fail-1"
    },
    "infra_attempts": 1
   },
@@ -147,20 +133,16 @@
   "T-104": {
    "id": "T-104",
    "title": "impl: conductor loop",
-   "status": "assigned",
+   "status": "done",
    "behavior": "succeed",
    "work_ms": 5000,
    "deps": [
     "T-101"
    ],
    "attempts": 1,
-   "lease": {
-    "token": "l-1f916e63f7ae",
-    "expires": "2026-09-21T07:24:11.471Z",
-    "issued_at": "2026-09-21T06:39:11.471Z"
-   },
+   "lease": null,
    "created": "2026-09-21T06:26:37.876Z",
-   "updated": "2026-09-21T06:39:11.471Z",
+   "updated": "2026-09-21T06:39:45.914Z",
    "history": [
     {
      "at": "2026-09-21T06:26:37.876Z",
@@ -176,9 +158,20 @@
      "at": "2026-09-21T06:39:11.471Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-21T06:39:45.914Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "done",
+    "run_id": "35569405022",
+    "artifact": "shim(fast): completed task T-104 attempt 1",
+    "duration_ms": 5008
+   },
+   "terminal_seq": 21
   },
   "T-105": {
    "id": "T-105",
@@ -228,18 +221,14 @@
   "T-107": {
    "id": "T-107",
    "title": "edge: duplicate report",
-   "status": "assigned",
+   "status": "done",
    "behavior": "dup",
    "work_ms": 3000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-ae8eae32ce93",
-    "expires": "2026-09-21T07:24:11.471Z",
-    "issued_at": "2026-09-21T06:39:11.471Z"
-   },
+   "lease": null,
    "created": "2026-09-21T06:26:37.876Z",
-   "updated": "2026-09-21T06:39:11.471Z",
+   "updated": "2026-09-21T06:39:45.913Z",
    "history": [
     {
      "at": "2026-09-21T06:26:37.876Z",
@@ -260,26 +249,37 @@
      "at": "2026-09-21T06:39:11.471Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-21T06:39:45.913Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "infra_failed",
-    "run_id": "dispatch-verify",
-    "error": "dispatch-unverified"
+    "status": "done",
+    "run_id": "35569405452",
+    "artifact": "shim(dup-report): task T-107 attempt 1 completed — the report is delivered TWICE (same event_id; the drain must dedup)",
+    "duration_ms": 3005
    },
-   "infra_attempts": 1
+   "infra_attempts": 1,
+   "terminal_seq": 21
   },
   "T-108": {
    "id": "T-108",
    "title": "edge: late report (orphan)",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "slow",
    "work_ms": 330000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-92cf0821b1e8",
+    "expires": "2026-09-21T07:24:45.913Z",
+    "issued_at": "2026-09-21T06:39:45.913Z"
+   },
    "created": "2026-09-21T06:26:37.876Z",
-   "updated": "2026-09-21T06:39:11.471Z",
+   "updated": "2026-09-21T06:39:45.913Z",
    "history": [
     {
      "at": "2026-09-21T06:26:37.876Z",
@@ -295,6 +295,11 @@
      "at": "2026-09-21T06:39:11.471Z",
      "status": "ready",
      "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-21T06:39:45.913Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": {
@@ -306,15 +311,15 @@
   }
  },
  "stats": {
-  "done": 1,
+  "done": 3,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
-  "retries": 0,
+  "retries": 1,
   "orphaned_reports": 0,
-  "rejected_events": 0,
+  "rejected_events": 1,
   "timeouts": 0,
-  "dispatched": 8,
+  "dispatched": 10,
   "infra_retries": 3
  },
  "dedup": [
@@ -342,6 +347,10 @@
   "rep-synthetic-verify-T-102-a1-1789971997879",
   "rep-synthetic-verify-T-107-a1-1789971997879",
   "rep-synthetic-verify-T-108-a1-1789971997879",
-  "tick-chain-1789972748434"
+  "tick-chain-1789972748434",
+  "rep-35569404832-a1",
+  "rep-35569405452-a1",
+  "rep-35569405022-a1",
+  "tick-chain-1789972783210"
  ]
 }
