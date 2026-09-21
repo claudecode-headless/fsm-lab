@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "version": 65,
- "journal_seq": 3088,
+ "journal_seq": 3089,
  "chain": {
   "id": "c-1789971997876",
-  "seq": 444,
-  "last_tick": "2026-09-21T10:40:32.748Z",
+  "seq": 445,
+  "last_tick": "2026-09-21T10:41:04.508Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -196,7 +196,6 @@
   "infra_retries": 4
  },
  "dedup": [
-  "tick-chain-1789977334743",
   "tick-chain-1789977369418",
   "tick-chain-1789977402603",
   "tick-chain-1789977434787",
@@ -495,6 +494,7 @@
   "tick-chain-1789987122384",
   "tick-chain-1789987155573",
   "tick-chain-1789987191275",
-  "tick-chain-1789987229421"
+  "tick-chain-1789987229421",
+  "tick-chain-1789987262176"
  ]
 }
