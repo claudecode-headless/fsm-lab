@@ -362,3 +362,4 @@
 {"id":"e2897","ts":"2026-09-21T08:59:28.629Z","applied":true,"kind":"TICK","seq":267,"actor":"chain","event_id":"tick-chain-1789981167303"}
 {"id":"e2898","ts":"2026-09-21T09:00:00.909Z","applied":true,"kind":"REPORT","task":"T-207","lease":"l-7c5fb8050276","to":"quarantined","run_id":"35580789976","from":"assigned"}
 {"id":"e2899","ts":"2026-09-21T09:00:00.912Z","applied":true,"kind":"TICK","seq":268,"actor":"chain","event_id":"tick-chain-1789981199619"}
+{"id":"e2900","ts":"2026-09-21T09:00:35.997Z","applied":true,"kind":"TICK","seq":269,"actor":"chain","event_id":"tick-chain-1789981234281"}
