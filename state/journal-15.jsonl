@@ -377,3 +377,5 @@
 {"id":"e2912","ts":"2026-09-21T09:07:21.900Z","applied":true,"kind":"TICK","seq":281,"actor":"chain","event_id":"tick-chain-1789981638735"}
 {"id":"e2913","ts":"2026-09-21T09:07:56.135Z","applied":true,"kind":"TICK","seq":282,"actor":"chain","event_id":"tick-chain-1789981672849"}
 {"id":"e2914","ts":"2026-09-21T09:08:28.820Z","applied":true,"kind":"TICK","seq":283,"actor":"chain","event_id":"tick-chain-1789981706109"}
+{"id":"e2915","ts":"2026-09-21T09:09:03.525Z","applied":true,"kind":"TICK","seq":284,"actor":"chain","event_id":"tick-chain-1789981740054"}
+{"id":"e2916","ts":"2026-09-21T09:09:03.525Z","applied":true,"kind":"PRUNE","task":"T-105","from_status":"quarantined"}
