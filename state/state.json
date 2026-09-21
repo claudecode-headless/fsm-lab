@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 24,
- "journal_seq": 2612,
+ "version": 26,
+ "journal_seq": 2615,
  "chain": {
   "id": "c-1789971997876",
-  "seq": 23,
-  "last_tick": "2026-09-21T06:40:18.707Z",
+  "seq": 24,
+  "last_tick": "2026-09-21T06:40:50.971Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -108,12 +108,12 @@
    ],
    "attempts": 1,
    "lease": {
-    "token": "l-1562d07cb705",
-    "expires": "2026-09-21T07:13:20.340Z",
-    "issued_at": "2026-09-21T06:28:20.340Z"
+    "token": "l-9f9a927761ac",
+    "expires": "2026-09-21T07:25:50.969Z",
+    "issued_at": "2026-09-21T06:40:50.969Z"
    },
    "created": "2026-09-21T06:26:37.876Z",
-   "updated": "2026-09-21T06:28:20.340Z",
+   "updated": "2026-09-21T06:40:50.969Z",
    "history": [
     {
      "at": "2026-09-21T06:26:37.876Z",
@@ -129,9 +129,24 @@
      "at": "2026-09-21T06:28:20.340Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-21T06:40:50.969Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-21T06:40:50.969Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "infra_failed",
+    "run_id": "dispatch-verify",
+    "error": "dispatch-unverified"
+   },
+   "infra_attempts": 1
   },
   "T-104": {
    "id": "T-104",
@@ -336,8 +351,8 @@
   "orphaned_reports": 0,
   "rejected_events": 1,
   "timeouts": 0,
-  "dispatched": 11,
-  "infra_retries": 3
+  "dispatched": 12,
+  "infra_retries": 4
  },
  "dedup": [
   "tick-console-1789971996708",
@@ -370,6 +385,8 @@
   "rep-35569405022-a1",
   "tick-chain-1789972783210",
   "rep-35569443311-a1",
-  "tick-chain-1789972816351"
+  "tick-chain-1789972816351",
+  "rep-synthetic-verify-T-103-a1-1789972100340",
+  "tick-chain-1789972848695"
  ]
 }
