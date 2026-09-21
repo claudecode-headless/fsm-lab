@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 26,
- "journal_seq": 2615,
+ "version": 29,
+ "journal_seq": 2619,
  "chain": {
   "id": "c-1789971997876",
-  "seq": 24,
-  "last_tick": "2026-09-21T06:40:50.971Z",
+  "seq": 25,
+  "last_tick": "2026-09-21T06:41:23.565Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -100,20 +100,16 @@
   "T-103": {
    "id": "T-103",
    "title": "impl: state store CAS",
-   "status": "assigned",
+   "status": "done",
    "behavior": "succeed",
    "work_ms": 5000,
    "deps": [
     "T-101"
    ],
    "attempts": 1,
-   "lease": {
-    "token": "l-9f9a927761ac",
-    "expires": "2026-09-21T07:25:50.969Z",
-    "issued_at": "2026-09-21T06:40:50.969Z"
-   },
+   "lease": null,
    "created": "2026-09-21T06:26:37.876Z",
-   "updated": "2026-09-21T06:40:50.969Z",
+   "updated": "2026-09-21T06:41:23.559Z",
    "history": [
     {
      "at": "2026-09-21T06:26:37.876Z",
@@ -139,14 +135,21 @@
      "at": "2026-09-21T06:40:50.969Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-21T06:41:23.559Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "infra_failed",
-    "run_id": "dispatch-verify",
-    "error": "dispatch-unverified"
+    "status": "done",
+    "run_id": "35569518923",
+    "artifact": "shim(fast): completed task T-103 attempt 1",
+    "duration_ms": 5007
    },
-   "infra_attempts": 1
+   "infra_attempts": 1,
+   "terminal_seq": 24
   },
   "T-104": {
    "id": "T-104",
@@ -230,22 +233,36 @@
   "T-106": {
    "id": "T-106",
    "title": "review: M1",
-   "status": "backlog",
+   "status": "assigned",
    "behavior": "succeed",
    "work_ms": 3000,
    "deps": [
     "T-103",
     "T-104"
    ],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-1977ae433bdd",
+    "expires": "2026-09-21T07:26:23.559Z",
+    "issued_at": "2026-09-21T06:41:23.559Z"
+   },
    "created": "2026-09-21T06:26:37.876Z",
-   "updated": "2026-09-21T06:26:37.876Z",
+   "updated": "2026-09-21T06:41:23.559Z",
    "history": [
     {
      "at": "2026-09-21T06:26:37.876Z",
      "status": "backlog",
      "why": "created"
+    },
+    {
+     "at": "2026-09-21T06:41:23.559Z",
+     "status": "ready",
+     "why": "deps-satisfied"
+    },
+    {
+     "at": "2026-09-21T06:41:23.559Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null
@@ -343,7 +360,7 @@
   }
  },
  "stats": {
-  "done": 4,
+  "done": 5,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -351,7 +368,7 @@
   "orphaned_reports": 0,
   "rejected_events": 1,
   "timeouts": 0,
-  "dispatched": 12,
+  "dispatched": 13,
   "infra_retries": 4
  },
  "dedup": [
@@ -387,6 +404,8 @@
   "rep-35569443311-a1",
   "tick-chain-1789972816351",
   "rep-synthetic-verify-T-103-a1-1789972100340",
-  "tick-chain-1789972848695"
+  "tick-chain-1789972848695",
+  "rep-35569518923-a1",
+  "tick-chain-1789972881449"
  ]
 }
