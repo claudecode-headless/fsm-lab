@@ -28,3 +28,6 @@
 {"id":"e3063","ts":"2026-09-21T10:26:50.722Z","applied":true,"kind":"TICK","seq":422,"actor":"chain","event_id":"tick-chain-1789986408504"}
 {"id":"e3064","ts":"2026-09-21T10:27:30.087Z","applied":true,"kind":"TICK","seq":423,"actor":"chain","event_id":"tick-chain-1789986447253"}
 {"id":"e3065","ts":"2026-09-21T10:28:03.252Z","applied":true,"kind":"TICK","seq":424,"actor":"chain","event_id":"tick-chain-1789986480977"}
+{"id":"e3066","ts":"2026-09-21T10:28:37.080Z","applied":true,"kind":"TICK","seq":425,"actor":"chain","event_id":"tick-chain-1789986514022"}
+{"id":"e3067","ts":"2026-09-21T10:28:37.080Z","applied":true,"kind":"TIMEOUT","task":"T-205","from":"assigned","to":"ready"}
+{"id":"e3068","ts":"2026-09-21T10:28:37.080Z","applied":true,"kind":"ASSIGN","task":"T-205","from":"ready","to":"assigned","lease":"l-1a6f87eec153","expires":"2026-09-21T11:13:37.080Z","attempt":3,"behavior":"no-report","task_ref":{"kind":"state-task","id":"T-205"}}
