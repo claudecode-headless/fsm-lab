@@ -168,3 +168,4 @@
 {"id":"e2703","ts":"2026-09-21T07:25:42.006Z","applied":true,"kind":"TICK","seq":103,"actor":"chain","event_id":"tick-chain-1789975539752"}
 {"id":"e2704","ts":"2026-09-21T07:25:42.006Z","applied":true,"kind":"TIMEOUT","task":"T-105","from":"assigned","to":"ready"}
 {"id":"e2705","ts":"2026-09-21T07:25:42.006Z","applied":true,"kind":"ASSIGN","task":"T-105","from":"ready","to":"assigned","lease":"l-6cdd5e3533de","expires":"2026-09-21T08:10:42.006Z","attempt":2,"behavior":"hang","task_ref":{"kind":"state-task","id":"T-105"}}
+{"id":"e2706","ts":"2026-09-21T07:26:13.098Z","applied":true,"kind":"TICK","seq":104,"actor":"chain","event_id":"tick-chain-1789975571955"}
