@@ -383,3 +383,5 @@
 {"id":"e2918","ts":"2026-09-21T09:09:39.340Z","applied":true,"kind":"PRUNE","task":"T-201","from_status":"done"}
 {"id":"e2919","ts":"2026-09-21T09:09:39.340Z","applied":true,"kind":"PRUNE","task":"T-202","from_status":"done"}
 {"id":"e2920","ts":"2026-09-21T09:09:39.340Z","applied":true,"kind":"PRUNE","task":"T-204","from_status":"done"}
+{"id":"e2921","ts":"2026-09-21T09:10:12.758Z","applied":true,"kind":"TICK","seq":286,"actor":"chain","event_id":"tick-chain-1789981810730"}
+{"id":"e2922","ts":"2026-09-21T09:10:12.758Z","applied":true,"kind":"PRUNE","task":"T-206","from_status":"done"}

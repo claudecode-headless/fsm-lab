@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "version": 61,
- "journal_seq": 2921,
+ "journal_seq": 2923,
  "chain": {
   "id": "c-1789971997876",
-  "seq": 285,
-  "last_tick": "2026-09-21T09:09:39.340Z",
+  "seq": 286,
+  "last_tick": "2026-09-21T09:10:12.758Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -187,39 +187,10 @@
   },
   "T-206": {
    "id": "T-206",
-   "title": "impl: parallel f",
    "status": "done",
-   "behavior": "succeed",
-   "work_ms": 4000,
-   "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-21T08:57:13.611Z",
-   "updated": "2026-09-21T08:58:57.053Z",
-   "history": [
-    {
-     "at": "2026-09-21T08:57:13.611Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-21T08:58:23.316Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-21T08:58:57.053Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35580698827",
-    "artifact": "shim(fast): completed task T-206 attempt 1",
-    "duration_ms": 4008
-   },
-   "terminal_seq": 265
+   "done_at": "2026-09-21T08:58:57.053Z",
+   "pruned": true
   },
   "T-207": {
    "id": "T-207",
@@ -336,7 +307,6 @@
   "infra_retries": 4
  },
  "dedup": [
-  "tick-chain-1789972273676",
   "tick-chain-1789972307506",
   "tick-chain-1789972342270",
   "tick-chain-1789972373759",
@@ -635,6 +605,7 @@
   "tick-chain-1789981672849",
   "tick-chain-1789981706109",
   "tick-chain-1789981740054",
-  "tick-chain-1789981777053"
+  "tick-chain-1789981777053",
+  "tick-chain-1789981810730"
  ]
 }
