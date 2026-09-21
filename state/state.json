@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "version": 5,
- "journal_seq": 2569,
+ "version": 9,
+ "journal_seq": 2574,
  "chain": {
   "id": "c-1789971997876",
-  "seq": 1,
-  "last_tick": "2026-09-21T06:26:37.879Z",
-  "primed_by": "console",
+  "seq": 2,
+  "last_tick": "2026-09-21T06:28:20.347Z",
+  "primed_by": "chain",
   "halted": false,
   "paused": false
  },
@@ -31,18 +31,14 @@
   "T-101": {
    "id": "T-101",
    "title": "research: state-anchor options",
-   "status": "assigned",
+   "status": "done",
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-9b471d86d742",
-    "expires": "2026-09-21T07:11:37.879Z",
-    "issued_at": "2026-09-21T06:26:37.879Z"
-   },
+   "lease": null,
    "created": "2026-09-21T06:26:37.876Z",
-   "updated": "2026-09-21T06:26:37.879Z",
+   "updated": "2026-09-21T06:28:20.340Z",
    "history": [
     {
      "at": "2026-09-21T06:26:37.876Z",
@@ -53,9 +49,20 @@
      "at": "2026-09-21T06:26:37.879Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-21T06:28:20.340Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "done",
+    "run_id": "35568515416",
+    "artifact": "shim(fast): completed task T-101 attempt 1",
+    "duration_ms": 4007
+   },
+   "terminal_seq": 1
   },
   "T-102": {
    "id": "T-102",
@@ -89,21 +96,35 @@
   "T-103": {
    "id": "T-103",
    "title": "impl: state store CAS",
-   "status": "backlog",
+   "status": "assigned",
    "behavior": "succeed",
    "work_ms": 5000,
    "deps": [
     "T-101"
    ],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-1562d07cb705",
+    "expires": "2026-09-21T07:13:20.340Z",
+    "issued_at": "2026-09-21T06:28:20.340Z"
+   },
    "created": "2026-09-21T06:26:37.876Z",
-   "updated": "2026-09-21T06:26:37.876Z",
+   "updated": "2026-09-21T06:28:20.340Z",
    "history": [
     {
      "at": "2026-09-21T06:26:37.876Z",
      "status": "backlog",
      "why": "created"
+    },
+    {
+     "at": "2026-09-21T06:28:20.340Z",
+     "status": "ready",
+     "why": "deps-satisfied"
+    },
+    {
+     "at": "2026-09-21T06:28:20.340Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null
@@ -111,7 +132,7 @@
   "T-104": {
    "id": "T-104",
    "title": "impl: conductor loop",
-   "status": "backlog",
+   "status": "ready",
    "behavior": "succeed",
    "work_ms": 5000,
    "deps": [
@@ -120,12 +141,17 @@
    "attempts": 0,
    "lease": null,
    "created": "2026-09-21T06:26:37.876Z",
-   "updated": "2026-09-21T06:26:37.876Z",
+   "updated": "2026-09-21T06:28:20.340Z",
    "history": [
     {
      "at": "2026-09-21T06:26:37.876Z",
      "status": "backlog",
      "why": "created"
+    },
+    {
+     "at": "2026-09-21T06:28:20.340Z",
+     "status": "ready",
+     "why": "deps-satisfied"
     }
    ],
    "last_result": null
@@ -235,7 +261,7 @@
   }
  },
  "stats": {
-  "done": 0,
+  "done": 1,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -243,10 +269,12 @@
   "orphaned_reports": 0,
   "rejected_events": 0,
   "timeouts": 0,
-  "dispatched": 4,
+  "dispatched": 5,
   "infra_retries": 0
  },
  "dedup": [
-  "tick-console-1789971996708"
+  "tick-console-1789971996708",
+  "rep-35568515416-a1",
+  "tick-chain-1789972099410"
  ]
 }

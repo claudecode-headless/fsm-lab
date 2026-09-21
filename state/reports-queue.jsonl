@@ -1,1 +1,0 @@
-{"event_id":"rep-35568515416-a1","task":"T-101","lease":"l-9b471d86d742","outcome":{"status":"done","artifact":"shim(fast): completed task T-101 attempt 1","artifact_refs":["tasks/T-101/artifacts/out-9f16.md"],"telemetry":{"turns":2,"wall_ms":4000,"lane_attempts_used":1},"duration_ms":4007},"run_id":"35568515416"}
