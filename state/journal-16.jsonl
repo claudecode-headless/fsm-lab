@@ -306,3 +306,8 @@
 {"id":"e3341","ts":"2026-09-22T17:19:05.458Z","applied":true,"kind":"REPORT","task":"T-X27-18","lease":"l-635f54d6745d","to":"ready","reason":"infra-retry","run_id":"35759752373","error":"lane-429","from":"assigned"}
 {"id":"e3342","ts":"2026-09-22T17:19:05.458Z","applied":true,"kind":"ASSIGN","task":"T-X27-18","from":"ready","to":"assigned","lease":"l-34409a8ce81e","expires":"2026-09-22T18:04:05.458Z","attempt":1,"behavior":"infra-flaky","task_ref":{"kind":"state-task","id":"T-X27-18"}}
 {"id":"e3343","ts":"2026-09-22T17:19:05.459Z","applied":true,"kind":"TICK","seq":4,"actor":"console","event_id":"tick-console-1790097543634"}
+{"id":"e3344","ts":"2026-09-22T17:19:43.328Z","applied":true,"kind":"REPORT","task":"T-X27-20","lease":"l-23350cc6a8d4","to":"quarantined","reason":"infra-exhausted","run_id":"35759893570","error":"lane-429","from":"assigned"}
+{"id":"e3345","ts":"2026-09-22T17:19:43.336Z","applied":true,"kind":"REPORT","task":"T-X27-19","lease":"l-ae7008696bd1","to":"quarantined","reason":"infra-exhausted","run_id":"35759892796","error":"lane-429","from":"assigned"}
+{"id":"e3346","ts":"2026-09-22T17:19:43.336Z","applied":true,"kind":"REPORT","task":"T-X27-17","lease":"l-7d9e03eaac31","to":"quarantined","reason":"infra-exhausted","run_id":"35759892859","error":"lane-429","from":"assigned"}
+{"id":"e3347","ts":"2026-09-22T17:19:43.337Z","applied":true,"kind":"REPORT","task":"T-X27-18","lease":"l-34409a8ce81e","to":"quarantined","reason":"infra-exhausted","run_id":"35759894867","error":"lane-429","from":"assigned"}
+{"id":"e3348","ts":"2026-09-22T17:19:43.339Z","applied":true,"kind":"TICK","seq":5,"actor":"chain","event_id":"tick-chain-1790097581583"}

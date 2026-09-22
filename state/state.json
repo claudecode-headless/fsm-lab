@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "version": 57,
- "journal_seq": 3344,
+ "version": 61,
+ "journal_seq": 3349,
  "chain": {
   "id": "c-1790097396865",
-  "seq": 4,
-  "last_tick": "2026-09-22T17:19:05.459Z",
-  "primed_by": "console",
+  "seq": 5,
+  "last_tick": "2026-09-22T17:19:43.339Z",
+  "primed_by": "chain",
   "halted": false,
   "paused": false
  },
@@ -651,18 +651,14 @@
   "T-X27-17": {
    "id": "T-X27-17",
    "title": "soak retry-churn 17",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "infra-flaky",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-7d9e03eaac31",
-    "expires": "2026-09-22T18:04:05.458Z",
-    "issued_at": "2026-09-22T17:19:05.458Z"
-   },
+   "lease": null,
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:19:05.458Z",
+   "updated": "2026-09-22T17:19:43.336Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -693,34 +689,36 @@
      "at": "2026-09-22T17:19:05.458Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:19:43.336Z",
+     "status": "quarantined",
+     "why": "infra-exhausted(infra_attempts=3)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35759749384",
+    "run_id": "35759892859",
     "error": "lane-429"
    },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
    },
-   "infra_attempts": 2
+   "infra_attempts": 3,
+   "terminal_seq": 4
   },
   "T-X27-18": {
    "id": "T-X27-18",
    "title": "soak retry-churn 18",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "infra-flaky",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-34409a8ce81e",
-    "expires": "2026-09-22T18:04:05.458Z",
-    "issued_at": "2026-09-22T17:19:05.458Z"
-   },
+   "lease": null,
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:19:05.458Z",
+   "updated": "2026-09-22T17:19:43.337Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -751,34 +749,36 @@
      "at": "2026-09-22T17:19:05.458Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:19:43.337Z",
+     "status": "quarantined",
+     "why": "infra-exhausted(infra_attempts=3)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35759752373",
+    "run_id": "35759894867",
     "error": "lane-429"
    },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
    },
-   "infra_attempts": 2
+   "infra_attempts": 3,
+   "terminal_seq": 4
   },
   "T-X27-19": {
    "id": "T-X27-19",
    "title": "soak retry-churn 19",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "infra-flaky",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-ae7008696bd1",
-    "expires": "2026-09-22T18:04:05.443Z",
-    "issued_at": "2026-09-22T17:19:05.443Z"
-   },
+   "lease": null,
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:19:05.443Z",
+   "updated": "2026-09-22T17:19:43.336Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -809,34 +809,36 @@
      "at": "2026-09-22T17:19:05.443Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:19:43.336Z",
+     "status": "quarantined",
+     "why": "infra-exhausted(infra_attempts=3)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35759748753",
+    "run_id": "35759892796",
     "error": "lane-429"
    },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
    },
-   "infra_attempts": 2
+   "infra_attempts": 3,
+   "terminal_seq": 4
   },
   "T-X27-20": {
    "id": "T-X27-20",
    "title": "soak retry-churn 20",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "infra-flaky",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-23350cc6a8d4",
-    "expires": "2026-09-22T18:04:05.458Z",
-    "issued_at": "2026-09-22T17:19:05.458Z"
-   },
+   "lease": null,
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:19:05.458Z",
+   "updated": "2026-09-22T17:19:43.328Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -867,18 +869,24 @@
      "at": "2026-09-22T17:19:05.458Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:19:43.328Z",
+     "status": "quarantined",
+     "why": "infra-exhausted(infra_attempts=3)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35759749427",
+    "run_id": "35759893570",
     "error": "lane-429"
    },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
    },
-   "infra_attempts": 2
+   "infra_attempts": 3,
+   "terminal_seq": 4
   },
   "T-X27-21": {
    "id": "T-X27-21",
@@ -1023,7 +1031,7 @@
  "stats": {
   "done": 14,
   "failed": 0,
-  "quarantined": 0,
+  "quarantined": 4,
   "cancelled": 0,
   "retries": 0,
   "orphaned_reports": 0,
@@ -1061,7 +1069,12 @@
   "rep-35759749384-a1",
   "rep-35759749427-a1",
   "rep-35759752373-a1",
-  "tick-console-1790097543634"
+  "tick-console-1790097543634",
+  "rep-35759893570-a1",
+  "rep-35759892796-a1",
+  "rep-35759892859-a1",
+  "rep-35759894867-a1",
+  "tick-chain-1790097581583"
  ],
  "budget_window": [
   {
@@ -1087,6 +1100,26 @@
    "task": "T-X27-18",
    "detail": "lane-429",
    "straggler": true
+  },
+  {
+   "ts": "2026-09-22T17:19:43.336Z",
+   "task": "T-X27-20",
+   "detail": "lane-429"
+  },
+  {
+   "ts": "2026-09-22T17:19:43.336Z",
+   "task": "T-X27-19",
+   "detail": "lane-429"
+  },
+  {
+   "ts": "2026-09-22T17:19:43.337Z",
+   "task": "T-X27-17",
+   "detail": "lane-429"
+  },
+  {
+   "ts": "2026-09-22T17:19:43.337Z",
+   "task": "T-X27-18",
+   "detail": "lane-429"
   }
  ],
  "budget_window_cleared_at": "2026-09-22T17:19:05.442Z"
