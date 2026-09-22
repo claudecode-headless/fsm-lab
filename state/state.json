@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 2,
- "journal_seq": 3169,
+ "version": 4,
+ "journal_seq": 3172,
  "chain": {
   "id": "c-1790088673434",
-  "seq": 6,
-  "last_tick": "2026-09-22T14:54:07.823Z",
+  "seq": 7,
+  "last_tick": "2026-09-22T14:54:42.171Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -37,12 +37,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-b5cbaf6c06e1",
-    "expires": "2026-09-22T15:36:13.437Z",
-    "issued_at": "2026-09-22T14:51:13.437Z"
+    "token": "l-3856ebeebc2e",
+    "expires": "2026-09-22T15:39:42.167Z",
+    "issued_at": "2026-09-22T14:54:42.167Z"
    },
    "created": "2026-09-22T14:51:13.434Z",
-   "updated": "2026-09-22T14:51:13.437Z",
+   "updated": "2026-09-22T14:54:42.167Z",
    "history": [
     {
      "at": "2026-09-22T14:51:13.434Z",
@@ -53,14 +53,66 @@
      "at": "2026-09-22T14:51:13.437Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T14:54:42.167Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-22T14:54:42.167Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "infra_failed",
+    "run_id": "35743217528",
+    "error": "lane-exhausted(3/6 lanes, last lane-402)",
+    "lane_stats": {
+     "calls": 13,
+     "ok": 0,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 0,
+     "cost": 0,
+     "p50_ms": 40,
+     "p95_ms": 284,
+     "rate_classes": {
+      "openrouter_credits": 2
+     },
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 12,
+       "ok": 0,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 0,
+       "cost": 0,
+       "p50_ms": 40,
+       "p95_ms": 284
+      },
+      "z-ai/glm-5.3-flash": {
+       "calls": 1,
+       "ok": 0,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 0,
+       "cost": 0,
+       "p50_ms": 243,
+       "p95_ms": 243
+      }
+     }
+    },
+    "key_index": 1,
+    "pool_size": 2
+   },
    "spec": {
     "accept": "Reply with exactly one sentence confirming you received this prompt, then stop. No other work.",
     "issue": 16,
     "body_sha8": "c47ccb47"
-   }
+   },
+   "infra_attempts": 1
   }
  },
  "stats": {
@@ -72,8 +124,8 @@
   "orphaned_reports": 0,
   "rejected_events": 0,
   "timeouts": 0,
-  "dispatched": 1,
-  "infra_retries": 0
+  "dispatched": 2,
+  "infra_retries": 1
  },
  "dedup": [
   "tick-intake-1790088671550",
@@ -81,6 +133,8 @@
   "tick-chain-1790088742763",
   "tick-chain-1790088778129",
   "tick-chain-1790088811124",
-  "tick-chain-1790088845702"
+  "tick-chain-1790088845702",
+  "rep-35743217528-a1",
+  "tick-chain-1790088880891"
  ]
 }
