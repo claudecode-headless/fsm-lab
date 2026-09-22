@@ -1,4 +1,0 @@
-{"event_id":"rep-35759748753-a1","task":"T-X27-19","lease":"l-e5a0068eaad7","outcome":{"status":"infra_failed","error":"lane-429","telemetry":{"turns":1,"wall_ms":1000,"lane_attempts_used":3},"duration_ms":1004},"run_id":"35759748753"}
-{"event_id":"rep-35759749384-a1","task":"T-X27-17","lease":"l-ee2418723b4f","outcome":{"status":"infra_failed","error":"lane-429","telemetry":{"turns":1,"wall_ms":1000,"lane_attempts_used":3},"duration_ms":1003},"run_id":"35759749384"}
-{"event_id":"rep-35759749427-a1","task":"T-X27-20","lease":"l-cd8f8aab2a37","outcome":{"status":"infra_failed","error":"lane-429","telemetry":{"turns":1,"wall_ms":1000,"lane_attempts_used":3},"duration_ms":1004},"run_id":"35759749427"}
-{"event_id":"rep-35759752373-a1","task":"T-X27-18","lease":"l-635f54d6745d","outcome":{"status":"infra_failed","error":"lane-429","telemetry":{"turns":1,"wall_ms":1000,"lane_attempts_used":3},"duration_ms":1003},"run_id":"35759752373"}

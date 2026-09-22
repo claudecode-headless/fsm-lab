@@ -1,15 +1,14 @@
 {
  "schema": 1,
- "version": 48,
- "journal_seq": 3334,
+ "version": 57,
+ "journal_seq": 3344,
  "chain": {
   "id": "c-1790097396865",
-  "seq": 3,
-  "last_tick": "2026-09-22T17:17:46.029Z",
-  "primed_by": "chain",
+  "seq": 4,
+  "last_tick": "2026-09-22T17:19:05.459Z",
+  "primed_by": "console",
   "halted": false,
-  "paused": true,
-  "paused_reason": "lane-budget-exhausted"
+  "paused": false
  },
  "project": {
   "phase": "executing",
@@ -658,12 +657,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-ee2418723b4f",
-    "expires": "2026-09-22T18:02:46.027Z",
-    "issued_at": "2026-09-22T17:17:46.027Z"
+    "token": "l-7d9e03eaac31",
+    "expires": "2026-09-22T18:04:05.458Z",
+    "issued_at": "2026-09-22T17:19:05.458Z"
    },
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:17:46.027Z",
+   "updated": "2026-09-22T17:19:05.458Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -684,18 +683,28 @@
      "at": "2026-09-22T17:17:46.027Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:19:05.458Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-22T17:19:05.458Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35759690878",
+    "run_id": "35759749384",
     "error": "lane-429"
    },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
    },
-   "infra_attempts": 1
+   "infra_attempts": 2
   },
   "T-X27-18": {
    "id": "T-X27-18",
@@ -706,12 +715,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-635f54d6745d",
-    "expires": "2026-09-22T18:02:46.027Z",
-    "issued_at": "2026-09-22T17:17:46.027Z"
+    "token": "l-34409a8ce81e",
+    "expires": "2026-09-22T18:04:05.458Z",
+    "issued_at": "2026-09-22T17:19:05.458Z"
    },
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:17:46.027Z",
+   "updated": "2026-09-22T17:19:05.458Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -732,18 +741,28 @@
      "at": "2026-09-22T17:17:46.027Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:19:05.458Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-22T17:19:05.458Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35759693150",
+    "run_id": "35759752373",
     "error": "lane-429"
    },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
    },
-   "infra_attempts": 1
+   "infra_attempts": 2
   },
   "T-X27-19": {
    "id": "T-X27-19",
@@ -754,12 +773,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-e5a0068eaad7",
-    "expires": "2026-09-22T18:02:46.023Z",
-    "issued_at": "2026-09-22T17:17:46.023Z"
+    "token": "l-ae7008696bd1",
+    "expires": "2026-09-22T18:04:05.443Z",
+    "issued_at": "2026-09-22T17:19:05.443Z"
    },
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:17:46.023Z",
+   "updated": "2026-09-22T17:19:05.443Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -780,18 +799,28 @@
      "at": "2026-09-22T17:17:46.023Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:19:05.443Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-22T17:19:05.443Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35759691942",
+    "run_id": "35759748753",
     "error": "lane-429"
    },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
    },
-   "infra_attempts": 1
+   "infra_attempts": 2
   },
   "T-X27-20": {
    "id": "T-X27-20",
@@ -802,12 +831,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-cd8f8aab2a37",
-    "expires": "2026-09-22T18:02:46.027Z",
-    "issued_at": "2026-09-22T17:17:46.027Z"
+    "token": "l-23350cc6a8d4",
+    "expires": "2026-09-22T18:04:05.458Z",
+    "issued_at": "2026-09-22T17:19:05.458Z"
    },
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:17:46.027Z",
+   "updated": "2026-09-22T17:19:05.458Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -828,18 +857,28 @@
      "at": "2026-09-22T17:17:46.027Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:19:05.458Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-22T17:19:05.458Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35759692346",
+    "run_id": "35759749427",
     "error": "lane-429"
    },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
    },
-   "infra_attempts": 1
+   "infra_attempts": 2
   },
   "T-X27-21": {
    "id": "T-X27-21",
@@ -990,8 +1029,8 @@
   "orphaned_reports": 0,
   "rejected_events": 1,
   "timeouts": 0,
-  "dispatched": 28,
-  "infra_retries": 4,
+  "dispatched": 32,
+  "infra_retries": 8,
   "budget_pauses": 1
  },
  "dedup": [
@@ -1016,28 +1055,39 @@
   "rep-35759690878-a1",
   "rep-35759692346-a1",
   "tick-chain-1790097464549",
-  "ctl-12-budget-pause-1790097469900"
+  "ctl-12-budget-pause-1790097469900",
+  "ctl-IC_kwDOUQB5Sc8AAAABWJC-1Q-resume-1790097529484",
+  "rep-35759748753-a1",
+  "rep-35759749384-a1",
+  "rep-35759749427-a1",
+  "rep-35759752373-a1",
+  "tick-console-1790097543634"
  ],
  "budget_window": [
   {
-   "ts": "2026-09-22T17:17:46.026Z",
+   "ts": "2026-09-22T17:19:05.458Z",
    "task": "T-X27-19",
-   "detail": "lane-429"
+   "detail": "lane-429",
+   "straggler": true
   },
   {
-   "ts": "2026-09-22T17:17:46.027Z",
-   "task": "T-X27-18",
-   "detail": "lane-429"
-  },
-  {
-   "ts": "2026-09-22T17:17:46.027Z",
+   "ts": "2026-09-22T17:19:05.458Z",
    "task": "T-X27-17",
-   "detail": "lane-429"
+   "detail": "lane-429",
+   "straggler": true
   },
   {
-   "ts": "2026-09-22T17:17:46.028Z",
+   "ts": "2026-09-22T17:19:05.458Z",
    "task": "T-X27-20",
-   "detail": "lane-429"
+   "detail": "lane-429",
+   "straggler": true
+  },
+  {
+   "ts": "2026-09-22T17:19:05.459Z",
+   "task": "T-X27-18",
+   "detail": "lane-429",
+   "straggler": true
   }
- ]
+ ],
+ "budget_window_cleared_at": "2026-09-22T17:19:05.442Z"
 }
