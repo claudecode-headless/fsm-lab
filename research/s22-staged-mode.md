@@ -125,7 +125,7 @@ permissions:
   actions: read     # the bucket-2 runs query + the watchdog-runs assert (law-4 pattern, conductor.yml:51)
 jobs:
   gate:      { ... }  # §1.2 — read-only state check; refuses unless halted-clean
-  run:       { ... }  # §2  — seeds (PAT) + monitors to halt; timeout-minutes: 55
+  run:       { ... }  # §2  — seeds (PAT) + monitors to halt; timeout-minutes: 70
   verify:    { ... }  # §3  — the assertion pass; needs: run; if: always()
   teardown:  { ... }  # §4  — cleanup + marker + stuck-recovery; needs: verify; if: always()
 ```
@@ -148,8 +148,8 @@ plane (the same reasoning that made `EPOCH_MODE` a repo variable,
 ### 1.3 The safety gates — when the drill REFUSES
 
 The gate job (read-only: checkout + `Store.fetch()` + `readState()` + the queue
-readers — the watchdog's own read pattern, `watchdog/scan.mjs:8,39-44` and
-`lib/store.mjs:67,113,403-404,428-429`) exits **green with a SKIP marker**
+readers — the watchdog's own read pattern, `watchdog/scan.mjs:402-404`, and
+`lib/store.mjs:67,113,353,403-404,428-429`) exits **green with a SKIP marker**
 (a log line + nothing else) unless ALL hold:
 
 | # | Check | Refuses when | Why (cite) |
@@ -157,7 +157,7 @@ readers — the watchdog's own read pattern, `watchdog/scan.mjs:8,39-44` and
 | G1 | `chain.halted === true` | a LIVE or PAUSED chain | one state, one epoch: a reset/rollover on a live chain would destroy the real epoch's state (`conductor-core.mjs:492-533` replaces `s` wholesale) |
 | G2 | `chain.paused === false` | a budget-pause hold | the pause is the X23-class quota protection; a drill epoch through it wipes the hold (`conductor-core.mjs:473-476`) |
 | G3 | `project.phase === 'done'` and every `tasks[*].status` terminal (`done`/`quarantined`/`cancelled`) — or zero tasks | a mid-flight epoch | the halted-clean resting shape; the LIVE state is exactly this today (§0.3) |
-| G4 | report queue, control queue, AND intake queue all EMPTY | a queued spec (real or drill) | the rollover consumes the queue HEAD (`conductor-core.mjs:502,719`) — a queued real spec means the real system is WAITING to run and must not be jumped, and a queued drill line means last night never drained (§7.4) |
+| G4 | report queue, control queue, AND intake queue all EMPTY | a queued spec (real or drill) | the rollover consumes the queue HEAD (`conductor-core.mjs:502,719`) — a queued real spec means the real system is WAITING to run and must not be jumped, and a queued drill line means last night never drained (§7 F7) |
 | G5 | `github.event_name === 'workflow_dispatch'` OR the cadence var admits today | cadence not yet promoted | §1.2 |
 | G6 | no in-progress `fsm-worker`/`fsm-conductor` runs on either bucket (WARN-only on agentrunners; hard on main) | straggler runs from a real epoch | G3 normally implies this; the check catches an orphaned mirror run still grinding (≤50 min, `worker.yml:67`) before the drill adds load to the shared 20-slot org bucket |
 
@@ -261,7 +261,7 @@ covers the recovery paths the brief names, WITHOUT the flaky ones:
 | `T-STG-A-<MMDD>` | `fast` | a1 → done, ~4 min | the happy X22 shape: door → rollover → dispatch → real-runner turn → report → drain (the one-pass loop, mock-economics edition) |
 | `T-STG-B-<MMDD>` | `fast` | a1 → done, ~4 min, **on the mirror bucket** | the X26 pin: PRE-FLIGHT overflow → exactly ONE dispatch (C-2) → the mirror run in `agentrunners/fsm-lab-workers` → the report CAS-append routes back to the MAIN `fsm-state` (the TARGET_REPO geometry) |
 | `T-STG-C-<MMDD>` | `infra-flaky` | a1 `infra_failed lane-429` → a2 done | the infra-retry ladder: a real infra report drains as a retry, not a quarantine; `stats.infra_retries ≥ 1`, NO budget-pause (1 distinct task < threshold 3, `conductor-core.mjs:667`) |
-| `T-STG-H-<MMDD>` | `hang` | a1 silent → lease expiry → TIMEOUT → a2 silent → TIMEOUT → **quarantined** | the lease-expiry recovery: the reaper (not the scan, not the TTL) is the handler BY DESIGN (`worker.yml:29-32`); plus the C-1 union-scan pin (below) |
+| `T-STG-H-<MMDD>` | `hang` | a1/a2/a3 silent → lease expiry ×3 → **quarantined** (~48 min) | the lease-expiry recovery: the reaper (not the scan, not the TTL) is the handler BY DESIGN (`worker.yml:29-32`); plus the C-1 union-scan pin (below) |
 
 **The epoch-wide lease is 15 minutes** (the spec's `lease_minutes: 15` — the
 mechanism is CONFIG-level: the rollover puts the head spec's door-validated
@@ -272,6 +272,10 @@ A single value serves the whole mix: the fast tasks report done at ~4 min,
 comfortably inside their leases (a lease only matters when a worker is
 silent), and the hang task gets the 15 min the C-1 arithmetic needs. NO
 per-task lease mechanism exists today and the design does not add one.
+**`max_attempts` likewise stays the adopted value (3, live config §0.3)** —
+the spec has no knob for it and the design does not add one: the hang task
+therefore burns its full ladder (3 × 15 min), which the wall budget (§2.3)
+simply pays for.
 
 The `<MMDD>` date suffix (baked into the issue body by the seed job) keeps task
 ids unique per night: the journal's task attribution is unambiguous, and the
@@ -373,7 +377,8 @@ spec-level `lease_minutes` rides the EXISTING A4-F1 mechanism unchanged,
 
 **Stage 0 fallback with ZERO door changes** (§6): the single-task spec
 alternates by weekday — Mon/Thu `fast`, Tue `infra-flaky`, Wed `hang`
-(lease 15, ~35 min arc), Fri `fast`… Each night is one one-pass epoch covering
+(lease 15, the full 3-attempt ladder ≈ 48 min), Fri `fast`… Each night is one
+one-pass epoch covering
 door/rollover/turn/drain/halt/quiesce/watchdog plus ONE recovery arc. The
 overflow pair is the only pin that structurally needs multi-task (the pre-flight
 arm needs in-flight ≥ 1, and a single-task epoch never has it — the first
@@ -391,18 +396,20 @@ Grounded numbers (live-measured where possible):
   (checkout + turn + the in-run pacing sleep, `conductor/turn.mjs:625-646`).
 - Fast tasks: ~4 min each (164 s latency + ~40 s run + a drain tick).
 - `infra-flaky`: ~8 min (a1 infra + reassign + a2).
-- `hang` × 2 attempts: 2 × (15 min lease + a reaper tick) ≈ **32 min** — the
-  epoch's critical path (the lease-expiry wait is irreducible: you cannot prove
+- `hang` × 3 attempts (the adopted `max_attempts:3`, §0.3 — no spec knob, by
+  design): 3 × (15 min lease + a reaper tick) ≈ **48 min** — the epoch's
+  critical path (the lease-expiry wait is irreducible: you cannot prove
   a lease expired faster than a lease).
 - Genesis + MILESTONE + dispatches: ~3 min. Drain→halt + PHASE-done digest: ~2 min.
 
-**Epoch wall ≈ 35–40 min. Full nightly wall (gate+seed+monitor+verify+teardown)
-≈ 50–60 min.** The `run` job's `timeout-minutes: 55` is the alarm line (§7.2).
+**Epoch wall ≈ 50 min. Full nightly wall (gate+seed+monitor+verify+teardown)
+≈ 65–75 min** (01:37 → ~02:50 UTC). The `run` job's `timeout-minutes: 70` is
+the alarm line (§7 F2).
 
 Runner-minutes per night (public repos → **$0**; the honest accounting anyway):
 ~35–45 conductor ticks × ~1 min + ~8 worker runs × ~1.5 min + 1 door + the
-staged workflow's own 4 jobs (~12 min) + the monitor's idle poll (~40 min of
-mostly-sleeping runner) ≈ **~110 runner-min/night ≈ 3.5 h/month**. The monitor
+staged workflow's own 4 jobs (~12 min) + the monitor's idle poll (~50 min of
+mostly-sleeping runner) ≈ **~120 runner-min/night ≈ 3.6 h/month**. The monitor
 idle is the same accepted class as the conductor's pacing sleep ("free on
 public repos", `conductor/turn.mjs:626-628`). §5.1 has the private-repo
 contingency.
@@ -418,7 +425,7 @@ run on a stuck drill too, because it is also the stuck-detector). It reads:
 
 - **`fsm-state`** through the REAL `Store` (the watchdog's read-only pattern:
   checkout + `store.fetch()` + `readState()` + `readJournalTail()`,
-  `watchdog/scan.mjs:8,39-44`, `lib/store.mjs:67,113,534`) — git reads, zero
+  `watchdog/scan.mjs:402-404`, `lib/store.mjs:67,113,534`) — git reads, zero
   API cost, byte-identical to what every machine-plane reader sees.
 - **The journal's epoch segment** — records AFTER the newest applied
   `CONTROL reset` boundary, the same walk `epochSpend` uses
@@ -440,7 +447,7 @@ run on a stuck drill too, because it is also the stuck-detector). It reads:
 | A2 | all tasks terminal | `tasks[*].status` | `done×3` (A, B, C) + `quarantined×1` (H); zero `assigned/in_progress/ready/backlog` |
 | A3 | halt reached, non-degraded | `chain.halted && project.phase==='done'` + the PHASE journal record `degraded !== true` (the R2 quality gate, `conductor/turn.mjs:539-552`) | done 3/4 = 75% ≥ 50% → "PROJECT COMPLETE", not the degraded alert |
 | A4 | **zero double-applied** | the epoch journal segment: no two APPLIED `REPORT` records share `(task, event_id)`; a re-delivered id only ever lands as `REJECTED reason:'duplicate'` (`lib/fsm.mjs:195-206` — the dedup ring journals the reject, never a second apply) | 0 double-applies |
-| A5 | attempts ladder | `tasks[*].attempts` + REPORT/TIMEOUT records | A=1, B=1, C=2 (one `infra_failed lane-429` REPORT then done), H=2 (two TIMEOUT records, the last `to:'quarantined'`, `conductor/turn.mjs:499-501`) |
+| A5 | attempts ladder | `tasks[*].attempts` + REPORT/TIMEOUT records | A=1, B=1, C=2 (one `infra_failed lane-429` REPORT then done), H=3 (three TIMEOUT records — two `to:'ready'`, the last `to:'quarantined'`, `conductor/turn.mjs:499-501`; the adopted `max_attempts:3`, §0.3) |
 | A6 | **overflow actually overflowed** | the mirror bucket's runs: a run named `task-T-STG-B-<MMDD> · fast · a1` (and C's/H's) in `agentrunners/fsm-lab-workers` + ≥1 main-repo worker run (A's) | ≥2 mirror runs, ≥1 main run — the X26 evidence |
 | A7 | **the union scan protected the mirror work** (C-1) | zero `dispatch-unverified` REPORT records for T-STG-H in the journal (the flip shape, `conductor-core.mjs:233-243`) | 0 — meaningful BECAUSE H's lease (15 min) outlives the 720 s flip window (§2.1) |
 | A8 | exactly ONE dispatch per task (C-2) | mirror + main run ledgers: one run per (task, attempt) | no duplicate runs (the pre-flight arm's contract, `conductor/turn.mjs:410-427`) |
@@ -485,7 +492,7 @@ alike.
   **read-RED** (the verify job could not read state/runs after 3 attempts —
   likely API flake; the page says so and suggests re-running the verify job).
   Both page once; neither is silently green (law 5).
-- The teardown's stuck-recovery arm runs ONLY on a stuck drill (§4.3) — an
+- The teardown's stuck-recovery arm runs ONLY on a stuck drill (§4.2) — an
   assertion-RED on a halted-clean chain leaves the system alone: the state is
   a valid resting state, just not the one we wanted; the next night retries.
 
@@ -524,7 +531,7 @@ new to build, everything cited):
 
 ### 4.2 The stuck-drill recovery arm (the only teardown that writes anything)
 
-If the `run` job's monitor times out (no halt within 55 min) or the verify job
+If the `run` job's monitor times out (no halt within 70 min) or the verify job
 finds a non-terminal state, the teardown dispatches ONE control:
 
 ```
@@ -582,7 +589,7 @@ vars/secrets incl. deliberately-dead keys for quota shapes"
 
 | Dimension | S: same-repo + namespace | D: disposable repo |
 |---|---|---|
-| **Blast radius on the real system** | the drill epoch IS the state for ~40 min; gated to halted-clean start + natural halt end (§1.3, §4.1). Residue: §4.1's table, all bounded by existing mechanisms. | zero state pollution of the real `fsm-state` — the drill repo has its own |
+| **Blast radius on the real system** | the drill epoch IS the state for ~50 min; gated to halted-clean start + natural halt end (§1.3, §4.1). Residue: §4.1's table, all bounded by existing mechanisms. | zero state pollution of the real `fsm-state` — the drill repo has its own |
 | **CAS contention** | none possible with a real epoch (the §1 lock); contention with the watchdog's marker write + console reads exists ALREADY for every real epoch (the single-writer group serializes writers, `conductor.yml:44-46`) | zero |
 | **Fidelity** | **MAXIMAL**: the real branch, real vars, real secrets, real OPS_ISSUE anchor, real watchdog + pinger + alert lanes, real mirror bucket — the thing the principal asked to prove ("REAL GitHub runners, REAL workflow composition, REAL fsm-state CAS") | a COPY: real runners + real composition, but a fresh `fsm-state`, a fresh ops anchor, no pinger, no contention history — proves the loop, not THE system |
 | **Mirror/overflow (X26)** | works bit-for-bit with ZERO new infra: the real `agentrunners/fsm-lab-workers` already has `TARGET_REPO=claudecode-headless/fsm-lab` (§0.3) and `LAB_PAT` (X25) — the drill's overflow dispatches ride the production lane and the reports route home | **the fatal flaw**: the real mirror bucket's `TARGET_REPO` points at the REAL repo — its workers would report to the REAL `fsm-state`. D must either (a) flip the production bucket's `TARGET_REPO` nightly (mutating production config — strictly worse pollution than S's residue, with a wedge if the flip-back fails), or (b) mint a FOURTH repo (drill mirror) with its own vars + `LAB_PAT` secret — doubling the setup surface |
@@ -633,7 +640,7 @@ cheaper than D: tighten §4.1's bounds (skip the QUARANTINED alert comment for
 ### 5.1 The cadence: nightly (stage 2), 01:37 UTC
 
 - **Nightly, not 2×/week**: the drill's value is the STREAK — regression
-  detection latency is one day. The wall budget (~50–60 min, §2.3) fits any
+  detection latency is one day. The wall budget (~65–75 min, §2.3) fits any
   night; the operator-visible surface is one marker comment + at most one page.
 - **01:37 UTC**: after the OpenRouter free-tier ~UTC-midnight reset (so a late
   real cc epoch has drained and the quota window is fresh — irrelevant for
@@ -650,9 +657,9 @@ cheaper than D: tighten §4.1's bounds (skip the QUARANTINED alert comment for
 - **Both repos are public** (§0.3): ubuntu-latest minutes are FREE and
   unmetered; the real costs are the org's shared **20-concurrent-jobs bucket**
   (the drill's peak: 1 conductor + ≤4 workers + 1 staged job ≈ 6 of 20) and
-  wall clock. ~110 runner-min/night (§2.3) ≈ 3.5 h/month of occupancy.
+  wall clock. ~120 runner-min/night (§2.3) ≈ 3.6 h/month of occupancy.
 - **Private-repo contingency** (if the org ever flips either repo private):
-  ~3,450 min/month exceeds the 2,000 free private minutes → the ladder drops
+  ~3,700 min/month exceeds the 2,000 free private minutes → the ladder drops
   to weekly (§6: ~800 min/month) or the monitor job's idle poll is replaced by
   a cheaper external poll (the executor's scheduler, see §9 Q5). Stated now so
   nobody rediscovers it under pressure.
@@ -699,12 +706,12 @@ pause/halt — stays the operator's", `ops/console.mjs:58-60`).
 | # | Failure | What happens | Why it is bounded (cite) |
 |---|---|---|---|
 | F1 | **Nightly epoch overlaps a REAL epoch** | See §1.4: pre-check gate (G1–G4) + the structural epoch mutex + ownership detection (A1). The residual race (a real issue wins the queue head in the seconds between gate and enqueue) → the REAL epoch runs; the drill DEFERS (green, no teardown, no page). Reverse: a real issue mid-drill queues behind (position comment) and runs at the next rollover | `conductor-core.mjs:502,719` (head-first rollover); `intake/turn.mjs:153-157` |
-| F2 | **Stuck drill (no halt in 55 min)** | The monitor job times out → RED page; the teardown dispatches the plain `reset`; a fresh mock epoch self-completes (~3 h) and halts; tomorrow's gate re-checks halted-clean. Meanwhile the REAL watchdog independently re-primes (≤3, then latches + one deduped alert) — the drill cannot out-live its watchdog window: the watchdog watches the SAME chain with `STALE_AFTER_MIN:4` (`watchdog.yml:38`) at ~6 scans/hour (`watchdog.yml:13-15`) | §4.2; `watchdog/scan.mjs:19-25`; the deadman: `lib/pinger-watch.mjs:25-33` (3 h marker staleness → the executor-hosted duty pages) |
+| F2 | **Stuck drill (no halt in 70 min)** | The monitor job times out → RED page; the teardown dispatches the plain `reset`; a fresh mock epoch self-completes (~3 h) and halts; tomorrow's gate re-checks halted-clean. Meanwhile the REAL watchdog independently re-primes (≤3, then latches + one deduped alert) — the drill cannot out-live its watchdog window: the watchdog watches the SAME chain with `STALE_AFTER_MIN:4` (`watchdog.yml:38`) at ~6 scans/hour (`watchdog.yml:13-15`) | §4.2; `watchdog/scan.mjs:19-25`; the deadman: `lib/pinger-watch.mjs:25-33` (3 h marker staleness → the executor-hosted duty pages) |
 | F3 | **GH API flakiness (403/000/5xx)** | Seed writes (PATCH/reopen): 2 attempts + backoff (the door's own nudge-retry pattern, `intake/turn.mjs:70-75`); a failed reopen = no epoch = green SKIP-with-log (retry next night — the queue was never touched). Dispatches: the conductor's own Retry-After-aware ladder (`conductor/turn.mjs:106-115`). Verify reads: 3 attempts, then read-RED (distinct from assertion-RED, §3.4) | the ladder is budget-capped + 403-without-RA fails fast (`conductor-core.mjs` dispatchLadder, `conductor/turn.mjs:108-112`) |
 | F4 | **Runner queue delay (5–30 min on the shared bucket)** | The envelope deadline is ABSOLUTE, minted at dispatch — queue-delay-proof (`conductor/turn.mjs:400-401`); a worker that starts past its deadline reports one `infra_failed late-start` and exits 0 without burning the lease (`worker.yml:18-20`) → the FSM's normal retry ladder absorbs it. The 15-min lease gives every task a ~13-min deadline (15 min − the 120 s envelope margin, `conductor-core.mjs:91-101`) — a 10-min queue delay is absorbed; a 30-min delay trips F2 (and is itself worth paging — a 30-min queue delay on the org bucket is a real capacity problem) | the START-GATE contract, `worker.yml:18-20`; the lease floor 3 + envelope margin (s22/B-1) |
 | F5 | **Schedule sparsity / cold-start** | The 01:37 cron fires late or not at all → a missing night is a no-op (nothing pages; the marker gap is visible). No catch-up run: the next night's dated spec is a fresh epoch anyway | `conductor.yml:37-41` (the live datum) |
 | F6 | **Mid-drill deploy (a push to main while the epoch is live)** | Workers/conductor check out the CURRENT main per run → one mixed-version night. Not a new class: the system runs mixed-deploy windows by design (the F2 livelock note, `conductor/turn.mjs:334-337`); the drill's asserts are version-independent invariants | the invariants (A-table) hold across versions |
-| F7 | **The drill's own issue wedge** (door enqueued but the rollover never consumed it — nudge + backstop + pinger ALL dead for 24 h) | Next night's gate REFUSES (G4: intake queue non-empty). The stale line is eventually consumed by ANY live tick's rollover → ONE unattended mock drill epoch (~40 min) self-completes and halts; real specs parked behind it are untouched (plain-queue parking). Note: this wedge requires the whole machine plane to be dead for a day — which the watchdog latch + deadman duty page about independently | G4; `conductor-core.mjs:494-496`; the latch `watchdog/scan.mjs:19-25` |
+| F7 | **The drill's own issue wedge** (door enqueued but the rollover never consumed it — nudge + backstop + pinger ALL dead for 24 h) | Next night's gate REFUSES (G4: intake queue non-empty). The stale line is eventually consumed by ANY live tick's rollover → ONE unattended mock drill epoch (~50 min) self-completes and halts; real specs parked behind it are untouched (plain-queue parking). Note: this wedge requires the whole machine plane to be dead for a day — which the watchdog latch + deadman duty page about independently | G4; `conductor-core.mjs:494-496`; the latch `watchdog/scan.mjs:19-25` |
 | F8 | **The reset twin (the teardown's own reset double-fires)** | The fsm-control fan-out wakes conductor + ops (both register the type); the direct reset applies, the queued twin is REJECTED `reset-duplicate` (<30 s, note match) with NO comment — the F-1 guard's exact purpose | `conductor-core.mjs:446-491`; `conductor/turn.mjs:513-521` |
 | F9 | **Drill RED is actually a REAL regression** (the drill caught a merge) | That is the product working. The RED page cites the failed A-asserts; the drill report artifact carries timings; the local drill (`e2e/drill.mjs --scenario …`) reproduces offline for bisection | the whole §3 design |
 
@@ -833,7 +840,7 @@ the ladder to weekly.
 - **Q4 — the nightly ops-issue comments** (~3/night incl. one
   QUARANTINED-via-timeout alert, §4.1): acceptable signal or filter
   `T-STG-*` from the quarantine alert arm (`conductor/turn.mjs:499-501`)?
-- **Q5 — the monitor's idle runner** (~40 min/night of polling sleep, free on
+- **Q5 — the monitor's idle runner** (~50 min/night of polling sleep, free on
   public repos): fine as designed; if the org ever flips the repo private
   (§5.2) the executor's scheduler can host the poll (the de-correlated
   trigger plane — the pinger-duty pattern, `lib/pinger-watch.mjs:4-11`).
@@ -860,11 +867,29 @@ tree; findings and fixes applied:
    `conductor-core.mjs:717-718` is the only spec→config path) → §2.1/§2.2
    rewritten around the epoch-wide `lease_minutes: 15`; F4's tolerances
    recomputed (~13-min deadline = 15 − the 120 s margin).
-4. **§4.2's rollover cite tightened** to the actual gate
+4. **The hang task's attempt count was wrong** (was 2, assuming a spec-level
+   `max_attempts` that does not exist — the adopted live config is
+   `max_attempts:3`, §0.3) → H's arc is the full 3-attempt ladder (~48 min);
+   the wall budget, monitor timeout (55→70 min), A5's expected values, and
+   the stage-0 fallback arc all recomputed. (A spec-level `max_attempts`
+   knob is NOT added — same discipline as finding 3: adopt, don't extend.)
+5. **§4.2's rollover cite tightened** to the actual gate
    (`conductor-core.mjs:693` — `phase === 'done' && !chain.paused`).
-5. Verified against live data (read-only): the repo vars (§0.3), the
-   mirror's `TARGET_REPO`, the halted-clean state shape, `journal-16`
-   rotation — all as claimed.
+6. **The gate/verify read-pattern cites were imprecise** (were
+   `watchdog/scan.mjs:8,39-44` — the doc comment + imports) → fixed to
+   `watchdog/scan.mjs:402-404` (the actual `new Store → fetch → readState`
+   sequence) and the store reader set extended with `readQueueEx`
+   (`lib/store.mjs:353`, the reports-queue reader the gate's G4 needs;
+   the console reads the same depth at `ops/console.mjs:527`).
+7. **Every remaining cite re-verified line-by-line** after the fixes: all
+   workflow YAML cites (conductor/worker/watchdog/ops-console/ops/intake/ci),
+   all `conductor/turn.mjs`, `conductor-core.mjs`, `store.mjs`, `fsm.mjs`,
+   `intake.mjs`, `ops/console.mjs`, `watchdog/scan.mjs`, `pinger-watch.mjs`,
+   `harness-shim.mjs`, `task-pr.mjs`, `mock-project.mjs`, `README.md`,
+   `e2e/drill.mjs`, `e2e/lib/scheduler.mjs`, and the two s21-audit research
+   cites — each checked against the file at the cited line(s). Live data
+   re-confirmed read-only: the repo vars (§0.3), the mirror's `TARGET_REPO`,
+   the halted-clean state shape, the `journal-16` rotation.
 
 Known-soft cites (flagged honestly): "worklog 18-main" (§4.3) refers to
 `/home/z/my-project/worklog.md` session-18, not a tree file; the X5 164 s
