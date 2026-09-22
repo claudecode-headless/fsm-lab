@@ -1,17 +1,17 @@
 {
  "schema": 1,
- "version": 6,
- "journal_seq": 3212,
+ "version": 8,
+ "journal_seq": 3214,
  "chain": {
   "id": "c-1790091295667",
   "seq": 18,
   "last_tick": "2026-09-22T15:45:51.139Z",
   "primed_by": "chain",
-  "halted": false,
+  "halted": true,
   "paused": false
  },
  "project": {
-  "phase": "executing",
+  "phase": "done",
   "milestone": 1,
   "milestones_total": 1,
   "mode": "cc",
@@ -31,18 +31,14 @@
   "T-W2": {
    "id": "T-W2",
    "title": "W1 key-jump complete arc verification",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-c3e0c5f3b84b",
-    "expires": "2026-09-22T16:27:56.186Z",
-    "issued_at": "2026-09-22T15:42:56.186Z"
-   },
+   "lease": null,
    "created": "2026-09-22T15:34:55.667Z",
-   "updated": "2026-09-22T15:42:56.186Z",
+   "updated": "2026-09-22T15:46:34.484Z",
    "history": [
     {
      "at": "2026-09-22T15:34:55.667Z",
@@ -73,11 +69,16 @@
      "at": "2026-09-22T15:42:56.186Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T15:46:34.484Z",
+     "status": "quarantined",
+     "why": "infra-exhausted(infra_attempts=3)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35748861353",
+    "run_id": "35749262016",
     "error": "lane-exhausted(3/6 lanes, last lane-402)",
     "lane_stats": {
      "calls": 13,
@@ -86,8 +87,8 @@
      "err5xx": 0,
      "tokens": 0,
      "cost": 0,
-     "p50_ms": 44,
-     "p95_ms": 518,
+     "p50_ms": 51,
+     "p95_ms": 284,
      "rate_classes": {
       "openrouter_credits": 2
      },
@@ -99,8 +100,8 @@
        "err5xx": 0,
        "tokens": 0,
        "cost": 0,
-       "p50_ms": 44,
-       "p95_ms": 518
+       "p50_ms": 51,
+       "p95_ms": 284
       },
       "z-ai/glm-5.3-flash": {
        "calls": 1,
@@ -109,8 +110,8 @@
        "err5xx": 0,
        "tokens": 0,
        "cost": 0,
-       "p50_ms": 250,
-       "p95_ms": 250
+       "p50_ms": 235,
+       "p95_ms": 235
       }
      }
     },
@@ -122,13 +123,14 @@
     "issue": 17,
     "body_sha8": "263c8bc3"
    },
-   "infra_attempts": 2
+   "infra_attempts": 3,
+   "terminal_seq": 18
   }
  },
  "stats": {
   "done": 0,
   "failed": 0,
-  "quarantined": 0,
+  "quarantined": 1,
   "cancelled": 0,
   "retries": 0,
   "orphaned_reports": 0,
@@ -157,6 +159,8 @@
   "tick-chain-1790091808523",
   "tick-chain-1790091845891",
   "tick-chain-1790091879260",
-  "tick-chain-1790091949060"
+  "tick-chain-1790091949060",
+  "rep-35749262016-a1",
+  "tick-chain-1790091992129"
  ]
 }
