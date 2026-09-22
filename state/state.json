@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 33,
- "journal_seq": 3317,
+ "version": 47,
+ "journal_seq": 3333,
  "chain": {
   "id": "c-1790097396865",
-  "seq": 2,
-  "last_tick": "2026-09-22T17:17:13.802Z",
+  "seq": 3,
+  "last_tick": "2026-09-22T17:17:46.029Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -272,18 +272,14 @@
   "T-X27-07": {
    "id": "T-X27-07",
    "title": "soak saturate 07",
-   "status": "assigned",
+   "status": "done",
    "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-3cd8b157ec51",
-    "expires": "2026-09-22T18:01:36.869Z",
-    "issued_at": "2026-09-22T17:16:36.869Z"
-   },
+   "lease": null,
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.869Z",
+   "updated": "2026-09-22T17:17:46.026Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -294,13 +290,24 @@
      "at": "2026-09-22T17:16:36.869Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:17:46.026Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35759622670",
+    "artifact": "shim(fast): completed task T-X27-07 attempt 1",
+    "duration_ms": 4006
+   },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
-   }
+   },
+   "terminal_seq": 2
   },
   "T-X27-08": {
    "id": "T-X27-08",
@@ -385,18 +392,14 @@
   "T-X27-10": {
    "id": "T-X27-10",
    "title": "soak saturate 10",
-   "status": "assigned",
+   "status": "done",
    "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-81e97b24c8e7",
-    "expires": "2026-09-22T18:01:36.869Z",
-    "issued_at": "2026-09-22T17:16:36.869Z"
-   },
+   "lease": null,
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.869Z",
+   "updated": "2026-09-22T17:17:46.020Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -407,29 +410,36 @@
      "at": "2026-09-22T17:16:36.869Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:17:46.020Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35759624921",
+    "artifact": "shim(fast): completed task T-X27-10 attempt 1",
+    "duration_ms": 4007
+   },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
-   }
+   },
+   "terminal_seq": 2
   },
   "T-X27-11": {
    "id": "T-X27-11",
    "title": "soak saturate 11",
-   "status": "assigned",
+   "status": "done",
    "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-20811869f2c8",
-    "expires": "2026-09-22T18:01:36.869Z",
-    "issued_at": "2026-09-22T17:16:36.869Z"
-   },
+   "lease": null,
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.869Z",
+   "updated": "2026-09-22T17:17:46.022Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -440,29 +450,36 @@
      "at": "2026-09-22T17:16:36.869Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:17:46.022Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35759624154",
+    "artifact": "shim(fast): completed task T-X27-11 attempt 1",
+    "duration_ms": 4008
+   },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
-   }
+   },
+   "terminal_seq": 2
   },
   "T-X27-12": {
    "id": "T-X27-12",
    "title": "soak saturate 12",
-   "status": "assigned",
+   "status": "done",
    "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-2adaf44d2411",
-    "expires": "2026-09-22T18:01:36.869Z",
-    "issued_at": "2026-09-22T17:16:36.869Z"
-   },
+   "lease": null,
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.869Z",
+   "updated": "2026-09-22T17:17:46.023Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -473,29 +490,36 @@
      "at": "2026-09-22T17:16:36.869Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:17:46.023Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35759624692",
+    "artifact": "shim(fast): completed task T-X27-12 attempt 1",
+    "duration_ms": 4007
+   },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
-   }
+   },
+   "terminal_seq": 2
   },
   "T-X27-13": {
    "id": "T-X27-13",
    "title": "soak saturate 13",
-   "status": "assigned",
+   "status": "done",
    "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-bcea1eefdd95",
-    "expires": "2026-09-22T18:01:36.869Z",
-    "issued_at": "2026-09-22T17:16:36.869Z"
-   },
+   "lease": null,
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.869Z",
+   "updated": "2026-09-22T17:17:46.023Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -506,13 +530,24 @@
      "at": "2026-09-22T17:16:36.869Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:17:46.023Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35759625196",
+    "artifact": "shim(fast): completed task T-X27-13 attempt 1",
+    "duration_ms": 4006
+   },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
-   }
+   },
+   "terminal_seq": 2
   },
   "T-X27-14": {
    "id": "T-X27-14",
@@ -622,12 +657,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-3f10a6e82ddc",
-    "expires": "2026-09-22T18:02:13.765Z",
-    "issued_at": "2026-09-22T17:17:13.765Z"
+    "token": "l-ee2418723b4f",
+    "expires": "2026-09-22T18:02:46.027Z",
+    "issued_at": "2026-09-22T17:17:46.027Z"
    },
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:17:13.765Z",
+   "updated": "2026-09-22T17:17:46.027Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -638,13 +673,28 @@
      "at": "2026-09-22T17:17:13.765Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:17:46.027Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-22T17:17:46.027Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "infra_failed",
+    "run_id": "35759690878",
+    "error": "lane-429"
+   },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
-   }
+   },
+   "infra_attempts": 1
   },
   "T-X27-18": {
    "id": "T-X27-18",
@@ -655,12 +705,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-5a0e936c5b08",
-    "expires": "2026-09-22T18:02:13.799Z",
-    "issued_at": "2026-09-22T17:17:13.799Z"
+    "token": "l-635f54d6745d",
+    "expires": "2026-09-22T18:02:46.027Z",
+    "issued_at": "2026-09-22T17:17:46.027Z"
    },
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:17:13.799Z",
+   "updated": "2026-09-22T17:17:46.027Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -671,13 +721,28 @@
      "at": "2026-09-22T17:17:13.799Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:17:46.027Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-22T17:17:46.027Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "infra_failed",
+    "run_id": "35759693150",
+    "error": "lane-429"
+   },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
-   }
+   },
+   "infra_attempts": 1
   },
   "T-X27-19": {
    "id": "T-X27-19",
@@ -688,12 +753,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-2e1a412a4ddd",
-    "expires": "2026-09-22T18:02:13.799Z",
-    "issued_at": "2026-09-22T17:17:13.799Z"
+    "token": "l-e5a0068eaad7",
+    "expires": "2026-09-22T18:02:46.023Z",
+    "issued_at": "2026-09-22T17:17:46.023Z"
    },
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:17:13.799Z",
+   "updated": "2026-09-22T17:17:46.023Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -704,13 +769,28 @@
      "at": "2026-09-22T17:17:13.799Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:17:46.023Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-22T17:17:46.023Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "infra_failed",
+    "run_id": "35759691942",
+    "error": "lane-429"
+   },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
-   }
+   },
+   "infra_attempts": 1
   },
   "T-X27-20": {
    "id": "T-X27-20",
@@ -721,12 +801,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-2615297d5eda",
-    "expires": "2026-09-22T18:02:13.800Z",
-    "issued_at": "2026-09-22T17:17:13.800Z"
+    "token": "l-cd8f8aab2a37",
+    "expires": "2026-09-22T18:02:46.027Z",
+    "issued_at": "2026-09-22T17:17:46.027Z"
    },
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:17:13.800Z",
+   "updated": "2026-09-22T17:17:46.027Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -737,29 +817,40 @@
      "at": "2026-09-22T17:17:13.800Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:17:46.027Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-22T17:17:46.027Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "infra_failed",
+    "run_id": "35759692346",
+    "error": "lane-429"
+   },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
-   }
+   },
+   "infra_attempts": 1
   },
   "T-X27-21": {
    "id": "T-X27-21",
    "title": "soak cas-storm 21",
-   "status": "assigned",
+   "status": "done",
    "behavior": "dup-report",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-97913d137827",
-    "expires": "2026-09-22T18:02:13.800Z",
-    "issued_at": "2026-09-22T17:17:13.800Z"
-   },
+   "lease": null,
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:17:13.800Z",
+   "updated": "2026-09-22T17:17:46.026Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -770,13 +861,24 @@
      "at": "2026-09-22T17:17:13.800Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:17:46.026Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35759694539",
+    "artifact": "shim(dup-report): task T-X27-21 attempt 1 completed — the report is delivered TWICE (same event_id; the drain must dedup)",
+    "duration_ms": 4006
+   },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
-   }
+   },
+   "terminal_seq": 2
   },
   "T-X27-22": {
    "id": "T-X27-22",
@@ -879,16 +981,16 @@
   }
  },
  "stats": {
-  "done": 8,
+  "done": 14,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
   "retries": 0,
   "orphaned_reports": 0,
-  "rejected_events": 0,
+  "rejected_events": 1,
   "timeouts": 0,
-  "dispatched": 24,
-  "infra_retries": 0
+  "dispatched": 28,
+  "infra_retries": 4
  },
  "dedup": [
   "tick-console-1790097395403",
@@ -900,6 +1002,39 @@
   "rep-35759622630-a1",
   "rep-35759622244-a1",
   "rep-35759623727-a1",
-  "tick-chain-1790097431550"
+  "tick-chain-1790097431550",
+  "rep-35759624921-a1",
+  "rep-35759624154-a1",
+  "rep-35759625196-a1",
+  "rep-35759624692-a1",
+  "rep-35759691942-a1",
+  "rep-35759622670-a1",
+  "rep-35759694539-a1",
+  "rep-35759693150-a1",
+  "rep-35759690878-a1",
+  "rep-35759692346-a1",
+  "tick-chain-1790097464549"
+ ],
+ "budget_window": [
+  {
+   "ts": "2026-09-22T17:17:46.026Z",
+   "task": "T-X27-19",
+   "detail": "lane-429"
+  },
+  {
+   "ts": "2026-09-22T17:17:46.027Z",
+   "task": "T-X27-18",
+   "detail": "lane-429"
+  },
+  {
+   "ts": "2026-09-22T17:17:46.027Z",
+   "task": "T-X27-17",
+   "detail": "lane-429"
+  },
+  {
+   "ts": "2026-09-22T17:17:46.028Z",
+   "task": "T-X27-20",
+   "detail": "lane-429"
+  }
  ]
 }
