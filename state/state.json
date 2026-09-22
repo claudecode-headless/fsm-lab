@@ -1,14 +1,15 @@
 {
  "schema": 1,
- "version": 6,
- "journal_seq": 3277,
+ "version": 7,
+ "journal_seq": 3278,
  "chain": {
   "id": "c-1790097137332",
   "seq": 1,
   "last_tick": "2026-09-22T17:12:17.334Z",
   "primed_by": "console",
   "halted": false,
-  "paused": false
+  "paused": true,
+  "paused_reason": "lane-budget-exhausted"
  },
  "project": {
   "phase": "executing",
@@ -245,7 +246,8 @@
   "rejected_events": 5,
   "timeouts": 0,
   "dispatched": 4,
-  "infra_retries": 0
+  "infra_retries": 0,
+  "budget_pauses": 1
  },
  "dedup": [
   "ctl-IC_kwDOUQB5Sc8AAAABWI9M1Q-resume-1790097133832",
@@ -254,7 +256,8 @@
   "rep-35758790275-a1",
   "rep-35758790787-a1",
   "rep-35758789815-a1",
-  "tick-console-1790097133504"
+  "tick-console-1790097133504",
+  "ctl-12-budget-pause-1790097140084"
  ],
  "budget_window": [
   {
