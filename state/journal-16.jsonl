@@ -155,3 +155,4 @@
 {"id":"e3190","ts":"2026-09-22T15:34:55.670Z","applied":true,"kind":"ASSIGN","task":"T-W2","from":"ready","to":"assigned","lease":"l-e0bafc22babe","expires":"2026-09-22T16:19:55.670Z","attempt":1,"behavior":"real","task_ref":{"kind":"state-task","id":"T-W2"}}
 {"id":"e3191","ts":"2026-09-22T15:35:38.014Z","applied":true,"kind":"TICK","seq":2,"actor":"chain","event_id":"tick-chain-1790091336799"}
 {"id":"e3192","ts":"2026-09-22T15:36:17.464Z","applied":true,"kind":"TICK","seq":3,"actor":"chain","event_id":"tick-chain-1790091375093"}
+{"id":"e3193","ts":"2026-09-22T15:36:51.589Z","applied":true,"kind":"TICK","seq":4,"actor":"chain","event_id":"tick-chain-1790091409880"}
