@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "version": 63,
- "journal_seq": 3376,
+ "journal_seq": 3383,
  "chain": {
   "id": "c-1790097396865",
-  "seq": 22,
-  "last_tick": "2026-09-22T17:39:13.940Z",
+  "seq": 23,
+  "last_tick": "2026-09-22T17:39:48.189Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -73,43 +73,10 @@
   },
   "T-X27-07": {
    "id": "T-X27-07",
-   "title": "soak saturate 07",
    "status": "done",
-   "behavior": "fast",
-   "work_ms": 4000,
-   "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:17:46.026Z",
-   "history": [
-    {
-     "at": "2026-09-22T17:16:36.866Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-22T17:16:36.869Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-22T17:17:46.026Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35759622670",
-    "artifact": "shim(fast): completed task T-X27-07 attempt 1",
-    "duration_ms": 4006
-   },
-   "spec": {
-    "issue": 20,
-    "body_sha8": "52cb083c"
-   },
-   "terminal_seq": 2
+   "done_at": "2026-09-22T17:17:46.026Z",
+   "pruned": true
   },
   "T-X27-08": {
    "id": "T-X27-08",
@@ -127,163 +94,31 @@
   },
   "T-X27-10": {
    "id": "T-X27-10",
-   "title": "soak saturate 10",
    "status": "done",
-   "behavior": "fast",
-   "work_ms": 4000,
-   "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:17:46.020Z",
-   "history": [
-    {
-     "at": "2026-09-22T17:16:36.866Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-22T17:16:36.869Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-22T17:17:46.020Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35759624921",
-    "artifact": "shim(fast): completed task T-X27-10 attempt 1",
-    "duration_ms": 4007
-   },
-   "spec": {
-    "issue": 20,
-    "body_sha8": "52cb083c"
-   },
-   "terminal_seq": 2
+   "done_at": "2026-09-22T17:17:46.020Z",
+   "pruned": true
   },
   "T-X27-11": {
    "id": "T-X27-11",
-   "title": "soak saturate 11",
    "status": "done",
-   "behavior": "fast",
-   "work_ms": 4000,
-   "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:17:46.022Z",
-   "history": [
-    {
-     "at": "2026-09-22T17:16:36.866Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-22T17:16:36.869Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-22T17:17:46.022Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35759624154",
-    "artifact": "shim(fast): completed task T-X27-11 attempt 1",
-    "duration_ms": 4008
-   },
-   "spec": {
-    "issue": 20,
-    "body_sha8": "52cb083c"
-   },
-   "terminal_seq": 2
+   "done_at": "2026-09-22T17:17:46.022Z",
+   "pruned": true
   },
   "T-X27-12": {
    "id": "T-X27-12",
-   "title": "soak saturate 12",
    "status": "done",
-   "behavior": "fast",
-   "work_ms": 4000,
-   "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:17:46.023Z",
-   "history": [
-    {
-     "at": "2026-09-22T17:16:36.866Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-22T17:16:36.869Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-22T17:17:46.023Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35759624692",
-    "artifact": "shim(fast): completed task T-X27-12 attempt 1",
-    "duration_ms": 4007
-   },
-   "spec": {
-    "issue": 20,
-    "body_sha8": "52cb083c"
-   },
-   "terminal_seq": 2
+   "done_at": "2026-09-22T17:17:46.023Z",
+   "pruned": true
   },
   "T-X27-13": {
    "id": "T-X27-13",
-   "title": "soak saturate 13",
    "status": "done",
-   "behavior": "fast",
-   "work_ms": 4000,
-   "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:17:46.023Z",
-   "history": [
-    {
-     "at": "2026-09-22T17:16:36.866Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-22T17:16:36.869Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-22T17:17:46.023Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35759625196",
-    "artifact": "shim(fast): completed task T-X27-13 attempt 1",
-    "duration_ms": 4006
-   },
-   "spec": {
-    "issue": 20,
-    "body_sha8": "52cb083c"
-   },
-   "terminal_seq": 2
+   "done_at": "2026-09-22T17:17:46.023Z",
+   "pruned": true
   },
   "T-X27-14": {
    "id": "T-X27-14",
@@ -626,43 +461,10 @@
   },
   "T-X27-21": {
    "id": "T-X27-21",
-   "title": "soak cas-storm 21",
    "status": "done",
-   "behavior": "dup-report",
-   "work_ms": 4000,
-   "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:17:46.026Z",
-   "history": [
-    {
-     "at": "2026-09-22T17:16:36.866Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-22T17:17:13.800Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-22T17:17:46.026Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35759694539",
-    "artifact": "shim(dup-report): task T-X27-21 attempt 1 completed — the report is delivered TWICE (same event_id; the drain must dedup)",
-    "duration_ms": 4006
-   },
-   "spec": {
-    "issue": 20,
-    "body_sha8": "52cb083c"
-   },
-   "terminal_seq": 2
+   "done_at": "2026-09-22T17:17:46.026Z",
+   "pruned": true
   },
   "T-X27-22": {
    "id": "T-X27-22",
@@ -829,7 +631,8 @@
   "tick-chain-1790098646237",
   "tick-chain-1790098680809",
   "tick-chain-1790098716325",
-  "tick-chain-1790098750691"
+  "tick-chain-1790098750691",
+  "tick-chain-1790098783839"
  ],
  "budget_window": [],
  "budget_window_cleared_at": "2026-09-22T17:26:47.496Z"
