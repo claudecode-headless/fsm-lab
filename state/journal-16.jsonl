@@ -240,3 +240,7 @@
 {"id":"e3275","ts":"2026-09-22T17:12:17.334Z","applied":false,"kind":"REJECTED","origKind":"REPORT","task":"T-X27-20","event_id":"rep-35758789815-a1","reason":"unknown-task","outcome":{"status":"infra_failed","error":"lane-429","artifact":null}}
 {"id":"e3276","ts":"2026-09-22T17:12:17.334Z","applied":true,"kind":"TICK","seq":1,"actor":"console","event_id":"tick-console-1790097133504"}
 {"id":"e3277","ts":"2026-09-22T17:12:20.329Z","applied":true,"kind":"CONTROL","command":"pause","actor":null,"note":null,"payload":{"reason":"lane-budget-exhausted","window":[{"ts":"2026-09-22T17:12:17.333Z","task":"T-X27-18","detail":"lane-429"},{"ts":"2026-09-22T17:12:17.334Z","task":"T-X27-17","detail":"lane-429"},{"ts":"2026-09-22T17:12:17.334Z","task":"T-X27-19","detail":"lane-429"},{"ts":"2026-09-22T17:12:17.334Z","task":"T-X27-20","detail":"lane-429"}]}}
+{"id":"e3278","ts":"2026-09-22T17:15:06.065Z","applied":true,"kind":"REPORT","task":"T-102","lease":"l-2734087fa0f4","to":"failed","run_id":"35759150331","from":"assigned"}
+{"id":"e3279","ts":"2026-09-22T17:15:06.066Z","applied":true,"kind":"REPORT","task":"T-107","lease":"l-fbee22454869","to":"done","run_id":"35759150842","from":"assigned"}
+{"id":"e3280","ts":"2026-09-22T17:15:06.066Z","applied":false,"kind":"REJECTED","origKind":"REPORT","task":"T-107","event_id":"rep-35759150842-a1","reason":"duplicate"}
+{"id":"e3281","ts":"2026-09-22T17:15:06.066Z","applied":true,"kind":"REPORT","task":"T-101","lease":"l-1b345fbdf460","to":"done","run_id":"35759150310","from":"assigned"}
