@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "version": 17,
- "journal_seq": 3300,
+ "version": 33,
+ "journal_seq": 3317,
  "chain": {
   "id": "c-1790097396865",
-  "seq": 1,
-  "last_tick": "2026-09-22T17:16:36.869Z",
-  "primed_by": "console",
+  "seq": 2,
+  "last_tick": "2026-09-22T17:17:13.802Z",
+  "primed_by": "chain",
   "halted": false,
   "paused": false
  },
@@ -32,18 +32,14 @@
   "T-X27-01": {
    "id": "T-X27-01",
    "title": "soak saturate 01",
-   "status": "assigned",
+   "status": "done",
    "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-b12000897815",
-    "expires": "2026-09-22T18:01:36.869Z",
-    "issued_at": "2026-09-22T17:16:36.869Z"
-   },
+   "lease": null,
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.869Z",
+   "updated": "2026-09-22T17:17:13.800Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -54,29 +50,36 @@
      "at": "2026-09-22T17:16:36.869Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:17:13.800Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35759621491",
+    "artifact": "shim(fast): completed task T-X27-01 attempt 1",
+    "duration_ms": 4007
+   },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
-   }
+   },
+   "terminal_seq": 1
   },
   "T-X27-02": {
    "id": "T-X27-02",
    "title": "soak saturate 02",
-   "status": "assigned",
+   "status": "done",
    "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-e4d0c9bece63",
-    "expires": "2026-09-22T18:01:36.869Z",
-    "issued_at": "2026-09-22T17:16:36.869Z"
-   },
+   "lease": null,
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.869Z",
+   "updated": "2026-09-22T17:17:13.801Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -87,29 +90,36 @@
      "at": "2026-09-22T17:16:36.869Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:17:13.801Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35759623727",
+    "artifact": "shim(fast): completed task T-X27-02 attempt 1",
+    "duration_ms": 4008
+   },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
-   }
+   },
+   "terminal_seq": 1
   },
   "T-X27-03": {
    "id": "T-X27-03",
    "title": "soak saturate 03",
-   "status": "assigned",
+   "status": "done",
    "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-faaffabdec72",
-    "expires": "2026-09-22T18:01:36.869Z",
-    "issued_at": "2026-09-22T17:16:36.869Z"
-   },
+   "lease": null,
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.869Z",
+   "updated": "2026-09-22T17:17:13.765Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -120,29 +130,36 @@
      "at": "2026-09-22T17:16:36.869Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:17:13.765Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35759621659",
+    "artifact": "shim(fast): completed task T-X27-03 attempt 1",
+    "duration_ms": 4007
+   },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
-   }
+   },
+   "terminal_seq": 1
   },
   "T-X27-04": {
    "id": "T-X27-04",
    "title": "soak saturate 04",
-   "status": "assigned",
+   "status": "done",
    "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-9fac89bb11b0",
-    "expires": "2026-09-22T18:01:36.869Z",
-    "issued_at": "2026-09-22T17:16:36.869Z"
-   },
+   "lease": null,
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.869Z",
+   "updated": "2026-09-22T17:17:13.799Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -153,29 +170,36 @@
      "at": "2026-09-22T17:16:36.869Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:17:13.799Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35759622120",
+    "artifact": "shim(fast): completed task T-X27-04 attempt 1",
+    "duration_ms": 4008
+   },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
-   }
+   },
+   "terminal_seq": 1
   },
   "T-X27-05": {
    "id": "T-X27-05",
    "title": "soak saturate 05",
-   "status": "assigned",
+   "status": "done",
    "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-000c1c1bf644",
-    "expires": "2026-09-22T18:01:36.869Z",
-    "issued_at": "2026-09-22T17:16:36.869Z"
-   },
+   "lease": null,
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.869Z",
+   "updated": "2026-09-22T17:17:13.801Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -186,29 +210,36 @@
      "at": "2026-09-22T17:16:36.869Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:17:13.801Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35759622244",
+    "artifact": "shim(fast): completed task T-X27-05 attempt 1",
+    "duration_ms": 4006
+   },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
-   }
+   },
+   "terminal_seq": 1
   },
   "T-X27-06": {
    "id": "T-X27-06",
    "title": "soak saturate 06",
-   "status": "assigned",
+   "status": "done",
    "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-af7084819ad4",
-    "expires": "2026-09-22T18:01:36.869Z",
-    "issued_at": "2026-09-22T17:16:36.869Z"
-   },
+   "lease": null,
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.869Z",
+   "updated": "2026-09-22T17:17:13.801Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -219,13 +250,24 @@
      "at": "2026-09-22T17:16:36.869Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:17:13.801Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35759622630",
+    "artifact": "shim(fast): completed task T-X27-06 attempt 1",
+    "duration_ms": 4007
+   },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
-   }
+   },
+   "terminal_seq": 1
   },
   "T-X27-07": {
    "id": "T-X27-07",
@@ -263,18 +305,14 @@
   "T-X27-08": {
    "id": "T-X27-08",
    "title": "soak saturate 08",
-   "status": "assigned",
+   "status": "done",
    "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-c02c4fc85594",
-    "expires": "2026-09-22T18:01:36.869Z",
-    "issued_at": "2026-09-22T17:16:36.869Z"
-   },
+   "lease": null,
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.869Z",
+   "updated": "2026-09-22T17:17:13.799Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -285,29 +323,36 @@
      "at": "2026-09-22T17:16:36.869Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:17:13.799Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35759623354",
+    "artifact": "shim(fast): completed task T-X27-08 attempt 1",
+    "duration_ms": 4003
+   },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
-   }
+   },
+   "terminal_seq": 1
   },
   "T-X27-09": {
    "id": "T-X27-09",
    "title": "soak saturate 09",
-   "status": "assigned",
+   "status": "done",
    "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-c99b43fb850c",
-    "expires": "2026-09-22T18:01:36.869Z",
-    "issued_at": "2026-09-22T17:16:36.869Z"
-   },
+   "lease": null,
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.869Z",
+   "updated": "2026-09-22T17:17:13.800Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -318,13 +363,24 @@
      "at": "2026-09-22T17:16:36.869Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T17:17:13.800Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35759623315",
+    "artifact": "shim(fast): completed task T-X27-09 attempt 1",
+    "duration_ms": 4007
+   },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
-   }
+   },
+   "terminal_seq": 1
   },
   "T-X27-10": {
    "id": "T-X27-10",
@@ -560,19 +616,28 @@
   "T-X27-17": {
    "id": "T-X27-17",
    "title": "soak retry-churn 17",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "infra-flaky",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-3f10a6e82ddc",
+    "expires": "2026-09-22T18:02:13.765Z",
+    "issued_at": "2026-09-22T17:17:13.765Z"
+   },
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.866Z",
+   "updated": "2026-09-22T17:17:13.765Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-22T17:17:13.765Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null,
@@ -584,19 +649,28 @@
   "T-X27-18": {
    "id": "T-X27-18",
    "title": "soak retry-churn 18",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "infra-flaky",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-5a0e936c5b08",
+    "expires": "2026-09-22T18:02:13.799Z",
+    "issued_at": "2026-09-22T17:17:13.799Z"
+   },
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.866Z",
+   "updated": "2026-09-22T17:17:13.799Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-22T17:17:13.799Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null,
@@ -608,19 +682,28 @@
   "T-X27-19": {
    "id": "T-X27-19",
    "title": "soak retry-churn 19",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "infra-flaky",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-2e1a412a4ddd",
+    "expires": "2026-09-22T18:02:13.799Z",
+    "issued_at": "2026-09-22T17:17:13.799Z"
+   },
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.866Z",
+   "updated": "2026-09-22T17:17:13.799Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-22T17:17:13.799Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null,
@@ -632,19 +715,28 @@
   "T-X27-20": {
    "id": "T-X27-20",
    "title": "soak retry-churn 20",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "infra-flaky",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-2615297d5eda",
+    "expires": "2026-09-22T18:02:13.800Z",
+    "issued_at": "2026-09-22T17:17:13.800Z"
+   },
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.866Z",
+   "updated": "2026-09-22T17:17:13.800Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-22T17:17:13.800Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null,
@@ -656,19 +748,28 @@
   "T-X27-21": {
    "id": "T-X27-21",
    "title": "soak cas-storm 21",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "dup-report",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-97913d137827",
+    "expires": "2026-09-22T18:02:13.800Z",
+    "issued_at": "2026-09-22T17:17:13.800Z"
+   },
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.866Z",
+   "updated": "2026-09-22T17:17:13.800Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-22T17:17:13.800Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null,
@@ -680,19 +781,28 @@
   "T-X27-22": {
    "id": "T-X27-22",
    "title": "soak cas-storm 22",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "dup-report",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-cc19e7829033",
+    "expires": "2026-09-22T18:02:13.801Z",
+    "issued_at": "2026-09-22T17:17:13.801Z"
+   },
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.866Z",
+   "updated": "2026-09-22T17:17:13.801Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-22T17:17:13.801Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null,
@@ -704,19 +814,28 @@
   "T-X27-23": {
    "id": "T-X27-23",
    "title": "soak tail 23",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-0d7dbc160dd0",
+    "expires": "2026-09-22T18:02:13.801Z",
+    "issued_at": "2026-09-22T17:17:13.801Z"
+   },
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.866Z",
+   "updated": "2026-09-22T17:17:13.801Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-22T17:17:13.801Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null,
@@ -728,19 +847,28 @@
   "T-X27-24": {
    "id": "T-X27-24",
    "title": "soak tail 24",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-9ccd9c92b3b3",
+    "expires": "2026-09-22T18:02:13.801Z",
+    "issued_at": "2026-09-22T17:17:13.801Z"
+   },
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:16:36.866Z",
+   "updated": "2026-09-22T17:17:13.801Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-22T17:17:13.801Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null,
@@ -751,7 +879,7 @@
   }
  },
  "stats": {
-  "done": 0,
+  "done": 8,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -759,10 +887,19 @@
   "orphaned_reports": 0,
   "rejected_events": 0,
   "timeouts": 0,
-  "dispatched": 16,
+  "dispatched": 24,
   "infra_retries": 0
  },
  "dedup": [
-  "tick-console-1790097395403"
+  "tick-console-1790097395403",
+  "rep-35759621659-a1",
+  "rep-35759622120-a1",
+  "rep-35759623354-a1",
+  "rep-35759621491-a1",
+  "rep-35759623315-a1",
+  "rep-35759622630-a1",
+  "rep-35759622244-a1",
+  "rep-35759623727-a1",
+  "tick-chain-1790097431550"
  ]
 }
