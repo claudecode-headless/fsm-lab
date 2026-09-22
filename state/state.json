@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 78,
- "journal_seq": 3441,
+ "version": 80,
+ "journal_seq": 3445,
  "chain": {
   "id": "c-1790097396865",
-  "seq": 61,
-  "last_tick": "2026-09-22T18:02:28.419Z",
+  "seq": 62,
+  "last_tick": "2026-09-22T18:03:00.748Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -308,18 +308,14 @@
   "T-X27-22": {
    "id": "T-X27-22",
    "title": "soak cas-storm 22",
-   "status": "assigned",
+   "status": "done",
    "behavior": "dup-report",
    "work_ms": 4000,
    "deps": [],
    "attempts": 2,
-   "lease": {
-    "token": "l-782db654648d",
-    "expires": "2026-09-22T18:47:28.416Z",
-    "issued_at": "2026-09-22T18:02:28.416Z"
-   },
+   "lease": null,
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T18:02:28.416Z",
+   "updated": "2026-09-22T18:03:00.747Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -340,29 +336,36 @@
      "at": "2026-09-22T18:02:28.416Z",
      "status": "assigned",
      "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-22T18:03:00.747Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35764571265",
+    "artifact": "shim(dup-report): task T-X27-22 attempt 2 completed — the report is delivered TWICE (same event_id; the drain must dedup)",
+    "duration_ms": 4007
+   },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
-   }
+   },
+   "terminal_seq": 61
   },
   "T-X27-23": {
    "id": "T-X27-23",
    "title": "soak tail 23",
-   "status": "assigned",
+   "status": "done",
    "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
    "attempts": 2,
-   "lease": {
-    "token": "l-e18c9fc72fe9",
-    "expires": "2026-09-22T18:47:28.416Z",
-    "issued_at": "2026-09-22T18:02:28.416Z"
-   },
+   "lease": null,
    "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T18:02:28.416Z",
+   "updated": "2026-09-22T18:03:00.740Z",
    "history": [
     {
      "at": "2026-09-22T17:16:36.866Z",
@@ -383,13 +386,24 @@
      "at": "2026-09-22T18:02:28.416Z",
      "status": "assigned",
      "why": "assigned(attempt=2)"
+    },
+    {
+     "at": "2026-09-22T18:03:00.740Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35764571646",
+    "artifact": "shim(fast): completed task T-X27-23 attempt 2",
+    "duration_ms": 4008
+   },
    "spec": {
     "issue": 20,
     "body_sha8": "52cb083c"
-   }
+   },
+   "terminal_seq": 61
   },
   "T-X27-24": {
    "id": "T-X27-24",
@@ -436,13 +450,13 @@
   }
  },
  "stats": {
-  "done": 17,
+  "done": 19,
   "failed": 0,
   "quarantined": 4,
   "cancelled": 0,
   "retries": 6,
   "orphaned_reports": 0,
-  "rejected_events": 2,
+  "rejected_events": 3,
   "timeouts": 6,
   "dispatched": 38,
   "infra_retries": 8,
@@ -543,7 +557,10 @@
   "rep-35764501722-a1",
   "rep-35764504366-a1",
   "rep-35764502203-a1",
-  "tick-chain-1790100144687"
+  "tick-chain-1790100144687",
+  "rep-35764571646-a1",
+  "rep-35764571265-a1",
+  "tick-chain-1790100179289"
  ],
  "budget_window": [],
  "budget_window_cleared_at": "2026-09-22T17:26:47.496Z"

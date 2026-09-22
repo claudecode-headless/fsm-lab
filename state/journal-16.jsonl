@@ -403,3 +403,7 @@
 {"id":"e3438","ts":"2026-09-22T18:02:28.418Z","applied":true,"kind":"REPORT","task":"T-X27-16","lease":"l-c318ad60a43a","to":"done","run_id":"35764504366","from":"assigned"}
 {"id":"e3439","ts":"2026-09-22T18:02:28.419Z","applied":true,"kind":"REPORT","task":"T-X27-15","lease":"l-9928b8c23a07","to":"done","run_id":"35764502203","from":"assigned"}
 {"id":"e3440","ts":"2026-09-22T18:02:28.419Z","applied":true,"kind":"TICK","seq":61,"actor":"chain","event_id":"tick-chain-1790100144687"}
+{"id":"e3441","ts":"2026-09-22T18:03:00.740Z","applied":true,"kind":"REPORT","task":"T-X27-23","lease":"l-e18c9fc72fe9","to":"done","run_id":"35764571646","from":"assigned"}
+{"id":"e3442","ts":"2026-09-22T18:03:00.747Z","applied":true,"kind":"REPORT","task":"T-X27-22","lease":"l-782db654648d","to":"done","run_id":"35764571265","from":"assigned"}
+{"id":"e3443","ts":"2026-09-22T18:03:00.748Z","applied":false,"kind":"REJECTED","origKind":"REPORT","task":"T-X27-22","event_id":"rep-35764571265-a1","reason":"duplicate"}
+{"id":"e3444","ts":"2026-09-22T18:03:00.748Z","applied":true,"kind":"TICK","seq":62,"actor":"chain","event_id":"tick-chain-1790100179289"}
