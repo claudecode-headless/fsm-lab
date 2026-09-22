@@ -476,3 +476,227 @@ alike.
   a valid resting state, just not the one we wanted; the next night retries.
 
 ---
+
+## §4 Teardown + isolation — and the same-repo vs disposable-repo decision
+
+### 4.1 The happy-path teardown is ALREADY the X-series teardown
+
+The drill epoch ends the way every epoch ends: PHASE done → **halt**
+(`STOP_CHAIN` at completion) → the next wake QUIESCES (no commit, no
+self-dispatch — T44/F2, `conductor/turn.mjs:333-359`) → the tip freezes. That
+IS halted-clean — the exact resting shape the live repo is in right now (§0.3)
+and the exact shape the gate requires for tomorrow. **No reset is needed on the
+happy path.** The teardown job's whole job:
+
+1. Assert the halt held (read the frozen tip twice, the local drill's
+   HALT-QUIESCE phase pattern, `e2e/drill.mjs:440-469`).
+2. Close the drill issue (arms the reopen cycle, §1.6).
+3. Post the marker comment / RED page (§3.3–3.4) + upload the artifact.
+4. On GREEN: auto-close stale `fsm-staged-red` issues (the self-cleaning alert
+   budget).
+
+What the system does to clean up after itself, BY EXISTING MECHANISM (nothing
+new to build, everything cited):
+
+| Residue | Mechanism that bounds it |
+|---|---|
+| `tasks[T-STG-*]` entries in `state.json` | task pruning: terminal tasks prune after `prune_tasks_after_ticks:20` (live config, §0.3) — the live state shows the last epoch's tasks already `pruned:true` |
+| Journal records (~40–60/night) | journal rotation at 500 records/generation (`store.mjs:41`, `rotateAt`) — 16 generations live; ~2–3 weeks of drill-only traffic per full rotation |
+| `stats` counters | zeroed at every genesis (the rollover/reset mints a fresh project, `conductor-core.mjs:719-733`) |
+| Comments on ops issue #1 (~3/night: MILESTONE started, PROJECT COMPLETE, one QUARANTINED-via-timeout alert) | the alert lane's own one-comment-per-decision discipline (`conductor/turn.mjs:490-529` — "ONE comment per decision — never per tick", `ops/console.mjs:218-221`); the QUARANTINED comment is REAL signal (the recovery path fired), not noise to suppress |
+| The drill issue's own thread (epoch-started + digest + marker, 3/night) | the pinned-issue design (§1.6) — ONE issue forever, the streak IS the audit trail |
+| Worker runs / run records | GitHub's own 90-day retention; no action |
+| `tasks/T-STG-*` branches, PRs | **none are created** — mock epochs skip the write-back lane (`task-pr.mjs:25,43`); zero repo-tree pollution by design |
+
+### 4.2 The stuck-drill recovery arm (the only teardown that writes anything)
+
+If the `run` job's monitor times out (no halt within 55 min) or the verify job
+finds a non-terminal state, the teardown dispatches ONE control:
+
+```
+POST /repos/claudecode-headless/fsm-lab/dispatches
+  { "event_type": "fsm-control", "client_payload": { "command": "reset", "note": "staged-drill teardown <date>" } }
+```
+
+(the README's documented operator surface, `README.md:97-98`). What the reset
+actually does, and why it is safe here:
+
+- The dispatch wakes BOTH `conductor.yml` and `ops.yml` (both register
+  `fsm-control` — the fan-out, `conductor.yml:26-27`, `ops.yml:13`): the
+  conductor drains the DIRECT reset (prepended, `conductor-core.mjs:435-440`)
+  and the ops lane's queued twin is REJECTED `reset-duplicate` by the same-drain
+  twin-guard (`conductor-core.mjs:446-491`, M-A2 note normalization) — exactly
+  one reset applies, and the REJECTED twin produces NO comment (s22/M-1,
+  `conductor/turn.mjs:513-521`).
+- The reset replaces the stuck drill epoch with a FRESH mock genesis
+  (`conductor-core.mjs:492-533`), adopting the live config (lease 45) — a
+  plain `mockProject()` epoch (3 milestones, the built-in failure matrix,
+  `lib/mock-project.mjs:17-48`) which **self-completes in ~2.5–3 h and halts**.
+  The system heals itself back to halted-clean overnight; if it has not
+  finished by the next night, the gate simply SKIPs that night (G1/G3).
+- Straggler drill workers still grinding (≤50 min, `worker.yml:67`) report
+  AFTER the reset and are absorbed as unknown-task rejects — "reports drain
+  AFTER the reset (rejected as unknown-task against the fresh genesis,
+  journaled" (`conductor-core.mjs:48-50`).
+- A plain reset PARKS the intake queue (`conductor-core.mjs:494-496`) — any
+  real spec that queued behind the stuck drill is NOT dropped; it rolls over
+  when the recovery epoch completes. The teardown never uses
+  `reset drop_queue` (it would destroy real specs).
+
+**Why not `halt` instead?** A halt on a mid-flight epoch leaves `phase != done`
+with a held chain — the next REAL intake issue would queue forever behind a
+half-done epoch (the rollover requires `phase === 'done' && !chain.paused`,
+`conductor-core.mjs:693`), requiring an operator reset anyway. The reset
+is the only single-action recovery that returns the system to a
+self-completing state. (The ~3 h unattended mock epoch it spawns is the same
+epoch the live repo runs on every operator reset today — the live state in
+§0.3 is exactly its tombstone.)
+
+### 4.3 Same-repo vs disposable-repo — the honest comparison
+
+**Option S (RECOMMENDED): same-repo with a `T-STG-*` namespace** — the drill
+epoch runs ON `claudecode-headless/fsm-lab`'s real `fsm-state`, exactly as the
+manual X-series did (X22 ran a live cc epoch on this repo's real state,
+worklog 18-main; the current halted-clean state IS the residue of a real
+mock epoch that completed 2026-09-21).
+
+**Option D: a disposable drill repo** (a third repo, e.g.
+`agentrunners/fsm-lab-drill`, tree + workflows pushed nightly or once) — the
+a6 sketch: "template-push a private throwaway repo from main@<commit>; set
+vars/secrets incl. deliberately-dead keys for quota shapes"
+(`lab-s21-audit-a6.md:130`), and a7 ARCH-5's "against a disposable mirror".
+
+| Dimension | S: same-repo + namespace | D: disposable repo |
+|---|---|---|
+| **Blast radius on the real system** | the drill epoch IS the state for ~40 min; gated to halted-clean start + natural halt end (§1.3, §4.1). Residue: §4.1's table, all bounded by existing mechanisms. | zero state pollution of the real `fsm-state` — the drill repo has its own |
+| **CAS contention** | none possible with a real epoch (the §1 lock); contention with the watchdog's marker write + console reads exists ALREADY for every real epoch (the single-writer group serializes writers, `conductor.yml:44-46`) | zero |
+| **Fidelity** | **MAXIMAL**: the real branch, real vars, real secrets, real OPS_ISSUE anchor, real watchdog + pinger + alert lanes, real mirror bucket — the thing the principal asked to prove ("REAL GitHub runners, REAL workflow composition, REAL fsm-state CAS") | a COPY: real runners + real composition, but a fresh `fsm-state`, a fresh ops anchor, no pinger, no contention history — proves the loop, not THE system |
+| **Mirror/overflow (X26)** | works bit-for-bit with ZERO new infra: the real `agentrunners/fsm-lab-workers` already has `TARGET_REPO=claudecode-headless/fsm-lab` (§0.3) and `LAB_PAT` (X25) — the drill's overflow dispatches ride the production lane and the reports route home | **the fatal flaw**: the real mirror bucket's `TARGET_REPO` points at the REAL repo — its workers would report to the REAL `fsm-state`. D must either (a) flip the production bucket's `TARGET_REPO` nightly (mutating production config — strictly worse pollution than S's residue, with a wedge if the flip-back fails), or (b) mint a FOURTH repo (drill mirror) with its own vars + `LAB_PAT` secret — doubling the setup surface |
+| **Setup cost** | **zero**: everything exists; one pinned issue + two repo vars (`DRILL_ISSUE`, `STAGED_DRILL_ENABLED`) | per-run or per-refresh: push the tree, set vars (`OPS_ISSUE`, `EPOCH_MODE`, `WORKER_REPO_2`, `WORKER_OVERFLOW_AT`, `TARGET_REPO`…), set secrets (the secrets API needs an org-admin PAT — a NEW secret on the driver repo, chicken-and-egg), and tear it down after |
+| **New failure modes** | the ones in §7 — all analyzed, all with handlers | the setup job itself (half-minted repos, leaked repos, wrong var sets, the PAT-minting pipeline) — a whole new wedge class the a6 sketch never costed |
+| **Schedule reliability** | irrelevant — the drill drives via dispatch; the repo's schedules are already warm | live datum: "schedules COLD-START ~3.6h after repo creation and then fire sparsely" (`conductor.yml:37-41`) — a nightly-minted repo's OWN watchdog/conductor schedules do not fire reliably the first night; the driver must dispatch watchdog scans manually |
+| **Teardown** | natural halt + §4.1's bounded residue | delete or reset the repo — trivially clean |
+| **The stuck case** | one reset + a ~3 h self-completing recovery epoch (§4.2) | delete the repo — cleaner, but the stuck CAUSE is on the real substrate only S can reveal |
+
+**RECOMMENDATION: Option S — same-repo with the `T-STG-*` namespace.** The
+deciding arguments, ranked:
+
+1. **The X26 mirror geometry is only honest in S.** The drill's whole point
+   includes the pre-flight overflow pin, and the production mirror bucket
+   cannot serve a disposable repo without either mutating production config
+   nightly or minting a second mirror. S exercises the REAL two-bucket
+   topology — dispatch on the PAT lane, checkout redirect, report routing —
+   with zero new infrastructure.
+2. **The principal's yardstick demands the real thing.** "The loop proven ON
+   the real infrastructure … REAL fsm-state CAS" (the brief's context) — the
+   real branch with its real rotation state (16 generations), real concurrent
+   readers, and real watchdog/pinger plane. A disposable repo proves a loop
+   LIKE this one, on a copy.
+3. **The stuck-drill deadman is inherited for free.** In S the drill chain is
+   watched by the REAL watchdog (re-prime → 3-strike latch → one deduped alert,
+   `watchdog/scan.mjs:19-25,76-105`) and the REAL pinger/deadman duty
+   (`lib/pinger-watch.mjs:1-33`). In D the drill must build its own watch plane
+   — or run unwatched.
+4. **The residue is bounded by mechanisms that already exist and are cited**
+   (§4.1's table). The X-series already left exactly this class of residue
+   (issue #9, PR #10, the T-10x epoch in the live state) and the operator's
+   mental model already includes it.
+5. **D's setup pipeline is its own unpriced risk** — a nightly repo-minting
+   path holding an org-admin PAT, with half-configured states on failure. The
+   a6 sketch priced the "throwaway repo" at one line; the honest price is a
+   new production system.
+
+D's one real advantage — zero state pollution — is bought at the price of the
+X26 pin, the fidelity, and a new failure class. If the drill's residue ever
+becomes objectionable (e.g. the ops-issue comment rate), the mitigation is
+cheaper than D: tighten §4.1's bounds (skip the QUARANTINED alert comment for
+`T-STG-*` tasks — a one-line conductor filter) rather than fork the substrate.
+
+---
+
+## §5 Cadence + budget
+
+### 5.1 The cadence: nightly (stage 2), 01:37 UTC
+
+- **Nightly, not 2×/week**: the drill's value is the STREAK — regression
+  detection latency is one day. The wall budget (~50–60 min, §2.3) fits any
+  night; the operator-visible surface is one marker comment + at most one page.
+- **01:37 UTC**: after the OpenRouter free-tier ~UTC-midnight reset (so a late
+  real cc epoch has drained and the quota window is fresh — irrelevant for
+  mock spend, but it keeps the drill from sharing the window with real-epoch
+  traffic), off the `:00`/`:30` scheduled-workflow hotspot
+  (the `conductor.yml:41` discipline), and done ~02:30 UTC before any human
+  plane opens.
+- **Schedule sparsity is tolerated**: GHA scheduled workflows fire late or skip
+  (the live T44 datum, `conductor.yml:37-41`). A skipped night is a NO-OP —
+  nothing degrades, nothing pages; the marker dates make gaps visible.
+
+### 5.2 The runner-minutes budget
+
+- **Both repos are public** (§0.3): ubuntu-latest minutes are FREE and
+  unmetered; the real costs are the org's shared **20-concurrent-jobs bucket**
+  (the drill's peak: 1 conductor + ≤4 workers + 1 staged job ≈ 6 of 20) and
+  wall clock. ~110 runner-min/night (§2.3) ≈ 3.5 h/month of occupancy.
+- **Private-repo contingency** (if the org ever flips either repo private):
+  ~3,450 min/month exceeds the 2,000 free private minutes → the ladder drops
+  to weekly (§6: ~800 min/month) or the monitor job's idle poll is replaced by
+  a cheaper external poll (the executor's scheduler, see §9 Q5). Stated now so
+  nobody rediscovers it under pressure.
+- **API budget**: ~40–80 REST calls/night (gate reads are git; the verify
+  queries 2 run-lists + 1 issue search; the seed 2 writes) — far under any
+  5k/hr class concern.
+
+### 5.3 The alert budget: page once, never nightly-spam
+
+- **GREEN**: one marker comment/night on the drill issue — no issue, no page.
+- **RED**: ONE `fsm-staged-red` issue per incident; the next GREEN auto-closes
+  open ones (§3.4). A persistent fault pages on the FIRST night, then sits
+  quietly open with the nightly report artifacts attached — no re-page while
+  open.
+- **The machine's own lanes stay untouched**: drill REDs never carry
+  `fsm-watchdog-alert` (§3.4's lane-mixing rationale). The one machine-lane
+  comment the drill DOES produce nightly is the QUARANTINED-via-timeout alert
+  on ops #1 (`conductor/turn.mjs:499-501`) — real signal, one line, the
+  recovery path's own voice.
+- **A stuck drill may ALSO get the real watchdog's page** (stale chain →
+  latch → `fsm-watchdog-alert`). That is correct, not double-paging: a stuck
+  chain IS a system-level event; the two issues describe the two planes
+  (drill-assert RED vs chain-health alert).
+
+---
+
+## §6 The rollout ladder
+
+| Stage | Trigger | Scenario | Promotion criteria (ALL) | Demotion |
+|---|---|---|---|---|
+| **0 — manual** | `workflow_dispatch` only (`vars.STAGED_DRILL_ENABLED` unset/`manual`: schedule SKIPs, §1.2) | single-task one-pass (the §2.2 stage-0 weekday rotation; no door changes) | **3 consecutive manual greens on 3 different dates** — proves the reopen-cycle + dated-spec idempotence across days, not just within one | any unexplained RED → stay at 0, investigate |
+| **1 — weekly** | var = `weekly` (Monday 01:37 UTC effective) | the full 4-task mix — **requires B-1** (the multi-task door, §8) landed + green in manual runs first | **4 consecutive weekly greens** (a month) with the X26 pair (A6/A7/A8) green each time | 2 REDs in a month → back to weekly-manual (var `manual`) until explained |
+| **2 — nightly** | var = `nightly` | the full mix, nightly | the stage-1 month green + one deliberately-observed stuck-drill recovery (the §4.2 arm exercised at least once — manually wedged once, watched the reset heal) | any unexplained RED → drop one stage (operator flips the var; the RED page carries the instruction) |
+
+Promotion/demotion is ALWAYS the operator's one-line var flip (§1.2) — the
+drill never self-promotes and never self-mutates repo config (the same
+operator-ownership discipline as the spend ceiling: "the burn decision —
+pause/halt — stays the operator's", `ops/console.mjs:58-60`).
+
+---
+
+## §7 Failure modes, honestly
+
+| # | Failure | What happens | Why it is bounded (cite) |
+|---|---|---|---|
+| F1 | **Nightly epoch overlaps a REAL epoch** | See §1.4: pre-check gate (G1–G4) + the structural epoch mutex + ownership detection (A1). The residual race (a real issue wins the queue head in the seconds between gate and enqueue) → the REAL epoch runs; the drill DEFERS (green, no teardown, no page). Reverse: a real issue mid-drill queues behind (position comment) and runs at the next rollover | `conductor-core.mjs:502,719` (head-first rollover); `intake/turn.mjs:153-157` |
+| F2 | **Stuck drill (no halt in 55 min)** | The monitor job times out → RED page; the teardown dispatches the plain `reset`; a fresh mock epoch self-completes (~3 h) and halts; tomorrow's gate re-checks halted-clean. Meanwhile the REAL watchdog independently re-primes (≤3, then latches + one deduped alert) — the drill cannot out-live its watchdog window: the watchdog watches the SAME chain with `STALE_AFTER_MIN:4` (`watchdog.yml:38`) at ~6 scans/hour (`watchdog.yml:13-15`) | §4.2; `watchdog/scan.mjs:19-25`; the deadman: `lib/pinger-watch.mjs:25-33` (3 h marker staleness → the executor-hosted duty pages) |
+| F3 | **GH API flakiness (403/000/5xx)** | Seed writes (PATCH/reopen): 2 attempts + backoff (the door's own nudge-retry pattern, `intake/turn.mjs:70-75`); a failed reopen = no epoch = green SKIP-with-log (retry next night — the queue was never touched). Dispatches: the conductor's own Retry-After-aware ladder (`conductor/turn.mjs:106-115`). Verify reads: 3 attempts, then read-RED (distinct from assertion-RED, §3.4) | the ladder is budget-capped + 403-without-RA fails fast (`conductor-core.mjs` dispatchLadder, `conductor/turn.mjs:108-112`) |
+| F4 | **Runner queue delay (5–30 min on the shared bucket)** | The envelope deadline is ABSOLUTE, minted at dispatch — queue-delay-proof (`conductor/turn.mjs:400-401`); a worker that starts past its deadline reports one `infra_failed late-start` and exits 0 without burning the lease (`worker.yml:18-20`) → the FSM's normal retry ladder absorbs it. Leases (5/15 min) tolerate ~3 min of latency + queue; a 10+ min delay on the fast tasks stretches the night, a 30 min delay trips F2 (and is itself worth paging — a 30-min queue delay on the org bucket is a real capacity problem) | the START-GATE contract, `worker.yml:18-20`; the lease floor 3 + envelope margin (s22/B-1) |
+| F5 | **Schedule sparsity / cold-start** | The 01:37 cron fires late or not at all → a missing night is a no-op (nothing pages; the marker gap is visible). No catch-up run: the next night's dated spec is a fresh epoch anyway | `conductor.yml:37-41` (the live datum) |
+| F6 | **Mid-drill deploy (a push to main while the epoch is live)** | Workers/conductor check out the CURRENT main per run → one mixed-version night. Not a new class: the system runs mixed-deploy windows by design (the F2 livelock note, `conductor/turn.mjs:334-337`); the drill's asserts are version-independent invariants | the invariants (A-table) hold across versions |
+| F7 | **The drill's own issue wedge** (door enqueued but the rollover never consumed it — nudge + backstop + pinger ALL dead for 24 h) | Next night's gate REFUSES (G4: intake queue non-empty). The stale line is eventually consumed by ANY live tick's rollover → ONE unattended mock drill epoch (~40 min) self-completes and halts; real specs parked behind it are untouched (plain-queue parking). Note: this wedge requires the whole machine plane to be dead for a day — which the watchdog latch + deadman duty page about independently | G4; `conductor-core.mjs:494-496`; the latch `watchdog/scan.mjs:19-25` |
+| F8 | **The reset twin (the teardown's own reset double-fires)** | The fsm-control fan-out wakes conductor + ops (both register the type); the direct reset applies, the queued twin is REJECTED `reset-duplicate` (<30 s, note match) with NO comment — the F-1 guard's exact purpose | `conductor-core.mjs:446-491`; `conductor/turn.mjs:513-521` |
+| F9 | **Drill RED is actually a REAL regression** (the drill caught a merge) | That is the product working. The RED page cites the failed A-asserts; the drill report artifact carries timings; the local drill (`e2e/drill.mjs --scenario …`) reproduces offline for bisection | the whole §3 design |
+
+**Explicitly NOT handled (out of scope, stated honestly):** the paid-LLM lane
+stays unproven by the nightly (mock economics is the point — the cc lane keeps
+its X-series manual cadence, §9 Q3); concurrent real+drill epochs are
+STRUCTURALLY impossible (one state, one epoch — F1), not merely gated.
+
+---
