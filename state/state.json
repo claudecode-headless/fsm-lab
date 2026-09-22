@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 4,
- "journal_seq": 3205,
+ "version": 6,
+ "journal_seq": 3208,
  "chain": {
   "id": "c-1790091295667",
-  "seq": 13,
-  "last_tick": "2026-09-22T15:42:21.507Z",
+  "seq": 14,
+  "last_tick": "2026-09-22T15:42:56.191Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -37,12 +37,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-ba545094fd4d",
-    "expires": "2026-09-22T16:24:09.070Z",
-    "issued_at": "2026-09-22T15:39:09.070Z"
+    "token": "l-c3e0c5f3b84b",
+    "expires": "2026-09-22T16:27:56.186Z",
+    "issued_at": "2026-09-22T15:42:56.186Z"
    },
    "created": "2026-09-22T15:34:55.667Z",
-   "updated": "2026-09-22T15:39:09.070Z",
+   "updated": "2026-09-22T15:42:56.186Z",
    "history": [
     {
      "at": "2026-09-22T15:34:55.667Z",
@@ -63,11 +63,21 @@
      "at": "2026-09-22T15:39:09.070Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-22T15:42:56.186Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-22T15:42:56.186Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35748367136",
+    "run_id": "35748861353",
     "error": "lane-exhausted(3/6 lanes, last lane-402)",
     "lane_stats": {
      "calls": 13,
@@ -76,8 +86,8 @@
      "err5xx": 0,
      "tokens": 0,
      "cost": 0,
-     "p50_ms": 97,
-     "p95_ms": 984,
+     "p50_ms": 44,
+     "p95_ms": 518,
      "rate_classes": {
       "openrouter_credits": 2
      },
@@ -89,8 +99,8 @@
        "err5xx": 0,
        "tokens": 0,
        "cost": 0,
-       "p50_ms": 97,
-       "p95_ms": 715
+       "p50_ms": 44,
+       "p95_ms": 518
       },
       "z-ai/glm-5.3-flash": {
        "calls": 1,
@@ -99,8 +109,8 @@
        "err5xx": 0,
        "tokens": 0,
        "cost": 0,
-       "p50_ms": 984,
-       "p95_ms": 984
+       "p50_ms": 250,
+       "p95_ms": 250
       }
      }
     },
@@ -112,7 +122,7 @@
     "issue": 17,
     "body_sha8": "263c8bc3"
    },
-   "infra_attempts": 1
+   "infra_attempts": 2
   }
  },
  "stats": {
@@ -124,8 +134,8 @@
   "orphaned_reports": 0,
   "rejected_events": 0,
   "timeouts": 0,
-  "dispatched": 2,
-  "infra_retries": 1
+  "dispatched": 3,
+  "infra_retries": 2
  },
  "dedup": [
   "tick-intake-1790091293844",
@@ -141,6 +151,8 @@
   "tick-schedule-backstop-1790091617571",
   "tick-chain-1790091651787",
   "tick-chain-1790091688542",
-  "tick-chain-1790091739807"
+  "tick-chain-1790091739807",
+  "rep-35748861353-a1",
+  "tick-chain-1790091774370"
  ]
 }
