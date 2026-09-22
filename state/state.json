@@ -1,15 +1,14 @@
 {
  "schema": 1,
- "version": 62,
- "journal_seq": 3350,
+ "version": 63,
+ "journal_seq": 3352,
  "chain": {
   "id": "c-1790097396865",
-  "seq": 5,
-  "last_tick": "2026-09-22T17:19:43.339Z",
-  "primed_by": "chain",
+  "seq": 6,
+  "last_tick": "2026-09-22T17:26:47.498Z",
+  "primed_by": "console",
   "halted": false,
-  "paused": true,
-  "paused_reason": "lane-budget-exhausted"
+  "paused": false
  },
  "project": {
   "phase": "executing",
@@ -1076,53 +1075,10 @@
   "rep-35759892859-a1",
   "rep-35759894867-a1",
   "tick-chain-1790097581583",
-  "ctl-12-budget-pause-1790097588917"
+  "ctl-12-budget-pause-1790097588917",
+  "ctl-IC_kwDOUQB5Sc8AAAABWJJUzg-resume-1790097990295",
+  "tick-console-1790098002420"
  ],
- "budget_window": [
-  {
-   "ts": "2026-09-22T17:19:05.458Z",
-   "task": "T-X27-19",
-   "detail": "lane-429",
-   "straggler": true
-  },
-  {
-   "ts": "2026-09-22T17:19:05.458Z",
-   "task": "T-X27-17",
-   "detail": "lane-429",
-   "straggler": true
-  },
-  {
-   "ts": "2026-09-22T17:19:05.458Z",
-   "task": "T-X27-20",
-   "detail": "lane-429",
-   "straggler": true
-  },
-  {
-   "ts": "2026-09-22T17:19:05.459Z",
-   "task": "T-X27-18",
-   "detail": "lane-429",
-   "straggler": true
-  },
-  {
-   "ts": "2026-09-22T17:19:43.336Z",
-   "task": "T-X27-20",
-   "detail": "lane-429"
-  },
-  {
-   "ts": "2026-09-22T17:19:43.336Z",
-   "task": "T-X27-19",
-   "detail": "lane-429"
-  },
-  {
-   "ts": "2026-09-22T17:19:43.337Z",
-   "task": "T-X27-17",
-   "detail": "lane-429"
-  },
-  {
-   "ts": "2026-09-22T17:19:43.337Z",
-   "task": "T-X27-18",
-   "detail": "lane-429"
-  }
- ],
- "budget_window_cleared_at": "2026-09-22T17:19:05.442Z"
+ "budget_window": [],
+ "budget_window_cleared_at": "2026-09-22T17:26:47.496Z"
 }
