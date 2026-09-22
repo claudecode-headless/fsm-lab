@@ -127,3 +127,4 @@
 {"id":"e3162","ts":"2026-09-22T14:51:13.437Z","applied":true,"kind":"TICK","seq":1,"actor":"intake","event_id":"tick-intake-1790088671550"}
 {"id":"e3163","ts":"2026-09-22T14:51:13.437Z","applied":true,"kind":"ASSIGN","task":"T-W1","from":"ready","to":"assigned","lease":"l-b5cbaf6c06e1","expires":"2026-09-22T15:36:13.437Z","attempt":1,"behavior":"real","task_ref":{"kind":"state-task","id":"T-W1"}}
 {"id":"e3164","ts":"2026-09-22T14:51:49.952Z","applied":true,"kind":"TICK","seq":2,"actor":"chain","event_id":"tick-chain-1790088707816"}
+{"id":"e3165","ts":"2026-09-22T14:52:24.880Z","applied":true,"kind":"TICK","seq":3,"actor":"chain","event_id":"tick-chain-1790088742763"}
