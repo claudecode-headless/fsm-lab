@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "version": 63,
- "journal_seq": 3384,
+ "journal_seq": 3389,
  "chain": {
   "id": "c-1790097396865",
-  "seq": 24,
-  "last_tick": "2026-09-22T17:40:22.338Z",
+  "seq": 25,
+  "last_tick": "2026-09-22T17:40:55.681Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -221,243 +221,31 @@
   },
   "T-X27-17": {
    "id": "T-X27-17",
-   "title": "soak retry-churn 17",
    "status": "quarantined",
-   "behavior": "infra-flaky",
-   "work_ms": 4000,
-   "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:19:43.336Z",
-   "history": [
-    {
-     "at": "2026-09-22T17:16:36.866Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-22T17:17:13.765Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-22T17:17:46.027Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-22T17:17:46.027Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-22T17:19:05.458Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-22T17:19:05.458Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-22T17:19:43.336Z",
-     "status": "quarantined",
-     "why": "infra-exhausted(infra_attempts=3)"
-    }
-   ],
-   "last_result": {
-    "status": "infra_failed",
-    "run_id": "35759892859",
-    "error": "lane-429"
-   },
-   "spec": {
-    "issue": 20,
-    "body_sha8": "52cb083c"
-   },
-   "infra_attempts": 3,
-   "terminal_seq": 4
+   "done_at": "2026-09-22T17:19:43.336Z",
+   "pruned": true
   },
   "T-X27-18": {
    "id": "T-X27-18",
-   "title": "soak retry-churn 18",
    "status": "quarantined",
-   "behavior": "infra-flaky",
-   "work_ms": 4000,
-   "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:19:43.337Z",
-   "history": [
-    {
-     "at": "2026-09-22T17:16:36.866Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-22T17:17:13.799Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-22T17:17:46.027Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-22T17:17:46.027Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-22T17:19:05.458Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-22T17:19:05.458Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-22T17:19:43.337Z",
-     "status": "quarantined",
-     "why": "infra-exhausted(infra_attempts=3)"
-    }
-   ],
-   "last_result": {
-    "status": "infra_failed",
-    "run_id": "35759894867",
-    "error": "lane-429"
-   },
-   "spec": {
-    "issue": 20,
-    "body_sha8": "52cb083c"
-   },
-   "infra_attempts": 3,
-   "terminal_seq": 4
+   "done_at": "2026-09-22T17:19:43.337Z",
+   "pruned": true
   },
   "T-X27-19": {
    "id": "T-X27-19",
-   "title": "soak retry-churn 19",
    "status": "quarantined",
-   "behavior": "infra-flaky",
-   "work_ms": 4000,
-   "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:19:43.336Z",
-   "history": [
-    {
-     "at": "2026-09-22T17:16:36.866Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-22T17:17:13.799Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-22T17:17:46.023Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-22T17:17:46.023Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-22T17:19:05.443Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-22T17:19:05.443Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-22T17:19:43.336Z",
-     "status": "quarantined",
-     "why": "infra-exhausted(infra_attempts=3)"
-    }
-   ],
-   "last_result": {
-    "status": "infra_failed",
-    "run_id": "35759892796",
-    "error": "lane-429"
-   },
-   "spec": {
-    "issue": 20,
-    "body_sha8": "52cb083c"
-   },
-   "infra_attempts": 3,
-   "terminal_seq": 4
+   "done_at": "2026-09-22T17:19:43.336Z",
+   "pruned": true
   },
   "T-X27-20": {
    "id": "T-X27-20",
-   "title": "soak retry-churn 20",
    "status": "quarantined",
-   "behavior": "infra-flaky",
-   "work_ms": 4000,
-   "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-22T17:16:36.866Z",
-   "updated": "2026-09-22T17:19:43.328Z",
-   "history": [
-    {
-     "at": "2026-09-22T17:16:36.866Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-22T17:17:13.800Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-22T17:17:46.027Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-22T17:17:46.027Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-22T17:19:05.458Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-22T17:19:05.458Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-22T17:19:43.328Z",
-     "status": "quarantined",
-     "why": "infra-exhausted(infra_attempts=3)"
-    }
-   ],
-   "last_result": {
-    "status": "infra_failed",
-    "run_id": "35759893570",
-    "error": "lane-429"
-   },
-   "spec": {
-    "issue": 20,
-    "body_sha8": "52cb083c"
-   },
-   "infra_attempts": 3,
-   "terminal_seq": 4
+   "done_at": "2026-09-22T17:19:43.328Z",
+   "pruned": true
   },
   "T-X27-21": {
    "id": "T-X27-21",
@@ -633,7 +421,8 @@
   "tick-chain-1790098716325",
   "tick-chain-1790098750691",
   "tick-chain-1790098783839",
-  "tick-chain-1790098818589"
+  "tick-chain-1790098818589",
+  "tick-chain-1790098852776"
  ],
  "budget_window": [],
  "budget_window_cleared_at": "2026-09-22T17:26:47.496Z"

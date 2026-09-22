@@ -346,3 +346,8 @@
 {"id":"e3381","ts":"2026-09-22T17:39:48.189Z","applied":true,"kind":"PRUNE","task":"T-X27-13","from_status":"done"}
 {"id":"e3382","ts":"2026-09-22T17:39:48.189Z","applied":true,"kind":"PRUNE","task":"T-X27-21","from_status":"done"}
 {"id":"e3383","ts":"2026-09-22T17:40:22.338Z","applied":true,"kind":"TICK","seq":24,"actor":"chain","event_id":"tick-chain-1790098818589"}
+{"id":"e3384","ts":"2026-09-22T17:40:55.681Z","applied":true,"kind":"TICK","seq":25,"actor":"chain","event_id":"tick-chain-1790098852776"}
+{"id":"e3385","ts":"2026-09-22T17:40:55.681Z","applied":true,"kind":"PRUNE","task":"T-X27-17","from_status":"quarantined"}
+{"id":"e3386","ts":"2026-09-22T17:40:55.681Z","applied":true,"kind":"PRUNE","task":"T-X27-18","from_status":"quarantined"}
+{"id":"e3387","ts":"2026-09-22T17:40:55.681Z","applied":true,"kind":"PRUNE","task":"T-X27-19","from_status":"quarantined"}
+{"id":"e3388","ts":"2026-09-22T17:40:55.681Z","applied":true,"kind":"PRUNE","task":"T-X27-20","from_status":"quarantined"}
