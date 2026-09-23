@@ -1,17 +1,17 @@
 {
  "schema": 1,
- "version": 6,
- "journal_seq": 3885,
+ "version": 8,
+ "journal_seq": 3888,
  "chain": {
   "id": "c-1790149967471",
-  "seq": 79,
-  "last_tick": "2026-09-23T08:37:45.911Z",
+  "seq": 80,
+  "last_tick": "2026-09-23T08:38:19.579Z",
   "primed_by": "chain",
-  "halted": false,
+  "halted": true,
   "paused": false
  },
  "project": {
-  "phase": "executing",
+  "phase": "done",
   "milestone": 1,
   "milestones_total": 1,
   "mode": "mock",
@@ -32,18 +32,14 @@
   "T-STG-H-0923": {
    "id": "T-STG-H-0923",
    "title": "staged nightly H (hang night)",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "hang",
    "work_ms": 4000,
    "deps": [],
    "attempts": 3,
-   "lease": {
-    "token": "l-3932bed286b4",
-    "expires": "2026-09-23T08:38:06.756Z",
-    "issued_at": "2026-09-23T08:23:06.756Z"
-   },
+   "lease": null,
    "created": "2026-09-23T07:52:47.471Z",
-   "updated": "2026-09-23T08:23:06.756Z",
+   "updated": "2026-09-23T08:38:19.579Z",
    "history": [
     {
      "at": "2026-09-23T07:52:47.471Z",
@@ -74,24 +70,30 @@
      "at": "2026-09-23T08:23:06.756Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-23T08:38:19.579Z",
+     "status": "quarantined",
+     "why": "lease-timeout(attempts=3)"
     }
    ],
    "last_result": null,
    "spec": {
     "issue": 21,
     "body_sha8": "ae02971a"
-   }
+   },
+   "terminal_seq": 80
   }
  },
  "stats": {
   "done": 0,
   "failed": 0,
-  "quarantined": 0,
+  "quarantined": 1,
   "cancelled": 0,
   "retries": 2,
   "orphaned_reports": 0,
   "rejected_events": 0,
-  "timeouts": 2,
+  "timeouts": 3,
   "dispatched": 3,
   "infra_retries": 0
  },
@@ -174,7 +176,8 @@
   "tick-chain-1790152563943",
   "tick-chain-1790152597013",
   "tick-chain-1790152629025",
-  "tick-chain-1790152662741"
+  "tick-chain-1790152662741",
+  "tick-chain-1790152696960"
  ],
  "budget_window": [],
  "budget_window_cleared_at": "2026-09-23T07:52:47.471Z"
