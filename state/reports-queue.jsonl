@@ -1,0 +1,1 @@
+{"event_id":"rep-35824851480-a1","task":"T-302","lease":"l-a12d61bde641","outcome":{"status":"done","artifact":"shim(fast): completed task T-302 attempt 1","artifact_refs":["tasks/T-302/artifacts/out-e95d.md"],"telemetry":{"turns":1,"wall_ms":3000,"lane_attempts_used":1},"duration_ms":3006},"run_id":"35824851480"}
