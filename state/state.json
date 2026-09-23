@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 2,
- "journal_seq": 3548,
+ "version": 5,
+ "journal_seq": 3555,
  "chain": {
-  "id": "c-1790137573750",
-  "seq": 2,
-  "last_tick": "2026-09-23T04:26:47.026Z",
+  "id": "c-1790137642397",
+  "seq": 1,
+  "last_tick": "2026-09-23T04:27:22.405Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -13,9 +13,9 @@
  "project": {
   "phase": "executing",
   "milestone": 1,
-  "milestones_total": 1,
+  "milestones_total": 3,
   "mode": "mock",
-  "issue": 21
+  "issue": null
  },
  "config": {
   "max_parallel": 16,
@@ -29,38 +29,210 @@
   "overflow_at": 13
  },
  "tasks": {
-  "T-STG-H-0923": {
-   "id": "T-STG-H-0923",
-   "title": "staged nightly H (hang night)",
+  "T-101": {
+   "id": "T-101",
+   "title": "research: state-anchor options",
    "status": "assigned",
-   "behavior": "hang",
+   "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-0dfa7b5d131d",
-    "expires": "2026-09-23T04:41:13.753Z",
-    "issued_at": "2026-09-23T04:26:13.753Z"
+    "token": "l-72c57e33494a",
+    "expires": "2026-09-23T04:42:22.405Z",
+    "issued_at": "2026-09-23T04:27:22.405Z"
    },
-   "created": "2026-09-23T04:26:13.750Z",
-   "updated": "2026-09-23T04:26:13.753Z",
+   "created": "2026-09-23T04:27:22.397Z",
+   "updated": "2026-09-23T04:27:22.405Z",
    "history": [
     {
-     "at": "2026-09-23T04:26:13.750Z",
+     "at": "2026-09-23T04:27:22.397Z",
      "status": "ready",
      "why": "created"
     },
     {
-     "at": "2026-09-23T04:26:13.753Z",
+     "at": "2026-09-23T04:27:22.405Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
     }
    ],
-   "last_result": null,
-   "spec": {
-    "issue": 21,
-    "body_sha8": "ae02971a"
-   }
+   "last_result": null
+  },
+  "T-102": {
+   "id": "T-102",
+   "title": "research: continuity mechanics",
+   "status": "assigned",
+   "behavior": "flaky",
+   "work_ms": 3000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-c206b95ff199",
+    "expires": "2026-09-23T04:42:22.405Z",
+    "issued_at": "2026-09-23T04:27:22.405Z"
+   },
+   "created": "2026-09-23T04:27:22.397Z",
+   "updated": "2026-09-23T04:27:22.405Z",
+   "history": [
+    {
+     "at": "2026-09-23T04:27:22.397Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-23T04:27:22.405Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null
+  },
+  "T-103": {
+   "id": "T-103",
+   "title": "impl: state store CAS",
+   "status": "backlog",
+   "behavior": "succeed",
+   "work_ms": 5000,
+   "deps": [
+    "T-101"
+   ],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-23T04:27:22.397Z",
+   "updated": "2026-09-23T04:27:22.397Z",
+   "history": [
+    {
+     "at": "2026-09-23T04:27:22.397Z",
+     "status": "backlog",
+     "why": "created"
+    }
+   ],
+   "last_result": null
+  },
+  "T-104": {
+   "id": "T-104",
+   "title": "impl: conductor loop",
+   "status": "backlog",
+   "behavior": "succeed",
+   "work_ms": 5000,
+   "deps": [
+    "T-101"
+   ],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-23T04:27:22.397Z",
+   "updated": "2026-09-23T04:27:22.397Z",
+   "history": [
+    {
+     "at": "2026-09-23T04:27:22.397Z",
+     "status": "backlog",
+     "why": "created"
+    }
+   ],
+   "last_result": null
+  },
+  "T-105": {
+   "id": "T-105",
+   "title": "impl: watchdog",
+   "status": "backlog",
+   "behavior": "hang",
+   "work_ms": 900000,
+   "deps": [
+    "T-102"
+   ],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-23T04:27:22.397Z",
+   "updated": "2026-09-23T04:27:22.397Z",
+   "history": [
+    {
+     "at": "2026-09-23T04:27:22.397Z",
+     "status": "backlog",
+     "why": "created"
+    }
+   ],
+   "last_result": null
+  },
+  "T-106": {
+   "id": "T-106",
+   "title": "review: M1",
+   "status": "backlog",
+   "behavior": "succeed",
+   "work_ms": 3000,
+   "deps": [
+    "T-103",
+    "T-104"
+   ],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-23T04:27:22.397Z",
+   "updated": "2026-09-23T04:27:22.397Z",
+   "history": [
+    {
+     "at": "2026-09-23T04:27:22.397Z",
+     "status": "backlog",
+     "why": "created"
+    }
+   ],
+   "last_result": null
+  },
+  "T-107": {
+   "id": "T-107",
+   "title": "edge: duplicate report",
+   "status": "assigned",
+   "behavior": "dup",
+   "work_ms": 3000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-3c97be24382f",
+    "expires": "2026-09-23T04:42:22.405Z",
+    "issued_at": "2026-09-23T04:27:22.405Z"
+   },
+   "created": "2026-09-23T04:27:22.397Z",
+   "updated": "2026-09-23T04:27:22.405Z",
+   "history": [
+    {
+     "at": "2026-09-23T04:27:22.397Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-23T04:27:22.405Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null
+  },
+  "T-108": {
+   "id": "T-108",
+   "title": "edge: late report (orphan)",
+   "status": "assigned",
+   "behavior": "slow",
+   "work_ms": 330000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-c32edcb169ba",
+    "expires": "2026-09-23T04:42:22.405Z",
+    "issued_at": "2026-09-23T04:27:22.405Z"
+   },
+   "created": "2026-09-23T04:27:22.397Z",
+   "updated": "2026-09-23T04:27:22.405Z",
+   "history": [
+    {
+     "at": "2026-09-23T04:27:22.397Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-23T04:27:22.405Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null
   }
  },
  "stats": {
@@ -72,13 +244,12 @@
   "orphaned_reports": 0,
   "rejected_events": 0,
   "timeouts": 0,
-  "dispatched": 1,
+  "dispatched": 4,
   "infra_retries": 0
  },
  "dedup": [
-  "tick-intake-1790137571813",
-  "tick-chain-1790137604891"
+  "tick-chain-1790137640607"
  ],
  "budget_window": [],
- "budget_window_cleared_at": "2026-09-23T04:26:13.750Z"
+ "budget_window_cleared_at": "2026-09-23T04:27:22.397Z"
 }
