@@ -1,18 +1,18 @@
 {
  "schema": 1,
- "version": 57,
- "journal_seq": 3788,
+ "version": 59,
+ "journal_seq": 3791,
  "chain": {
   "id": "c-1790137642397",
-  "seq": 165,
-  "last_tick": "2026-09-23T05:59:32.732Z",
+  "seq": 166,
+  "last_tick": "2026-09-23T06:00:05.911Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
  },
  "project": {
   "phase": "executing",
-  "milestone": 2,
+  "milestone": 3,
   "milestones_total": 3,
   "mode": "mock",
   "issue": null
@@ -116,18 +116,14 @@
   "T-205": {
    "id": "T-205",
    "title": "impl: parallel e",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "no-report",
    "work_ms": 3000,
    "deps": [],
    "attempts": 3,
-   "lease": {
-    "token": "l-5548081bc601",
-    "expires": "2026-09-23T05:59:58.477Z",
-    "issued_at": "2026-09-23T05:44:58.477Z"
-   },
+   "lease": null,
    "created": "2026-09-23T05:13:56.511Z",
-   "updated": "2026-09-23T05:44:58.477Z",
+   "updated": "2026-09-23T06:00:05.911Z",
    "history": [
     {
      "at": "2026-09-23T05:13:56.511Z",
@@ -158,9 +154,15 @@
      "at": "2026-09-23T05:44:58.477Z",
      "status": "assigned",
      "why": "assigned(attempt=3)"
+    },
+    {
+     "at": "2026-09-23T06:00:05.911Z",
+     "status": "quarantined",
+     "why": "lease-timeout(attempts=3)"
     }
    ],
-   "last_result": null
+   "last_result": null,
+   "terminal_seq": 166
   },
   "T-206": {
    "id": "T-206",
@@ -182,17 +184,59 @@
    "attempts": 1,
    "done_at": "2026-09-23T05:15:03.497Z",
    "pruned": true
+  },
+  "T-301": {
+   "id": "T-301",
+   "title": "impl: integration",
+   "status": "ready",
+   "behavior": "succeed",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-23T06:00:05.911Z",
+   "updated": "2026-09-23T06:00:05.911Z",
+   "history": [
+    {
+     "at": "2026-09-23T06:00:05.911Z",
+     "status": "ready",
+     "why": "created"
+    }
+   ],
+   "last_result": null
+  },
+  "T-302": {
+   "id": "T-302",
+   "title": "review: final",
+   "status": "backlog",
+   "behavior": "succeed",
+   "work_ms": 3000,
+   "deps": [
+    "T-301"
+   ],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-23T06:00:05.911Z",
+   "updated": "2026-09-23T06:00:05.911Z",
+   "history": [
+    {
+     "at": "2026-09-23T06:00:05.911Z",
+     "status": "backlog",
+     "why": "created"
+    }
+   ],
+   "last_result": null
   }
  },
  "stats": {
   "done": 13,
   "failed": 0,
-  "quarantined": 2,
+  "quarantined": 3,
   "cancelled": 0,
   "retries": 8,
   "orphaned_reports": 0,
   "rejected_events": 1,
-  "timeouts": 5,
+  "timeouts": 6,
   "dispatched": 24,
   "infra_retries": 0
  },
@@ -379,7 +423,8 @@
   "tick-chain-1790143071223",
   "tick-chain-1790143105320",
   "tick-chain-1790143138426",
-  "tick-chain-1790143170723"
+  "tick-chain-1790143170723",
+  "tick-chain-1790143203795"
  ],
  "budget_window": [],
  "budget_window_cleared_at": "2026-09-23T04:27:22.397Z"
