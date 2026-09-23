@@ -490,3 +490,4 @@
 {"id":"e4025","ts":"2026-09-23T12:01:50.436Z","applied":true,"kind":"REPORT","task":"T-X28-04","lease":"l-fdc07f95178e","to":"done","run_id":"35857860996","from":"assigned"}
 {"id":"e4026","ts":"2026-09-23T12:01:50.436Z","applied":true,"kind":"REPORT","task":"T-X28-22","lease":"l-289973e22826","to":"done","run_id":"35857923470","from":"assigned"}
 {"id":"e4027","ts":"2026-09-23T12:01:50.438Z","applied":true,"kind":"TICK","seq":3,"actor":"chain","event_id":"tick-chain-1790164908010"}
+{"id":"e4028","ts":"2026-09-23T12:01:58.247Z","applied":true,"kind":"CONTROL","command":"pause","actor":null,"note":null,"payload":{"reason":"lane-budget-exhausted","window":[{"ts":"2026-09-23T12:01:50.434Z","task":"T-X28-17","detail":"lane-429"},{"ts":"2026-09-23T12:01:50.434Z","task":"T-X28-20","detail":"lane-429"},{"ts":"2026-09-23T12:01:50.435Z","task":"T-X28-18","detail":"lane-429"}]}}
