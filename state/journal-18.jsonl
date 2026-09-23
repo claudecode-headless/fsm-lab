@@ -1,0 +1,14 @@
+{"id":"e4029","ts":"2026-09-23T12:11:22.087Z","applied":true,"kind":"CONTROL","command":"resume","actor":"xfnwfpho1","note":null}
+{"id":"e4030","ts":"2026-09-23T12:11:22.088Z","applied":false,"kind":"REJECTED","origKind":"REPORT","task":"T-X28-22","event_id":"rep-35857923470-a1","reason":"duplicate"}
+{"id":"e4031","ts":"2026-09-23T12:11:22.088Z","applied":true,"kind":"REPORT","task":"T-X28-21","lease":"l-9de08bc2d052","to":"done","run_id":"35857922923","from":"assigned"}
+{"id":"e4032","ts":"2026-09-23T12:11:22.088Z","applied":true,"kind":"REPORT","task":"T-X28-19","lease":"l-06782d239554","to":"ready","reason":"infra-retry","run_id":"35857921889","error":"lane-429","from":"assigned"}
+{"id":"e4033","ts":"2026-09-23T12:11:22.088Z","applied":true,"kind":"ASSIGN","task":"T-X28-19","from":"ready","to":"assigned","lease":"l-24b4e44905a7","expires":"2026-09-23T12:56:22.088Z","attempt":1,"behavior":"infra-flaky","task_ref":{"kind":"state-task","id":"T-X28-19"}}
+{"id":"e4034","ts":"2026-09-23T12:11:22.089Z","applied":true,"kind":"REPORT","task":"T-X28-20","lease":"l-eb88cfbb1ebf","to":"ready","reason":"infra-retry","run_id":"35857976748","error":"lane-429","from":"assigned"}
+{"id":"e4035","ts":"2026-09-23T12:11:22.089Z","applied":true,"kind":"ASSIGN","task":"T-X28-20","from":"ready","to":"assigned","lease":"l-2f61ed772aa8","expires":"2026-09-23T12:56:22.089Z","attempt":1,"behavior":"infra-flaky","task_ref":{"kind":"state-task","id":"T-X28-20"}}
+{"id":"e4036","ts":"2026-09-23T12:11:22.090Z","applied":true,"kind":"REPORT","task":"T-X28-17","lease":"l-e3ee6b07a553","to":"ready","reason":"infra-retry","run_id":"35857977048","error":"lane-429","from":"assigned"}
+{"id":"e4037","ts":"2026-09-23T12:11:22.090Z","applied":true,"kind":"ASSIGN","task":"T-X28-17","from":"ready","to":"assigned","lease":"l-dd6295b70e43","expires":"2026-09-23T12:56:22.090Z","attempt":1,"behavior":"infra-flaky","task_ref":{"kind":"state-task","id":"T-X28-17"}}
+{"id":"e4038","ts":"2026-09-23T12:11:22.103Z","applied":true,"kind":"REPORT","task":"T-X28-18","lease":"l-0925ddcb3064","to":"ready","reason":"infra-retry","run_id":"35857978553","error":"lane-429","from":"assigned"}
+{"id":"e4039","ts":"2026-09-23T12:11:22.103Z","applied":true,"kind":"ASSIGN","task":"T-X28-18","from":"ready","to":"assigned","lease":"l-3faf9d9bac3d","expires":"2026-09-23T12:56:22.103Z","attempt":1,"behavior":"infra-flaky","task_ref":{"kind":"state-task","id":"T-X28-18"}}
+{"id":"e4040","ts":"2026-09-23T12:11:22.103Z","applied":false,"kind":"REJECTED","origKind":"REPORT","task":"T-X28-21","event_id":"rep-35857922923-a1","reason":"duplicate"}
+{"id":"e4041","ts":"2026-09-23T12:11:22.104Z","applied":true,"kind":"REPORT","task":"T-X28-23","lease":"l-a55fe38603c5","to":"done","run_id":"35857923657","from":"assigned"}
+{"id":"e4042","ts":"2026-09-23T12:11:22.104Z","applied":true,"kind":"CONTROL","command":"resume","actor":"xfnwfpho1","note":null}

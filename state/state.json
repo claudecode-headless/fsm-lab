@@ -1,15 +1,14 @@
 {
  "schema": 1,
- "version": 50,
- "journal_seq": 4029,
+ "version": 62,
+ "journal_seq": 4043,
  "chain": {
   "id": "c-1790164841598",
   "seq": 3,
   "last_tick": "2026-09-23T12:01:50.438Z",
   "primed_by": "chain",
   "halted": false,
-  "paused": true,
-  "paused_reason": "lane-budget-exhausted"
+  "paused": false
  },
  "project": {
   "phase": "executing",
@@ -679,12 +678,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-e3ee6b07a553",
-    "expires": "2026-09-23T12:46:50.431Z",
-    "issued_at": "2026-09-23T12:01:50.431Z"
+    "token": "l-dd6295b70e43",
+    "expires": "2026-09-23T12:56:22.090Z",
+    "issued_at": "2026-09-23T12:11:22.090Z"
    },
    "created": "2026-09-23T12:00:41.598Z",
-   "updated": "2026-09-23T12:01:50.431Z",
+   "updated": "2026-09-23T12:11:22.090Z",
    "history": [
     {
      "at": "2026-09-23T12:00:41.598Z",
@@ -705,18 +704,28 @@
      "at": "2026-09-23T12:01:50.431Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-23T12:11:22.090Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-23T12:11:22.090Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35857921182",
+    "run_id": "35857977048",
     "error": "lane-429"
    },
    "spec": {
     "issue": 25,
     "body_sha8": "a939bcb5"
    },
-   "infra_attempts": 1
+   "infra_attempts": 2
   },
   "T-X28-18": {
    "id": "T-X28-18",
@@ -727,12 +736,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-0925ddcb3064",
-    "expires": "2026-09-23T12:46:50.435Z",
-    "issued_at": "2026-09-23T12:01:50.435Z"
+    "token": "l-3faf9d9bac3d",
+    "expires": "2026-09-23T12:56:22.103Z",
+    "issued_at": "2026-09-23T12:11:22.103Z"
    },
    "created": "2026-09-23T12:00:41.598Z",
-   "updated": "2026-09-23T12:01:50.435Z",
+   "updated": "2026-09-23T12:11:22.103Z",
    "history": [
     {
      "at": "2026-09-23T12:00:41.598Z",
@@ -753,18 +762,28 @@
      "at": "2026-09-23T12:01:50.435Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-23T12:11:22.103Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-23T12:11:22.103Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35857921402",
+    "run_id": "35857978553",
     "error": "lane-429"
    },
    "spec": {
     "issue": 25,
     "body_sha8": "a939bcb5"
    },
-   "infra_attempts": 1
+   "infra_attempts": 2
   },
   "T-X28-19": {
    "id": "T-X28-19",
@@ -775,12 +794,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-06782d239554",
-    "expires": "2026-09-23T12:46:16.236Z",
-    "issued_at": "2026-09-23T12:01:16.236Z"
+    "token": "l-24b4e44905a7",
+    "expires": "2026-09-23T12:56:22.088Z",
+    "issued_at": "2026-09-23T12:11:22.088Z"
    },
    "created": "2026-09-23T12:00:41.598Z",
-   "updated": "2026-09-23T12:01:16.236Z",
+   "updated": "2026-09-23T12:11:22.088Z",
    "history": [
     {
      "at": "2026-09-23T12:00:41.598Z",
@@ -791,13 +810,28 @@
      "at": "2026-09-23T12:01:16.236Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-23T12:11:22.088Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-23T12:11:22.088Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "infra_failed",
+    "run_id": "35857921889",
+    "error": "lane-429"
+   },
    "spec": {
     "issue": 25,
     "body_sha8": "a939bcb5"
-   }
+   },
+   "infra_attempts": 1
   },
   "T-X28-20": {
    "id": "T-X28-20",
@@ -808,12 +842,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-eb88cfbb1ebf",
-    "expires": "2026-09-23T12:46:50.434Z",
-    "issued_at": "2026-09-23T12:01:50.434Z"
+    "token": "l-2f61ed772aa8",
+    "expires": "2026-09-23T12:56:22.089Z",
+    "issued_at": "2026-09-23T12:11:22.089Z"
    },
    "created": "2026-09-23T12:00:41.598Z",
-   "updated": "2026-09-23T12:01:50.434Z",
+   "updated": "2026-09-23T12:11:22.089Z",
    "history": [
     {
      "at": "2026-09-23T12:00:41.598Z",
@@ -834,34 +868,40 @@
      "at": "2026-09-23T12:01:50.434Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-23T12:11:22.089Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-23T12:11:22.089Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35857922173",
+    "run_id": "35857976748",
     "error": "lane-429"
    },
    "spec": {
     "issue": 25,
     "body_sha8": "a939bcb5"
    },
-   "infra_attempts": 1
+   "infra_attempts": 2
   },
   "T-X28-21": {
    "id": "T-X28-21",
    "title": "soak dedup 21",
-   "status": "assigned",
+   "status": "done",
    "behavior": "dup-report",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-9de08bc2d052",
-    "expires": "2026-09-23T12:46:16.237Z",
-    "issued_at": "2026-09-23T12:01:16.237Z"
-   },
+   "lease": null,
    "created": "2026-09-23T12:00:41.598Z",
-   "updated": "2026-09-23T12:01:16.237Z",
+   "updated": "2026-09-23T12:11:22.088Z",
    "history": [
     {
      "at": "2026-09-23T12:00:41.598Z",
@@ -872,13 +912,24 @@
      "at": "2026-09-23T12:01:16.237Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-23T12:11:22.088Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35857922923",
+    "artifact": "shim(dup-report): task T-X28-21 attempt 1 completed — the report is delivered TWICE (same event_id; the drain must dedup)",
+    "duration_ms": 4007
+   },
    "spec": {
     "issue": 25,
     "body_sha8": "a939bcb5"
-   }
+   },
+   "terminal_seq": 3
   },
   "T-X28-22": {
    "id": "T-X28-22",
@@ -923,18 +974,14 @@
   "T-X28-23": {
    "id": "T-X28-23",
    "title": "soak tail 23",
-   "status": "assigned",
+   "status": "done",
    "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-a55fe38603c5",
-    "expires": "2026-09-23T12:46:16.237Z",
-    "issued_at": "2026-09-23T12:01:16.237Z"
-   },
+   "lease": null,
    "created": "2026-09-23T12:00:41.598Z",
-   "updated": "2026-09-23T12:01:16.237Z",
+   "updated": "2026-09-23T12:11:22.104Z",
    "history": [
     {
      "at": "2026-09-23T12:00:41.598Z",
@@ -945,13 +992,24 @@
      "at": "2026-09-23T12:01:16.237Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-23T12:11:22.104Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35857923657",
+    "artifact": "shim(fast): completed task T-X28-23 attempt 1",
+    "duration_ms": 4007
+   },
    "spec": {
     "issue": 25,
     "body_sha8": "a939bcb5"
-   }
+   },
+   "terminal_seq": 3
   },
   "T-X28-24": {
    "id": "T-X28-24",
@@ -995,16 +1053,16 @@
   }
  },
  "stats": {
-  "done": 18,
+  "done": 20,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
   "retries": 0,
   "orphaned_reports": 0,
-  "rejected_events": 0,
+  "rejected_events": 2,
   "timeouts": 0,
-  "dispatched": 27,
-  "infra_retries": 3,
+  "dispatched": 31,
+  "infra_retries": 7,
   "budget_pauses": 1
  },
  "dedup": [
@@ -1032,24 +1090,16 @@
   "rep-35857860996-a1",
   "rep-35857923470-a1",
   "tick-chain-1790164908010",
-  "ctl-12-budget-pause-1790164914652"
+  "ctl-12-budget-pause-1790164914652",
+  "ctl-1790165474366-r213zp",
+  "rep-35857922923-a1",
+  "rep-35857921889-a1",
+  "rep-35857976748-a1",
+  "rep-35857977048-a1",
+  "rep-35857978553-a1",
+  "rep-35857923657-a1",
+  "ctl-direct-resume-1790165477129"
  ],
- "budget_window": [
-  {
-   "ts": "2026-09-23T12:01:50.434Z",
-   "task": "T-X28-17",
-   "detail": "lane-429"
-  },
-  {
-   "ts": "2026-09-23T12:01:50.434Z",
-   "task": "T-X28-20",
-   "detail": "lane-429"
-  },
-  {
-   "ts": "2026-09-23T12:01:50.435Z",
-   "task": "T-X28-18",
-   "detail": "lane-429"
-  }
- ],
- "budget_window_cleared_at": "2026-09-23T12:00:41.598Z"
+ "budget_window": [],
+ "budget_window_cleared_at": "2026-09-23T12:11:22.104Z"
 }
