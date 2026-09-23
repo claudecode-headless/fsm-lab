@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "version": 22,
- "journal_seq": 3596,
+ "journal_seq": 3600,
  "chain": {
   "id": "c-1790137642397",
-  "seq": 22,
-  "last_tick": "2026-09-23T04:39:12.431Z",
+  "seq": 23,
+  "last_tick": "2026-09-23T04:39:46.116Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -38,140 +38,24 @@
   },
   "T-102": {
    "id": "T-102",
-   "title": "research: continuity mechanics",
    "status": "done",
-   "behavior": "flaky",
-   "work_ms": 3000,
-   "deps": [],
    "attempts": 2,
-   "lease": null,
-   "created": "2026-09-23T04:27:22.397Z",
-   "updated": "2026-09-23T04:28:28.780Z",
-   "history": [
-    {
-     "at": "2026-09-23T04:27:22.397Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-23T04:27:22.405Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-23T04:27:56.055Z",
-     "status": "failed",
-     "why": "worker-failed(attempts=1)"
-    },
-    {
-     "at": "2026-09-23T04:27:56.055Z",
-     "status": "ready",
-     "why": "retry-scan(attempts=1)"
-    },
-    {
-     "at": "2026-09-23T04:27:56.055Z",
-     "status": "assigned",
-     "why": "assigned(attempt=2)"
-    },
-    {
-     "at": "2026-09-23T04:28:28.780Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35818440723",
-    "artifact": "shim(flaky): completed task T-102 attempt 2",
-    "duration_ms": 3006
-   },
-   "terminal_seq": 2
+   "done_at": "2026-09-23T04:28:28.780Z",
+   "pruned": true
   },
   "T-103": {
    "id": "T-103",
-   "title": "impl: state store CAS",
    "status": "done",
-   "behavior": "succeed",
-   "work_ms": 5000,
-   "deps": [
-    "T-101"
-   ],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-23T04:27:22.397Z",
-   "updated": "2026-09-23T04:28:28.810Z",
-   "history": [
-    {
-     "at": "2026-09-23T04:27:22.397Z",
-     "status": "backlog",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-23T04:27:56.060Z",
-     "status": "ready",
-     "why": "deps-satisfied"
-    },
-    {
-     "at": "2026-09-23T04:27:56.060Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-23T04:28:28.810Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35818441067",
-    "artifact": "shim(fast): completed task T-103 attempt 1",
-    "duration_ms": 5008
-   },
-   "terminal_seq": 2
+   "done_at": "2026-09-23T04:28:28.810Z",
+   "pruned": true
   },
   "T-104": {
    "id": "T-104",
-   "title": "impl: conductor loop",
    "status": "done",
-   "behavior": "succeed",
-   "work_ms": 5000,
-   "deps": [
-    "T-101"
-   ],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-23T04:27:22.397Z",
-   "updated": "2026-09-23T04:28:28.810Z",
-   "history": [
-    {
-     "at": "2026-09-23T04:27:22.397Z",
-     "status": "backlog",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-23T04:27:56.060Z",
-     "status": "ready",
-     "why": "deps-satisfied"
-    },
-    {
-     "at": "2026-09-23T04:27:56.060Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-23T04:28:28.810Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35818441047",
-    "artifact": "shim(fast): completed task T-104 attempt 1",
-    "duration_ms": 5009
-   },
-   "terminal_seq": 2
+   "done_at": "2026-09-23T04:28:28.810Z",
+   "pruned": true
   },
   "T-105": {
    "id": "T-105",
@@ -331,7 +215,8 @@
   "tick-chain-1790138254741",
   "tick-chain-1790138286629",
   "tick-chain-1790138318133",
-  "tick-chain-1790138349968"
+  "tick-chain-1790138349968",
+  "tick-chain-1790138383897"
  ],
  "budget_window": [],
  "budget_window_cleared_at": "2026-09-23T04:27:22.397Z"
