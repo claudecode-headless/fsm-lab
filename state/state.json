@@ -1,25 +1,25 @@
 {
  "schema": 1,
- "version": 8,
- "journal_seq": 3976,
+ "version": 17,
+ "journal_seq": 3994,
  "chain": {
-  "id": "c-1790161702003",
-  "seq": 79,
-  "last_tick": "2026-09-23T11:54:24.610Z",
-  "primed_by": "chain",
-  "halted": true,
+  "id": "c-1790164841598",
+  "seq": 1,
+  "last_tick": "2026-09-23T12:00:41.601Z",
+  "primed_by": "intake",
+  "halted": false,
   "paused": false
  },
  "project": {
-  "phase": "done",
+  "phase": "executing",
   "milestone": 1,
   "milestones_total": 1,
   "mode": "mock",
-  "issue": 21
+  "issue": 25
  },
  "config": {
   "max_parallel": 16,
-  "lease_minutes": 15,
+  "lease_minutes": 45,
   "max_attempts": 3,
   "tick_min_interval_s": 25,
   "dedup_window": 300,
@@ -29,155 +29,742 @@
   "overflow_at": 13
  },
  "tasks": {
-  "T-STG-H-0923": {
-   "id": "T-STG-H-0923",
-   "title": "staged nightly H (hang night)",
-   "status": "quarantined",
-   "behavior": "hang",
+  "T-X28-01": {
+   "id": "T-X28-01",
+   "title": "soak clean 01",
+   "status": "assigned",
+   "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 3,
-   "lease": null,
-   "created": "2026-09-23T11:08:22.003Z",
-   "updated": "2026-09-23T11:54:24.610Z",
+   "attempts": 1,
+   "lease": {
+    "token": "l-f4d8639c37f5",
+    "expires": "2026-09-23T12:45:41.601Z",
+    "issued_at": "2026-09-23T12:00:41.601Z"
+   },
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.601Z",
    "history": [
     {
-     "at": "2026-09-23T11:08:22.003Z",
+     "at": "2026-09-23T12:00:41.598Z",
      "status": "ready",
      "why": "created"
     },
     {
-     "at": "2026-09-23T11:08:22.011Z",
+     "at": "2026-09-23T12:00:41.601Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-23T11:23:49.388Z",
-     "status": "ready",
-     "why": "lease-timeout(attempts=1)"
-    },
-    {
-     "at": "2026-09-23T11:23:49.388Z",
-     "status": "assigned",
-     "why": "assigned(attempt=2)"
-    },
-    {
-     "at": "2026-09-23T11:38:52.621Z",
-     "status": "ready",
-     "why": "lease-timeout(attempts=2)"
-    },
-    {
-     "at": "2026-09-23T11:38:52.621Z",
-     "status": "assigned",
-     "why": "assigned(attempt=3)"
-    },
-    {
-     "at": "2026-09-23T11:54:24.610Z",
-     "status": "quarantined",
-     "why": "lease-timeout(attempts=3)"
     }
    ],
    "last_result": null,
    "spec": {
-    "issue": 21,
-    "body_sha8": "ae02971a"
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-02": {
+   "id": "T-X28-02",
+   "title": "soak clean 02",
+   "status": "assigned",
+   "behavior": "fast",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-8b01047aed2e",
+    "expires": "2026-09-23T12:45:41.601Z",
+    "issued_at": "2026-09-23T12:00:41.601Z"
    },
-   "terminal_seq": 79
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.601Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-23T12:00:41.601Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-03": {
+   "id": "T-X28-03",
+   "title": "soak clean 03",
+   "status": "assigned",
+   "behavior": "fast",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-01b55fa2bdb8",
+    "expires": "2026-09-23T12:45:41.601Z",
+    "issued_at": "2026-09-23T12:00:41.601Z"
+   },
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.601Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-23T12:00:41.601Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-04": {
+   "id": "T-X28-04",
+   "title": "soak clean 04",
+   "status": "assigned",
+   "behavior": "fast",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-fdc07f95178e",
+    "expires": "2026-09-23T12:45:41.601Z",
+    "issued_at": "2026-09-23T12:00:41.601Z"
+   },
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.601Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-23T12:00:41.601Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-05": {
+   "id": "T-X28-05",
+   "title": "soak clean 05",
+   "status": "assigned",
+   "behavior": "fast",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-37d4add582c7",
+    "expires": "2026-09-23T12:45:41.601Z",
+    "issued_at": "2026-09-23T12:00:41.601Z"
+   },
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.601Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-23T12:00:41.601Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-06": {
+   "id": "T-X28-06",
+   "title": "soak clean 06",
+   "status": "assigned",
+   "behavior": "fast",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-60ca781529a3",
+    "expires": "2026-09-23T12:45:41.601Z",
+    "issued_at": "2026-09-23T12:00:41.601Z"
+   },
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.601Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-23T12:00:41.601Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-07": {
+   "id": "T-X28-07",
+   "title": "soak clean 07",
+   "status": "assigned",
+   "behavior": "fast",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-62fe0c60c880",
+    "expires": "2026-09-23T12:45:41.601Z",
+    "issued_at": "2026-09-23T12:00:41.601Z"
+   },
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.601Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-23T12:00:41.601Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-08": {
+   "id": "T-X28-08",
+   "title": "soak clean 08",
+   "status": "assigned",
+   "behavior": "fast",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-c782e2dc969c",
+    "expires": "2026-09-23T12:45:41.601Z",
+    "issued_at": "2026-09-23T12:00:41.601Z"
+   },
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.601Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-23T12:00:41.601Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-09": {
+   "id": "T-X28-09",
+   "title": "soak clean 09",
+   "status": "assigned",
+   "behavior": "fast",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-4b5b84f7eb4e",
+    "expires": "2026-09-23T12:45:41.601Z",
+    "issued_at": "2026-09-23T12:00:41.601Z"
+   },
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.601Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-23T12:00:41.601Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-10": {
+   "id": "T-X28-10",
+   "title": "soak clean 10",
+   "status": "assigned",
+   "behavior": "fast",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-cc56a19f9bc3",
+    "expires": "2026-09-23T12:45:41.601Z",
+    "issued_at": "2026-09-23T12:00:41.601Z"
+   },
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.601Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-23T12:00:41.601Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-11": {
+   "id": "T-X28-11",
+   "title": "soak clean 11",
+   "status": "assigned",
+   "behavior": "fast",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-a9e0ba3b2ba8",
+    "expires": "2026-09-23T12:45:41.601Z",
+    "issued_at": "2026-09-23T12:00:41.601Z"
+   },
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.601Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-23T12:00:41.601Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-12": {
+   "id": "T-X28-12",
+   "title": "soak clean 12",
+   "status": "assigned",
+   "behavior": "fast",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-b0983af2778f",
+    "expires": "2026-09-23T12:45:41.601Z",
+    "issued_at": "2026-09-23T12:00:41.601Z"
+   },
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.601Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-23T12:00:41.601Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-13": {
+   "id": "T-X28-13",
+   "title": "soak clean 13",
+   "status": "assigned",
+   "behavior": "fast",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-32d623c9b374",
+    "expires": "2026-09-23T12:45:41.601Z",
+    "issued_at": "2026-09-23T12:00:41.601Z"
+   },
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.601Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-23T12:00:41.601Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-14": {
+   "id": "T-X28-14",
+   "title": "soak clean 14",
+   "status": "assigned",
+   "behavior": "fast",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-74da75ddac88",
+    "expires": "2026-09-23T12:45:41.601Z",
+    "issued_at": "2026-09-23T12:00:41.601Z"
+   },
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.601Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-23T12:00:41.601Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-15": {
+   "id": "T-X28-15",
+   "title": "soak clean 15",
+   "status": "assigned",
+   "behavior": "fast",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-7086ae561c4e",
+    "expires": "2026-09-23T12:45:41.601Z",
+    "issued_at": "2026-09-23T12:00:41.601Z"
+   },
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.601Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-23T12:00:41.601Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-16": {
+   "id": "T-X28-16",
+   "title": "soak clean 16",
+   "status": "assigned",
+   "behavior": "fast",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": {
+    "token": "l-17a76a94a2f9",
+    "expires": "2026-09-23T12:45:41.601Z",
+    "issued_at": "2026-09-23T12:00:41.601Z"
+   },
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.601Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-23T12:00:41.601Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-17": {
+   "id": "T-X28-17",
+   "title": "soak ladder 17",
+   "status": "ready",
+   "behavior": "infra-flaky",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.598Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-18": {
+   "id": "T-X28-18",
+   "title": "soak ladder 18",
+   "status": "ready",
+   "behavior": "infra-flaky",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.598Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-19": {
+   "id": "T-X28-19",
+   "title": "soak ladder 19",
+   "status": "ready",
+   "behavior": "infra-flaky",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.598Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-20": {
+   "id": "T-X28-20",
+   "title": "soak ladder 20",
+   "status": "ready",
+   "behavior": "infra-flaky",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.598Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-21": {
+   "id": "T-X28-21",
+   "title": "soak dedup 21",
+   "status": "ready",
+   "behavior": "dup-report",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.598Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-22": {
+   "id": "T-X28-22",
+   "title": "soak dedup 22",
+   "status": "ready",
+   "behavior": "dup-report",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.598Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-23": {
+   "id": "T-X28-23",
+   "title": "soak tail 23",
+   "status": "ready",
+   "behavior": "fast",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.598Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
+  },
+  "T-X28-24": {
+   "id": "T-X28-24",
+   "title": "soak tail 24",
+   "status": "ready",
+   "behavior": "fast",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 0,
+   "lease": null,
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:00:41.598Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    }
+   ],
+   "last_result": null,
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   }
   }
  },
  "stats": {
   "done": 0,
   "failed": 0,
-  "quarantined": 1,
+  "quarantined": 0,
   "cancelled": 0,
-  "retries": 2,
+  "retries": 0,
   "orphaned_reports": 0,
   "rejected_events": 0,
-  "timeouts": 3,
-  "dispatched": 3,
+  "timeouts": 0,
+  "dispatched": 16,
   "infra_retries": 0
  },
  "dedup": [
-  "tick-intake-1790161700041",
-  "tick-chain-1790161732754",
-  "tick-chain-1790161765654",
-  "tick-chain-1790161835276",
-  "tick-chain-1790161870856",
-  "tick-chain-1790161905261",
-  "tick-chain-1790161940933",
-  "tick-chain-1790161974468",
-  "tick-chain-1790162010676",
-  "tick-chain-1790162047588",
-  "tick-chain-1790162081953",
-  "tick-chain-1790162114796",
-  "tick-chain-1790162148217",
-  "tick-chain-1790162182455",
-  "tick-chain-1790162217155",
-  "tick-chain-1790162252231",
-  "tick-chain-1790162285737",
-  "tick-chain-1790162320089",
-  "tick-chain-1790162354380",
-  "tick-chain-1790162387139",
-  "tick-chain-1790162419709",
-  "tick-chain-1790162454905",
-  "tick-chain-1790162488526",
-  "tick-chain-1790162520893",
-  "tick-chain-1790162554282",
-  "tick-chain-1790162588619",
-  "tick-chain-1790162626001",
-  "tick-chain-1790162660319",
-  "tick-chain-1790162694491",
-  "tick-chain-1790162728182",
-  "tick-chain-1790162762052",
-  "tick-chain-1790162795735",
-  "tick-chain-1790162828861",
-  "tick-chain-1790162870101",
-  "tick-chain-1790162906014",
-  "tick-chain-1790162939158",
-  "tick-chain-1790162970919",
-  "tick-chain-1790163004320",
-  "tick-chain-1790163037194",
-  "tick-chain-1790163084530",
-  "tick-chain-1790163120273",
-  "tick-chain-1790163154449",
-  "tick-chain-1790163189636",
-  "tick-chain-1790163221628",
-  "tick-chain-1790163254494",
-  "tick-chain-1790163287391",
-  "tick-chain-1790163320571",
-  "tick-chain-1790163353889",
-  "tick-chain-1790163390721",
-  "tick-chain-1790163423528",
-  "tick-chain-1790163456134",
-  "tick-chain-1790163490082",
-  "tick-chain-1790163529274",
-  "tick-chain-1790163565526",
-  "tick-chain-1790163599014",
-  "tick-chain-1790163631864",
-  "tick-chain-1790163664342",
-  "tick-chain-1790163699888",
-  "tick-chain-1790163732884",
-  "tick-chain-1790163765483",
-  "tick-chain-1790163800373",
-  "tick-chain-1790163847876",
-  "tick-chain-1790163887300",
-  "tick-chain-1790163919662",
-  "tick-chain-1790163952064",
-  "tick-chain-1790164021200",
-  "tick-chain-1790164054707",
-  "tick-chain-1790164087504",
-  "tick-chain-1790164122949",
-  "tick-chain-1790164156143",
-  "tick-chain-1790164190832",
-  "tick-chain-1790164223904",
-  "tick-chain-1790164257514",
-  "tick-chain-1790164292731",
-  "tick-chain-1790164329897",
-  "tick-chain-1790164363075",
-  "tick-chain-1790164396294",
-  "tick-chain-1790164428250",
-  "tick-chain-1790164462655"
+  "tick-intake-1790164839623"
  ],
  "budget_window": [],
- "budget_window_cleared_at": "2026-09-23T11:08:22.003Z"
+ "budget_window_cleared_at": "2026-09-23T12:00:41.598Z"
 }
