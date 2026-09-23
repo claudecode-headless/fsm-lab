@@ -168,3 +168,4 @@
 {"id":"e3703","ts":"2026-09-23T05:19:31.530Z","applied":true,"kind":"TICK","seq":94,"actor":"chain","event_id":"tick-chain-1790140769949"}
 {"id":"e3704","ts":"2026-09-23T05:20:06.797Z","applied":true,"kind":"TICK","seq":95,"actor":"chain","event_id":"tick-chain-1790140804284"}
 {"id":"e3705","ts":"2026-09-23T05:20:39.628Z","applied":true,"kind":"TICK","seq":96,"actor":"chain","event_id":"tick-chain-1790140837162"}
+{"id":"e3706","ts":"2026-09-23T05:20:51.922Z","applied":false,"kind":"TICK","actor":"watchdog","event_id":"watchdog-scan-1790140851922","note":"watchdog-scan (audit-only deadman marker — the scan completed; no state change, no seq bump)"}
