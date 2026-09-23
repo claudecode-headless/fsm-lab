@@ -3,3 +3,6 @@
 {"id":"e3538","ts":"2026-09-23T03:38:33.910Z","applied":true,"kind":"TICK","seq":80,"actor":"chain","event_id":"tick-chain-1790134711414"}
 {"id":"e3539","ts":"2026-09-23T03:39:07.614Z","applied":true,"kind":"TICK","seq":81,"actor":"chain","event_id":"tick-chain-1790134745231"}
 {"id":"e3540","ts":"2026-09-23T03:39:41.716Z","applied":true,"kind":"TICK","seq":82,"actor":"chain","event_id":"tick-chain-1790134778839"}
+{"id":"e3541","ts":"2026-09-23T03:40:15.941Z","applied":true,"kind":"TICK","seq":83,"actor":"chain","event_id":"tick-chain-1790134812766"}
+{"id":"e3542","ts":"2026-09-23T03:40:15.941Z","applied":true,"kind":"TIMEOUT","task":"T-STG-H-0923","from":"assigned","to":"quarantined"}
+{"id":"e3543","ts":"2026-09-23T03:40:15.941Z","applied":true,"kind":"PHASE","from":"executing","to":"done","degraded":true,"stats":{"done":0,"failed":0,"quarantined":1,"cancelled":0,"retries":2,"orphaned_reports":0,"rejected_events":0,"timeouts":3,"dispatched":3,"infra_retries":0,"taskCount":1},"taskIds":["T-STG-H-0923"],"issue":21}
