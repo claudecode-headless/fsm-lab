@@ -1,17 +1,17 @@
 {
  "schema": 1,
- "version": 67,
- "journal_seq": 4049,
+ "version": 69,
+ "journal_seq": 4051,
  "chain": {
   "id": "c-1790164841598",
   "seq": 4,
   "last_tick": "2026-09-23T12:11:53.077Z",
   "primed_by": "chain",
-  "halted": false,
+  "halted": true,
   "paused": false
  },
  "project": {
-  "phase": "executing",
+  "phase": "done",
   "milestone": 1,
   "milestones_total": 1,
   "mode": "mock",
@@ -792,18 +792,14 @@
   "T-X28-19": {
    "id": "T-X28-19",
    "title": "soak ladder 19",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "infra-flaky",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-254aa6dcd515",
-    "expires": "2026-09-23T12:56:53.068Z",
-    "issued_at": "2026-09-23T12:11:53.068Z"
-   },
+   "lease": null,
    "created": "2026-09-23T12:00:41.598Z",
-   "updated": "2026-09-23T12:11:53.068Z",
+   "updated": "2026-09-23T12:12:26.175Z",
    "history": [
     {
      "at": "2026-09-23T12:00:41.598Z",
@@ -834,18 +830,24 @@
      "at": "2026-09-23T12:11:53.068Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-23T12:12:26.175Z",
+     "status": "quarantined",
+     "why": "infra-exhausted(infra_attempts=3)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35858941333",
+    "run_id": "35858989280",
     "error": "lane-429"
    },
    "spec": {
     "issue": 25,
     "body_sha8": "a939bcb5"
    },
-   "infra_attempts": 2
+   "infra_attempts": 3,
+   "terminal_seq": 4
   },
   "T-X28-20": {
    "id": "T-X28-20",
@@ -1071,7 +1073,7 @@
  "stats": {
   "done": 20,
   "failed": 0,
-  "quarantined": 3,
+  "quarantined": 4,
   "cancelled": 0,
   "retries": 0,
   "orphaned_reports": 0,
@@ -1119,7 +1121,9 @@
   "rep-35858942801-a1",
   "rep-35858942510-a1",
   "rep-35858942852-a1",
-  "tick-chain-1790165511212"
+  "tick-chain-1790165511212",
+  "rep-35858989280-a1",
+  "tick-chain-1790165544588"
  ],
  "budget_window": [
   {
@@ -1145,6 +1149,11 @@
    "task": "T-X28-18",
    "detail": "lane-429",
    "straggler": true
+  },
+  {
+   "ts": "2026-09-23T12:12:26.177Z",
+   "task": "T-X28-19",
+   "detail": "lane-429"
   }
  ],
  "budget_window_cleared_at": "2026-09-23T12:11:22.104Z"
