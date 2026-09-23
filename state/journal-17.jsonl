@@ -158,3 +158,5 @@
 {"id":"e3693","ts":"2026-09-23T05:15:38.117Z","applied":true,"kind":"RETRY","task":"T-207","from":"failed","to":"ready"}
 {"id":"e3694","ts":"2026-09-23T05:15:38.117Z","applied":true,"kind":"ASSIGN","task":"T-207","from":"ready","to":"assigned","lease":"l-3fede22d67e1","expires":"2026-09-23T05:30:38.117Z","attempt":3,"behavior":"poison","task_ref":{"kind":"state-task","id":"T-207"}}
 {"id":"e3695","ts":"2026-09-23T05:15:38.121Z","applied":true,"kind":"TICK","seq":87,"actor":"chain","event_id":"tick-chain-1790140536003"}
+{"id":"e3696","ts":"2026-09-23T05:16:14.558Z","applied":true,"kind":"REPORT","task":"T-207","lease":"l-3fede22d67e1","to":"quarantined","run_id":"35821683227","from":"assigned"}
+{"id":"e3697","ts":"2026-09-23T05:16:14.566Z","applied":true,"kind":"TICK","seq":88,"actor":"chain","event_id":"tick-chain-1790140572629"}
