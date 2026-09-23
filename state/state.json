@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 5,
- "journal_seq": 3555,
+ "version": 14,
+ "journal_seq": 3566,
  "chain": {
   "id": "c-1790137642397",
-  "seq": 1,
-  "last_tick": "2026-09-23T04:27:22.405Z",
+  "seq": 2,
+  "last_tick": "2026-09-23T04:27:56.062Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -32,18 +32,14 @@
   "T-101": {
    "id": "T-101",
    "title": "research: state-anchor options",
-   "status": "assigned",
+   "status": "done",
    "behavior": "succeed",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-72c57e33494a",
-    "expires": "2026-09-23T04:42:22.405Z",
-    "issued_at": "2026-09-23T04:27:22.405Z"
-   },
+   "lease": null,
    "created": "2026-09-23T04:27:22.397Z",
-   "updated": "2026-09-23T04:27:22.405Z",
+   "updated": "2026-09-23T04:27:56.060Z",
    "history": [
     {
      "at": "2026-09-23T04:27:22.397Z",
@@ -54,9 +50,20 @@
      "at": "2026-09-23T04:27:22.405Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-23T04:27:56.060Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "done",
+    "run_id": "35818404580",
+    "artifact": "shim(fast): completed task T-101 attempt 1",
+    "duration_ms": 4004
+   },
+   "terminal_seq": 1
   },
   "T-102": {
    "id": "T-102",
@@ -65,14 +72,14 @@
    "behavior": "flaky",
    "work_ms": 3000,
    "deps": [],
-   "attempts": 1,
+   "attempts": 2,
    "lease": {
-    "token": "l-c206b95ff199",
-    "expires": "2026-09-23T04:42:22.405Z",
-    "issued_at": "2026-09-23T04:27:22.405Z"
+    "token": "l-66721c5e409c",
+    "expires": "2026-09-23T04:42:56.055Z",
+    "issued_at": "2026-09-23T04:27:56.055Z"
    },
    "created": "2026-09-23T04:27:22.397Z",
-   "updated": "2026-09-23T04:27:22.405Z",
+   "updated": "2026-09-23T04:27:56.055Z",
    "history": [
     {
      "at": "2026-09-23T04:27:22.397Z",
@@ -83,28 +90,61 @@
      "at": "2026-09-23T04:27:22.405Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-23T04:27:56.055Z",
+     "status": "failed",
+     "why": "worker-failed(attempts=1)"
+    },
+    {
+     "at": "2026-09-23T04:27:56.055Z",
+     "status": "ready",
+     "why": "retry-scan(attempts=1)"
+    },
+    {
+     "at": "2026-09-23T04:27:56.055Z",
+     "status": "assigned",
+     "why": "assigned(attempt=2)"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "work_failed",
+    "run_id": "35818404589",
+    "error": "flaky-fail-1"
+   }
   },
   "T-103": {
    "id": "T-103",
    "title": "impl: state store CAS",
-   "status": "backlog",
+   "status": "assigned",
    "behavior": "succeed",
    "work_ms": 5000,
    "deps": [
     "T-101"
    ],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-f17e2f6c2eb2",
+    "expires": "2026-09-23T04:42:56.060Z",
+    "issued_at": "2026-09-23T04:27:56.060Z"
+   },
    "created": "2026-09-23T04:27:22.397Z",
-   "updated": "2026-09-23T04:27:22.397Z",
+   "updated": "2026-09-23T04:27:56.060Z",
    "history": [
     {
      "at": "2026-09-23T04:27:22.397Z",
      "status": "backlog",
      "why": "created"
+    },
+    {
+     "at": "2026-09-23T04:27:56.060Z",
+     "status": "ready",
+     "why": "deps-satisfied"
+    },
+    {
+     "at": "2026-09-23T04:27:56.060Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null
@@ -112,21 +152,35 @@
   "T-104": {
    "id": "T-104",
    "title": "impl: conductor loop",
-   "status": "backlog",
+   "status": "assigned",
    "behavior": "succeed",
    "work_ms": 5000,
    "deps": [
     "T-101"
    ],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-0ea69da32b87",
+    "expires": "2026-09-23T04:42:56.060Z",
+    "issued_at": "2026-09-23T04:27:56.060Z"
+   },
    "created": "2026-09-23T04:27:22.397Z",
-   "updated": "2026-09-23T04:27:22.397Z",
+   "updated": "2026-09-23T04:27:56.060Z",
    "history": [
     {
      "at": "2026-09-23T04:27:22.397Z",
      "status": "backlog",
      "why": "created"
+    },
+    {
+     "at": "2026-09-23T04:27:56.060Z",
+     "status": "ready",
+     "why": "deps-satisfied"
+    },
+    {
+     "at": "2026-09-23T04:27:56.060Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null
@@ -179,18 +233,14 @@
   "T-107": {
    "id": "T-107",
    "title": "edge: duplicate report",
-   "status": "assigned",
+   "status": "done",
    "behavior": "dup",
    "work_ms": 3000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-3c97be24382f",
-    "expires": "2026-09-23T04:42:22.405Z",
-    "issued_at": "2026-09-23T04:27:22.405Z"
-   },
+   "lease": null,
    "created": "2026-09-23T04:27:22.397Z",
-   "updated": "2026-09-23T04:27:22.405Z",
+   "updated": "2026-09-23T04:27:56.061Z",
    "history": [
     {
      "at": "2026-09-23T04:27:22.397Z",
@@ -201,9 +251,20 @@
      "at": "2026-09-23T04:27:22.405Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-23T04:27:56.061Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "done",
+    "run_id": "35818404775",
+    "artifact": "shim(dup-report): task T-107 attempt 1 completed — the report is delivered TWICE (same event_id; the drain must dedup)",
+    "duration_ms": 3006
+   },
+   "terminal_seq": 1
   },
   "T-108": {
    "id": "T-108",
@@ -236,19 +297,23 @@
   }
  },
  "stats": {
-  "done": 0,
+  "done": 2,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
-  "retries": 0,
+  "retries": 1,
   "orphaned_reports": 0,
-  "rejected_events": 0,
+  "rejected_events": 1,
   "timeouts": 0,
-  "dispatched": 4,
+  "dispatched": 7,
   "infra_retries": 0
  },
  "dedup": [
-  "tick-chain-1790137640607"
+  "tick-chain-1790137640607",
+  "rep-35818404589-a1",
+  "rep-35818404580-a1",
+  "rep-35818404775-a1",
+  "tick-chain-1790137674298"
  ],
  "budget_window": [],
  "budget_window_cleared_at": "2026-09-23T04:27:22.397Z"
