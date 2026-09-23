@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "version": 53,
- "journal_seq": 3717,
+ "journal_seq": 3723,
  "chain": {
   "id": "c-1790137642397",
-  "seq": 105,
-  "last_tick": "2026-09-23T05:25:41.096Z",
+  "seq": 106,
+  "last_tick": "2026-09-23T05:26:13.102Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -87,75 +87,17 @@
   },
   "T-201": {
    "id": "T-201",
-   "title": "impl: parallel a",
    "status": "done",
-   "behavior": "succeed",
-   "work_ms": 4000,
-   "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-23T05:13:56.511Z",
-   "updated": "2026-09-23T05:15:03.497Z",
-   "history": [
-    {
-     "at": "2026-09-23T05:13:56.511Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-23T05:14:29.073Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-23T05:15:03.497Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35821600122",
-    "artifact": "shim(fast): completed task T-201 attempt 1",
-    "duration_ms": 4007
-   },
-   "terminal_seq": 85
+   "done_at": "2026-09-23T05:15:03.497Z",
+   "pruned": true
   },
   "T-202": {
    "id": "T-202",
-   "title": "impl: parallel b",
    "status": "done",
-   "behavior": "succeed",
-   "work_ms": 4000,
-   "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-23T05:13:56.511Z",
-   "updated": "2026-09-23T05:15:03.496Z",
-   "history": [
-    {
-     "at": "2026-09-23T05:13:56.511Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-23T05:14:29.073Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-23T05:15:03.496Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35821600347",
-    "artifact": "shim(fast): completed task T-202 attempt 1",
-    "duration_ms": 4008
-   },
-   "terminal_seq": 85
+   "done_at": "2026-09-23T05:15:03.496Z",
+   "pruned": true
   },
   "T-203": {
    "id": "T-203",
@@ -210,39 +152,10 @@
   },
   "T-204": {
    "id": "T-204",
-   "title": "impl: parallel d",
    "status": "done",
-   "behavior": "succeed",
-   "work_ms": 4000,
-   "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-23T05:13:56.511Z",
-   "updated": "2026-09-23T05:15:03.497Z",
-   "history": [
-    {
-     "at": "2026-09-23T05:13:56.511Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-23T05:14:29.073Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-23T05:15:03.497Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35821600929",
-    "artifact": "shim(fast): completed task T-204 attempt 1",
-    "duration_ms": 4008
-   },
-   "terminal_seq": 85
+   "done_at": "2026-09-23T05:15:03.497Z",
+   "pruned": true
   },
   "T-205": {
    "id": "T-205",
@@ -275,39 +188,10 @@
   },
   "T-206": {
    "id": "T-206",
-   "title": "impl: parallel f",
    "status": "done",
-   "behavior": "succeed",
-   "work_ms": 4000,
-   "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-23T05:13:56.511Z",
-   "updated": "2026-09-23T05:15:03.497Z",
-   "history": [
-    {
-     "at": "2026-09-23T05:13:56.511Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-23T05:14:29.073Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-23T05:15:03.497Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35821601567",
-    "artifact": "shim(fast): completed task T-206 attempt 1",
-    "duration_ms": 4006
-   },
-   "terminal_seq": 85
+   "done_at": "2026-09-23T05:15:03.497Z",
+   "pruned": true
   },
   "T-207": {
    "id": "T-207",
@@ -376,39 +260,10 @@
   },
   "T-208": {
    "id": "T-208",
-   "title": "impl: parallel g",
    "status": "done",
-   "behavior": "succeed",
-   "work_ms": 4000,
-   "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-23T05:13:56.511Z",
-   "updated": "2026-09-23T05:15:03.497Z",
-   "history": [
-    {
-     "at": "2026-09-23T05:13:56.511Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-23T05:14:29.073Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-23T05:15:03.497Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35821602064",
-    "artifact": "shim(fast): completed task T-208 attempt 1",
-    "duration_ms": 4008
-   },
-   "terminal_seq": 85
+   "done_at": "2026-09-23T05:15:03.497Z",
+   "pruned": true
   }
  },
  "stats": {
@@ -546,7 +401,8 @@
   "tick-chain-1790141036949",
   "tick-chain-1790141070361",
   "tick-chain-1790141104797",
-  "tick-chain-1790141138239"
+  "tick-chain-1790141138239",
+  "tick-chain-1790141170629"
  ],
  "budget_window": [],
  "budget_window_cleared_at": "2026-09-23T04:27:22.397Z"
