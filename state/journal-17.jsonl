@@ -103,3 +103,4 @@
 {"id":"e3638","ts":"2026-09-23T04:58:55.836Z","applied":true,"kind":"TICK","seq":57,"actor":"chain","event_id":"tick-chain-1790139533837"}
 {"id":"e3639","ts":"2026-09-23T04:58:55.836Z","applied":true,"kind":"TIMEOUT","task":"T-105","from":"assigned","to":"ready"}
 {"id":"e3640","ts":"2026-09-23T04:58:55.836Z","applied":true,"kind":"ASSIGN","task":"T-105","from":"ready","to":"assigned","lease":"l-3b2f7f3a6d63","expires":"2026-09-23T05:13:55.836Z","attempt":3,"behavior":"hang","task_ref":{"kind":"state-task","id":"T-105"}}
+{"id":"e3641","ts":"2026-09-23T04:59:27.593Z","applied":true,"kind":"TICK","seq":58,"actor":"chain","event_id":"tick-chain-1790139565900"}
