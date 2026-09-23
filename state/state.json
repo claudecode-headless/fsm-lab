@@ -1,11 +1,11 @@
 {
  "schema": 1,
  "version": 53,
- "journal_seq": 3725,
+ "journal_seq": 3727,
  "chain": {
   "id": "c-1790137642397",
-  "seq": 107,
-  "last_tick": "2026-09-23T05:26:46.081Z",
+  "seq": 108,
+  "last_tick": "2026-09-23T05:27:25.105Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -151,68 +151,10 @@
   },
   "T-207": {
    "id": "T-207",
-   "title": "impl: poison path",
    "status": "quarantined",
-   "behavior": "poison",
-   "work_ms": 2000,
-   "deps": [],
    "attempts": 3,
-   "lease": null,
-   "created": "2026-09-23T05:13:56.511Z",
-   "updated": "2026-09-23T05:16:14.558Z",
-   "history": [
-    {
-     "at": "2026-09-23T05:13:56.511Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-23T05:14:29.073Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-23T05:15:03.496Z",
-     "status": "failed",
-     "why": "worker-failed(attempts=1)"
-    },
-    {
-     "at": "2026-09-23T05:15:03.496Z",
-     "status": "ready",
-     "why": "retry-scan(attempts=1)"
-    },
-    {
-     "at": "2026-09-23T05:15:03.496Z",
-     "status": "assigned",
-     "why": "assigned(attempt=2)"
-    },
-    {
-     "at": "2026-09-23T05:15:38.117Z",
-     "status": "failed",
-     "why": "worker-failed(attempts=2)"
-    },
-    {
-     "at": "2026-09-23T05:15:38.117Z",
-     "status": "ready",
-     "why": "retry-scan(attempts=2)"
-    },
-    {
-     "at": "2026-09-23T05:15:38.117Z",
-     "status": "assigned",
-     "why": "assigned(attempt=3)"
-    },
-    {
-     "at": "2026-09-23T05:16:14.558Z",
-     "status": "quarantined",
-     "why": "worker-failed(attempts=3)"
-    }
-   ],
-   "last_result": {
-    "status": "work_failed",
-    "run_id": "35821683227",
-    "error": "poison-always"
-   },
-   "terminal_seq": 87
+   "done_at": "2026-09-23T05:16:14.558Z",
+   "pruned": true
   },
   "T-208": {
    "id": "T-208",
@@ -359,7 +301,8 @@
   "tick-chain-1790141104797",
   "tick-chain-1790141138239",
   "tick-chain-1790141170629",
-  "tick-chain-1790141202934"
+  "tick-chain-1790141202934",
+  "tick-chain-1790141241565"
  ],
  "budget_window": [],
  "budget_window_cleared_at": "2026-09-23T04:27:22.397Z"
