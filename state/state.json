@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "version": 69,
- "journal_seq": 4053,
+ "journal_seq": 4054,
  "chain": {
   "id": "c-1790164841598",
   "seq": 4,
@@ -1124,38 +1124,9 @@
   "tick-chain-1790165511212",
   "rep-35858989280-a1",
   "tick-chain-1790165544588",
-  "tick-pinger-1790165656304"
+  "tick-pinger-1790165656304",
+  "tick-pinger-1790183371857"
  ],
- "budget_window": [
-  {
-   "ts": "2026-09-23T12:11:53.075Z",
-   "task": "T-X28-19",
-   "detail": "lane-429",
-   "straggler": true
-  },
-  {
-   "ts": "2026-09-23T12:11:53.076Z",
-   "task": "T-X28-20",
-   "detail": "lane-429",
-   "straggler": true
-  },
-  {
-   "ts": "2026-09-23T12:11:53.076Z",
-   "task": "T-X28-17",
-   "detail": "lane-429",
-   "straggler": true
-  },
-  {
-   "ts": "2026-09-23T12:11:53.077Z",
-   "task": "T-X28-18",
-   "detail": "lane-429",
-   "straggler": true
-  },
-  {
-   "ts": "2026-09-23T12:12:26.177Z",
-   "task": "T-X28-19",
-   "detail": "lane-429"
-  }
- ],
+ "budget_window": [],
  "budget_window_cleared_at": "2026-09-23T12:11:22.104Z"
 }
