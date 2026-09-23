@@ -1,21 +1,21 @@
 {
  "schema": 1,
- "version": 65,
- "journal_seq": 3800,
+ "version": 2,
+ "journal_seq": 3803,
  "chain": {
-  "id": "c-1790137642397",
-  "seq": 168,
-  "last_tick": "2026-09-23T06:01:13.530Z",
-  "primed_by": "chain",
-  "halted": true,
+  "id": "c-1790149967471",
+  "seq": 1,
+  "last_tick": "2026-09-23T07:52:47.473Z",
+  "primed_by": "intake",
+  "halted": false,
   "paused": false
  },
  "project": {
-  "phase": "done",
-  "milestone": 3,
-  "milestones_total": 3,
+  "phase": "executing",
+  "milestone": 1,
+  "milestones_total": 1,
   "mode": "mock",
-  "issue": null
+  "issue": 21
  },
  "config": {
   "max_parallel": 16,
@@ -29,446 +29,55 @@
   "overflow_at": 13
  },
  "tasks": {
-  "T-101": {
-   "id": "T-101",
-   "status": "done",
-   "attempts": 1,
-   "done_at": "2026-09-23T04:27:56.060Z",
-   "pruned": true
-  },
-  "T-102": {
-   "id": "T-102",
-   "status": "done",
-   "attempts": 2,
-   "done_at": "2026-09-23T04:28:28.780Z",
-   "pruned": true
-  },
-  "T-103": {
-   "id": "T-103",
-   "status": "done",
-   "attempts": 1,
-   "done_at": "2026-09-23T04:28:28.810Z",
-   "pruned": true
-  },
-  "T-104": {
-   "id": "T-104",
-   "status": "done",
-   "attempts": 1,
-   "done_at": "2026-09-23T04:28:28.810Z",
-   "pruned": true
-  },
-  "T-105": {
-   "id": "T-105",
-   "status": "quarantined",
-   "attempts": 3,
-   "done_at": "2026-09-23T05:13:56.511Z",
-   "pruned": true
-  },
-  "T-106": {
-   "id": "T-106",
-   "status": "done",
-   "attempts": 1,
-   "done_at": "2026-09-23T04:29:05.494Z",
-   "pruned": true
-  },
-  "T-107": {
-   "id": "T-107",
-   "status": "done",
-   "attempts": 1,
-   "done_at": "2026-09-23T04:27:56.061Z",
-   "pruned": true
-  },
-  "T-108": {
-   "id": "T-108",
-   "status": "done",
-   "attempts": 1,
-   "done_at": "2026-09-23T04:42:37.174Z",
-   "pruned": true
-  },
-  "T-201": {
-   "id": "T-201",
-   "status": "done",
-   "attempts": 1,
-   "done_at": "2026-09-23T05:15:03.497Z",
-   "pruned": true
-  },
-  "T-202": {
-   "id": "T-202",
-   "status": "done",
-   "attempts": 1,
-   "done_at": "2026-09-23T05:15:03.496Z",
-   "pruned": true
-  },
-  "T-203": {
-   "id": "T-203",
-   "status": "done",
-   "attempts": 2,
-   "done_at": "2026-09-23T05:15:38.115Z",
-   "pruned": true
-  },
-  "T-204": {
-   "id": "T-204",
-   "status": "done",
-   "attempts": 1,
-   "done_at": "2026-09-23T05:15:03.497Z",
-   "pruned": true
-  },
-  "T-205": {
-   "id": "T-205",
-   "title": "impl: parallel e",
-   "status": "quarantined",
-   "behavior": "no-report",
-   "work_ms": 3000,
-   "deps": [],
-   "attempts": 3,
-   "lease": null,
-   "created": "2026-09-23T05:13:56.511Z",
-   "updated": "2026-09-23T06:00:05.911Z",
-   "history": [
-    {
-     "at": "2026-09-23T05:13:56.511Z",
-     "status": "ready",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-23T05:14:29.073Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-23T05:29:37.841Z",
-     "status": "ready",
-     "why": "lease-timeout(attempts=1)"
-    },
-    {
-     "at": "2026-09-23T05:29:37.841Z",
-     "status": "assigned",
-     "why": "assigned(attempt=2)"
-    },
-    {
-     "at": "2026-09-23T05:44:58.477Z",
-     "status": "ready",
-     "why": "lease-timeout(attempts=2)"
-    },
-    {
-     "at": "2026-09-23T05:44:58.477Z",
-     "status": "assigned",
-     "why": "assigned(attempt=3)"
-    },
-    {
-     "at": "2026-09-23T06:00:05.911Z",
-     "status": "quarantined",
-     "why": "lease-timeout(attempts=3)"
-    }
-   ],
-   "last_result": null,
-   "terminal_seq": 166
-  },
-  "T-206": {
-   "id": "T-206",
-   "status": "done",
-   "attempts": 1,
-   "done_at": "2026-09-23T05:15:03.497Z",
-   "pruned": true
-  },
-  "T-207": {
-   "id": "T-207",
-   "status": "quarantined",
-   "attempts": 3,
-   "done_at": "2026-09-23T05:16:14.558Z",
-   "pruned": true
-  },
-  "T-208": {
-   "id": "T-208",
-   "status": "done",
-   "attempts": 1,
-   "done_at": "2026-09-23T05:15:03.497Z",
-   "pruned": true
-  },
-  "T-301": {
-   "id": "T-301",
-   "title": "impl: integration",
-   "status": "done",
-   "behavior": "succeed",
+  "T-STG-H-0923": {
+   "id": "T-STG-H-0923",
+   "title": "staged nightly H (hang night)",
+   "status": "assigned",
+   "behavior": "hang",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-23T06:00:05.911Z",
-   "updated": "2026-09-23T06:01:13.501Z",
+   "lease": {
+    "token": "l-1f1c9586fde2",
+    "expires": "2026-09-23T08:07:47.473Z",
+    "issued_at": "2026-09-23T07:52:47.473Z"
+   },
+   "created": "2026-09-23T07:52:47.471Z",
+   "updated": "2026-09-23T07:52:47.473Z",
    "history": [
     {
-     "at": "2026-09-23T06:00:05.911Z",
+     "at": "2026-09-23T07:52:47.471Z",
      "status": "ready",
      "why": "created"
     },
     {
-     "at": "2026-09-23T06:00:38.377Z",
+     "at": "2026-09-23T07:52:47.473Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-23T06:01:13.501Z",
-     "status": "done",
-     "why": "worker-done"
     }
    ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35824804093",
-    "artifact": "shim(fast): completed task T-301 attempt 1",
-    "duration_ms": 4007
-   },
-   "terminal_seq": 167
-  },
-  "T-302": {
-   "id": "T-302",
-   "title": "review: final",
-   "status": "done",
-   "behavior": "succeed",
-   "work_ms": 3000,
-   "deps": [
-    "T-301"
-   ],
-   "attempts": 1,
-   "lease": null,
-   "created": "2026-09-23T06:00:05.911Z",
-   "updated": "2026-09-23T06:01:51.140Z",
-   "history": [
-    {
-     "at": "2026-09-23T06:00:05.911Z",
-     "status": "backlog",
-     "why": "created"
-    },
-    {
-     "at": "2026-09-23T06:01:13.501Z",
-     "status": "ready",
-     "why": "deps-satisfied"
-    },
-    {
-     "at": "2026-09-23T06:01:13.501Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-23T06:01:51.140Z",
-     "status": "done",
-     "why": "worker-done"
-    }
-   ],
-   "last_result": {
-    "status": "done",
-    "run_id": "35824851480",
-    "artifact": "shim(fast): completed task T-302 attempt 1",
-    "duration_ms": 3006
-   },
-   "terminal_seq": 168
+   "last_result": null,
+   "spec": {
+    "issue": 21,
+    "body_sha8": "ae02971a"
+   }
   }
  },
  "stats": {
-  "done": 15,
+  "done": 0,
   "failed": 0,
-  "quarantined": 3,
+  "quarantined": 0,
   "cancelled": 0,
-  "retries": 8,
+  "retries": 0,
   "orphaned_reports": 0,
-  "rejected_events": 1,
-  "timeouts": 6,
-  "dispatched": 26,
+  "rejected_events": 0,
+  "timeouts": 0,
+  "dispatched": 1,
   "infra_retries": 0
  },
  "dedup": [
-  "tick-chain-1790137640607",
-  "rep-35818404589-a1",
-  "rep-35818404580-a1",
-  "rep-35818404775-a1",
-  "tick-chain-1790137674298",
-  "rep-35818440723-a1",
-  "rep-35818441047-a1",
-  "rep-35818441067-a1",
-  "tick-chain-1790137707110",
-  "rep-35818478841-a1",
-  "tick-chain-1790137743171",
-  "tick-chain-1790137777345",
-  "tick-chain-1790137810248",
-  "tick-chain-1790137845884",
-  "tick-chain-1790137881327",
-  "tick-chain-1790137918104",
-  "tick-chain-1790137951890",
-  "tick-chain-1790137984539",
-  "tick-chain-1790138017361",
-  "tick-chain-1790138049380",
-  "tick-chain-1790138081071",
-  "tick-chain-1790138116192",
-  "tick-chain-1790138152115",
-  "tick-chain-1790138189299",
-  "tick-chain-1790138221834",
-  "tick-chain-1790138254741",
-  "tick-chain-1790138286629",
-  "tick-chain-1790138318133",
-  "tick-chain-1790138349968",
-  "tick-chain-1790138383897",
-  "tick-chain-1790138417786",
-  "tick-chain-1790138451625",
-  "tick-chain-1790138486710",
-  "tick-chain-1790138519927",
-  "rep-35818404923-a1",
-  "tick-chain-1790138554571",
-  "tick-chain-1790138586873",
-  "tick-chain-1790138620104",
-  "tick-chain-1790138651605",
-  "tick-chain-1790138683196",
-  "tick-chain-1790138717933",
-  "tick-chain-1790138751994",
-  "tick-chain-1790138787666",
-  "tick-chain-1790138822308",
-  "tick-chain-1790138859516",
-  "tick-chain-1790138893169",
-  "tick-chain-1790138928411",
-  "tick-chain-1790138960303",
-  "tick-chain-1790138993888",
-  "tick-chain-1790139025789",
-  "tick-chain-1790139058238",
-  "tick-chain-1790139092321",
-  "tick-chain-1790139129915",
-  "tick-chain-1790139163514",
-  "tick-chain-1790139197069",
-  "tick-chain-1790139231164",
-  "tick-chain-1790139272043",
-  "tick-chain-1790139305559",
-  "tick-chain-1790139339727",
-  "tick-chain-1790139373620",
-  "tick-chain-1790139406203",
-  "tick-chain-1790139437855",
-  "tick-chain-1790139469818",
-  "tick-chain-1790139501769",
-  "tick-chain-1790139533837",
-  "tick-chain-1790139565900",
-  "tick-chain-1790139600258",
-  "tick-chain-1790139634222",
-  "tick-chain-1790139668069",
-  "tick-chain-1790139701458",
-  "tick-chain-1790139733575",
-  "tick-chain-1790139766190",
-  "tick-chain-1790139799932",
-  "tick-chain-1790139834992",
-  "tick-chain-1790139871207",
-  "tick-chain-1790139904383",
-  "tick-chain-1790139937438",
-  "tick-chain-1790139970857",
-  "tick-chain-1790140004266",
-  "tick-chain-1790140038001",
-  "tick-chain-1790140073084",
-  "tick-chain-1790140105721",
-  "tick-chain-1790140138369",
-  "tick-chain-1790140171133",
-  "tick-chain-1790140204206",
-  "tick-chain-1790140236201",
-  "tick-chain-1790140268167",
-  "tick-chain-1790140300201",
-  "tick-chain-1790140333138",
-  "tick-chain-1790140365583",
-  "tick-chain-1790140402675",
-  "tick-chain-1790140434721",
-  "tick-chain-1790140467614",
-  "rep-35821600413-a1",
-  "rep-35821600347-a1",
-  "rep-35821602085-a1",
-  "rep-35821600929-a1",
-  "rep-35821601567-a1",
-  "rep-35821600122-a1",
-  "rep-35821602064-a1",
-  "tick-chain-1790140501407",
-  "rep-35821638740-a1",
-  "rep-35821639545-a1",
-  "tick-chain-1790140536003",
-  "rep-35821683227-a1",
-  "tick-chain-1790140572629",
-  "tick-chain-1790140605731",
-  "tick-chain-1790140637908",
-  "tick-chain-1790140670211",
-  "tick-chain-1790140703596",
-  "tick-chain-1790140736380",
-  "tick-chain-1790140769949",
-  "tick-chain-1790140804284",
-  "tick-chain-1790140837162",
-  "tick-chain-1790140872041",
-  "tick-chain-1790140904783",
-  "tick-chain-1790140937117",
-  "tick-chain-1790140970691",
-  "tick-chain-1790141004177",
-  "tick-chain-1790141036949",
-  "tick-chain-1790141070361",
-  "tick-chain-1790141104797",
-  "tick-chain-1790141138239",
-  "tick-chain-1790141170629",
-  "tick-chain-1790141202934",
-  "tick-chain-1790141241565",
-  "tick-chain-1790141275250",
-  "tick-chain-1790141306911",
-  "tick-chain-1790141341933",
-  "tick-chain-1790141375906",
-  "tick-chain-1790141409312",
-  "tick-chain-1790141442979",
-  "tick-chain-1790141477480",
-  "tick-chain-1790141513347",
-  "tick-chain-1790141545643",
-  "tick-chain-1790141577710",
-  "tick-chain-1790141610878",
-  "tick-chain-1790141644046",
-  "tick-chain-1790141677834",
-  "tick-chain-1790141710044",
-  "tick-chain-1790141743282",
-  "tick-chain-1790141781399",
-  "tick-chain-1790141815089",
-  "tick-chain-1790141848678",
-  "tick-chain-1790141883745",
-  "tick-chain-1790141918327",
-  "tick-chain-1790141952205",
-  "tick-chain-1790141986731",
-  "tick-chain-1790142023657",
-  "tick-chain-1790142056392",
-  "tick-chain-1790142089798",
-  "tick-chain-1790142122509",
-  "tick-chain-1790142155583",
-  "tick-chain-1790142187834",
-  "tick-chain-1790142223594",
-  "tick-chain-1790142257981",
-  "tick-chain-1790142295082",
-  "tick-chain-1790142328221",
-  "tick-chain-1790142360480",
-  "tick-chain-1790142393953",
-  "tick-chain-1790142426466",
-  "tick-chain-1790142461173",
-  "tick-chain-1790142493520",
-  "tick-chain-1790142526789",
-  "tick-chain-1790142563303",
-  "tick-chain-1790142597332",
-  "tick-chain-1790142632556",
-  "tick-chain-1790142665415",
-  "tick-chain-1790142699722",
-  "tick-chain-1790142732662",
-  "tick-chain-1790142766564",
-  "tick-chain-1790142800131",
-  "tick-chain-1790142832691",
-  "tick-chain-1790142867346",
-  "tick-chain-1790142901281",
-  "tick-chain-1790142935041",
-  "tick-chain-1790142968946",
-  "tick-chain-1790143004849",
-  "tick-chain-1790143037777",
-  "tick-chain-1790143071223",
-  "tick-chain-1790143105320",
-  "tick-chain-1790143138426",
-  "tick-chain-1790143170723",
-  "tick-chain-1790143203795",
-  "tick-chain-1790143237311",
-  "rep-35824804093-a1",
-  "tick-chain-1790143271372",
-  "rep-35824851480-a1",
-  "tick-chain-1790143309015",
-  "tick-pinger-1790145658961"
+  "tick-intake-1790149965705"
  ],
  "budget_window": [],
- "budget_window_cleared_at": "2026-09-23T04:27:22.397Z"
+ "budget_window_cleared_at": "2026-09-23T07:52:47.471Z"
 }
