@@ -1,3 +1,4 @@
 {"event_id":"rep-35858941333-a1","task":"T-X28-19","lease":"l-24b4e44905a7","outcome":{"status":"infra_failed","error":"lane-429","telemetry":{"turns":1,"wall_ms":1000,"lane_attempts_used":3},"duration_ms":1004},"run_id":"35858941333"}
 {"event_id":"rep-35858942801-a1","task":"T-X28-20","lease":"l-2f61ed772aa8","outcome":{"status":"infra_failed","error":"lane-429","telemetry":{"turns":1,"wall_ms":1000,"lane_attempts_used":3},"duration_ms":1004},"run_id":"35858942801"}
 {"event_id":"rep-35858942510-a1","task":"T-X28-17","lease":"l-dd6295b70e43","outcome":{"status":"infra_failed","error":"lane-429","telemetry":{"turns":1,"wall_ms":1000,"lane_attempts_used":3},"duration_ms":1002},"run_id":"35858942510"}
+{"event_id":"rep-35858942852-a1","task":"T-X28-18","lease":"l-3faf9d9bac3d","outcome":{"status":"infra_failed","error":"lane-429","telemetry":{"turns":1,"wall_ms":1000,"lane_attempts_used":3},"duration_ms":1005},"run_id":"35858942852"}
