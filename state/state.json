@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 62,
- "journal_seq": 4043,
+ "version": 67,
+ "journal_seq": 4049,
  "chain": {
   "id": "c-1790164841598",
-  "seq": 3,
-  "last_tick": "2026-09-23T12:01:50.438Z",
+  "seq": 4,
+  "last_tick": "2026-09-23T12:11:53.077Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -672,18 +672,14 @@
   "T-X28-17": {
    "id": "T-X28-17",
    "title": "soak ladder 17",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "infra-flaky",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-dd6295b70e43",
-    "expires": "2026-09-23T12:56:22.090Z",
-    "issued_at": "2026-09-23T12:11:22.090Z"
-   },
+   "lease": null,
    "created": "2026-09-23T12:00:41.598Z",
-   "updated": "2026-09-23T12:11:22.090Z",
+   "updated": "2026-09-23T12:11:53.076Z",
    "history": [
     {
      "at": "2026-09-23T12:00:41.598Z",
@@ -714,34 +710,36 @@
      "at": "2026-09-23T12:11:22.090Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-23T12:11:53.076Z",
+     "status": "quarantined",
+     "why": "infra-exhausted(infra_attempts=3)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35857977048",
+    "run_id": "35858942510",
     "error": "lane-429"
    },
    "spec": {
     "issue": 25,
     "body_sha8": "a939bcb5"
    },
-   "infra_attempts": 2
+   "infra_attempts": 3,
+   "terminal_seq": 3
   },
   "T-X28-18": {
    "id": "T-X28-18",
    "title": "soak ladder 18",
-   "status": "assigned",
+   "status": "quarantined",
    "behavior": "infra-flaky",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-3faf9d9bac3d",
-    "expires": "2026-09-23T12:56:22.103Z",
-    "issued_at": "2026-09-23T12:11:22.103Z"
-   },
+   "lease": null,
    "created": "2026-09-23T12:00:41.598Z",
-   "updated": "2026-09-23T12:11:22.103Z",
+   "updated": "2026-09-23T12:11:53.076Z",
    "history": [
     {
      "at": "2026-09-23T12:00:41.598Z",
@@ -772,18 +770,24 @@
      "at": "2026-09-23T12:11:22.103Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-23T12:11:53.076Z",
+     "status": "quarantined",
+     "why": "infra-exhausted(infra_attempts=3)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35857978553",
+    "run_id": "35858942852",
     "error": "lane-429"
    },
    "spec": {
     "issue": 25,
     "body_sha8": "a939bcb5"
    },
-   "infra_attempts": 2
+   "infra_attempts": 3,
+   "terminal_seq": 3
   },
   "T-X28-19": {
    "id": "T-X28-19",
@@ -794,12 +798,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-24b4e44905a7",
-    "expires": "2026-09-23T12:56:22.088Z",
-    "issued_at": "2026-09-23T12:11:22.088Z"
+    "token": "l-254aa6dcd515",
+    "expires": "2026-09-23T12:56:53.068Z",
+    "issued_at": "2026-09-23T12:11:53.068Z"
    },
    "created": "2026-09-23T12:00:41.598Z",
-   "updated": "2026-09-23T12:11:22.088Z",
+   "updated": "2026-09-23T12:11:53.068Z",
    "history": [
     {
      "at": "2026-09-23T12:00:41.598Z",
@@ -820,69 +824,21 @@
      "at": "2026-09-23T12:11:22.088Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
-    }
-   ],
-   "last_result": {
-    "status": "infra_failed",
-    "run_id": "35857921889",
-    "error": "lane-429"
-   },
-   "spec": {
-    "issue": 25,
-    "body_sha8": "a939bcb5"
-   },
-   "infra_attempts": 1
-  },
-  "T-X28-20": {
-   "id": "T-X28-20",
-   "title": "soak ladder 20",
-   "status": "assigned",
-   "behavior": "infra-flaky",
-   "work_ms": 4000,
-   "deps": [],
-   "attempts": 1,
-   "lease": {
-    "token": "l-2f61ed772aa8",
-    "expires": "2026-09-23T12:56:22.089Z",
-    "issued_at": "2026-09-23T12:11:22.089Z"
-   },
-   "created": "2026-09-23T12:00:41.598Z",
-   "updated": "2026-09-23T12:11:22.089Z",
-   "history": [
-    {
-     "at": "2026-09-23T12:00:41.598Z",
-     "status": "ready",
-     "why": "created"
     },
     {
-     "at": "2026-09-23T12:01:16.236Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-23T12:01:50.434Z",
+     "at": "2026-09-23T12:11:53.068Z",
      "status": "ready",
      "why": "infra-retry(lane-unavailable)"
     },
     {
-     "at": "2026-09-23T12:01:50.434Z",
-     "status": "assigned",
-     "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-23T12:11:22.089Z",
-     "status": "ready",
-     "why": "infra-retry(lane-unavailable)"
-    },
-    {
-     "at": "2026-09-23T12:11:22.089Z",
+     "at": "2026-09-23T12:11:53.068Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35857976748",
+    "run_id": "35858941333",
     "error": "lane-429"
    },
    "spec": {
@@ -890,6 +846,66 @@
     "body_sha8": "a939bcb5"
    },
    "infra_attempts": 2
+  },
+  "T-X28-20": {
+   "id": "T-X28-20",
+   "title": "soak ladder 20",
+   "status": "quarantined",
+   "behavior": "infra-flaky",
+   "work_ms": 4000,
+   "deps": [],
+   "attempts": 1,
+   "lease": null,
+   "created": "2026-09-23T12:00:41.598Z",
+   "updated": "2026-09-23T12:11:53.075Z",
+   "history": [
+    {
+     "at": "2026-09-23T12:00:41.598Z",
+     "status": "ready",
+     "why": "created"
+    },
+    {
+     "at": "2026-09-23T12:01:16.236Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-23T12:01:50.434Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-23T12:01:50.434Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-23T12:11:22.089Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-23T12:11:22.089Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-23T12:11:53.075Z",
+     "status": "quarantined",
+     "why": "infra-exhausted(infra_attempts=3)"
+    }
+   ],
+   "last_result": {
+    "status": "infra_failed",
+    "run_id": "35858942801",
+    "error": "lane-429"
+   },
+   "spec": {
+    "issue": 25,
+    "body_sha8": "a939bcb5"
+   },
+   "infra_attempts": 3,
+   "terminal_seq": 3
   },
   "T-X28-21": {
    "id": "T-X28-21",
@@ -1055,14 +1071,14 @@
  "stats": {
   "done": 20,
   "failed": 0,
-  "quarantined": 0,
+  "quarantined": 3,
   "cancelled": 0,
   "retries": 0,
   "orphaned_reports": 0,
   "rejected_events": 2,
   "timeouts": 0,
-  "dispatched": 31,
-  "infra_retries": 7,
+  "dispatched": 32,
+  "infra_retries": 8,
   "budget_pauses": 1
  },
  "dedup": [
@@ -1098,8 +1114,38 @@
   "rep-35857977048-a1",
   "rep-35857978553-a1",
   "rep-35857923657-a1",
-  "ctl-direct-resume-1790165477129"
+  "ctl-direct-resume-1790165477129",
+  "rep-35858941333-a1",
+  "rep-35858942801-a1",
+  "rep-35858942510-a1",
+  "rep-35858942852-a1",
+  "tick-chain-1790165511212"
  ],
- "budget_window": [],
+ "budget_window": [
+  {
+   "ts": "2026-09-23T12:11:53.075Z",
+   "task": "T-X28-19",
+   "detail": "lane-429",
+   "straggler": true
+  },
+  {
+   "ts": "2026-09-23T12:11:53.076Z",
+   "task": "T-X28-20",
+   "detail": "lane-429",
+   "straggler": true
+  },
+  {
+   "ts": "2026-09-23T12:11:53.076Z",
+   "task": "T-X28-17",
+   "detail": "lane-429",
+   "straggler": true
+  },
+  {
+   "ts": "2026-09-23T12:11:53.077Z",
+   "task": "T-X28-18",
+   "detail": "lane-429",
+   "straggler": true
+  }
+ ],
  "budget_window_cleared_at": "2026-09-23T12:11:22.104Z"
 }

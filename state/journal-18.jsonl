@@ -12,3 +12,9 @@
 {"id":"e4040","ts":"2026-09-23T12:11:22.103Z","applied":false,"kind":"REJECTED","origKind":"REPORT","task":"T-X28-21","event_id":"rep-35857922923-a1","reason":"duplicate"}
 {"id":"e4041","ts":"2026-09-23T12:11:22.104Z","applied":true,"kind":"REPORT","task":"T-X28-23","lease":"l-a55fe38603c5","to":"done","run_id":"35857923657","from":"assigned"}
 {"id":"e4042","ts":"2026-09-23T12:11:22.104Z","applied":true,"kind":"CONTROL","command":"resume","actor":"xfnwfpho1","note":null}
+{"id":"e4043","ts":"2026-09-23T12:11:53.068Z","applied":true,"kind":"REPORT","task":"T-X28-19","lease":"l-24b4e44905a7","to":"ready","reason":"infra-retry","run_id":"35858941333","error":"lane-429","from":"assigned"}
+{"id":"e4044","ts":"2026-09-23T12:11:53.068Z","applied":true,"kind":"ASSIGN","task":"T-X28-19","from":"ready","to":"assigned","lease":"l-254aa6dcd515","expires":"2026-09-23T12:56:53.068Z","attempt":1,"behavior":"infra-flaky","task_ref":{"kind":"state-task","id":"T-X28-19"}}
+{"id":"e4045","ts":"2026-09-23T12:11:53.075Z","applied":true,"kind":"REPORT","task":"T-X28-20","lease":"l-2f61ed772aa8","to":"quarantined","reason":"infra-exhausted","run_id":"35858942801","error":"lane-429","from":"assigned"}
+{"id":"e4046","ts":"2026-09-23T12:11:53.076Z","applied":true,"kind":"REPORT","task":"T-X28-17","lease":"l-dd6295b70e43","to":"quarantined","reason":"infra-exhausted","run_id":"35858942510","error":"lane-429","from":"assigned"}
+{"id":"e4047","ts":"2026-09-23T12:11:53.076Z","applied":true,"kind":"REPORT","task":"T-X28-18","lease":"l-3faf9d9bac3d","to":"quarantined","reason":"infra-exhausted","run_id":"35858942852","error":"lane-429","from":"assigned"}
+{"id":"e4048","ts":"2026-09-23T12:11:53.077Z","applied":true,"kind":"TICK","seq":4,"actor":"chain","event_id":"tick-chain-1790165511212"}
