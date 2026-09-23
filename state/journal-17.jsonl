@@ -319,3 +319,6 @@
 {"id":"e3854","ts":"2026-09-23T08:21:26.901Z","applied":true,"kind":"TICK","seq":51,"actor":"chain","event_id":"tick-chain-1790151684912"}
 {"id":"e3855","ts":"2026-09-23T08:21:58.224Z","applied":true,"kind":"TICK","seq":52,"actor":"chain","event_id":"tick-chain-1790151716262"}
 {"id":"e3856","ts":"2026-09-23T08:22:33.130Z","applied":true,"kind":"TICK","seq":53,"actor":"chain","event_id":"tick-chain-1790151749988"}
+{"id":"e3857","ts":"2026-09-23T08:23:06.756Z","applied":true,"kind":"TICK","seq":54,"actor":"chain","event_id":"tick-chain-1790151784032"}
+{"id":"e3858","ts":"2026-09-23T08:23:06.756Z","applied":true,"kind":"TIMEOUT","task":"T-STG-H-0923","from":"assigned","to":"ready"}
+{"id":"e3859","ts":"2026-09-23T08:23:06.756Z","applied":true,"kind":"ASSIGN","task":"T-STG-H-0923","from":"ready","to":"assigned","lease":"l-3932bed286b4","expires":"2026-09-23T08:38:06.756Z","attempt":3,"behavior":"hang","task_ref":{"kind":"state-task","id":"T-STG-H-0923"}}
