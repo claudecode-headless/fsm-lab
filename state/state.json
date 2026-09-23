@@ -1,17 +1,17 @@
 {
  "schema": 1,
- "version": 63,
- "journal_seq": 3797,
+ "version": 65,
+ "journal_seq": 3799,
  "chain": {
   "id": "c-1790137642397",
   "seq": 168,
   "last_tick": "2026-09-23T06:01:13.530Z",
   "primed_by": "chain",
-  "halted": false,
+  "halted": true,
   "paused": false
  },
  "project": {
-  "phase": "executing",
+  "phase": "done",
   "milestone": 3,
   "milestones_total": 3,
   "mode": "mock",
@@ -224,20 +224,16 @@
   "T-302": {
    "id": "T-302",
    "title": "review: final",
-   "status": "assigned",
+   "status": "done",
    "behavior": "succeed",
    "work_ms": 3000,
    "deps": [
     "T-301"
    ],
    "attempts": 1,
-   "lease": {
-    "token": "l-a12d61bde641",
-    "expires": "2026-09-23T06:16:13.501Z",
-    "issued_at": "2026-09-23T06:01:13.501Z"
-   },
+   "lease": null,
    "created": "2026-09-23T06:00:05.911Z",
-   "updated": "2026-09-23T06:01:13.501Z",
+   "updated": "2026-09-23T06:01:51.140Z",
    "history": [
     {
      "at": "2026-09-23T06:00:05.911Z",
@@ -253,13 +249,24 @@
      "at": "2026-09-23T06:01:13.501Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-23T06:01:51.140Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null
+   "last_result": {
+    "status": "done",
+    "run_id": "35824851480",
+    "artifact": "shim(fast): completed task T-302 attempt 1",
+    "duration_ms": 3006
+   },
+   "terminal_seq": 168
   }
  },
  "stats": {
-  "done": 14,
+  "done": 15,
   "failed": 0,
   "quarantined": 3,
   "cancelled": 0,
@@ -457,7 +464,9 @@
   "tick-chain-1790143203795",
   "tick-chain-1790143237311",
   "rep-35824804093-a1",
-  "tick-chain-1790143271372"
+  "tick-chain-1790143271372",
+  "rep-35824851480-a1",
+  "tick-chain-1790143309015"
  ],
  "budget_window": [],
  "budget_window_cleared_at": "2026-09-23T04:27:22.397Z"
