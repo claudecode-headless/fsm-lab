@@ -116,3 +116,4 @@
 {"id":"e4144","ts":"2026-09-24T15:07:44.911Z","applied":false,"kind":"TICK","actor":"watchdog","event_id":"watchdog-scan-1790262464911","note":"watchdog-scan (audit-only deadman marker — the scan completed; no state change, no seq bump)"}
 {"id":"e4145","ts":"2026-09-24T17:10:55.572Z","applied":false,"kind":"TICK","actor":"pinger","event_id":"tick-pinger-1790269853003","note":"pinger-liveness (held chain — audit-only marker, no state change, no self-dispatch)"}
 {"id":"e4146","ts":"2026-09-24T19:06:47.344Z","applied":false,"kind":"TICK","actor":"watchdog","event_id":"watchdog-scan-1790276807344","note":"watchdog-scan (audit-only deadman marker — the scan completed; no state change, no seq bump)"}
+{"id":"e4147","ts":"2026-09-24T20:30:34.791Z","applied":false,"kind":"TICK","actor":"pinger","event_id":"tick-pinger-1790281833058","note":"pinger-liveness (held chain — audit-only marker, no state change, no self-dispatch)"}
