@@ -1,0 +1,22 @@
+{
+  "task": "T-X32-22",
+  "run_id": "36072892482",
+  "attempt": 1,
+  "session": "c-1790292408592/T-X32-22/36072875965-a1",
+  "mode": "cc",
+  "fake": false,
+  "harness": "claude-code",
+  "deadline_utc": "2026-09-25T00:11:19.215Z",
+  "status": "done",
+  "detail": null,
+  "models": [
+    "deepseek/deepseek-v4.1-flash"
+  ],
+  "lane_attempts_used": 1,
+  "duration_ms": 3724,
+  "artifact_refs": [
+    "tasks/T-X32-22/report.md"
+  ],
+  "transcript": "sessions/T-X32-22/36072892482-a1.txt",
+  "written_at": "2026-09-24T23:28:38.451Z"
+}
