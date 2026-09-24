@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "version": 47,
- "journal_seq": 4326,
+ "version": 48,
+ "journal_seq": 4327,
  "chain": {
   "id": "c-1790292408592",
   "seq": 3,
@@ -1475,7 +1475,8 @@
     "issue": 30,
     "body_sha8": "b02c0f9d"
    },
-   "terminal_seq": 2
+   "terminal_seq": 2,
+   "pr": 31
   },
   "T-X32-23": {
    "id": "T-X32-23",
