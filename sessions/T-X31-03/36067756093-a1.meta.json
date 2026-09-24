@@ -1,0 +1,46 @@
+{
+  "task": "T-X31-03",
+  "run_id": "36067756093",
+  "attempt": 1,
+  "session": "c-1790286919724",
+  "mode": "codex",
+  "fake": false,
+  "harness": "codex",
+  "deadline_utc": null,
+  "status": "done",
+  "detail": null,
+  "models": [
+    "deepseek/deepseek-v4.1-flash"
+  ],
+  "lane_attempts_used": 1,
+  "duration_ms": 1644,
+  "artifact_refs": [],
+  "transcript": "sessions/T-X31-03/36067756093-a1.txt",
+  "written_at": "2026-09-24T22:30:57.942Z",
+  "lane_stats": {
+    "calls": 1,
+    "ok": 1,
+    "err429": 0,
+    "err5xx": 0,
+    "tokens": 10091,
+    "cost": 0.000208,
+    "p50_ms": 1644,
+    "p95_ms": 1644,
+    "rate_classes": {},
+    "models": {
+      "deepseek/deepseek-v4.1-flash": {
+        "calls": 1,
+        "ok": 1,
+        "err429": 0,
+        "err5xx": 0,
+        "tokens": 10091,
+        "cost": 0.000208,
+        "p50_ms": 1644,
+        "p95_ms": 1644
+      }
+    }
+  },
+  "key_index": 0,
+  "pool_size": 2,
+  "note": "reconstructed post-hoc by the s25 orchestrator: the original meta.json PUT exhausted the 10-attempt 409-storm ladder (the degraded class, run 36067756093 — see CODEX-TRANSCRIPT-DEGRADED in the run log); every field is journal-derived (event e4260)."
+}
