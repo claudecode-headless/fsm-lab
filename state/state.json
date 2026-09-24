@@ -1,17 +1,17 @@
 {
  "schema": 1,
- "version": 64,
- "journal_seq": 4217,
+ "version": 68,
+ "journal_seq": 4221,
  "chain": {
   "id": "c-1790286919724",
   "seq": 5,
   "last_tick": "2026-09-24T21:57:38.120Z",
   "primed_by": "chain",
-  "halted": false,
+  "halted": true,
   "paused": false
  },
  "project": {
-  "phase": "executing",
+  "phase": "done",
   "milestone": 1,
   "milestones_total": 1,
   "mode": "codex",
@@ -467,18 +467,14 @@
   "T-X30-07": {
    "id": "T-X30-07",
    "title": "reply with exactly CODEX-SOAK2-07 and one sentence on what you are",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-c856a846acfd",
-    "expires": "2026-09-24T22:42:38.119Z",
-    "issued_at": "2026-09-24T21:57:38.119Z"
-   },
+   "lease": null,
    "created": "2026-09-24T21:55:19.724Z",
-   "updated": "2026-09-24T21:57:38.119Z",
+   "updated": "2026-09-24T21:58:14.881Z",
    "history": [
     {
      "at": "2026-09-24T21:55:19.724Z",
@@ -509,21 +505,27 @@
      "at": "2026-09-24T21:57:38.119Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T21:58:14.881Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "infra_failed",
-    "run_id": "36064561875",
-    "error": "transcript-push-failed(sessions contents push: 2/2 file(s) failed — sessions/T-X30-07/36064561875-a1.txt: exhausted 3 attempts — PUT(create) ->)",
+    "status": "done",
+    "run_id": "36064666676",
+    "artifact": "CODEX-SOAK2-07 I am a coding agent running in the Codex CLI, ready to complete your task.",
+    "duration_ms": 3376,
     "lane_stats": {
      "calls": 1,
      "ok": 1,
      "err429": 0,
      "err5xx": 0,
-     "tokens": 10155,
-     "cost": 0.000248,
-     "p50_ms": 2213,
-     "p95_ms": 2213,
+     "tokens": 10142,
+     "cost": 0.001577,
+     "p50_ms": 3374,
+     "p95_ms": 3374,
      "rate_classes": {},
      "models": {
       "deepseek/deepseek-v4.1-flash": {
@@ -531,10 +533,10 @@
        "ok": 1,
        "err429": 0,
        "err5xx": 0,
-       "tokens": 10155,
-       "cost": 0.000248,
-       "p50_ms": 2213,
-       "p95_ms": 2213
+       "tokens": 10142,
+       "cost": 0.001577,
+       "p50_ms": 3374,
+       "p95_ms": 3374
       }
      }
     },
@@ -547,7 +549,8 @@
     "issue": 28,
     "body_sha8": "06dab353"
    },
-   "infra_attempts": 2
+   "infra_attempts": 2,
+   "terminal_seq": 5
   },
   "T-X30-08": {
    "id": "T-X30-08",
@@ -1445,18 +1448,14 @@
   "T-X30-21": {
    "id": "T-X30-21",
    "title": "write a three-line status note then reply with exactly CODEX-SOAK2-21",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-3ea082404324",
-    "expires": "2026-09-24T22:42:38.108Z",
-    "issued_at": "2026-09-24T21:57:38.108Z"
-   },
+   "lease": null,
    "created": "2026-09-24T21:55:19.724Z",
-   "updated": "2026-09-24T21:57:38.108Z",
+   "updated": "2026-09-24T21:58:14.936Z",
    "history": [
     {
      "at": "2026-09-24T21:55:19.724Z",
@@ -1477,21 +1476,27 @@
      "at": "2026-09-24T21:57:38.108Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T21:58:14.936Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "infra_failed",
-    "run_id": "36064559042",
-    "error": "transcript-push-failed(sessions contents push: 1/2 file(s) failed — sessions/T-X30-21/36064559042-a1.meta.json: exhausted 3 attempts — PUT -> H)",
+    "status": "done",
+    "run_id": "36064665415",
+    "artifact": "CODEX-SOAK2-21",
+    "duration_ms": 6023,
     "lane_stats": {
      "calls": 1,
      "ok": 1,
      "err429": 0,
      "err5xx": 0,
-     "tokens": 20589,
-     "cost": 0.000408,
-     "p50_ms": 2932,
-     "p95_ms": 2932,
+     "tokens": 20595,
+     "cost": 0.001778,
+     "p50_ms": 6021,
+     "p95_ms": 6021,
      "rate_classes": {},
      "models": {
       "deepseek/deepseek-v4.1-flash": {
@@ -1499,10 +1504,10 @@
        "ok": 1,
        "err429": 0,
        "err5xx": 0,
-       "tokens": 20589,
-       "cost": 0.000408,
-       "p50_ms": 2932,
-       "p95_ms": 2932
+       "tokens": 20595,
+       "cost": 0.001778,
+       "p50_ms": 6021,
+       "p95_ms": 6021
       }
      }
     },
@@ -1518,23 +1523,20 @@
     "issue": 28,
     "body_sha8": "06dab353"
    },
-   "infra_attempts": 1
+   "infra_attempts": 1,
+   "terminal_seq": 5
   },
   "T-X30-22": {
    "id": "T-X30-22",
    "title": "write a three-line status note then reply with exactly CODEX-SOAK2-22",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-04c12156486f",
-    "expires": "2026-09-24T22:42:38.116Z",
-    "issued_at": "2026-09-24T21:57:38.116Z"
-   },
+   "lease": null,
    "created": "2026-09-24T21:55:19.724Z",
-   "updated": "2026-09-24T21:57:38.116Z",
+   "updated": "2026-09-24T21:58:14.935Z",
    "history": [
     {
      "at": "2026-09-24T21:55:19.724Z",
@@ -1555,21 +1557,27 @@
      "at": "2026-09-24T21:57:38.116Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T21:58:14.935Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "infra_failed",
-    "run_id": "36064559001",
-    "error": "transcript-push-failed(sessions contents push: 1/2 file(s) failed — sessions/T-X30-22/36064559001-a1.txt: exhausted 3 attempts — PUT(create) ->)",
+    "status": "done",
+    "run_id": "36064665684",
+    "artifact": "CODEX-SOAK2-22",
+    "duration_ms": 3377,
     "lane_stats": {
      "calls": 1,
      "ok": 1,
      "err429": 0,
      "err5xx": 0,
-     "tokens": 31170,
-     "cost": 0.000622,
-     "p50_ms": 5821,
-     "p95_ms": 5821,
+     "tokens": 20440,
+     "cost": 0.00036,
+     "p50_ms": 3375,
+     "p95_ms": 3375,
      "rate_classes": {},
      "models": {
       "deepseek/deepseek-v4.1-flash": {
@@ -1577,10 +1585,10 @@
        "ok": 1,
        "err429": 0,
        "err5xx": 0,
-       "tokens": 31170,
-       "cost": 0.000622,
-       "p50_ms": 5821,
-       "p95_ms": 5821
+       "tokens": 20440,
+       "cost": 0.00036,
+       "p50_ms": 3375,
+       "p95_ms": 3375
       }
      }
     },
@@ -1596,7 +1604,8 @@
     "issue": 28,
     "body_sha8": "06dab353"
    },
-   "infra_attempts": 1
+   "infra_attempts": 1,
+   "terminal_seq": 5
   },
   "T-X30-23": {
    "id": "T-X30-23",
@@ -1740,7 +1749,7 @@
   }
  },
  "stats": {
-  "done": 21,
+  "done": 24,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -1788,7 +1797,11 @@
   "rep-36064560979-a1",
   "rep-36064559750-a1",
   "rep-36064561875-a1",
-  "tick-chain-1790287055838"
+  "tick-chain-1790287055838",
+  "rep-36064666676-a1",
+  "rep-36064665684-a1",
+  "rep-36064665415-a1",
+  "tick-chain-1790287092693"
  ],
  "budget_window": [],
  "budget_window_cleared_at": "2026-09-24T21:55:19.724Z"
