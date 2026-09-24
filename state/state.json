@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 54,
- "journal_seq": 4126,
+ "version": 64,
+ "journal_seq": 4137,
  "chain": {
   "id": "c-1790252766608",
-  "seq": 3,
-  "last_tick": "2026-09-24T12:27:18.428Z",
+  "seq": 4,
+  "last_tick": "2026-09-24T12:27:51.614Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -38,12 +38,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-741664760a48",
-    "expires": "2026-09-24T13:11:47.891Z",
-    "issued_at": "2026-09-24T12:26:47.891Z"
+    "token": "l-3d50bf5f8fe8",
+    "expires": "2026-09-24T13:12:51.607Z",
+    "issued_at": "2026-09-24T12:27:51.607Z"
    },
    "created": "2026-09-24T12:26:06.609Z",
-   "updated": "2026-09-24T12:26:47.891Z",
+   "updated": "2026-09-24T12:27:51.607Z",
    "history": [
     {
      "at": "2026-09-24T12:26:06.609Z",
@@ -64,21 +64,31 @@
      "at": "2026-09-24T12:26:47.891Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T12:27:51.607Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-24T12:27:51.607Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "35999037380",
-    "error": "transcript-push-failed(git push failed: To https://github.com/claudecode-headless/fsm-lab.git\n ! [remote rejected] fsm-sessions -> fsm-sessions)",
+    "run_id": "35999108588",
+    "error": "transcript-push-failed(git push failed: To https://github.com/claudecode-headless/fsm-lab.git\n ! [rejected]        fsm-sessions -> fsm-sessions)",
     "lane_stats": {
      "calls": 1,
      "ok": 1,
      "err429": 0,
      "err5xx": 0,
-     "tokens": 10066,
-     "cost": 0.000221,
-     "p50_ms": 2581,
-     "p95_ms": 2581,
+     "tokens": 10115,
+     "cost": 0.00156,
+     "p50_ms": 3678,
+     "p95_ms": 3678,
      "rate_classes": {},
      "models": {
       "deepseek/deepseek-v4.1-flash": {
@@ -86,10 +96,10 @@
        "ok": 1,
        "err429": 0,
        "err5xx": 0,
-       "tokens": 10066,
-       "cost": 0.000221,
-       "p50_ms": 2581,
-       "p95_ms": 2581
+       "tokens": 10115,
+       "cost": 0.00156,
+       "p50_ms": 3678,
+       "p95_ms": 3678
       }
      }
     },
@@ -102,7 +112,7 @@
     "issue": 26,
     "body_sha8": "0b7b2cb9"
    },
-   "infra_attempts": 1
+   "infra_attempts": 2
   },
   "T-X29-02": {
    "id": "T-X29-02",
@@ -241,18 +251,14 @@
   "T-X29-04": {
    "id": "T-X29-04",
    "title": "reply with exactly CODEX-SOAK-04 and one sentence on what you are",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-2e8915777a87",
-    "expires": "2026-09-24T13:11:47.891Z",
-    "issued_at": "2026-09-24T12:26:47.891Z"
-   },
+   "lease": null,
    "created": "2026-09-24T12:26:06.609Z",
-   "updated": "2026-09-24T12:26:47.891Z",
+   "updated": "2026-09-24T12:27:51.602Z",
    "history": [
     {
      "at": "2026-09-24T12:26:06.609Z",
@@ -273,21 +279,27 @@
      "at": "2026-09-24T12:26:47.891Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T12:27:51.602Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "infra_failed",
-    "run_id": "35999038562",
-    "error": "transcript-push-failed(git push failed: To https://github.com/claudecode-headless/fsm-lab.git\n ! [rejected]        fsm-sessions -> fsm-sessions)",
+    "status": "done",
+    "run_id": "35999108937",
+    "artifact": "CODEX-SOAK-04\nI am a coding agent responding to a soak-test turn that verifies the literal marker and a single accompanying sentence are returned.",
+    "duration_ms": 4988,
     "lane_stats": {
      "calls": 1,
      "ok": 1,
      "err429": 0,
      "err5xx": 0,
-     "tokens": 10086,
-     "cost": 0.000347,
-     "p50_ms": 2659,
-     "p95_ms": 2659,
+     "tokens": 10055,
+     "cost": 0.000197,
+     "p50_ms": 4987,
+     "p95_ms": 4987,
      "rate_classes": {},
      "models": {
       "deepseek/deepseek-v4.1-flash": {
@@ -295,10 +307,10 @@
        "ok": 1,
        "err429": 0,
        "err5xx": 0,
-       "tokens": 10086,
-       "cost": 0.000347,
-       "p50_ms": 2659,
-       "p95_ms": 2659
+       "tokens": 10055,
+       "cost": 0.000197,
+       "p50_ms": 4987,
+       "p95_ms": 4987
       }
      }
     },
@@ -311,23 +323,20 @@
     "issue": 26,
     "body_sha8": "0b7b2cb9"
    },
-   "infra_attempts": 1
+   "infra_attempts": 1,
+   "terminal_seq": 3
   },
   "T-X29-05": {
    "id": "T-X29-05",
    "title": "reply with exactly CODEX-SOAK-05 and one sentence on what you are",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-1c15d4eacaa3",
-    "expires": "2026-09-24T13:11:47.893Z",
-    "issued_at": "2026-09-24T12:26:47.893Z"
-   },
+   "lease": null,
    "created": "2026-09-24T12:26:06.609Z",
-   "updated": "2026-09-24T12:26:47.893Z",
+   "updated": "2026-09-24T12:27:51.612Z",
    "history": [
     {
      "at": "2026-09-24T12:26:06.609Z",
@@ -348,21 +357,27 @@
      "at": "2026-09-24T12:26:47.893Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T12:27:51.612Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "infra_failed",
-    "run_id": "35999038937",
-    "error": "transcript-push-failed(git push failed: To https://github.com/claudecode-headless/fsm-lab.git\n ! [remote rejected] fsm-sessions -> fsm-sessions)",
+    "status": "done",
+    "run_id": "35999111360",
+    "artifact": "CODEX-SOAK-05 — I am Codex, an agentic coding assistant running in the CLI to execute this soak-test turn and return the required marker.",
+    "duration_ms": 3367,
     "lane_stats": {
      "calls": 1,
      "ok": 1,
      "err429": 0,
      "err5xx": 0,
-     "tokens": 10032,
-     "cost": 0.000315,
-     "p50_ms": 2315,
-     "p95_ms": 2315,
+     "tokens": 10151,
+     "cost": 0.000246,
+     "p50_ms": 3365,
+     "p95_ms": 3365,
      "rate_classes": {},
      "models": {
       "deepseek/deepseek-v4.1-flash": {
@@ -370,10 +385,10 @@
        "ok": 1,
        "err429": 0,
        "err5xx": 0,
-       "tokens": 10032,
-       "cost": 0.000315,
-       "p50_ms": 2315,
-       "p95_ms": 2315
+       "tokens": 10151,
+       "cost": 0.000246,
+       "p50_ms": 3365,
+       "p95_ms": 3365
       }
      }
     },
@@ -386,7 +401,8 @@
     "issue": 26,
     "body_sha8": "0b7b2cb9"
    },
-   "infra_attempts": 1
+   "infra_attempts": 1,
+   "terminal_seq": 3
   },
   "T-X29-06": {
    "id": "T-X29-06",
@@ -458,18 +474,14 @@
   "T-X29-07": {
    "id": "T-X29-07",
    "title": "reply with exactly CODEX-SOAK-07 and one sentence on what you are",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-09e7cefd75ec",
-    "expires": "2026-09-24T13:12:18.426Z",
-    "issued_at": "2026-09-24T12:27:18.426Z"
-   },
+   "lease": null,
    "created": "2026-09-24T12:26:06.609Z",
-   "updated": "2026-09-24T12:27:18.426Z",
+   "updated": "2026-09-24T12:27:51.612Z",
    "history": [
     {
      "at": "2026-09-24T12:26:06.609Z",
@@ -490,21 +502,27 @@
      "at": "2026-09-24T12:27:18.426Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T12:27:51.612Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "infra_failed",
-    "run_id": "35999038967",
-    "error": "transcript-push-failed(git push failed: To https://github.com/claudecode-headless/fsm-lab.git\n ! [remote rejected] fsm-sessions -> fsm-sessions)",
+    "status": "done",
+    "run_id": "35999162691",
+    "artifact": "CODEX-SOAK-07\nI am a coding agent running in the Codex CLI, reading your request and replying with the requested marker and a single descriptive sentence.",
+    "duration_ms": 1844,
     "lane_stats": {
      "calls": 1,
      "ok": 1,
      "err429": 0,
      "err5xx": 0,
-     "tokens": 10168,
-     "cost": 0.000376,
-     "p50_ms": 4632,
-     "p95_ms": 4632,
+     "tokens": 10078,
+     "cost": 0.000201,
+     "p50_ms": 1843,
+     "p95_ms": 1843,
      "rate_classes": {},
      "models": {
       "deepseek/deepseek-v4.1-flash": {
@@ -512,10 +530,10 @@
        "ok": 1,
        "err429": 0,
        "err5xx": 0,
-       "tokens": 10168,
-       "cost": 0.000376,
-       "p50_ms": 4632,
-       "p95_ms": 4632
+       "tokens": 10078,
+       "cost": 0.000201,
+       "p50_ms": 1843,
+       "p95_ms": 1843
       }
      }
     },
@@ -528,23 +546,20 @@
     "issue": 26,
     "body_sha8": "0b7b2cb9"
    },
-   "infra_attempts": 1
+   "infra_attempts": 1,
+   "terminal_seq": 3
   },
   "T-X29-08": {
    "id": "T-X29-08",
    "title": "reply with exactly CODEX-SOAK-08 and one sentence on what you are",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-539c6c0b6c72",
-    "expires": "2026-09-24T13:11:47.892Z",
-    "issued_at": "2026-09-24T12:26:47.892Z"
-   },
+   "lease": null,
    "created": "2026-09-24T12:26:06.609Z",
-   "updated": "2026-09-24T12:26:47.892Z",
+   "updated": "2026-09-24T12:27:51.613Z",
    "history": [
     {
      "at": "2026-09-24T12:26:06.609Z",
@@ -565,21 +580,27 @@
      "at": "2026-09-24T12:26:47.892Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T12:27:51.613Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "infra_failed",
-    "run_id": "35999040454",
-    "error": "transcript-push-failed(git push failed: To https://github.com/claudecode-headless/fsm-lab.git\n ! [remote rejected] fsm-sessions -> fsm-sessions)",
+    "status": "done",
+    "run_id": "35999109201",
+    "artifact": "CODEX-SOAK-08\nI am a coding agent that works inside a terminal-based assistant to complete software tasks in this repository.",
+    "duration_ms": 1803,
     "lane_stats": {
      "calls": 1,
      "ok": 1,
      "err429": 0,
      "err5xx": 0,
-     "tokens": 10030,
-     "cost": 0.000294,
-     "p50_ms": 2825,
-     "p95_ms": 2825,
+     "tokens": 10119,
+     "cost": 0.000847,
+     "p50_ms": 1801,
+     "p95_ms": 1801,
      "rate_classes": {},
      "models": {
       "deepseek/deepseek-v4.1-flash": {
@@ -587,10 +608,10 @@
        "ok": 1,
        "err429": 0,
        "err5xx": 0,
-       "tokens": 10030,
-       "cost": 0.000294,
-       "p50_ms": 2825,
-       "p95_ms": 2825
+       "tokens": 10119,
+       "cost": 0.000847,
+       "p50_ms": 1801,
+       "p95_ms": 1801
       }
      }
     },
@@ -603,7 +624,8 @@
     "issue": 26,
     "body_sha8": "0b7b2cb9"
    },
-   "infra_attempts": 1
+   "infra_attempts": 1,
+   "terminal_seq": 3
   },
   "T-X29-09": {
    "id": "T-X29-09",
@@ -675,18 +697,14 @@
   "T-X29-10": {
    "id": "T-X29-10",
    "title": "reply with exactly CODEX-SOAK-10 and one sentence on what you are",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-acc8dd14d516",
-    "expires": "2026-09-24T13:11:47.893Z",
-    "issued_at": "2026-09-24T12:26:47.893Z"
-   },
+   "lease": null,
    "created": "2026-09-24T12:26:06.609Z",
-   "updated": "2026-09-24T12:26:47.893Z",
+   "updated": "2026-09-24T12:27:51.606Z",
    "history": [
     {
      "at": "2026-09-24T12:26:06.609Z",
@@ -707,21 +725,27 @@
      "at": "2026-09-24T12:26:47.893Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T12:27:51.606Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "infra_failed",
-    "run_id": "35999040901",
-    "error": "transcript-push-failed(git push failed: To https://github.com/claudecode-headless/fsm-lab.git\n ! [remote rejected] fsm-sessions -> fsm-sessions)",
+    "status": "done",
+    "run_id": "35999111426",
+    "artifact": "CODEX-SOAK-10 I am a coding agent running in the Codex CLI, and this turn is a soak-test echo of the requested marker.",
+    "duration_ms": 10182,
     "lane_stats": {
      "calls": 1,
      "ok": 1,
      "err429": 0,
      "err5xx": 0,
-     "tokens": 10133,
-     "cost": 0.000374,
-     "p50_ms": 3370,
-     "p95_ms": 3370,
+     "tokens": 10090,
+     "cost": 0.001545,
+     "p50_ms": 10180,
+     "p95_ms": 10180,
      "rate_classes": {},
      "models": {
       "deepseek/deepseek-v4.1-flash": {
@@ -729,10 +753,10 @@
        "ok": 1,
        "err429": 0,
        "err5xx": 0,
-       "tokens": 10133,
-       "cost": 0.000374,
-       "p50_ms": 3370,
-       "p95_ms": 3370
+       "tokens": 10090,
+       "cost": 0.001545,
+       "p50_ms": 10180,
+       "p95_ms": 10180
       }
      }
     },
@@ -745,7 +769,8 @@
     "issue": 26,
     "body_sha8": "0b7b2cb9"
    },
-   "infra_attempts": 1
+   "infra_attempts": 1,
+   "terminal_seq": 3
   },
   "T-X29-11": {
    "id": "T-X29-11",
@@ -884,18 +909,14 @@
   "T-X29-13": {
    "id": "T-X29-13",
    "title": "reply with exactly CODEX-SOAK-13 and one sentence on what you are",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-640849ecd8c0",
-    "expires": "2026-09-24T13:11:47.892Z",
-    "issued_at": "2026-09-24T12:26:47.892Z"
-   },
+   "lease": null,
    "created": "2026-09-24T12:26:06.609Z",
-   "updated": "2026-09-24T12:26:47.892Z",
+   "updated": "2026-09-24T12:27:51.606Z",
    "history": [
     {
      "at": "2026-09-24T12:26:06.609Z",
@@ -916,21 +937,27 @@
      "at": "2026-09-24T12:26:47.892Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T12:27:51.606Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "infra_failed",
-    "run_id": "35999041415",
-    "error": "transcript-push-failed(git push failed: To https://github.com/claudecode-headless/fsm-lab.git\n ! [remote rejected] fsm-sessions -> fsm-sessions)",
+    "status": "done",
+    "run_id": "35999109735",
+    "artifact": "CODEX-SOAK-13 — I am a coding agent responding to this turn with the required literal marker plus a single sentence.",
+    "duration_ms": 3247,
     "lane_stats": {
      "calls": 1,
      "ok": 1,
      "err429": 0,
      "err5xx": 0,
-     "tokens": 10023,
-     "cost": 0.00029,
-     "p50_ms": 2680,
-     "p95_ms": 2680,
+     "tokens": 10112,
+     "cost": 0.000229,
+     "p50_ms": 3244,
+     "p95_ms": 3244,
      "rate_classes": {},
      "models": {
       "deepseek/deepseek-v4.1-flash": {
@@ -938,10 +965,10 @@
        "ok": 1,
        "err429": 0,
        "err5xx": 0,
-       "tokens": 10023,
-       "cost": 0.00029,
-       "p50_ms": 2680,
-       "p95_ms": 2680
+       "tokens": 10112,
+       "cost": 0.000229,
+       "p50_ms": 3244,
+       "p95_ms": 3244
       }
      }
     },
@@ -954,7 +981,8 @@
     "issue": 26,
     "body_sha8": "0b7b2cb9"
    },
-   "infra_attempts": 1
+   "infra_attempts": 1,
+   "terminal_seq": 3
   },
   "T-X29-14": {
    "id": "T-X29-14",
@@ -1160,18 +1188,14 @@
   "T-X29-17": {
    "id": "T-X29-17",
    "title": "reply with exactly CODEX-SOAK-17 and one sentence on what you are",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-6f8abda08c6b",
-    "expires": "2026-09-24T13:12:18.428Z",
-    "issued_at": "2026-09-24T12:27:18.428Z"
-   },
+   "lease": null,
    "created": "2026-09-24T12:26:06.609Z",
-   "updated": "2026-09-24T12:27:18.428Z",
+   "updated": "2026-09-24T12:27:51.613Z",
    "history": [
     {
      "at": "2026-09-24T12:26:06.609Z",
@@ -1192,21 +1216,27 @@
      "at": "2026-09-24T12:27:18.428Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T12:27:51.613Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "infra_failed",
-    "run_id": "35999107934",
-    "error": "transcript-push-failed(git push failed: To https://github.com/claudecode-headless/fsm-lab.git\n ! [remote rejected] fsm-sessions -> fsm-sessions)",
+    "status": "done",
+    "run_id": "35999162762",
+    "artifact": "CODEX-SOAK-17 — I'm Codex, a coding agent running in your terminal, ready to work on the repo.",
+    "duration_ms": 1889,
     "lane_stats": {
      "calls": 1,
      "ok": 1,
      "err429": 0,
      "err5xx": 0,
-     "tokens": 10176,
-     "cost": 0.000382,
-     "p50_ms": 2680,
-     "p95_ms": 2680,
+     "tokens": 10051,
+     "cost": 0.001521,
+     "p50_ms": 1886,
+     "p95_ms": 1886,
      "rate_classes": {},
      "models": {
       "deepseek/deepseek-v4.1-flash": {
@@ -1214,10 +1244,10 @@
        "ok": 1,
        "err429": 0,
        "err5xx": 0,
-       "tokens": 10176,
-       "cost": 0.000382,
-       "p50_ms": 2680,
-       "p95_ms": 2680
+       "tokens": 10051,
+       "cost": 0.001521,
+       "p50_ms": 1886,
+       "p95_ms": 1886
       }
      }
     },
@@ -1230,7 +1260,8 @@
     "issue": 26,
     "body_sha8": "0b7b2cb9"
    },
-   "infra_attempts": 1
+   "infra_attempts": 1,
+   "terminal_seq": 3
   },
   "T-X29-18": {
    "id": "T-X29-18",
@@ -1444,18 +1475,14 @@
   "T-X29-21": {
    "id": "T-X29-21",
    "title": "write a three-line status note then reply with exactly CODEX-SOAK-21",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-661746cef777",
-    "expires": "2026-09-24T13:11:47.894Z",
-    "issued_at": "2026-09-24T12:26:47.894Z"
-   },
+   "lease": null,
    "created": "2026-09-24T12:26:06.609Z",
-   "updated": "2026-09-24T12:26:47.894Z",
+   "updated": "2026-09-24T12:27:51.605Z",
    "history": [
     {
      "at": "2026-09-24T12:26:06.609Z",
@@ -1466,9 +1493,45 @@
      "at": "2026-09-24T12:26:47.894Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T12:27:51.605Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35999112244",
+    "artifact": "CODEX-SOAK-21",
+    "duration_ms": 1861,
+    "lane_stats": {
+     "calls": 1,
+     "ok": 1,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 20466,
+     "cost": 0.00036,
+     "p50_ms": 1859,
+     "p95_ms": 1859,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 1,
+       "ok": 1,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 20466,
+       "cost": 0.00036,
+       "p50_ms": 1859,
+       "p95_ms": 1859
+      }
+     }
+    },
+    "key_index": 0,
+    "pool_size": 2,
+    "mode": "codex"
+   },
    "spec": {
     "accept": "the artifact plus the literal marker",
     "artifacts": [
@@ -1476,7 +1539,8 @@
     ],
     "issue": 26,
     "body_sha8": "0b7b2cb9"
-   }
+   },
+   "terminal_seq": 3
   },
   "T-X29-22": {
    "id": "T-X29-22",
@@ -1591,7 +1655,7 @@
   }
  },
  "stats": {
-  "done": 11,
+  "done": 19,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -1599,8 +1663,8 @@
   "orphaned_reports": 0,
   "rejected_events": 0,
   "timeouts": 0,
-  "dispatched": 33,
-  "infra_retries": 9,
+  "dispatched": 34,
+  "infra_retries": 10,
   "tail_turns": 0,
   "tail_since": null
  },
@@ -1627,7 +1691,17 @@
   "rep-35999111246-a1",
   "rep-35999108051-a1",
   "rep-35999107934-a1",
-  "tick-chain-1790252835471"
+  "tick-chain-1790252835471",
+  "rep-35999108937-a1",
+  "rep-35999112244-a1",
+  "rep-35999111426-a1",
+  "rep-35999109735-a1",
+  "rep-35999108588-a1",
+  "rep-35999111360-a1",
+  "rep-35999162691-a1",
+  "rep-35999109201-a1",
+  "rep-35999162762-a1",
+  "tick-chain-1790252870131"
  ],
  "budget_window": [],
  "budget_window_cleared_at": "2026-09-24T12:26:06.609Z"
