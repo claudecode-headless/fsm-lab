@@ -1,17 +1,17 @@
 {
  "schema": 1,
- "version": 49,
- "journal_seq": 4328,
+ "version": 52,
+ "journal_seq": 4331,
  "chain": {
   "id": "c-1790292408592",
   "seq": 3,
   "last_tick": "2026-09-24T23:28:57.996Z",
   "primed_by": "chain",
-  "halted": false,
+  "halted": true,
   "paused": false
  },
  "project": {
-  "phase": "executing",
+  "phase": "done",
   "milestone": 1,
   "milestones_total": 1,
   "mode": "cc",
@@ -1373,18 +1373,14 @@
   "T-X32-21": {
    "id": "T-X32-21",
    "title": "write a three-line status note then reply with exactly CC-SOAK4-21",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-31be940b90d5",
-    "expires": "2026-09-25T00:13:19.215Z",
-    "issued_at": "2026-09-24T23:28:19.215Z"
-   },
+   "lease": null,
    "created": "2026-09-24T23:26:48.592Z",
-   "updated": "2026-09-24T23:28:19.215Z",
+   "updated": "2026-09-24T23:29:27.922Z",
    "history": [
     {
      "at": "2026-09-24T23:26:48.592Z",
@@ -1395,9 +1391,45 @@
      "at": "2026-09-24T23:28:19.215Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T23:29:27.922Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "36072892368",
+    "artifact": "CC-SOAK4-21",
+    "duration_ms": 5402,
+    "lane_stats": {
+     "calls": 2,
+     "ok": 2,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 15605,
+     "cost": 0.005093904,
+     "p50_ms": 3630,
+     "p95_ms": 3630,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 2,
+       "ok": 2,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 15605,
+       "cost": 0.005093904,
+       "p50_ms": 3630,
+       "p95_ms": 3630
+      }
+     }
+    },
+    "key_index": 0,
+    "pool_size": 2,
+    "mode": "cc"
+   },
    "spec": {
     "accept": "the artifact plus the literal marker",
     "artifacts": [
@@ -1405,7 +1437,8 @@
     ],
     "issue": 30,
     "body_sha8": "b02c0f9d"
-   }
+   },
+   "terminal_seq": 3
   },
   "T-X32-22": {
    "id": "T-X32-22",
@@ -1481,18 +1514,14 @@
   "T-X32-23": {
    "id": "T-X32-23",
    "title": "write a three-line status note then reply with exactly CC-SOAK4-23",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-16e318db0765",
-    "expires": "2026-09-25T00:13:19.216Z",
-    "issued_at": "2026-09-24T23:28:19.216Z"
-   },
+   "lease": null,
    "created": "2026-09-24T23:26:48.592Z",
-   "updated": "2026-09-24T23:28:19.216Z",
+   "updated": "2026-09-24T23:29:27.920Z",
    "history": [
     {
      "at": "2026-09-24T23:26:48.592Z",
@@ -1503,9 +1532,45 @@
      "at": "2026-09-24T23:28:19.216Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T23:29:27.920Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "36072892627",
+    "artifact": "CC-SOAK4-23",
+    "duration_ms": 3814,
+    "lane_stats": {
+     "calls": 2,
+     "ok": 2,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 15601,
+     "cost": 0.005086536,
+     "p50_ms": 1613,
+     "p95_ms": 1613,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 2,
+       "ok": 2,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 15601,
+       "cost": 0.005086536,
+       "p50_ms": 1613,
+       "p95_ms": 1613
+      }
+     }
+    },
+    "key_index": 0,
+    "pool_size": 2,
+    "mode": "cc"
+   },
    "spec": {
     "accept": "the artifact plus the literal marker",
     "artifacts": [
@@ -1513,7 +1578,8 @@
     ],
     "issue": 30,
     "body_sha8": "b02c0f9d"
-   }
+   },
+   "terminal_seq": 3
   },
   "T-X32-24": {
    "id": "T-X32-24",
@@ -1588,7 +1654,7 @@
   }
  },
  "stats": {
-  "done": 22,
+  "done": 24,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -1626,7 +1692,10 @@
   "rep-36072891541-a1",
   "rep-36072892482-a1",
   "rep-36072891283-a1",
-  "tick-chain-1790292532596"
+  "tick-chain-1790292532596",
+  "rep-36072892627-a1",
+  "rep-36072892368-a1",
+  "tick-chain-1790292566925"
  ],
  "budget_window": [],
  "budget_window_cleared_at": "2026-09-24T23:26:48.592Z"
