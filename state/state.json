@@ -1,11 +1,11 @@
 {
  "schema": 1,
- "version": 54,
- "journal_seq": 4206,
+ "version": 64,
+ "journal_seq": 4217,
  "chain": {
   "id": "c-1790286919724",
-  "seq": 4,
-  "last_tick": "2026-09-24T21:57:03.116Z",
+  "seq": 5,
+  "last_tick": "2026-09-24T21:57:38.120Z",
   "primed_by": "chain",
   "halted": false,
   "paused": false
@@ -166,18 +166,14 @@
   "T-X30-03": {
    "id": "T-X30-03",
    "title": "reply with exactly CODEX-SOAK2-03 and one sentence on what you are",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-8747ce563141",
-    "expires": "2026-09-24T22:41:30.111Z",
-    "issued_at": "2026-09-24T21:56:30.111Z"
-   },
+   "lease": null,
    "created": "2026-09-24T21:55:19.724Z",
-   "updated": "2026-09-24T21:56:30.111Z",
+   "updated": "2026-09-24T21:57:38.115Z",
    "history": [
     {
      "at": "2026-09-24T21:55:19.724Z",
@@ -198,21 +194,27 @@
      "at": "2026-09-24T21:56:30.111Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T21:57:38.115Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "infra_failed",
-    "run_id": "36064447964",
-    "error": "transcript-push-failed(sessions contents push: 2/2 file(s) failed — sessions/T-X30-03/36064447964-a1.txt: exhausted 3 attempts — PUT -> HTTP 40)",
+    "status": "done",
+    "run_id": "36064560193",
+    "artifact": "CODEX-SOAK2-03 — I am a coding agent running one worker turn in this environment, replying with the requested marker and a single sentence.",
+    "duration_ms": 2597,
     "lane_stats": {
      "calls": 1,
      "ok": 1,
      "err429": 0,
      "err5xx": 0,
-     "tokens": 10125,
-     "cost": 0.000682,
-     "p50_ms": 1646,
-     "p95_ms": 1646,
+     "tokens": 10191,
+     "cost": 0.000269,
+     "p50_ms": 2596,
+     "p95_ms": 2596,
      "rate_classes": {},
      "models": {
       "deepseek/deepseek-v4.1-flash": {
@@ -220,10 +222,10 @@
        "ok": 1,
        "err429": 0,
        "err5xx": 0,
-       "tokens": 10125,
-       "cost": 0.000682,
-       "p50_ms": 1646,
-       "p95_ms": 1646
+       "tokens": 10191,
+       "cost": 0.000269,
+       "p50_ms": 2596,
+       "p95_ms": 2596
       }
      }
     },
@@ -236,7 +238,8 @@
     "issue": 28,
     "body_sha8": "06dab353"
    },
-   "infra_attempts": 1
+   "infra_attempts": 1,
+   "terminal_seq": 4
   },
   "T-X30-04": {
    "id": "T-X30-04",
@@ -470,12 +473,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-ecf2ae6a0a89",
-    "expires": "2026-09-24T22:41:30.110Z",
-    "issued_at": "2026-09-24T21:56:30.110Z"
+    "token": "l-c856a846acfd",
+    "expires": "2026-09-24T22:42:38.119Z",
+    "issued_at": "2026-09-24T21:57:38.119Z"
    },
    "created": "2026-09-24T21:55:19.724Z",
-   "updated": "2026-09-24T21:56:30.110Z",
+   "updated": "2026-09-24T21:57:38.119Z",
    "history": [
     {
      "at": "2026-09-24T21:55:19.724Z",
@@ -496,21 +499,31 @@
      "at": "2026-09-24T21:56:30.110Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T21:57:38.119Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-24T21:57:38.119Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": {
     "status": "infra_failed",
-    "run_id": "36064448976",
-    "error": "transcript-push-failed(sessions contents push: 1/2 file(s) failed — sessions/T-X30-07/36064448976-a1.meta.json: exhausted 3 attempts — PUT(crea)",
+    "run_id": "36064561875",
+    "error": "transcript-push-failed(sessions contents push: 2/2 file(s) failed — sessions/T-X30-07/36064561875-a1.txt: exhausted 3 attempts — PUT(create) ->)",
     "lane_stats": {
      "calls": 1,
      "ok": 1,
      "err429": 0,
      "err5xx": 0,
-     "tokens": 10098,
-     "cost": 0.000215,
-     "p50_ms": 2233,
-     "p95_ms": 2233,
+     "tokens": 10155,
+     "cost": 0.000248,
+     "p50_ms": 2213,
+     "p95_ms": 2213,
      "rate_classes": {},
      "models": {
       "deepseek/deepseek-v4.1-flash": {
@@ -518,10 +531,10 @@
        "ok": 1,
        "err429": 0,
        "err5xx": 0,
-       "tokens": 10098,
-       "cost": 0.000215,
-       "p50_ms": 2233,
-       "p95_ms": 2233
+       "tokens": 10155,
+       "cost": 0.000248,
+       "p50_ms": 2213,
+       "p95_ms": 2213
       }
      }
     },
@@ -534,7 +547,7 @@
     "issue": 28,
     "body_sha8": "06dab353"
    },
-   "infra_attempts": 1
+   "infra_attempts": 2
   },
   "T-X30-08": {
    "id": "T-X30-08",
@@ -874,18 +887,14 @@
   "T-X30-13": {
    "id": "T-X30-13",
    "title": "reply with exactly CODEX-SOAK2-13 and one sentence on what you are",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-ca3bf6658afc",
-    "expires": "2026-09-24T22:41:30.112Z",
-    "issued_at": "2026-09-24T21:56:30.112Z"
-   },
+   "lease": null,
    "created": "2026-09-24T21:55:19.724Z",
-   "updated": "2026-09-24T21:56:30.112Z",
+   "updated": "2026-09-24T21:57:38.117Z",
    "history": [
     {
      "at": "2026-09-24T21:55:19.724Z",
@@ -906,21 +915,27 @@
      "at": "2026-09-24T21:56:30.112Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T21:57:38.117Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "infra_failed",
-    "run_id": "36064450176",
-    "error": "transcript-push-failed(sessions contents push: 2/2 file(s) failed — sessions/T-X30-13/36064450176-a1.txt: exhausted 3 attempts — PUT(create) ->)",
+    "status": "done",
+    "run_id": "36064561516",
+    "artifact": "CODEX-SOAK2-13\nI'm Codex, a terminal-based coding agent ready to inspect, edit, and test code in your workspace.",
+    "duration_ms": 1988,
     "lane_stats": {
      "calls": 1,
      "ok": 1,
      "err429": 0,
      "err5xx": 0,
-     "tokens": 10134,
-     "cost": 0.000235,
-     "p50_ms": 1884,
-     "p95_ms": 1884,
+     "tokens": 10073,
+     "cost": 0.000199,
+     "p50_ms": 1986,
+     "p95_ms": 1986,
      "rate_classes": {},
      "models": {
       "deepseek/deepseek-v4.1-flash": {
@@ -928,10 +943,10 @@
        "ok": 1,
        "err429": 0,
        "err5xx": 0,
-       "tokens": 10134,
-       "cost": 0.000235,
-       "p50_ms": 1884,
-       "p95_ms": 1884
+       "tokens": 10073,
+       "cost": 0.000199,
+       "p50_ms": 1986,
+       "p95_ms": 1986
       }
      }
     },
@@ -944,7 +959,8 @@
     "issue": 28,
     "body_sha8": "06dab353"
    },
-   "infra_attempts": 1
+   "infra_attempts": 1,
+   "terminal_seq": 4
   },
   "T-X30-14": {
    "id": "T-X30-14",
@@ -1435,12 +1451,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-5eaa9b984d91",
-    "expires": "2026-09-24T22:41:30.108Z",
-    "issued_at": "2026-09-24T21:56:30.108Z"
+    "token": "l-3ea082404324",
+    "expires": "2026-09-24T22:42:38.108Z",
+    "issued_at": "2026-09-24T21:57:38.108Z"
    },
    "created": "2026-09-24T21:55:19.724Z",
-   "updated": "2026-09-24T21:56:30.108Z",
+   "updated": "2026-09-24T21:57:38.108Z",
    "history": [
     {
      "at": "2026-09-24T21:55:19.724Z",
@@ -1451,9 +1467,49 @@
      "at": "2026-09-24T21:56:30.108Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T21:57:38.108Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-24T21:57:38.108Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "infra_failed",
+    "run_id": "36064559042",
+    "error": "transcript-push-failed(sessions contents push: 1/2 file(s) failed — sessions/T-X30-21/36064559042-a1.meta.json: exhausted 3 attempts — PUT -> H)",
+    "lane_stats": {
+     "calls": 1,
+     "ok": 1,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 20589,
+     "cost": 0.000408,
+     "p50_ms": 2932,
+     "p95_ms": 2932,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 1,
+       "ok": 1,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 20589,
+       "cost": 0.000408,
+       "p50_ms": 2932,
+       "p95_ms": 2932
+      }
+     }
+    },
+    "key_index": 0,
+    "pool_size": 2,
+    "mode": "codex"
+   },
    "spec": {
     "accept": "the artifact plus the literal marker",
     "artifacts": [
@@ -1461,7 +1517,8 @@
     ],
     "issue": 28,
     "body_sha8": "06dab353"
-   }
+   },
+   "infra_attempts": 1
   },
   "T-X30-22": {
    "id": "T-X30-22",
@@ -1472,12 +1529,12 @@
    "deps": [],
    "attempts": 1,
    "lease": {
-    "token": "l-05b269b5cbba",
-    "expires": "2026-09-24T22:41:30.109Z",
-    "issued_at": "2026-09-24T21:56:30.109Z"
+    "token": "l-04c12156486f",
+    "expires": "2026-09-24T22:42:38.116Z",
+    "issued_at": "2026-09-24T21:57:38.116Z"
    },
    "created": "2026-09-24T21:55:19.724Z",
-   "updated": "2026-09-24T21:56:30.109Z",
+   "updated": "2026-09-24T21:57:38.116Z",
    "history": [
     {
      "at": "2026-09-24T21:55:19.724Z",
@@ -1488,9 +1545,49 @@
      "at": "2026-09-24T21:56:30.109Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T21:57:38.116Z",
+     "status": "ready",
+     "why": "infra-retry(lane-unavailable)"
+    },
+    {
+     "at": "2026-09-24T21:57:38.116Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "infra_failed",
+    "run_id": "36064559001",
+    "error": "transcript-push-failed(sessions contents push: 1/2 file(s) failed — sessions/T-X30-22/36064559001-a1.txt: exhausted 3 attempts — PUT(create) ->)",
+    "lane_stats": {
+     "calls": 1,
+     "ok": 1,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 31170,
+     "cost": 0.000622,
+     "p50_ms": 5821,
+     "p95_ms": 5821,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 1,
+       "ok": 1,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 31170,
+       "cost": 0.000622,
+       "p50_ms": 5821,
+       "p95_ms": 5821
+      }
+     }
+    },
+    "key_index": 0,
+    "pool_size": 2,
+    "mode": "codex"
+   },
    "spec": {
     "accept": "the artifact plus the literal marker",
     "artifacts": [
@@ -1498,23 +1595,20 @@
     ],
     "issue": 28,
     "body_sha8": "06dab353"
-   }
+   },
+   "infra_attempts": 1
   },
   "T-X30-23": {
    "id": "T-X30-23",
    "title": "write a three-line status note then reply with exactly CODEX-SOAK2-23",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-53a181b2b42b",
-    "expires": "2026-09-24T22:41:30.110Z",
-    "issued_at": "2026-09-24T21:56:30.110Z"
-   },
+   "lease": null,
    "created": "2026-09-24T21:55:19.724Z",
-   "updated": "2026-09-24T21:56:30.110Z",
+   "updated": "2026-09-24T21:57:38.118Z",
    "history": [
     {
      "at": "2026-09-24T21:55:19.724Z",
@@ -1525,9 +1619,45 @@
      "at": "2026-09-24T21:56:30.110Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T21:57:38.118Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "36064559750",
+    "artifact": "CODEX-SOAK2-23",
+    "duration_ms": 3539,
+    "lane_stats": {
+     "calls": 1,
+     "ok": 1,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 20525,
+     "cost": 0.000374,
+     "p50_ms": 3536,
+     "p95_ms": 3536,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 1,
+       "ok": 1,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 20525,
+       "cost": 0.000374,
+       "p50_ms": 3536,
+       "p95_ms": 3536
+      }
+     }
+    },
+    "key_index": 0,
+    "pool_size": 2,
+    "mode": "codex"
+   },
    "spec": {
     "accept": "the artifact plus the literal marker",
     "artifacts": [
@@ -1535,23 +1665,20 @@
     ],
     "issue": 28,
     "body_sha8": "06dab353"
-   }
+   },
+   "terminal_seq": 4
   },
   "T-X30-24": {
    "id": "T-X30-24",
    "title": "write a three-line status note then reply with exactly CODEX-SOAK2-24",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-aa89eda13435",
-    "expires": "2026-09-24T22:41:30.112Z",
-    "issued_at": "2026-09-24T21:56:30.112Z"
-   },
+   "lease": null,
    "created": "2026-09-24T21:55:19.724Z",
-   "updated": "2026-09-24T21:56:30.112Z",
+   "updated": "2026-09-24T21:57:38.117Z",
    "history": [
     {
      "at": "2026-09-24T21:55:19.724Z",
@@ -1562,9 +1689,45 @@
      "at": "2026-09-24T21:56:30.112Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T21:57:38.117Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "36064560979",
+    "artifact": "Wrote `tasks/T-X30-24/report.md` with a three-line status note; outcome class `done`.\n\nCODEX-SOAK2-24",
+    "duration_ms": 9886,
+    "lane_stats": {
+     "calls": 1,
+     "ok": 1,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 31223,
+     "cost": 0.001989,
+     "p50_ms": 9884,
+     "p95_ms": 9884,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 1,
+       "ok": 1,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 31223,
+       "cost": 0.001989,
+       "p50_ms": 9884,
+       "p95_ms": 9884
+      }
+     }
+    },
+    "key_index": 0,
+    "pool_size": 2,
+    "mode": "codex"
+   },
    "spec": {
     "accept": "the artifact plus the literal marker",
     "artifacts": [
@@ -1572,11 +1735,12 @@
     ],
     "issue": 28,
     "body_sha8": "06dab353"
-   }
+   },
+   "terminal_seq": 4
   }
  },
  "stats": {
-  "done": 17,
+  "done": 21,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -1584,8 +1748,8 @@
   "orphaned_reports": 0,
   "rejected_events": 0,
   "timeouts": 0,
-  "dispatched": 30,
-  "infra_retries": 6,
+  "dispatched": 33,
+  "infra_retries": 9,
   "tail_turns": 0,
   "tail_since": null
  },
@@ -1616,7 +1780,15 @@
   "rep-36064558663-a1",
   "rep-36064561572-a1",
   "rep-36064558837-a1",
-  "tick-chain-1790287021233"
+  "tick-chain-1790287021233",
+  "rep-36064559042-a1",
+  "rep-36064560193-a1",
+  "rep-36064559001-a1",
+  "rep-36064561516-a1",
+  "rep-36064560979-a1",
+  "rep-36064559750-a1",
+  "rep-36064561875-a1",
+  "tick-chain-1790287055838"
  ],
  "budget_window": [],
  "budget_window_cleared_at": "2026-09-24T21:55:19.724Z"
