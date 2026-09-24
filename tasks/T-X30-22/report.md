@@ -1,0 +1,3 @@
+- state: done
+- issue: 28
+- body_sha8: 06dab353
