@@ -1,17 +1,17 @@
 {
  "schema": 1,
- "version": 45,
- "journal_seq": 4271,
+ "version": 50,
+ "journal_seq": 4276,
  "chain": {
   "id": "c-1790288989227",
   "seq": 4,
   "last_tick": "2026-09-24T22:31:30.415Z",
   "primed_by": "chain",
-  "halted": false,
+  "halted": true,
   "paused": false
  },
  "project": {
-  "phase": "executing",
+  "phase": "done",
   "milestone": 1,
   "milestones_total": 1,
   "mode": "codex",
@@ -1372,18 +1372,14 @@
   "T-X31-21": {
    "id": "T-X31-21",
    "title": "write a three-line status note then reply with exactly CODEX-SOAK3-21",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-3a0fc2d19271",
-    "expires": "2026-09-24T23:15:57.938Z",
-    "issued_at": "2026-09-24T22:30:57.938Z"
-   },
+   "lease": null,
    "created": "2026-09-24T22:29:49.227Z",
-   "updated": "2026-09-24T22:30:57.938Z",
+   "updated": "2026-09-24T22:32:05.015Z",
    "history": [
     {
      "at": "2026-09-24T22:29:49.227Z",
@@ -1394,9 +1390,45 @@
      "at": "2026-09-24T22:30:57.938Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T22:32:05.015Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "36067870730",
+    "artifact": "CODEX-SOAK3-21",
+    "duration_ms": 9673,
+    "lane_stats": {
+     "calls": 1,
+     "ok": 1,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 20527,
+     "cost": 0.000617,
+     "p50_ms": 9671,
+     "p95_ms": 9671,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 1,
+       "ok": 1,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 20527,
+       "cost": 0.000617,
+       "p50_ms": 9671,
+       "p95_ms": 9671
+      }
+     }
+    },
+    "key_index": 0,
+    "pool_size": 2,
+    "mode": "codex"
+   },
    "spec": {
     "accept": "the artifact plus the literal marker",
     "artifacts": [
@@ -1404,23 +1436,20 @@
     ],
     "issue": 29,
     "body_sha8": "812a1c71"
-   }
+   },
+   "terminal_seq": 4
   },
   "T-X31-22": {
    "id": "T-X31-22",
    "title": "write a three-line status note then reply with exactly CODEX-SOAK3-22",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-53d008a0e14d",
-    "expires": "2026-09-24T23:15:57.938Z",
-    "issued_at": "2026-09-24T22:30:57.938Z"
-   },
+   "lease": null,
    "created": "2026-09-24T22:29:49.227Z",
-   "updated": "2026-09-24T22:30:57.938Z",
+   "updated": "2026-09-24T22:32:05.019Z",
    "history": [
     {
      "at": "2026-09-24T22:29:49.227Z",
@@ -1431,9 +1460,45 @@
      "at": "2026-09-24T22:30:57.938Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T22:32:05.019Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "36067870217",
+    "artifact": "CODEX-SOAK3-22",
+    "duration_ms": 22754,
+    "lane_stats": {
+     "calls": 1,
+     "ok": 1,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 43008,
+     "cost": 0.004349,
+     "p50_ms": 22752,
+     "p95_ms": 22752,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 1,
+       "ok": 1,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 43008,
+       "cost": 0.004349,
+       "p50_ms": 22752,
+       "p95_ms": 22752
+      }
+     }
+    },
+    "key_index": 0,
+    "pool_size": 2,
+    "mode": "codex"
+   },
    "spec": {
     "accept": "the artifact plus the literal marker",
     "artifacts": [
@@ -1441,23 +1506,20 @@
     ],
     "issue": 29,
     "body_sha8": "812a1c71"
-   }
+   },
+   "terminal_seq": 4
   },
   "T-X31-23": {
    "id": "T-X31-23",
    "title": "write a three-line status note then reply with exactly CODEX-SOAK3-23",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-ad0790612f85",
-    "expires": "2026-09-24T23:15:57.939Z",
-    "issued_at": "2026-09-24T22:30:57.939Z"
-   },
+   "lease": null,
    "created": "2026-09-24T22:29:49.227Z",
-   "updated": "2026-09-24T22:30:57.939Z",
+   "updated": "2026-09-24T22:32:05.018Z",
    "history": [
     {
      "at": "2026-09-24T22:29:49.227Z",
@@ -1468,9 +1530,45 @@
      "at": "2026-09-24T22:30:57.939Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T22:32:05.018Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "36067871526",
+    "artifact": "Wrote the three-line note to `tasks/T-X31-23/report.md`; outcome class `done`.\n\nCODEX-SOAK3-23",
+    "duration_ms": 20497,
+    "lane_stats": {
+     "calls": 1,
+     "ok": 1,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 31298,
+     "cost": 0.00202,
+     "p50_ms": 20495,
+     "p95_ms": 20495,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 1,
+       "ok": 1,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 31298,
+       "cost": 0.00202,
+       "p50_ms": 20495,
+       "p95_ms": 20495
+      }
+     }
+    },
+    "key_index": 0,
+    "pool_size": 2,
+    "mode": "codex"
+   },
    "spec": {
     "accept": "the artifact plus the literal marker",
     "artifacts": [
@@ -1478,23 +1576,20 @@
     ],
     "issue": 29,
     "body_sha8": "812a1c71"
-   }
+   },
+   "terminal_seq": 4
   },
   "T-X31-24": {
    "id": "T-X31-24",
    "title": "write a three-line status note then reply with exactly CODEX-SOAK3-24",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-552591a4eafd",
-    "expires": "2026-09-24T23:15:57.940Z",
-    "issued_at": "2026-09-24T22:30:57.940Z"
-   },
+   "lease": null,
    "created": "2026-09-24T22:29:49.227Z",
-   "updated": "2026-09-24T22:30:57.940Z",
+   "updated": "2026-09-24T22:32:05.018Z",
    "history": [
     {
      "at": "2026-09-24T22:29:49.227Z",
@@ -1505,9 +1600,45 @@
      "at": "2026-09-24T22:30:57.940Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T22:32:05.018Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "36067870802",
+    "artifact": "CODEX-SOAK3-24",
+    "duration_ms": 25977,
+    "lane_stats": {
+     "calls": 1,
+     "ok": 1,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 20716,
+     "cost": 0.001365,
+     "p50_ms": 25975,
+     "p95_ms": 25975,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 1,
+       "ok": 1,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 20716,
+       "cost": 0.001365,
+       "p50_ms": 25975,
+       "p95_ms": 25975
+      }
+     }
+    },
+    "key_index": 0,
+    "pool_size": 2,
+    "mode": "codex"
+   },
    "spec": {
     "accept": "the artifact plus the literal marker",
     "artifacts": [
@@ -1515,11 +1646,12 @@
     ],
     "issue": 29,
     "body_sha8": "812a1c71"
-   }
+   },
+   "terminal_seq": 4
   }
  },
  "stats": {
-  "done": 20,
+  "done": 24,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -1556,7 +1688,12 @@
   "rep-36067810486-a1",
   "rep-36067759270-a1",
   "rep-36067869350-a1",
-  "tick-chain-1790289089288"
+  "tick-chain-1790289089288",
+  "rep-36067870730-a1",
+  "rep-36067871526-a1",
+  "rep-36067870802-a1",
+  "rep-36067870217-a1",
+  "tick-chain-1790289122527"
  ],
  "budget_window": [],
  "budget_window_cleared_at": "2026-09-24T22:29:49.227Z"
