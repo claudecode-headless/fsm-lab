@@ -1,0 +1,22 @@
+{
+  "task": "T-X30-23",
+  "run_id": "36064559750",
+  "attempt": 1,
+  "session": "c-1790286919724/T-X30-23/36064537974-a1",
+  "mode": "codex",
+  "fake": false,
+  "harness": "codex",
+  "deadline_utc": "2026-09-24T22:39:30.110Z",
+  "status": "done",
+  "detail": null,
+  "models": [
+    "deepseek/deepseek-v4.1-flash"
+  ],
+  "lane_attempts_used": 1,
+  "duration_ms": 3539,
+  "artifact_refs": [
+    "tasks/T-X30-23/report.md"
+  ],
+  "transcript": "sessions/T-X30-23/36064559750-a1.txt",
+  "written_at": "2026-09-24T21:56:51.299Z"
+}
