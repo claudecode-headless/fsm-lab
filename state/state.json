@@ -1,17 +1,17 @@
 {
  "schema": 1,
- "version": 67,
- "journal_seq": 4141,
+ "version": 70,
+ "journal_seq": 4144,
  "chain": {
   "id": "c-1790252766608",
   "seq": 5,
   "last_tick": "2026-09-24T12:28:26.783Z",
   "primed_by": "chain",
-  "halted": false,
+  "halted": true,
   "paused": false
  },
  "project": {
-  "phase": "executing",
+  "phase": "done",
   "milestone": 1,
   "milestones_total": 1,
   "mode": "codex",
@@ -1269,18 +1269,14 @@
   "T-X29-18": {
    "id": "T-X29-18",
    "title": "reply with exactly CODEX-SOAK-18 and one sentence on what you are",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-df38d051ee7e",
-    "expires": "2026-09-24T13:12:18.428Z",
-    "issued_at": "2026-09-24T12:27:18.428Z"
-   },
+   "lease": null,
    "created": "2026-09-24T12:26:06.609Z",
-   "updated": "2026-09-24T12:27:18.428Z",
+   "updated": "2026-09-24T12:28:59.675Z",
    "history": [
     {
      "at": "2026-09-24T12:26:06.609Z",
@@ -1301,21 +1297,27 @@
      "at": "2026-09-24T12:27:18.428Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T12:28:59.675Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
    "last_result": {
-    "status": "infra_failed",
-    "run_id": "35999108051",
-    "error": "transcript-push-failed(git push failed: To https://github.com/claudecode-headless/fsm-lab.git\n ! [remote rejected] fsm-sessions -> fsm-sessions)",
+    "status": "done",
+    "run_id": "35999162797",
+    "artifact": "CODEX-SOAK-18 I am a coding agent running in the Codex CLI, ready to execute tasks against this repository.",
+    "duration_ms": 53131,
     "lane_stats": {
      "calls": 1,
      "ok": 1,
      "err429": 0,
      "err5xx": 0,
-     "tokens": 10082,
-     "cost": 0.001542,
-     "p50_ms": 2026,
-     "p95_ms": 2026,
+     "tokens": 10237,
+     "cost": 0.001067,
+     "p50_ms": 53129,
+     "p95_ms": 53129,
      "rate_classes": {},
      "models": {
       "deepseek/deepseek-v4.1-flash": {
@@ -1323,10 +1325,10 @@
        "ok": 1,
        "err429": 0,
        "err5xx": 0,
-       "tokens": 10082,
-       "cost": 0.001542,
-       "p50_ms": 2026,
-       "p95_ms": 2026
+       "tokens": 10237,
+       "cost": 0.001067,
+       "p50_ms": 53129,
+       "p95_ms": 53129
       }
      }
     },
@@ -1339,7 +1341,8 @@
     "issue": 26,
     "body_sha8": "0b7b2cb9"
    },
-   "infra_attempts": 1
+   "infra_attempts": 1,
+   "terminal_seq": 5
   },
   "T-X29-19": {
    "id": "T-X29-19",
@@ -1618,18 +1621,14 @@
   "T-X29-23": {
    "id": "T-X29-23",
    "title": "write a three-line status note then reply with exactly CODEX-SOAK-23",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-2d8f25a3c5f7",
-    "expires": "2026-09-24T13:12:18.426Z",
-    "issued_at": "2026-09-24T12:27:18.426Z"
-   },
+   "lease": null,
    "created": "2026-09-24T12:26:06.609Z",
-   "updated": "2026-09-24T12:27:18.426Z",
+   "updated": "2026-09-24T12:28:59.678Z",
    "history": [
     {
      "at": "2026-09-24T12:26:06.609Z",
@@ -1640,9 +1639,45 @@
      "at": "2026-09-24T12:27:18.426Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T12:28:59.678Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "35999162696",
+    "artifact": "CODEX-SOAK-23",
+    "duration_ms": 57907,
+    "lane_stats": {
+     "calls": 1,
+     "ok": 1,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 31178,
+     "cost": 0.003019,
+     "p50_ms": 57906,
+     "p95_ms": 57906,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 1,
+       "ok": 1,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 31178,
+       "cost": 0.003019,
+       "p50_ms": 57906,
+       "p95_ms": 57906
+      }
+     }
+    },
+    "key_index": 0,
+    "pool_size": 2,
+    "mode": "codex"
+   },
    "spec": {
     "accept": "the artifact plus the literal marker",
     "artifacts": [
@@ -1650,7 +1685,8 @@
     ],
     "issue": 26,
     "body_sha8": "0b7b2cb9"
-   }
+   },
+   "terminal_seq": 5
   },
   "T-X29-24": {
    "id": "T-X29-24",
@@ -1724,7 +1760,7 @@
   }
  },
  "stats": {
-  "done": 22,
+  "done": 24,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -1774,7 +1810,10 @@
   "rep-35999162651-a1",
   "rep-35999161563-a1",
   "rep-35999217403-a1",
-  "tick-chain-1790252905052"
+  "tick-chain-1790252905052",
+  "rep-35999162797-a1",
+  "rep-35999162696-a1",
+  "tick-chain-1790252938162"
  ],
  "budget_window": [],
  "budget_window_cleared_at": "2026-09-24T12:26:06.609Z"
