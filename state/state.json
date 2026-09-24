@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "version": 17,
- "journal_seq": 4166,
+ "version": 25,
+ "journal_seq": 4175,
  "chain": {
   "id": "c-1790286919724",
-  "seq": 1,
-  "last_tick": "2026-09-24T21:55:19.727Z",
-  "primed_by": "intake",
+  "seq": 2,
+  "last_tick": "2026-09-24T21:55:53.163Z",
+  "primed_by": "chain",
   "halted": false,
   "paused": false
  },
@@ -66,18 +66,14 @@
   "T-X30-02": {
    "id": "T-X30-02",
    "title": "reply with exactly CODEX-SOAK2-02 and one sentence on what you are",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-0c3a78146df3",
-    "expires": "2026-09-24T22:40:19.727Z",
-    "issued_at": "2026-09-24T21:55:19.727Z"
-   },
+   "lease": null,
    "created": "2026-09-24T21:55:19.724Z",
-   "updated": "2026-09-24T21:55:19.727Z",
+   "updated": "2026-09-24T21:55:53.163Z",
    "history": [
     {
      "at": "2026-09-24T21:55:19.724Z",
@@ -88,14 +84,51 @@
      "at": "2026-09-24T21:55:19.727Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T21:55:53.163Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "36064446788",
+    "artifact": "CODEX-SOAK2-02\nI am a coding agent running in the Codex CLI, prepared to carry out this repo task.",
+    "duration_ms": 1592,
+    "lane_stats": {
+     "calls": 1,
+     "ok": 1,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 10140,
+     "cost": 0.00024,
+     "p50_ms": 1590,
+     "p95_ms": 1590,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 1,
+       "ok": 1,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 10140,
+       "cost": 0.00024,
+       "p50_ms": 1590,
+       "p95_ms": 1590
+      }
+     }
+    },
+    "key_index": 0,
+    "pool_size": 2,
+    "mode": "codex"
+   },
    "spec": {
     "accept": "the literal marker CODEX-SOAK2-02 plus one sentence",
     "issue": 28,
     "body_sha8": "06dab353"
-   }
+   },
+   "terminal_seq": 1
   },
   "T-X30-03": {
    "id": "T-X30-03",
@@ -270,18 +303,14 @@
   "T-X30-08": {
    "id": "T-X30-08",
    "title": "reply with exactly CODEX-SOAK2-08 and one sentence on what you are",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-92f22d0527ce",
-    "expires": "2026-09-24T22:40:19.727Z",
-    "issued_at": "2026-09-24T21:55:19.727Z"
-   },
+   "lease": null,
    "created": "2026-09-24T21:55:19.724Z",
-   "updated": "2026-09-24T21:55:19.727Z",
+   "updated": "2026-09-24T21:55:53.154Z",
    "history": [
     {
      "at": "2026-09-24T21:55:19.724Z",
@@ -292,14 +321,51 @@
      "at": "2026-09-24T21:55:19.727Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T21:55:53.154Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "36064447816",
+    "artifact": "CODEX-SOAK2-08\n\nI'm Codex, a terminal-based coding agent ready to work on your repo tasks.",
+    "duration_ms": 2408,
+    "lane_stats": {
+     "calls": 1,
+     "ok": 1,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 10048,
+     "cost": 0.00152,
+     "p50_ms": 2407,
+     "p95_ms": 2407,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 1,
+       "ok": 1,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 10048,
+       "cost": 0.00152,
+       "p50_ms": 2407,
+       "p95_ms": 2407
+      }
+     }
+    },
+    "key_index": 0,
+    "pool_size": 2,
+    "mode": "codex"
+   },
    "spec": {
     "accept": "the literal marker CODEX-SOAK2-08 plus one sentence",
     "issue": 28,
     "body_sha8": "06dab353"
-   }
+   },
+   "terminal_seq": 1
   },
   "T-X30-09": {
    "id": "T-X30-09",
@@ -372,18 +438,14 @@
   "T-X30-11": {
    "id": "T-X30-11",
    "title": "reply with exactly CODEX-SOAK2-11 and one sentence on what you are",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-5940b6db0e92",
-    "expires": "2026-09-24T22:40:19.727Z",
-    "issued_at": "2026-09-24T21:55:19.727Z"
-   },
+   "lease": null,
    "created": "2026-09-24T21:55:19.724Z",
-   "updated": "2026-09-24T21:55:19.727Z",
+   "updated": "2026-09-24T21:55:53.161Z",
    "history": [
     {
      "at": "2026-09-24T21:55:19.724Z",
@@ -394,30 +456,63 @@
      "at": "2026-09-24T21:55:19.727Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T21:55:53.161Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "36064448894",
+    "artifact": "CODEX-SOAK2-11 — I am Codex, a terminal-based coding agent that reads the workspace, runs commands, and edits files to complete tasks.",
+    "duration_ms": 2409,
+    "lane_stats": {
+     "calls": 1,
+     "ok": 1,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 10191,
+     "cost": 0.000268,
+     "p50_ms": 2407,
+     "p95_ms": 2407,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 1,
+       "ok": 1,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 10191,
+       "cost": 0.000268,
+       "p50_ms": 2407,
+       "p95_ms": 2407
+      }
+     }
+    },
+    "key_index": 0,
+    "pool_size": 2,
+    "mode": "codex"
+   },
    "spec": {
     "accept": "the literal marker CODEX-SOAK2-11 plus one sentence",
     "issue": 28,
     "body_sha8": "06dab353"
-   }
+   },
+   "terminal_seq": 1
   },
   "T-X30-12": {
    "id": "T-X30-12",
    "title": "reply with exactly CODEX-SOAK2-12 and one sentence on what you are",
-   "status": "assigned",
+   "status": "done",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-833b71bd308a",
-    "expires": "2026-09-24T22:40:19.727Z",
-    "issued_at": "2026-09-24T21:55:19.727Z"
-   },
+   "lease": null,
    "created": "2026-09-24T21:55:19.724Z",
-   "updated": "2026-09-24T21:55:19.727Z",
+   "updated": "2026-09-24T21:55:53.162Z",
    "history": [
     {
      "at": "2026-09-24T21:55:19.724Z",
@@ -428,14 +523,51 @@
      "at": "2026-09-24T21:55:19.727Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-09-24T21:55:53.162Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "36064450670",
+    "artifact": "CODEX-SOAK2-12 — I am Codex, a terminal-based coding agent that reads, edits, and runs code to complete your task.",
+    "duration_ms": 1541,
+    "lane_stats": {
+     "calls": 1,
+     "ok": 1,
+     "err429": 0,
+     "err5xx": 0,
+     "tokens": 10124,
+     "cost": 0.000229,
+     "p50_ms": 1539,
+     "p95_ms": 1539,
+     "rate_classes": {},
+     "models": {
+      "deepseek/deepseek-v4.1-flash": {
+       "calls": 1,
+       "ok": 1,
+       "err429": 0,
+       "err5xx": 0,
+       "tokens": 10124,
+       "cost": 0.000229,
+       "p50_ms": 1539,
+       "p95_ms": 1539
+      }
+     }
+    },
+    "key_index": 0,
+    "pool_size": 2,
+    "mode": "codex"
+   },
    "spec": {
     "accept": "the literal marker CODEX-SOAK2-12 plus one sentence",
     "issue": 28,
     "body_sha8": "06dab353"
-   }
+   },
+   "terminal_seq": 1
   },
   "T-X30-13": {
    "id": "T-X30-13",
@@ -576,19 +708,28 @@
   "T-X30-17": {
    "id": "T-X30-17",
    "title": "reply with exactly CODEX-SOAK2-17 and one sentence on what you are",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-cf98885e0018",
+    "expires": "2026-09-24T22:40:53.154Z",
+    "issued_at": "2026-09-24T21:55:53.154Z"
+   },
    "created": "2026-09-24T21:55:19.724Z",
-   "updated": "2026-09-24T21:55:19.724Z",
+   "updated": "2026-09-24T21:55:53.154Z",
    "history": [
     {
      "at": "2026-09-24T21:55:19.724Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-24T21:55:53.154Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null,
@@ -601,19 +742,28 @@
   "T-X30-18": {
    "id": "T-X30-18",
    "title": "reply with exactly CODEX-SOAK2-18 and one sentence on what you are",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-bb693cc79b26",
+    "expires": "2026-09-24T22:40:53.161Z",
+    "issued_at": "2026-09-24T21:55:53.161Z"
+   },
    "created": "2026-09-24T21:55:19.724Z",
-   "updated": "2026-09-24T21:55:19.724Z",
+   "updated": "2026-09-24T21:55:53.161Z",
    "history": [
     {
      "at": "2026-09-24T21:55:19.724Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-24T21:55:53.161Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null,
@@ -626,19 +776,28 @@
   "T-X30-19": {
    "id": "T-X30-19",
    "title": "reply with exactly CODEX-SOAK2-19 and one sentence on what you are",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-ef54be2adbaa",
+    "expires": "2026-09-24T22:40:53.162Z",
+    "issued_at": "2026-09-24T21:55:53.162Z"
+   },
    "created": "2026-09-24T21:55:19.724Z",
-   "updated": "2026-09-24T21:55:19.724Z",
+   "updated": "2026-09-24T21:55:53.162Z",
    "history": [
     {
      "at": "2026-09-24T21:55:19.724Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-24T21:55:53.162Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null,
@@ -651,19 +810,28 @@
   "T-X30-20": {
    "id": "T-X30-20",
    "title": "reply with exactly CODEX-SOAK2-20 and one sentence on what you are",
-   "status": "ready",
+   "status": "assigned",
    "behavior": "real",
    "work_ms": 4000,
    "deps": [],
-   "attempts": 0,
-   "lease": null,
+   "attempts": 1,
+   "lease": {
+    "token": "l-e2b88fc5dac0",
+    "expires": "2026-09-24T22:40:53.163Z",
+    "issued_at": "2026-09-24T21:55:53.163Z"
+   },
    "created": "2026-09-24T21:55:19.724Z",
-   "updated": "2026-09-24T21:55:19.724Z",
+   "updated": "2026-09-24T21:55:53.163Z",
    "history": [
     {
      "at": "2026-09-24T21:55:19.724Z",
      "status": "ready",
      "why": "created"
+    },
+    {
+     "at": "2026-09-24T21:55:53.163Z",
+     "status": "assigned",
+     "why": "assigned(attempt=1)"
     }
    ],
    "last_result": null,
@@ -787,7 +955,7 @@
   }
  },
  "stats": {
-  "done": 0,
+  "done": 4,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -795,11 +963,18 @@
   "orphaned_reports": 0,
   "rejected_events": 0,
   "timeouts": 0,
-  "dispatched": 16,
-  "infra_retries": 0
+  "dispatched": 20,
+  "infra_retries": 0,
+  "tail_turns": 0,
+  "tail_since": null
  },
  "dedup": [
-  "tick-intake-1790286918432"
+  "tick-intake-1790286918432",
+  "rep-36064447816-a1",
+  "rep-36064448894-a1",
+  "rep-36064450670-a1",
+  "rep-36064446788-a1",
+  "tick-chain-1790286952155"
  ],
  "budget_window": [],
  "budget_window_cleared_at": "2026-09-24T21:55:19.724Z"
