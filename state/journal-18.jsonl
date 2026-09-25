@@ -315,3 +315,4 @@
 {"id":"e4343","ts":"2026-09-25T12:46:08.894Z","applied":false,"kind":"TICK","actor":"pinger","event_id":"tick-pinger-1790340367426","note":"pinger-liveness (held chain — audit-only marker, no state change, no self-dispatch)"}
 {"id":"e4344","ts":"2026-09-25T15:27:26.874Z","applied":false,"kind":"TICK","actor":"watchdog","event_id":"watchdog-scan-1790350046874","note":"watchdog-scan (audit-only deadman marker — the scan completed; no state change, no seq bump)"}
 {"id":"e4345","ts":"2026-09-25T17:46:30.864Z","applied":false,"kind":"TICK","actor":"pinger","event_id":"tick-pinger-1790358389499","note":"pinger-liveness (held chain — audit-only marker, no state change, no self-dispatch)"}
+{"id":"e4346","ts":"2026-09-25T19:27:22.478Z","applied":false,"kind":"TICK","actor":"watchdog","event_id":"watchdog-scan-1790364442478","note":"watchdog-scan (audit-only deadman marker — the scan completed; no state change, no seq bump)"}
