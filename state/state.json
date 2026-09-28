@@ -1,17 +1,17 @@
 {
  "schema": 1,
- "version": 4,
- "journal_seq": 4371,
+ "version": 2,
+ "journal_seq": 4374,
  "chain": {
-  "id": "c-1790294479851",
+  "id": "c-1790580563004",
   "seq": 1,
-  "last_tick": "2026-09-25T00:01:19.854Z",
+  "last_tick": "2026-09-28T07:29:23.006Z",
   "primed_by": "intake",
-  "halted": true,
+  "halted": false,
   "paused": false
  },
  "project": {
-  "phase": "done",
+  "phase": "executing",
   "milestone": 1,
   "milestones_total": 1,
   "mode": "mock",
@@ -29,50 +29,42 @@
   "overflow_at": 13
  },
  "tasks": {
-  "T-STG-A-0925": {
-   "id": "T-STG-A-0925",
+  "T-STG-A-0928": {
+   "id": "T-STG-A-0928",
    "title": "staged nightly A (fast night)",
-   "status": "done",
+   "status": "assigned",
    "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-09-25T00:01:19.851Z",
-   "updated": "2026-09-25T00:01:51.380Z",
+   "lease": {
+    "token": "l-b13a2b9125b4",
+    "expires": "2026-09-28T07:44:23.006Z",
+    "issued_at": "2026-09-28T07:29:23.006Z"
+   },
+   "created": "2026-09-28T07:29:23.004Z",
+   "updated": "2026-09-28T07:29:23.006Z",
    "history": [
     {
-     "at": "2026-09-25T00:01:19.851Z",
+     "at": "2026-09-28T07:29:23.004Z",
      "status": "ready",
      "why": "created"
     },
     {
-     "at": "2026-09-25T00:01:19.854Z",
+     "at": "2026-09-28T07:29:23.006Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-09-25T00:01:51.380Z",
-     "status": "done",
-     "why": "worker-done"
     }
    ],
-   "last_result": {
-    "status": "done",
-    "run_id": "36075570961",
-    "artifact": "shim(fast): completed task T-STG-A-0925 attempt 1",
-    "duration_ms": 4007,
-    "mode": "mock"
-   },
+   "last_result": null,
    "spec": {
     "issue": 21,
-    "body_sha8": "4cd9e439"
-   },
-   "terminal_seq": 1
+    "body_sha8": "d3a7b61f"
+   }
   }
  },
  "stats": {
-  "done": 1,
+  "done": 0,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -84,23 +76,8 @@
   "infra_retries": 0
  },
  "dedup": [
-  "tick-intake-1790294477864",
-  "rep-36075570961-a1",
-  "tick-chain-1790294510146",
-  "tick-pinger-1790300931736",
-  "tick-pinger-1790320136016",
-  "tick-pinger-1790340367426",
-  "tick-pinger-1790358389499",
-  "tick-pinger-1790370465700",
-  "tick-pinger-1790380609990",
-  "tick-pinger-1790395972582",
-  "tick-pinger-1790414567457",
-  "tick-pinger-1790430532045",
-  "tick-pinger-1790444231575",
-  "tick-pinger-1790453349117",
-  "tick-pinger-1790463017757",
-  "tick-pinger-1790471132505"
+  "tick-intake-1790580560582"
  ],
  "budget_window": [],
- "budget_window_cleared_at": "2026-09-25T00:01:19.851Z"
+ "budget_window_cleared_at": "2026-09-28T07:29:23.004Z"
 }
