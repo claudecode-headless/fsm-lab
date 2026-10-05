@@ -1,17 +1,17 @@
 {
  "schema": 1,
- "version": 2,
- "journal_seq": 4414,
+ "version": 4,
+ "journal_seq": 4416,
  "chain": {
   "id": "c-1791185765060",
   "seq": 1,
   "last_tick": "2026-10-05T07:36:05.063Z",
   "primed_by": "intake",
-  "halted": false,
+  "halted": true,
   "paused": false
  },
  "project": {
-  "phase": "executing",
+  "phase": "done",
   "milestone": 1,
   "milestones_total": 1,
   "mode": "mock",
@@ -32,18 +32,14 @@
   "T-STG-A-1005": {
    "id": "T-STG-A-1005",
    "title": "staged nightly A (fast night)",
-   "status": "assigned",
+   "status": "done",
    "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": {
-    "token": "l-4c55cf99b85e",
-    "expires": "2026-10-05T07:51:05.063Z",
-    "issued_at": "2026-10-05T07:36:05.063Z"
-   },
+   "lease": null,
    "created": "2026-10-05T07:36:05.060Z",
-   "updated": "2026-10-05T07:36:05.063Z",
+   "updated": "2026-10-05T07:36:40.055Z",
    "history": [
     {
      "at": "2026-10-05T07:36:05.060Z",
@@ -54,17 +50,29 @@
      "at": "2026-10-05T07:36:05.063Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
+    },
+    {
+     "at": "2026-10-05T07:36:40.055Z",
+     "status": "done",
+     "why": "worker-done"
     }
    ],
-   "last_result": null,
+   "last_result": {
+    "status": "done",
+    "run_id": "37278657488",
+    "artifact": "shim(fast): completed task T-STG-A-1005 attempt 1",
+    "duration_ms": 4008,
+    "mode": "mock"
+   },
    "spec": {
     "issue": 21,
     "body_sha8": "a0c702ea"
-   }
+   },
+   "terminal_seq": 1
   }
  },
  "stats": {
-  "done": 0,
+  "done": 1,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -76,7 +84,9 @@
   "infra_retries": 0
  },
  "dedup": [
-  "tick-intake-1791185763720"
+  "tick-intake-1791185763720",
+  "rep-37278657488-a1",
+  "tick-chain-1791185797822"
  ],
  "budget_window": [],
  "budget_window_cleared_at": "2026-10-05T07:36:05.060Z"

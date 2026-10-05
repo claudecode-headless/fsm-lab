@@ -1,1 +1,0 @@
-{"event_id":"rep-37278657488-a1","task":"T-STG-A-1005","lease":"l-4c55cf99b85e","outcome":{"status":"done","artifact":"shim(fast): completed task T-STG-A-1005 attempt 1","artifact_refs":["tasks/T-STG-A-1005/artifacts/out-c56d.md"],"telemetry":{"turns":2,"wall_ms":4000,"lane_attempts_used":1},"duration_ms":4008,"mode":"mock"},"run_id":"37278657488"}
