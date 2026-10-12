@@ -1,17 +1,17 @@
 {
  "schema": 1,
- "version": 4,
- "journal_seq": 4447,
+ "version": 2,
+ "journal_seq": 4450,
  "chain": {
-  "id": "c-1791185765060",
+  "id": "c-1791791616646",
   "seq": 1,
-  "last_tick": "2026-10-05T07:36:05.063Z",
+  "last_tick": "2026-10-12T07:53:36.649Z",
   "primed_by": "intake",
-  "halted": true,
+  "halted": false,
   "paused": false
  },
  "project": {
-  "phase": "done",
+  "phase": "executing",
   "milestone": 1,
   "milestones_total": 1,
   "mode": "mock",
@@ -29,50 +29,42 @@
   "overflow_at": 13
  },
  "tasks": {
-  "T-STG-A-1005": {
-   "id": "T-STG-A-1005",
+  "T-STG-A-1012": {
+   "id": "T-STG-A-1012",
    "title": "staged nightly A (fast night)",
-   "status": "done",
+   "status": "assigned",
    "behavior": "fast",
    "work_ms": 4000,
    "deps": [],
    "attempts": 1,
-   "lease": null,
-   "created": "2026-10-05T07:36:05.060Z",
-   "updated": "2026-10-05T07:36:40.055Z",
+   "lease": {
+    "token": "l-b895358d9e10",
+    "expires": "2026-10-12T08:08:36.649Z",
+    "issued_at": "2026-10-12T07:53:36.649Z"
+   },
+   "created": "2026-10-12T07:53:36.646Z",
+   "updated": "2026-10-12T07:53:36.649Z",
    "history": [
     {
-     "at": "2026-10-05T07:36:05.060Z",
+     "at": "2026-10-12T07:53:36.646Z",
      "status": "ready",
      "why": "created"
     },
     {
-     "at": "2026-10-05T07:36:05.063Z",
+     "at": "2026-10-12T07:53:36.649Z",
      "status": "assigned",
      "why": "assigned(attempt=1)"
-    },
-    {
-     "at": "2026-10-05T07:36:40.055Z",
-     "status": "done",
-     "why": "worker-done"
     }
    ],
-   "last_result": {
-    "status": "done",
-    "run_id": "37278657488",
-    "artifact": "shim(fast): completed task T-STG-A-1005 attempt 1",
-    "duration_ms": 4008,
-    "mode": "mock"
-   },
+   "last_result": null,
    "spec": {
     "issue": 21,
-    "body_sha8": "a0c702ea"
-   },
-   "terminal_seq": 1
+    "body_sha8": "72d27ded"
+   }
   }
  },
  "stats": {
-  "done": 1,
+  "done": 0,
   "failed": 0,
   "quarantined": 0,
   "cancelled": 0,
@@ -84,10 +76,8 @@
   "infra_retries": 0
  },
  "dedup": [
-  "tick-intake-1791185763720",
-  "rep-37278657488-a1",
-  "tick-chain-1791185797822"
+  "tick-intake-1791791614538"
  ],
  "budget_window": [],
- "budget_window_cleared_at": "2026-10-05T07:36:05.060Z"
+ "budget_window_cleared_at": "2026-10-12T07:53:36.646Z"
 }
